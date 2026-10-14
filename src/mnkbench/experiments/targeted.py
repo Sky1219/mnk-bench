@@ -198,10 +198,13 @@ def finetune(base, train: list[Labeled], unlabeled: list[State], steps: int, see
              lr: float = 1e-3, batch: int = 64, kd_weight: float = 1.0):
     """Fine-tune a copy of ``base`` on oracle labels.
 
-    Policy target: uniform over the outcome-preserving moves. Value target:
-    the solved outcome. A distillation term keeps the policy close to the
-    base network on unlabelled pool positions, so every method is protected
-    from forgetting in the same way. Mirror augmentation doubles the data.
+    Policy target: uniform over the outcome-preserving moves, applied only to
+    decision positions (where every move is equally good the oracle says
+    nothing about which to prefer, and a uniform target would just flatten
+    the policy). Value target: the solved outcome, for every position. A
+    distillation term keeps the policy close to the base network on
+    unlabelled pool positions, so every method is protected from forgetting
+    in the same way. Mirror augmentation doubles the data.
     """
     torch, F = _torch()
     from ..symmetry import symmetries
@@ -213,7 +216,7 @@ def finetune(base, train: list[Labeled], unlabeled: list[State], steps: int, see
     game = train[0].state.game
     perms = symmetries(game.config)
 
-    xs, pis, zs = [], [], []
+    xs, pis, zs, ws = [], [], [], []
     for d in train:
         x = _x([d.state])[0]
         pi = torch.zeros(game.size)
@@ -225,7 +228,8 @@ def finetune(base, train: list[Labeled], unlabeled: list[State], steps: int, see
             xs.append(x.flatten(1)[:, idx].reshape(x.shape))
             pis.append(pi[idx])
             zs.append(float(d.outcome))
-    X, PI, Z = torch.stack(xs), torch.stack(pis), torch.tensor(zs)
+            ws.append(1.0 if d.critical else 0.0)
+    X, PI, Z, W = torch.stack(xs), torch.stack(pis), torch.tensor(zs), torch.tensor(ws)
     U = _x(unlabeled)
     base.eval()
     with torch.no_grad():
@@ -236,7 +240,9 @@ def finetune(base, train: list[Labeled], unlabeled: list[State], steps: int, see
         logits, v = net(X[bi])
         legal = X[bi][:, 2].flatten(1) > 0
         logp = F.log_softmax(logits.masked_fill(~legal, -1e9), dim=1)
-        loss = -(PI[bi] * logp).sum(1).mean() + F.mse_loss(v, Z[bi])
+        policy_loss = -(PI[bi] * logp).sum(1)
+        w = W[bi]
+        loss = (policy_loss * w).sum() / w.sum().clamp(min=1.0) + F.mse_loss(v, Z[bi])
         if kd_weight:
             ui = torch.tensor([rng.randrange(len(U)) for _ in range(batch)])
             lu, _ = net(U[ui])
@@ -432,16 +438,43 @@ class PolicyAgent(Agent):
         return top_moves(self.net, [state])[0]
 
 
-def play_games(net, config: GameConfig, games: int, seed: int) -> dict:
-    from ..agents import make_agent
-    from ..tournament import play_match
+def play_games(net, config: GameConfig, games: int, seed: int, opening_plies: int = 4) -> dict:
+    """Policy-only play against perfect play and depth-2 alpha-beta.
 
+    A greedy policy against near-deterministic opponents replays almost the
+    same game every time, so each game starts from a different random
+    opening of ``opening_plies`` moves (the same openings for every method),
+    with the network alternating sides.
+    """
+    from ..agents import make_agent
+    from ..tournament import play_game
+
+    game = get_game(config)
+    rng = random.Random(seed * 101 + 7)
+    openings = []
+    while len(openings) < games:
+        s = game.new_state()
+        for _ in range(opening_plies):
+            s.push(rng.choice(s.legal_moves()))
+            if s.winner is not None:
+                break
+        if s.winner is None and not s.winning_moves(s.to_move):
+            openings.append(s)
     out = {}
-    for opp in ("minimax", "alphabeta:depth=2"):
-        r = play_match(config, PolicyAgent(net), make_agent(opp), games, seed=seed, a_name="net", b_name=opp)
-        key = "minimax" if opp == "minimax" else "ab2"
-        out[f"nonloss_vs_{key}"] = (r.wins_a + r.draws) / max(1, r.n_games)
-        out[f"score_vs_{key}"] = r.score_a
+    for opp_spec, key in (("minimax", "minimax"), ("alphabeta:depth=2", "ab2")):
+        opp = make_agent(opp_spec, seed=seed)
+        me = PolicyAgent(net)
+        nonloss = score = 0.0
+        for i, start in enumerate(openings):
+            if i % 2 == 0:  # the network plays X
+                rec = play_game(game, me, opp, "net", "opp", start=start)
+            else:
+                rec = play_game(game, opp, me, "opp", "net", start=start)
+            s_ = rec.score_for("net")
+            nonloss += s_ >= 0.5
+            score += s_
+        out[f"nonloss_vs_{key}"] = nonloss / len(openings)
+        out[f"score_vs_{key}"] = score / len(openings)
     return out
 
 
@@ -498,6 +531,42 @@ def paired_vs_random(rows: list[dict], metric: str = "acc_target") -> list[dict]
     return [{"target": t, "method": m, "k": k, "metric": metric, "mean_diff": float(np.mean(d)),
              "wins": int(sum(x > 0 for x in d)), "losses": int(sum(x < 0 for x in d)), "seeds": len(d)}
             for (t, m, k), d in sorted(out.items())]
+
+
+def dose_response(rows: list[dict], nq: int) -> dict:
+    """Does target accuracy depend on *which* method selected the data, or
+    only on how many motif positions ended up in the training set?
+
+    For every main run: x = motif positions labelled (hit rate * k + |Q|),
+    y = target accuracy minus the query-only run of the same seed and motif.
+    Fits y = a + b log2(x) on the oracle runs (pure motif data) and reports
+    each method's mean residual against that curve: about zero means the
+    method helps exactly as much as its hit rate predicts.
+    """
+    qonly = {(r["target"], r["seed"]): r["acc_target"] for r in rows
+             if r["method"] == "query-only" and not r.get("ablation")}
+    pts = []
+    for r in rows:
+        if r.get("ablation") or r["method"] in ("base", "query-only") or r.get("hit_target") is None:
+            continue
+        key = (r["target"], r["seed"])
+        if key not in qonly:
+            continue
+        n_motif = r["hit_target"] * r["k"] + nq
+        pts.append({"method": r["method"], "target": r["target"], "seed": r["seed"], "k": r["k"],
+                    "n_motif": n_motif, "gain": r["acc_target"] - qonly[key]})
+    orc = [p for p in pts if p["method"] == "oracle"]
+    if len(orc) < 3:
+        return {"points": pts, "fit": None, "residuals": {}}
+    xs = np.log2([p["n_motif"] for p in orc])
+    ys = np.array([p["gain"] for p in orc])
+    b, a = np.polyfit(xs, ys, 1)
+    res: dict[str, list[float]] = {}
+    for p in pts:
+        pred = a + b * math.log2(p["n_motif"])
+        res.setdefault(p["method"], []).append(p["gain"] - pred)
+    return {"points": pts, "fit": {"intercept": float(a), "slope_per_doubling": float(b)},
+            "residuals": {m: float(np.mean(v)) for m, v in res.items()}}
 
 
 def pooled_over_targets(rows: list[dict]) -> list[dict]:
@@ -561,6 +630,7 @@ def exp_targeted(out: Path, quick: bool = False, seed: int = 0, log: Log = print
         "paired_target": paired_vs_random(rows, "acc_target"),
         "paired_critical": paired_vs_random(rows, "acc_critical"),
         "paired_hit": paired_vs_random(rows, "hit_target"),
+        "dose_response": dose_response(rows, args["nq"]),
     }
     save_json(data, out / "targeted" / "targeted.json")
     save_csv(rows, out / "targeted" / "targeted_runs.csv")

@@ -461,6 +461,40 @@ def plot_targeted(data: dict, out_dir: str | Path) -> list[Path]:
         fig.tight_layout()
         paths.append(_save(fig, out_dir / "targeted_pooled.png"))
 
+    dose = data.get("dose_response") or {}
+    if dose.get("points"):
+        fig, ax = plt.subplots(figsize=(6.6, 4.2))
+        groups = [("oracle", INK, "oracle (motif positions only)"), ("random", MUTED, "random / uncertainty / diversity")]
+        for p_ in dose["points"]:
+            m = p_["method"]
+            if m == "oracle":
+                color = INK
+            elif m in PRISM_COLORS:
+                color = PRISM_COLORS[m]
+            else:
+                color = MUTED
+            ax.scatter(p_["n_motif"], p_["gain"], s=10, color=color, alpha=0.55, linewidths=0)
+        fit = dose.get("fit")
+        if fit:
+            xs = np.logspace(np.log10(min(p_["n_motif"] for p_ in dose["points"])),
+                             np.log10(max(p_["n_motif"] for p_ in dose["points"])), 50)
+            ax.plot(xs, fit["intercept"] + fit["slope_per_doubling"] * np.log2(xs), color=INK, linewidth=1.5,
+                    label=f"oracle fit: +{fit['slope_per_doubling'] * 100:.1f} pts per doubling")
+        from matplotlib.lines import Line2D
+
+        handles = [Line2D([], [], marker="o", linestyle="", color=c, label=lab) for _, c, lab in groups]
+        handles += [Line2D([], [], marker="o", linestyle="", color=PRISM_COLORS["FLVMI"], label="PRISM measures")]
+        if fit:
+            handles.append(ax.get_lines()[-1])
+        ax.legend(handles=handles, loc="upper left")
+        ax.set_xscale("log")
+        ax.axhline(0, color=AXIS, linewidth=1)
+        ax.set_xlabel("motif positions in the training set (selected hits + |Q|, log scale)")
+        ax.set_ylabel("target accuracy gain over query-only")
+        ax.set_title("Dose-response: gains track the number of motif positions labelled", loc="left", fontsize=10)
+        fig.tight_layout()
+        paths.append(_save(fig, out_dir / "targeted_dose.png"))
+
     abl_target = next((r.get("target") for r in summ if r.get("ablation")), None)
     eta_rows = [r for r in summ if r.get("ablation") == "eta"]
     if eta_rows:

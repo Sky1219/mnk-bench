@@ -342,6 +342,7 @@ def sec_targeted(out: Path) -> str:
         + "<h3>Paired comparison with random selection</h3>" + table(win_rows)
         + figures(out, [("targeted/targeted_budget.png", "budget curves per motif"),
                         ("targeted/targeted_pooled.png", "pooled budget curves"),
+                        ("targeted/targeted_dose.png", "dose-response"),
                         ("targeted/targeted_eta.png", "eta ablation"),
                         ("targeted/targeted_query_size.png", "query size ablation"),
                         ("targeted/targeted_embedding.png", "embedding ablation"),
