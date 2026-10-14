@@ -91,6 +91,9 @@ class MenaceAgent(Agent):
         canon = self._canon
         key, sym = canon.canonical(state.cells)
         box = self.boxes.get(key)
+        if not self.training:
+            self.add_stat("lookups", 1)
+            self.add_stat("hits", box is not None)
         if box is None:
             moves = self._box_moves(key, state, sym)
             if self.skip_forced and len(moves) == 1:

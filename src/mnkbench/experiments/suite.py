@@ -17,6 +17,7 @@ from ..game import TIC_TAC_TOE, GameConfig
 from ..plots import plot_learning_curves, plot_score_matrix, plot_table_growth
 from ..results import load_json, metadata, save_csv, save_json
 from ..tournament import round_robin
+from .bigboards import exp_bigboards, replot_bigboards
 from .learning import learning_curve, train
 
 Log = Callable[[str], None]
@@ -229,12 +230,14 @@ EXPERIMENTS: dict[str, Callable[..., dict]] = {
     "symmetry": exp_symmetry,
     "tabular": exp_tabular,
     "h2h": exp_h2h,
+    "bigboards": exp_bigboards,
 }
 REPLOTTERS: dict[str, Callable[[Path], None]] = {
     "menace": replot_menace,
     "symmetry": replot_symmetry,
     "tabular": replot_tabular,
     "h2h": replot_h2h,
+    "bigboards": replot_bigboards,
 }
 
 

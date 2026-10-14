@@ -237,26 +237,48 @@ def plot_elo(ratings: dict[str, float], path: str | Path, title: str | None = No
 # --------------------------------------------------------------- scaling
 def plot_scaling(rows: Sequence[dict], x: str, y: str, path: str | Path, title: str,
                  xlabel: str, ylabel: str, logy: bool = True, group: str = "agent") -> Path:
-    """Line per agent of ``y`` against ``x`` (e.g. time per move vs board size)."""
+    """Line per agent of ``y`` against ``x`` (e.g. time per move vs board size).
+
+    If ``x`` values are strings (board labels) they are placed in order of
+    first appearance. Agents of the same family share a colour and differ
+    by line style.
+    """
     style()
-    fig, ax = plt.subplots(figsize=(6.2, 3.8))
+    fig, ax = plt.subplots(figsize=(6.4, 3.9))
     groups: dict[str, list[dict]] = {}
     for r in rows:
         groups.setdefault(r[group], []).append(r)
-    for idx, (name, rs) in enumerate(list(groups.items())[:9]):
-        pts = sorted((r[x], r[y]) for r in rs if r.get(y) is not None and r.get(x) is not None)
+    categorical = any(isinstance(r.get(x), str) for r in rows)
+    cats: list[str] = []
+    if categorical:
+        for r in rows:
+            if r.get(x) not in cats:
+                cats.append(r[x])
+    family_seen: dict[str, int] = {}
+    shown = list(groups.items())[:9]
+    for idx, (name, rs) in enumerate(shown):
+        pts = [((cats.index(r[x]) if categorical else r[x]), r[y]) for r in rs
+               if r.get(y) is not None and r.get(x) is not None]
         if not pts:
             continue
+        pts.sort()
         xs, ys = zip(*pts)
-        ax.plot(xs, ys, color=color_for(name, idx), marker=MARKERS.get(family(name), "o"), label=name)
-        ax.annotate(name, (xs[-1], ys[-1]), xytext=(4, 0), textcoords="offset points", fontsize=7,
-                    color=INK_2, va="center")
+        fam = family(name)
+        k = family_seen.get(fam, 0)
+        family_seen[fam] = k + 1
+        ax.plot(xs, ys, color=color_for(name, idx), marker=MARKERS.get(fam, "o"),
+                linestyle=["-", "--", ":", "-."][k % 4], label=name)
+        if len(shown) <= 4:
+            ax.annotate(name, (xs[-1], ys[-1]), xytext=(4, 0), textcoords="offset points", fontsize=7,
+                        color=INK_2, va="center")
+    if categorical:
+        ax.set_xticks(range(len(cats)), cats, rotation=30, ha="right")
     if logy:
         ax.set_yscale("log")
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     ax.set_title(title, loc="left")
-    ax.legend(loc="upper left", ncol=2)
+    ax.legend(loc="center left", bbox_to_anchor=(1.01, 0.5))
     fig.tight_layout()
     return _save(fig, path)
 

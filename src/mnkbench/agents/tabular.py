@@ -102,6 +102,9 @@ class QLearningAgent(_Tabular):
 
     def _row(self, key: bytes, state: State, sym: int) -> dict[int, float]:
         row = self.q.get(key)
+        if not self.training:
+            self.add_stat("lookups", 1)
+            self.add_stat("hits", row is not None)
         if row is None:
             canon = self._canon
             moves = [canon.to_canon(sym, mv) for mv in state.legal_moves()]
@@ -188,6 +191,9 @@ class TDAgent(_Tabular):
             v, key = self._afterstate_value(work, player)
             work.pop()
             scored.append((v, mv, key))
+        if not self.training:
+            self.add_stat("lookups", 1)
+            self.add_stat("hits", any(k is None or k in self.values for _, _, k in scored))
         if self._explore():
             v, mv, key = self.rng.choice(scored)
         else:

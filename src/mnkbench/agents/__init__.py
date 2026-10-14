@@ -23,6 +23,7 @@ REGISTRY: dict[str, tuple[str, str]] = {
     "rule": ("mnkbench.agents.rule_based", "RuleBasedAgent"),
     "qlearning": ("mnkbench.agents.tabular", "QLearningAgent"),
     "td": ("mnkbench.agents.tabular", "TDAgent"),
+    "alphabeta": ("mnkbench.agents.alphabeta", "AlphaBetaAgent"),
 }
 
 DESCRIPTIONS: dict[str, str] = {
@@ -32,6 +33,7 @@ DESCRIPTIONS: dict[str, str] = {
     "rule": "win / block / fork / block-fork rules, then line potential",
     "qlearning": "tabular Q-learning with epsilon-greedy exploration",
     "td": "TD(0) afterstate value learning (Sutton & Barto)",
+    "alphabeta": "depth-limited alpha-beta with a threat-based evaluation",
 }
 
 
