@@ -301,6 +301,54 @@ def sec_llm(out: Path) -> str:
     return "".join(parts)
 
 
+def sec_targeted(out: Path) -> str:
+    d = load_json(out / "targeted" / "targeted.json")
+    meta = d["meta"]
+    pooled = d.get("pooled", [])
+    ks = sorted({r["k"] for r in pooled if r["k"]})
+    show = [k for k in ks if k in (50, 100, 400)] or ks[-1:]
+    rows = []
+    for m in ("base", "query-only", "random", "entropy", "margin", "FL", "LogDet", "GCMI", "FLMI", "FLVMI", "COM",
+              "LogDetMI", "FLCMI", "oracle"):
+        r = {"method": m}
+        found = False
+        for k in ([0] if m in ("base", "query-only") else show):
+            x = next((p for p in pooled if p["method"] == m and p["k"] == k), None)
+            if x:
+                found = True
+                suffix = "" if k == 0 else f" k={k}"
+                r[f"target acc{suffix}"] = x.get("acc_target")
+                r[f"hit rate{suffix}"] = x.get("hit_target")
+        if found:
+            rows.append(r)
+    cols = sorted({c for r in rows for c in r if c != "method"}, key=lambda c: (c.split("k=")[-1], c))
+    paired = [p for p in d.get("paired_target", []) if p["k"] in show]
+    wins: dict[str, list[int]] = {}
+    for p in paired:
+        w = wins.setdefault(p["method"], [0, 0, 0])
+        w[0] += p["wins"]
+        w[1] += p["losses"]
+        w[2] += p["seeds"]
+    win_rows = [{"method": m, "beats random (seed x motif x k)": f"{w[0]} of {w[2]}", "loses to random": w[1]}
+                for m, w in wins.items()]
+    return (
+        "<p>PRISM-style <em>targeted learning</em> for games (see <code>docs/research/targeted-selection.md</code>). "
+        f"A briefly self-trained network on {html.escape(meta.get('board', ''))} misses tactical motifs "
+        "(immediate wins, forced blocks, poisoned moves). Given a few example positions of a motif, each "
+        "method picks k positions from an unlabelled pool for the exact solver to label; the network is "
+        "fine-tuned on them and evaluated on held-out motif positions. Numbers are averaged over the three "
+        f"motifs and {len(d.get('stats', []))} seeds.</p>"
+        + table(rows, [("method", "method")] + [(c, c) for c in cols])
+        + "<h3>Paired comparison with random selection</h3>" + table(win_rows)
+        + figures(out, [("targeted/targeted_budget.png", "budget curves per motif"),
+                        ("targeted/targeted_pooled.png", "pooled budget curves"),
+                        ("targeted/targeted_eta.png", "eta ablation"),
+                        ("targeted/targeted_query_size.png", "query size ablation"),
+                        ("targeted/targeted_embedding.png", "embedding ablation"),
+                        ("targeted/targeted_games.png", "games")])
+    )
+
+
 SECTIONS = [
     ("menace", "MENACE learns tic-tac-toe", sec_menace),
     ("symmetry", "Board symmetries", sec_symmetry),
@@ -314,6 +362,7 @@ SECTIONS = [
     ("gomoku", "Gomoku (15,15,5)", sec_gomoku),
     ("alphazero", "AlphaZero-style agent", sec_alphazero),
     ("llm", "LLM players", sec_llm),
+    ("targeted", "Targeted labelling with submodular information (PRISM)", sec_targeted),
 ]
 
 

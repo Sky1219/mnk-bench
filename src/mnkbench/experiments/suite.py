@@ -24,6 +24,7 @@ from .gomoku import exp_gomoku, exp_perf, replot_gomoku, replot_perf
 from .learning import learning_curve, train
 from .llm_exp import exp_llm, replot_llm
 from .sampling import exp_elo, exp_mcts, replot_elo, replot_mcts
+from .targeted import exp_targeted, replot_targeted
 
 Log = Callable[[str], None]
 
@@ -257,6 +258,7 @@ EXPERIMENTS: dict[str, Callable[..., dict]] = {
     "gomoku": exp_gomoku,
     "alphazero": exp_alphazero,
     "llm": exp_llm,
+    "targeted": exp_targeted,
 }
 REPLOTTERS: dict[str, Callable[[Path], None]] = {
     "menace": replot_menace,
@@ -271,6 +273,7 @@ REPLOTTERS: dict[str, Callable[[Path], None]] = {
     "gomoku": replot_gomoku,
     "alphazero": replot_alphazero,
     "llm": replot_llm,
+    "targeted": replot_targeted,
 }
 
 

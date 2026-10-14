@@ -12,6 +12,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 import matplotlib
+import numpy as np
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
@@ -366,3 +367,164 @@ def plot_alphazero(runs: Sequence[dict], path: str | Path, title: str | None = N
     fig.suptitle(title or "AlphaZero-style self-play training", x=0.01, ha="left", color=INK, fontweight="bold")
     fig.tight_layout()
     return _save(fig, path)
+
+
+# ------------------------------------------------- targeted selection (PRISM)
+PRISM_COLORS = {"GCMI": SERIES[0], "FLMI": SERIES[1], "FLVMI": SERIES[2], "COM": SERIES[3],
+                "LogDetMI": SERIES[6], "FLCMI": SERIES[7]}
+BASELINE_STYLES = {"random": ("-", "o"), "entropy": ("--", "v"), "margin": (":", "^"),
+                   "FL": ("-.", "s"), "LogDet": ((0, (1, 1)), "D")}
+
+
+def _method_style(method: str) -> dict:
+    if method in PRISM_COLORS:
+        return {"color": PRISM_COLORS[method], "linestyle": "-", "marker": "o", "linewidth": 2}
+    if method == "oracle":
+        return {"color": INK, "linestyle": "--", "marker": "", "linewidth": 1.2}
+    ls, mk = BASELINE_STYLES.get(method, ("-", "o"))
+    return {"color": MUTED, "linestyle": ls, "marker": mk, "linewidth": 1.5}
+
+
+def plot_targeted(data: dict, out_dir: str | Path) -> list[Path]:
+    """Budget curves per target motif, ablations and game results for the
+    targeted-labelling experiment."""
+    style()
+    out_dir = Path(out_dir)
+    summ = data["summary"]
+    main = [r for r in summ if not r.get("ablation")]
+    targets = [t for t in ("win", "block", "poison") if any(r.get("target") == t for r in main)]
+    methods = [m for m in ("random", "entropy", "margin", "FL", "LogDet", "GCMI", "FLMI", "FLVMI", "COM",
+                           "LogDetMI", "FLCMI", "oracle") if any(r["method"] == m for r in main)]
+    ks = sorted({r["k"] for r in main if r["k"]})
+    seeds = max(r["seeds"] for r in main)
+    paths = []
+    panels = [("acc_target", "target accuracy"), ("acc_critical", "overall accuracy"),
+              ("hit_target", "hit rate (selected in motif)")]
+    fig, axes = plt.subplots(len(targets), 3, figsize=(14, 3.3 * len(targets)), squeeze=False)
+    for row_i, target in enumerate(targets):
+        rows_t = [r for r in main if r.get("target") == target]
+        base = next((r for r in rows_t if r["method"] == "base"), None)
+        qonly = next((r for r in rows_t if r["method"] == "query-only"), None)
+        for col, (metric, title) in enumerate(panels):
+            ax = axes[row_i][col]
+            for m in methods:
+                rs = sorted((r for r in rows_t if r["method"] == m and r.get(metric) is not None), key=lambda r: r["k"])
+                if not rs:
+                    continue
+                xs = [r["k"] for r in rs]
+                ys = [r[metric] for r in rs]
+                ci = [r.get(metric + "_ci", 0.0) for r in rs]
+                st = _method_style(m)
+                ax.plot(xs, ys, label=m, markersize=3.5, **st)
+                if m in ("random", "FLVMI", "LogDetMI"):
+                    ax.fill_between(xs, [y - c for y, c in zip(ys, ci)], [y + c for y, c in zip(ys, ci)],
+                                    color=st["color"], alpha=0.12, linewidth=0)
+            if metric != "hit_target":
+                for ref, lab, ls in ((base, "base", "-"), (qonly, "base + Q", ":")):
+                    if ref is not None and ref.get(metric) is not None:
+                        ax.axhline(ref[metric], color=AXIS, linewidth=1, linestyle=ls)
+                        ax.annotate(lab, (1.0, ref[metric]), xycoords=("axes fraction", "data"), fontsize=7,
+                                    color=MUTED, ha="right", va="bottom")
+            ax.set_xscale("log")
+            ax.set_xticks(ks)
+            ax.set_xticklabels([str(k) for k in ks])
+            ax.minorticks_off()
+            ax.set_title(f"{target}: {title}", loc="left", fontsize=10)
+            if row_i == len(targets) - 1:
+                ax.set_xlabel("oracle labels k (log scale)")
+    handles, labels = axes[0][0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=min(12, len(labels)), bbox_to_anchor=(0.5, -0.03))
+    fig.suptitle(f"Targeted oracle labelling on {data['meta'].get('board', '')}: PRISM measures (colour) vs "
+                 f"baselines (grey) and oracle (black); mean of {seeds} seeds, 95% CI bands",
+                 x=0.01, ha="left", color=INK, fontweight="bold")
+    fig.tight_layout(rect=(0, 0.03, 1, 1))
+    paths.append(_save(fig, out_dir / "targeted_budget.png"))
+
+    pooled = data.get("pooled", [])
+    if pooled:
+        fig, axes = plt.subplots(1, 2, figsize=(10.5, 3.8))
+        for ax, metric, title in ((axes[0], "acc_target", "Target accuracy, averaged over the 3 motifs"),
+                                  (axes[1], "hit_target", "Hit rate, averaged over the 3 motifs")):
+            for m in methods:
+                rs = sorted((r for r in pooled if r["method"] == m and r.get(metric) is not None),
+                            key=lambda r: r["k"])
+                if rs:
+                    ax.plot([r["k"] for r in rs], [r[metric] for r in rs], label=m, markersize=3.5,
+                            **_method_style(m))
+            ax.set_xscale("log")
+            ax.set_xticks(ks)
+            ax.set_xticklabels([str(k) for k in ks])
+            ax.minorticks_off()
+            ax.set_xlabel("oracle labels k (log scale)")
+            ax.set_title(title, loc="left", fontsize=10)
+        axes[1].legend(loc="center left", bbox_to_anchor=(1.02, 0.5))
+        fig.tight_layout()
+        paths.append(_save(fig, out_dir / "targeted_pooled.png"))
+
+    abl_target = next((r.get("target") for r in summ if r.get("ablation")), None)
+    eta_rows = [r for r in summ if r.get("ablation") == "eta"]
+    if eta_rows:
+        fig, axes = plt.subplots(1, 2, figsize=(10, 3.8))
+        for ax, metric, title in ((axes[0], "acc_target", "Target accuracy"), (axes[1], "hit_target", "Hit rate")):
+            for m in ("FLMI", "FLVMI", "COM", "LogDetMI"):
+                rs = sorted((r for r in eta_rows if r["method"] == m), key=lambda r: r["eta"])
+                if rs:
+                    ax.plot([r["eta"] for r in rs], [r[metric] for r in rs], label=m, markersize=4, **_method_style(m))
+            ax.set_xscale("log", base=2)
+            ax.set_xlabel("eta (query relevance vs diversity)")
+            ax.set_title(f"{title} vs eta ({abl_target}, k={eta_rows[0]['k']})", loc="left", fontsize=10)
+        axes[0].legend(loc="best")
+        fig.tight_layout()
+        paths.append(_save(fig, out_dir / "targeted_eta.png"))
+
+    q_rows = [r for r in summ if r.get("ablation") == "query_size"]
+    if q_rows:
+        fig, axes = plt.subplots(1, 2, figsize=(10, 3.8))
+        for ax, metric, title in ((axes[0], "acc_target", "Target accuracy"), (axes[1], "hit_target", "Hit rate")):
+            for m in ("random", "GCMI", "FLMI", "FLVMI", "LogDetMI"):
+                rs = sorted((r for r in q_rows if r["method"] == m), key=lambda r: r["nq"])
+                if rs:
+                    ax.plot([r["nq"] for r in rs], [r[metric] for r in rs], label=m, markersize=4, **_method_style(m))
+            ax.set_xscale("log")
+            ax.set_xlabel("query set size |Q|")
+            ax.set_title(f"{title} vs |Q| ({abl_target}, k={q_rows[0]['k']})", loc="left", fontsize=10)
+        axes[0].legend(loc="best")
+        fig.tight_layout()
+        paths.append(_save(fig, out_dir / "targeted_query_size.png"))
+
+    emb = [r for r in summ if r.get("ablation") == "embedding"]
+    if emb:
+        kab = emb[0]["k"]
+        names = [r["method"] for r in emb]
+        fig, axes = plt.subplots(1, 2, figsize=(10, 3.6))
+        for ax, metric, title in ((axes[0], "acc_target", "Target accuracy"), (axes[1], "hit_target", "Hit rate")):
+            net_vals = [next((x.get(metric) for x in main if x["method"] == n and x["k"] == kab
+                              and x.get("target") == abl_target), float("nan")) for n in names]
+            xs = np.arange(len(names))
+            ax.bar(xs - 0.2, net_vals, 0.38, color=SERIES[0], label="network features")
+            ax.bar(xs + 0.2, [r.get(metric) for r in emb], 0.38, color=SERIES[3], label="raw board")
+            ax.set_xticks(xs, names)
+            ax.grid(axis="x", visible=False)
+            ax.set_title(f"{title}: similarity features ({abl_target}, k={kab})", loc="left", fontsize=10)
+        axes[0].legend(loc="lower right")
+        fig.tight_layout()
+        paths.append(_save(fig, out_dir / "targeted_embedding.png"))
+
+    games = [r for r in main if r.get("nonloss_vs_minimax") is not None]
+    if games:
+        fig, axes = plt.subplots(1, len(targets), figsize=(4.6 * len(targets), 0.8 + 0.3 * len(methods)),
+                                 squeeze=False)
+        for ax, target in zip(axes[0], targets):
+            g = [r for r in games if r.get("target") == target]
+            g.sort(key=lambda r: (r["method"] != "base", r["nonloss_vs_minimax"]))
+            for i, r in enumerate(g):
+                ax.barh(i, r["nonloss_vs_minimax"], color=_method_style(r["method"])["color"], height=0.6)
+                ax.text(r["nonloss_vs_minimax"] + 0.01, i, f"{r['nonloss_vs_minimax']:.2f}", va="center",
+                        fontsize=7, color=INK_2)
+            ax.set_yticks(range(len(g)), [r["method"] for r in g])
+            ax.set_xlim(0, 1.1)
+            ax.grid(axis="y", visible=False)
+            ax.set_title(f"{target}: non-loss vs perfect play", loc="left", fontsize=10)
+        fig.tight_layout()
+        paths.append(_save(fig, out_dir / "targeted_games.png"))
+    return paths
