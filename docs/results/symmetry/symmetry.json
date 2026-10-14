@@ -1,0 +1,1726 @@
+{
+ "meta": {
+  "mnkbench_version": "0.1.0",
+  "python": "3.13.16",
+  "machine": "x86_64",
+  "created": "2026-10-14T07:40:35",
+  "seed": 0,
+  "quick": false
+ },
+ "matchbox_counts": [
+  {
+   "config": "(3,3,3)",
+   "player": "X",
+   "symmetry": true,
+   "skip_forced": true,
+   "matchboxes": 304
+  },
+  {
+   "config": "(3,3,3)",
+   "player": "X",
+   "symmetry": true,
+   "skip_forced": false,
+   "matchboxes": 338
+  },
+  {
+   "config": "(3,3,3)",
+   "player": "X",
+   "symmetry": false,
+   "skip_forced": true,
+   "matchboxes": 2201
+  },
+  {
+   "config": "(3,3,3)",
+   "player": "X",
+   "symmetry": false,
+   "skip_forced": false,
+   "matchboxes": 2423
+  },
+  {
+   "config": "(3,3,3)",
+   "player": "O",
+   "symmetry": true,
+   "skip_forced": true,
+   "matchboxes": 280
+  },
+  {
+   "config": "(3,3,3)",
+   "player": "O",
+   "symmetry": true,
+   "skip_forced": false,
+   "matchboxes": 289
+  },
+  {
+   "config": "(3,3,3)",
+   "player": "O",
+   "symmetry": false,
+   "skip_forced": true,
+   "matchboxes": 2097
+  },
+  {
+   "config": "(3,3,3)",
+   "player": "O",
+   "symmetry": false,
+   "skip_forced": false,
+   "matchboxes": 2097
+  },
+  {
+   "config": "(3,4,3)",
+   "player": "X",
+   "symmetry": true,
+   "skip_forced": true,
+   "matchboxes": 10657
+  },
+  {
+   "config": "(3,4,3)",
+   "player": "X",
+   "symmetry": true,
+   "skip_forced": false,
+   "matchboxes": 10661
+  },
+  {
+   "config": "(3,4,3)",
+   "player": "X",
+   "symmetry": false,
+   "skip_forced": true,
+   "matchboxes": 42141
+  },
+  {
+   "config": "(3,4,3)",
+   "player": "X",
+   "symmetry": false,
+   "skip_forced": false,
+   "matchboxes": 42141
+  },
+  {
+   "config": "(3,4,3)",
+   "player": "O",
+   "symmetry": true,
+   "skip_forced": true,
+   "matchboxes": 9322
+  },
+  {
+   "config": "(3,4,3)",
+   "player": "O",
+   "symmetry": true,
+   "skip_forced": false,
+   "matchboxes": 9427
+  },
+  {
+   "config": "(3,4,3)",
+   "player": "O",
+   "symmetry": false,
+   "skip_forced": true,
+   "matchboxes": 37012
+  },
+  {
+   "config": "(3,4,3)",
+   "player": "O",
+   "symmetry": false,
+   "skip_forced": false,
+   "matchboxes": 37422
+  }
+ ],
+ "runs": [
+  {
+   "agent": "menace",
+   "config": {
+    "m": 3,
+    "n": 3,
+    "k": 3,
+    "gravity": false,
+    "exact_k": false
+   },
+   "label": "(3,3,3)",
+   "opponent": "random+minimax",
+   "sides": "both",
+   "seed": 0,
+   "eval_games": 200,
+   "checkpoints": [
+    {
+     "vs_random": {
+      "win": 0.435,
+      "draw": 0.105,
+      "loss": 0.46,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 60,
+       "draw": 9,
+       "loss": 31
+      },
+      "as_o": {
+       "win": 27,
+       "draw": 12,
+       "loss": 61
+      },
+      "time_per_move": 7.773265279677833e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.18,
+      "loss": 0.82,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 32,
+       "loss": 68
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 4,
+       "loss": 96
+      },
+      "time_per_move": 9.576212316955725e-06
+     },
+     "optimal_rate": 0.6377952755905512,
+     "critical_optimal_rate": 0.4566929133858268,
+     "moves": 381,
+     "critical_moves": 254,
+     "games": 0,
+     "train_time": 0.0,
+     "table_size": 0,
+     "memory_bytes": 0
+    },
+    {
+     "vs_random": {
+      "win": 0.715,
+      "draw": 0.11,
+      "loss": 0.175,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 76,
+       "draw": 11,
+       "loss": 13
+      },
+      "as_o": {
+       "win": 67,
+       "draw": 11,
+       "loss": 22
+      },
+      "time_per_move": 4.202990777734773e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.63,
+      "loss": 0.37,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 26,
+       "loss": 74
+      },
+      "time_per_move": 5.374142308133404e-06
+     },
+     "optimal_rate": 0.7893333333333333,
+     "critical_optimal_rate": 0.639269406392694,
+     "moves": 375,
+     "critical_moves": 219,
+     "games": 250,
+     "train_time": 0.04364261799992164,
+     "table_size": 217,
+     "memory_bytes": 102017
+    },
+    {
+     "vs_random": {
+      "win": 0.74,
+      "draw": 0.14,
+      "loss": 0.12,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 79,
+       "draw": 12,
+       "loss": 9
+      },
+      "as_o": {
+       "win": 69,
+       "draw": 16,
+       "loss": 15
+      },
+      "time_per_move": 4.30955276832501e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.835,
+      "loss": 0.165,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 67,
+       "loss": 33
+      },
+      "time_per_move": 5.094640815451191e-06
+     },
+     "optimal_rate": 0.85,
+     "critical_optimal_rate": 0.7663934426229508,
+     "moves": 380,
+     "critical_moves": 244,
+     "games": 500,
+     "train_time": 0.08707274199991843,
+     "table_size": 275,
+     "memory_bytes": 128955
+    },
+    {
+     "vs_random": {
+      "win": 0.775,
+      "draw": 0.11,
+      "loss": 0.115,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 82,
+       "draw": 5,
+       "loss": 13
+      },
+      "as_o": {
+       "win": 73,
+       "draw": 17,
+       "loss": 10
+      },
+      "time_per_move": 4.532786593082598e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.82,
+      "loss": 0.18,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 64,
+       "loss": 36
+      },
+      "time_per_move": 5.145774852128247e-06
+     },
+     "optimal_rate": 0.8850267379679144,
+     "critical_optimal_rate": 0.8208333333333333,
+     "moves": 374,
+     "critical_moves": 240,
+     "games": 750,
+     "train_time": 0.13255101999970975,
+     "table_size": 306,
+     "memory_bytes": 143234
+    },
+    {
+     "vs_random": {
+      "win": 0.74,
+      "draw": 0.115,
+      "loss": 0.145,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 79,
+       "draw": 4,
+       "loss": 17
+      },
+      "as_o": {
+       "win": 69,
+       "draw": 19,
+       "loss": 12
+      },
+      "time_per_move": 5.0048698717720026e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.81,
+      "loss": 0.19,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 62,
+       "loss": 38
+      },
+      "time_per_move": 7.0527172060896485e-06
+     },
+     "optimal_rate": 0.8409090909090909,
+     "critical_optimal_rate": 0.7647058823529411,
+     "moves": 352,
+     "critical_moves": 238,
+     "games": 1000,
+     "train_time": 0.1791205289998743,
+     "table_size": 333,
+     "memory_bytes": 155701
+    },
+    {
+     "vs_random": {
+      "win": 0.74,
+      "draw": 0.12,
+      "loss": 0.14,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 88,
+       "draw": 4,
+       "loss": 8
+      },
+      "as_o": {
+       "win": 60,
+       "draw": 20,
+       "loss": 20
+      },
+      "time_per_move": 5.146922129044539e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.84,
+      "loss": 0.16,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 68,
+       "loss": 32
+      },
+      "time_per_move": 6.254929507406835e-06
+     },
+     "optimal_rate": 0.8662952646239555,
+     "critical_optimal_rate": 0.8064516129032258,
+     "moves": 359,
+     "critical_moves": 248,
+     "games": 1250,
+     "train_time": 0.2381710289998864,
+     "table_size": 347,
+     "memory_bytes": 162275
+    },
+    {
+     "vs_random": {
+      "win": 0.79,
+      "draw": 0.115,
+      "loss": 0.095,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 85,
+       "draw": 7,
+       "loss": 8
+      },
+      "as_o": {
+       "win": 73,
+       "draw": 16,
+       "loss": 11
+      },
+      "time_per_move": 5.139099997515067e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.865,
+      "loss": 0.135,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 73,
+       "loss": 27
+      },
+      "time_per_move": 6.664902117231062e-06
+     },
+     "optimal_rate": 0.8953488372093024,
+     "critical_optimal_rate": 0.85,
+     "moves": 344,
+     "critical_moves": 240,
+     "games": 1500,
+     "train_time": 0.295844133999708,
+     "table_size": 357,
+     "memory_bytes": 166877
+    },
+    {
+     "vs_random": {
+      "win": 0.765,
+      "draw": 0.145,
+      "loss": 0.09,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 88,
+       "draw": 5,
+       "loss": 7
+      },
+      "as_o": {
+       "win": 65,
+       "draw": 24,
+       "loss": 11
+      },
+      "time_per_move": 4.927644665662065e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.855,
+      "loss": 0.145,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 71,
+       "loss": 29
+      },
+      "time_per_move": 6.6247864810948474e-06
+     },
+     "optimal_rate": 0.8715083798882681,
+     "critical_optimal_rate": 0.8167330677290837,
+     "moves": 358,
+     "critical_moves": 251,
+     "games": 1750,
+     "train_time": 0.35377866199951313,
+     "table_size": 361,
+     "memory_bytes": 168785
+    },
+    {
+     "vs_random": {
+      "win": 0.85,
+      "draw": 0.105,
+      "loss": 0.045,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 92,
+       "draw": 5,
+       "loss": 3
+      },
+      "as_o": {
+       "win": 78,
+       "draw": 16,
+       "loss": 6
+      },
+      "time_per_move": 4.926918802506759e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.97,
+      "loss": 0.03,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 94,
+       "loss": 6
+      },
+      "time_per_move": 6.955168919068603e-06
+     },
+     "optimal_rate": 0.9197707736389685,
+     "critical_optimal_rate": 0.8798283261802575,
+     "moves": 349,
+     "critical_moves": 233,
+     "games": 2000,
+     "train_time": 0.41495174199940266,
+     "table_size": 370,
+     "memory_bytes": 173010
+    },
+    {
+     "vs_random": {
+      "win": 0.885,
+      "draw": 0.05,
+      "loss": 0.065,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 91,
+       "draw": 0,
+       "loss": 9
+      },
+      "as_o": {
+       "win": 86,
+       "draw": 10,
+       "loss": 4
+      },
+      "time_per_move": 3.698909477454096e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.97,
+      "loss": 0.03,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 94,
+       "loss": 6
+      },
+      "time_per_move": 5.272332215111886e-06
+     },
+     "optimal_rate": 0.9487179487179487,
+     "critical_optimal_rate": 0.9196428571428571,
+     "moves": 351,
+     "critical_moves": 224,
+     "games": 2250,
+     "train_time": 0.46247334099962245,
+     "table_size": 377,
+     "memory_bytes": 176145
+    },
+    {
+     "vs_random": {
+      "win": 0.87,
+      "draw": 0.07,
+      "loss": 0.06,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 89,
+       "draw": 3,
+       "loss": 8
+      },
+      "as_o": {
+       "win": 85,
+       "draw": 11,
+       "loss": 4
+      },
+      "time_per_move": 4.654116547963705e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.99,
+      "loss": 0.01,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 98,
+       "loss": 2
+      },
+      "time_per_move": 5.718831475931552e-06
+     },
+     "optimal_rate": 0.9261363636363636,
+     "critical_optimal_rate": 0.8921161825726142,
+     "moves": 352,
+     "critical_moves": 241,
+     "games": 2500,
+     "train_time": 0.5128812049995304,
+     "table_size": 382,
+     "memory_bytes": 178446
+    },
+    {
+     "vs_random": {
+      "win": 0.85,
+      "draw": 0.075,
+      "loss": 0.075,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 88,
+       "draw": 2,
+       "loss": 10
+      },
+      "as_o": {
+       "win": 82,
+       "draw": 13,
+       "loss": 5
+      },
+      "time_per_move": 4.038785509428767e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 1.0,
+      "loss": 0.0,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "time_per_move": 4.890263333486978e-06
+     },
+     "optimal_rate": 0.9215116279069767,
+     "critical_optimal_rate": 0.881578947368421,
+     "moves": 344,
+     "critical_moves": 228,
+     "games": 2750,
+     "train_time": 0.5600730329995258,
+     "table_size": 384,
+     "memory_bytes": 179360
+    },
+    {
+     "vs_random": {
+      "win": 0.865,
+      "draw": 0.09,
+      "loss": 0.045,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 92,
+       "draw": 1,
+       "loss": 7
+      },
+      "as_o": {
+       "win": 81,
+       "draw": 17,
+       "loss": 2
+      },
+      "time_per_move": 3.762399718133722e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 1.0,
+      "loss": 0.0,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "time_per_move": 4.765654443367061e-06
+     },
+     "optimal_rate": 0.9375,
+     "critical_optimal_rate": 0.9022222222222223,
+     "moves": 352,
+     "critical_moves": 225,
+     "games": 3000,
+     "train_time": 0.6038641119994281,
+     "table_size": 385,
+     "memory_bytes": 179849
+    },
+    {
+     "vs_random": {
+      "win": 0.89,
+      "draw": 0.09,
+      "loss": 0.02,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 92,
+       "draw": 4,
+       "loss": 4
+      },
+      "as_o": {
+       "win": 86,
+       "draw": 14,
+       "loss": 0
+      },
+      "time_per_move": 3.878715316570137e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.99,
+      "loss": 0.01,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 98,
+       "loss": 2
+      },
+      "time_per_move": 4.75943750493408e-06
+     },
+     "optimal_rate": 0.9501466275659824,
+     "critical_optimal_rate": 0.9234234234234234,
+     "moves": 341,
+     "critical_moves": 222,
+     "games": 3250,
+     "train_time": 0.6546974769994449,
+     "table_size": 388,
+     "memory_bytes": 181252
+    },
+    {
+     "vs_random": {
+      "win": 0.805,
+      "draw": 0.14,
+      "loss": 0.055,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 89,
+       "draw": 4,
+       "loss": 7
+      },
+      "as_o": {
+       "win": 72,
+       "draw": 24,
+       "loss": 4
+      },
+      "time_per_move": 3.751357860913311e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.975,
+      "loss": 0.025,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 95,
+       "loss": 5
+      },
+      "time_per_move": 4.7507258409751465e-06
+     },
+     "optimal_rate": 0.9548022598870056,
+     "critical_optimal_rate": 0.9324894514767933,
+     "moves": 354,
+     "critical_moves": 237,
+     "games": 3500,
+     "train_time": 0.7008656309994876,
+     "table_size": 392,
+     "memory_bytes": 183080
+    },
+    {
+     "vs_random": {
+      "win": 0.87,
+      "draw": 0.1,
+      "loss": 0.03,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 93,
+       "draw": 2,
+       "loss": 5
+      },
+      "as_o": {
+       "win": 81,
+       "draw": 18,
+       "loss": 1
+      },
+      "time_per_move": 4.194911175845403e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 1.0,
+      "loss": 0.0,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "time_per_move": 9.461665557005795e-06
+     },
+     "optimal_rate": 0.9481268011527377,
+     "critical_optimal_rate": 0.9230769230769231,
+     "moves": 347,
+     "critical_moves": 234,
+     "games": 3750,
+     "train_time": 0.7456317089993263,
+     "table_size": 397,
+     "memory_bytes": 185365
+    },
+    {
+     "vs_random": {
+      "win": 0.93,
+      "draw": 0.055,
+      "loss": 0.015,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 97,
+       "draw": 2,
+       "loss": 1
+      },
+      "as_o": {
+       "win": 89,
+       "draw": 9,
+       "loss": 2
+      },
+      "time_per_move": 5.3983463844651195e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 1.0,
+      "loss": 0.0,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "time_per_move": 6.990515553045245e-06
+     },
+     "optimal_rate": 0.9683908045977011,
+     "critical_optimal_rate": 0.9527896995708155,
+     "moves": 348,
+     "critical_moves": 233,
+     "games": 4000,
+     "train_time": 0.807266767999181,
+     "table_size": 400,
+     "memory_bytes": 186720
+    }
+   ],
+   "games_to_learn": 2000
+  },
+  {
+   "agent": "menace (no symmetry)",
+   "config": {
+    "m": 3,
+    "n": 3,
+    "k": 3,
+    "gravity": false,
+    "exact_k": false
+   },
+   "label": "(3,3,3)",
+   "opponent": "random+minimax",
+   "sides": "both",
+   "seed": 0,
+   "eval_games": 200,
+   "checkpoints": [
+    {
+     "vs_random": {
+      "win": 0.43,
+      "draw": 0.075,
+      "loss": 0.495,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 60,
+       "draw": 5,
+       "loss": 35
+      },
+      "as_o": {
+       "win": 26,
+       "draw": 10,
+       "loss": 64
+      },
+      "time_per_move": 2.3659716239185276e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.155,
+      "loss": 0.845,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 25,
+       "loss": 75
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 6,
+       "loss": 94
+      },
+      "time_per_move": 3.1096196667543856e-06
+     },
+     "optimal_rate": 0.5826972010178118,
+     "critical_optimal_rate": 0.3857677902621723,
+     "moves": 393,
+     "critical_moves": 267,
+     "games": 0,
+     "train_time": 0.0,
+     "table_size": 0,
+     "memory_bytes": 0
+    },
+    {
+     "vs_random": {
+      "win": 0.39,
+      "draw": 0.13,
+      "loss": 0.48,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 50,
+       "draw": 17,
+       "loss": 33
+      },
+      "as_o": {
+       "win": 28,
+       "draw": 9,
+       "loss": 63
+      },
+      "time_per_move": 2.425449738270631e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.28,
+      "loss": 0.72,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 54,
+       "loss": 46
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 2,
+       "loss": 98
+      },
+      "time_per_move": 5.188502251459694e-06
+     },
+     "optimal_rate": 0.5699481865284974,
+     "critical_optimal_rate": 0.3224489795918367,
+     "moves": 386,
+     "critical_moves": 245,
+     "games": 250,
+     "train_time": 0.04286246099991331,
+     "table_size": 448,
+     "memory_bytes": 217168
+    },
+    {
+     "vs_random": {
+      "win": 0.505,
+      "draw": 0.13,
+      "loss": 0.365,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 61,
+       "draw": 16,
+       "loss": 23
+      },
+      "as_o": {
+       "win": 40,
+       "draw": 10,
+       "loss": 50
+      },
+      "time_per_move": 2.177119475683347e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.245,
+      "loss": 0.755,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 48,
+       "loss": 52
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 1,
+       "loss": 99
+      },
+      "time_per_move": 3.369588610790812e-06
+     },
+     "optimal_rate": 0.5357142857142857,
+     "critical_optimal_rate": 0.2890625,
+     "moves": 392,
+     "critical_moves": 256,
+     "games": 500,
+     "train_time": 0.08427011399999174,
+     "table_size": 761,
+     "memory_bytes": 365969
+    },
+    {
+     "vs_random": {
+      "win": 0.525,
+      "draw": 0.15,
+      "loss": 0.325,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 68,
+       "draw": 19,
+       "loss": 13
+      },
+      "as_o": {
+       "win": 37,
+       "draw": 11,
+       "loss": 52
+      },
+      "time_per_move": 2.245827048828913e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.5,
+      "loss": 0.5,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 100
+      },
+      "time_per_move": 3.221797261823966e-06
+     },
+     "optimal_rate": 0.6230769230769231,
+     "critical_optimal_rate": 0.41434262948207173,
+     "moves": 390,
+     "critical_moves": 251,
+     "games": 750,
+     "train_time": 0.19986692099996617,
+     "table_size": 1015,
+     "memory_bytes": 486063
+    },
+    {
+     "vs_random": {
+      "win": 0.49,
+      "draw": 0.185,
+      "loss": 0.325,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 57,
+       "draw": 25,
+       "loss": 18
+      },
+      "as_o": {
+       "win": 41,
+       "draw": 12,
+       "loss": 47
+      },
+      "time_per_move": 2.303949805271123e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.505,
+      "loss": 0.495,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 1,
+       "loss": 99
+      },
+      "time_per_move": 3.252138536613897e-06
+     },
+     "optimal_rate": 0.5975308641975309,
+     "critical_optimal_rate": 0.38022813688212925,
+     "moves": 405,
+     "critical_moves": 263,
+     "games": 1000,
+     "train_time": 0.24153844399984337,
+     "table_size": 1217,
+     "memory_bytes": 581417
+    },
+    {
+     "vs_random": {
+      "win": 0.555,
+      "draw": 0.145,
+      "loss": 0.3,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 69,
+       "draw": 9,
+       "loss": 22
+      },
+      "as_o": {
+       "win": 42,
+       "draw": 20,
+       "loss": 38
+      },
+      "time_per_move": 2.2823038980513722e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.505,
+      "loss": 0.495,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 1,
+       "loss": 99
+      },
+      "time_per_move": 2.959495237692387e-06
+     },
+     "optimal_rate": 0.6219839142091153,
+     "critical_optimal_rate": 0.4,
+     "moves": 373,
+     "critical_moves": 235,
+     "games": 1250,
+     "train_time": 0.2861004059998322,
+     "table_size": 1388,
+     "memory_bytes": 662012
+    },
+    {
+     "vs_random": {
+      "win": 0.485,
+      "draw": 0.15,
+      "loss": 0.365,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 66,
+       "draw": 15,
+       "loss": 19
+      },
+      "as_o": {
+       "win": 31,
+       "draw": 15,
+       "loss": 54
+      },
+      "time_per_move": 2.180097623454878e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.52,
+      "loss": 0.48,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 4,
+       "loss": 96
+      },
+      "time_per_move": 3.255970437609698e-06
+     },
+     "optimal_rate": 0.6204188481675392,
+     "critical_optimal_rate": 0.4444444444444444,
+     "moves": 382,
+     "critical_moves": 261,
+     "games": 1500,
+     "train_time": 0.32634199399990393,
+     "table_size": 1545,
+     "memory_bytes": 735377
+    },
+    {
+     "vs_random": {
+      "win": 0.51,
+      "draw": 0.14,
+      "loss": 0.35,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 69,
+       "draw": 13,
+       "loss": 18
+      },
+      "as_o": {
+       "win": 33,
+       "draw": 15,
+       "loss": 52
+      },
+      "time_per_move": 2.1865019690466283e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.5,
+      "loss": 0.5,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 100
+      },
+      "time_per_move": 3.046904373977519e-06
+     },
+     "optimal_rate": 0.5978552278820375,
+     "critical_optimal_rate": 0.38271604938271603,
+     "moves": 373,
+     "critical_moves": 243,
+     "games": 1750,
+     "train_time": 0.36707992099991316,
+     "table_size": 1696,
+     "memory_bytes": 805936
+    },
+    {
+     "vs_random": {
+      "win": 0.495,
+      "draw": 0.17,
+      "loss": 0.335,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 65,
+       "draw": 14,
+       "loss": 21
+      },
+      "as_o": {
+       "win": 34,
+       "draw": 20,
+       "loss": 46
+      },
+      "time_per_move": 2.2269987058408673e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.525,
+      "loss": 0.475,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 5,
+       "loss": 95
+      },
+      "time_per_move": 3.003906506013501e-06
+     },
+     "optimal_rate": 0.5968586387434555,
+     "critical_optimal_rate": 0.391304347826087,
+     "moves": 382,
+     "critical_moves": 253,
+     "games": 2000,
+     "train_time": 0.40904135400000996,
+     "table_size": 1830,
+     "memory_bytes": 868678
+    },
+    {
+     "vs_random": {
+      "win": 0.52,
+      "draw": 0.165,
+      "loss": 0.315,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 61,
+       "draw": 15,
+       "loss": 24
+      },
+      "as_o": {
+       "win": 43,
+       "draw": 18,
+       "loss": 39
+      },
+      "time_per_move": 2.2910263199168857e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.52,
+      "loss": 0.48,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 4,
+       "loss": 96
+      },
+      "time_per_move": 3.2929852944321552e-06
+     },
+     "optimal_rate": 0.6561679790026247,
+     "critical_optimal_rate": 0.46747967479674796,
+     "moves": 381,
+     "critical_moves": 246,
+     "games": 2250,
+     "train_time": 0.46596514100019704,
+     "table_size": 1947,
+     "memory_bytes": 923267
+    },
+    {
+     "vs_random": {
+      "win": 0.59,
+      "draw": 0.12,
+      "loss": 0.29,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 67,
+       "draw": 14,
+       "loss": 19
+      },
+      "as_o": {
+       "win": 51,
+       "draw": 10,
+       "loss": 39
+      },
+      "time_per_move": 2.4436007885867343e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.52,
+      "loss": 0.48,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 4,
+       "loss": 96
+      },
+      "time_per_move": 3.3941401528437378e-06
+     },
+     "optimal_rate": 0.65625,
+     "critical_optimal_rate": 0.4567901234567901,
+     "moves": 384,
+     "critical_moves": 243,
+     "games": 2500,
+     "train_time": 0.5073633260001316,
+     "table_size": 2050,
+     "memory_bytes": 971202
+    },
+    {
+     "vs_random": {
+      "win": 0.51,
+      "draw": 0.145,
+      "loss": 0.345,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 64,
+       "draw": 10,
+       "loss": 26
+      },
+      "as_o": {
+       "win": 38,
+       "draw": 19,
+       "loss": 43
+      },
+      "time_per_move": 3.17840799895445e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.52,
+      "loss": 0.48,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 4,
+       "loss": 96
+      },
+      "time_per_move": 4.655370066200481e-06
+     },
+     "optimal_rate": 0.6445012787723785,
+     "critical_optimal_rate": 0.444,
+     "moves": 391,
+     "critical_moves": 250,
+     "games": 2750,
+     "train_time": 0.5664384930000779,
+     "table_size": 2156,
+     "memory_bytes": 1020620
+    },
+    {
+     "vs_random": {
+      "win": 0.58,
+      "draw": 0.145,
+      "loss": 0.275,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 74,
+       "draw": 11,
+       "loss": 15
+      },
+      "as_o": {
+       "win": 42,
+       "draw": 18,
+       "loss": 40
+      },
+      "time_per_move": 3.0159432400511366e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.53,
+      "loss": 0.47,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 6,
+       "loss": 94
+      },
+      "time_per_move": 4.463528867217927e-06
+     },
+     "optimal_rate": 0.6779220779220779,
+     "critical_optimal_rate": 0.5059760956175299,
+     "moves": 385,
+     "critical_moves": 251,
+     "games": 3000,
+     "train_time": 0.619269044000248,
+     "table_size": 2242,
+     "memory_bytes": 1060786
+    },
+    {
+     "vs_random": {
+      "win": 0.61,
+      "draw": 0.095,
+      "loss": 0.295,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 77,
+       "draw": 9,
+       "loss": 14
+      },
+      "as_o": {
+       "win": 45,
+       "draw": 10,
+       "loss": 45
+      },
+      "time_per_move": 2.1306521702794083e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.53,
+      "loss": 0.47,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 6,
+       "loss": 94
+      },
+      "time_per_move": 2.8966125165811506e-06
+     },
+     "optimal_rate": 0.6710526315789473,
+     "critical_optimal_rate": 0.4959677419354839,
+     "moves": 380,
+     "critical_moves": 248,
+     "games": 3250,
+     "train_time": 0.659777846000452,
+     "table_size": 2340,
+     "memory_bytes": 1106292
+    },
+    {
+     "vs_random": {
+      "win": 0.67,
+      "draw": 0.095,
+      "loss": 0.235,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 81,
+       "draw": 7,
+       "loss": 12
+      },
+      "as_o": {
+       "win": 53,
+       "draw": 12,
+       "loss": 35
+      },
+      "time_per_move": 2.1644594229089275e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.51,
+      "loss": 0.49,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 2,
+       "loss": 98
+      },
+      "time_per_move": 2.9136139448319495e-06
+     },
+     "optimal_rate": 0.6526315789473685,
+     "critical_optimal_rate": 0.484375,
+     "moves": 380,
+     "critical_moves": 256,
+     "games": 3500,
+     "train_time": 0.6996543520003797,
+     "table_size": 2423,
+     "memory_bytes": 1144767
+    },
+    {
+     "vs_random": {
+      "win": 0.655,
+      "draw": 0.155,
+      "loss": 0.19,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 82,
+       "draw": 10,
+       "loss": 8
+      },
+      "as_o": {
+       "win": 49,
+       "draw": 21,
+       "loss": 30
+      },
+      "time_per_move": 2.171992033570806e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.555,
+      "loss": 0.445,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 11,
+       "loss": 89
+      },
+      "time_per_move": 2.9904018712588638e-06
+     },
+     "optimal_rate": 0.662303664921466,
+     "critical_optimal_rate": 0.4921259842519685,
+     "moves": 382,
+     "critical_moves": 254,
+     "games": 3750,
+     "train_time": 0.7397780160004004,
+     "table_size": 2498,
+     "memory_bytes": 1179634
+    },
+    {
+     "vs_random": {
+      "win": 0.6,
+      "draw": 0.15,
+      "loss": 0.25,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 77,
+       "draw": 12,
+       "loss": 11
+      },
+      "as_o": {
+       "win": 43,
+       "draw": 18,
+       "loss": 39
+      },
+      "time_per_move": 2.2629711630932955e-06
+     },
+     "vs_minimax": {
+      "win": 0.0,
+      "draw": 0.57,
+      "loss": 0.43,
+      "games": 200,
+      "aborted": 0,
+      "as_x": {
+       "win": 0,
+       "draw": 100,
+       "loss": 0
+      },
+      "as_o": {
+       "win": 0,
+       "draw": 14,
+       "loss": 86
+      },
+      "time_per_move": 3.039218204035395e-06
+     },
+     "optimal_rate": 0.6781002638522428,
+     "critical_optimal_rate": 0.5215686274509804,
+     "moves": 379,
+     "critical_moves": 255,
+     "games": 4000,
+     "train_time": 0.7803925110004002,
+     "table_size": 2575,
+     "memory_bytes": 1215319
+    }
+   ],
+   "games_to_learn": null
+  }
+ ]
+}

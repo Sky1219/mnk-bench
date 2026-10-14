@@ -1,0 +1,261 @@
+{
+ "meta": {
+  "mnkbench_version": "0.1.0",
+  "python": "3.13.16",
+  "machine": "x86_64",
+  "created": "2026-10-14T07:56:13",
+  "seed": 0,
+  "quick": false,
+  "games": 40
+ },
+ "rows": [
+  {
+   "agent": "mcts",
+   "iterations": 25,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 0.8270676691729323
+  },
+  {
+   "agent": "mcts",
+   "iterations": 25,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.0003754705906217737
+  },
+  {
+   "agent": "mcts",
+   "iterations": 25,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.0,
+   "time_per_move": 0.0011643511134670206
+  },
+  {
+   "agent": "mcts",
+   "iterations": 25,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.15,
+   "time_per_move": 0.0006981567186670847
+  },
+  {
+   "agent": "mcts",
+   "iterations": 50,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 0.823076923076923
+  },
+  {
+   "agent": "mcts",
+   "iterations": 50,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.000586510190618128
+  },
+  {
+   "agent": "mcts",
+   "iterations": 50,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.0,
+   "time_per_move": 0.0017032916549351925
+  },
+  {
+   "agent": "mcts",
+   "iterations": 50,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.25,
+   "time_per_move": 0.001144097581101056
+  },
+  {
+   "agent": "mcts",
+   "iterations": 100,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 0.888
+  },
+  {
+   "agent": "mcts",
+   "iterations": 100,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.0014331250843738984
+  },
+  {
+   "agent": "mcts",
+   "iterations": 100,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.0,
+   "time_per_move": 0.004237801059224766
+  },
+  {
+   "agent": "mcts",
+   "iterations": 100,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.4875,
+   "time_per_move": 0.0020894258952818805
+  },
+  {
+   "agent": "mcts",
+   "iterations": 200,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 0.953125
+  },
+  {
+   "agent": "mcts",
+   "iterations": 200,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.002649573834376895
+  },
+  {
+   "agent": "mcts",
+   "iterations": 200,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.0,
+   "time_per_move": 0.008074928613797086
+  },
+  {
+   "agent": "mcts",
+   "iterations": 200,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.3375,
+   "time_per_move": 0.005221203770523642
+  },
+  {
+   "agent": "mcts",
+   "iterations": 400,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 0.9774436090225563
+  },
+  {
+   "agent": "mcts",
+   "iterations": 400,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.006045552181246449
+  },
+  {
+   "agent": "mcts",
+   "iterations": 400,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.025,
+   "time_per_move": 0.01540848434394326
+  },
+  {
+   "agent": "mcts",
+   "iterations": 400,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.6375,
+   "time_per_move": 0.009431101200380954
+  },
+  {
+   "agent": "mcts",
+   "iterations": 800,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 1.0
+  },
+  {
+   "agent": "mcts",
+   "iterations": 800,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.012461215978126461
+  },
+  {
+   "agent": "mcts",
+   "iterations": 800,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.05,
+   "time_per_move": 0.034854939656976204
+  },
+  {
+   "agent": "mcts",
+   "iterations": 800,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.725,
+   "time_per_move": 0.01968611407969599
+  },
+  {
+   "agent": "mcts",
+   "iterations": 1600,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 1.0
+  },
+  {
+   "agent": "mcts",
+   "iterations": 1600,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.026081514243742276
+  },
+  {
+   "agent": "mcts",
+   "iterations": 1600,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.125,
+   "time_per_move": 0.06635267601171359
+  },
+  {
+   "agent": "mcts",
+   "iterations": 1600,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.825,
+   "time_per_move": 0.04233043275918153
+  },
+  {
+   "agent": "mcts",
+   "iterations": 3200,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 1.0
+  },
+  {
+   "agent": "mcts",
+   "iterations": 3200,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.056183612425009244
+  },
+  {
+   "agent": "mcts",
+   "iterations": 3200,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.23750000000000002,
+   "time_per_move": 0.1264975553875778
+  },
+  {
+   "agent": "mcts",
+   "iterations": 3200,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.875,
+   "time_per_move": 0.08486242220119915
+  }
+ ]
+}

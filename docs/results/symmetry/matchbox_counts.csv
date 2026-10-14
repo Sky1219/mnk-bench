@@ -1,0 +1,17 @@
+config,player,symmetry,skip_forced,matchboxes
+"(3,3,3)",X,True,True,304
+"(3,3,3)",X,True,False,338
+"(3,3,3)",X,False,True,2201
+"(3,3,3)",X,False,False,2423
+"(3,3,3)",O,True,True,280
+"(3,3,3)",O,True,False,289
+"(3,3,3)",O,False,True,2097
+"(3,3,3)",O,False,False,2097
+"(3,4,3)",X,True,True,10657
+"(3,4,3)",X,True,False,10661
+"(3,4,3)",X,False,True,42141
+"(3,4,3)",X,False,False,42141
+"(3,4,3)",O,True,True,9322
+"(3,4,3)",O,True,False,9427
+"(3,4,3)",O,False,True,37012
+"(3,4,3)",O,False,False,37422

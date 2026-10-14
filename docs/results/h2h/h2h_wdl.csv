@@ -1,0 +1,7 @@
+agent,win,draw,loss,aborted
+random,8,47,445,0
+rule,93,407,0,0
+minimax,112,388,0,0
+menace,78,365,57,0
+qlearning,148,351,1,0
+td,94,376,30,0

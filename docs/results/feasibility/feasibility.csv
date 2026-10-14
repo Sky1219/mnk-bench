@@ -1,0 +1,161 @@
+budget,agent,config,status,estimated_status,est_time_per_move,est_memory_bytes,est_train_time,measured_time_per_move,reason
+standard,random,"(3,3,3)",ok,ok,1.4000000000000001e-05,144.0,0.0,1.4702499811392045e-05,
+standard,random,"(4,4,4)",ok,ok,2.1e-05,256.0,0.0,1.2916499827042571e-05,
+standard,random,"(5,5,4)",ok,ok,2.9999999999999997e-05,400.0,0.0,1.4048499906493817e-05,
+standard,random,"(6,6,4)",ok,ok,4.1e-05,576.0,0.0,1.3480500001605833e-05,
+standard,random,"(6,7,4)+gravity",ok,ok,4.7e-05,672.0,0.0,1.2033000075462041e-05,
+standard,random,"(7,7,5)",ok,ok,5.4e-05,784.0,0.0,1.636849992792122e-05,
+standard,random,"(9,9,5)",ok,ok,8.599999999999999e-05,1296.0,0.0,1.4436000128625892e-05,
+standard,random,"(11,11,5)",ok,ok,0.000126,1936.0,0.0,1.921750003930356e-05,
+standard,random,"(15,15,5)",ok,ok,0.00023,3600.0,0.0,2.770800006146601e-05,
+standard,random,"(19,19,5)",ok,ok,0.000366,5776.0,0.0,2.5259500034735538e-05,
+standard,rule,"(3,3,3)",ok,ok,0.0005637600000000001,10000.0,0.0,7.258199980242352e-05,
+standard,rule,"(4,4,4)",ok,ok,0.0022118399999999996,10000.0,0.0,9.792600030777976e-05,
+standard,rule,"(5,5,4)",ok,ok,0.00432,10000.0,0.0,0.00020566100010910304,
+standard,rule,"(6,6,4)",ok,ok,0.00432,10000.0,0.0,0.0014474544998392957,
+standard,rule,"(6,7,4)+gravity",ok,ok,0.00432,10000.0,0.0,7.765250006741553e-05,
+standard,rule,"(7,7,5)",ok,ok,0.006749999999999999,10000.0,0.0,0.00039160450000963465,
+standard,rule,"(9,9,5)",ok,ok,0.006749999999999999,10000.0,0.0,0.0007025914999303495,
+standard,rule,"(11,11,5)",ok,ok,0.006749999999999999,10000.0,0.0,0.0010978380000778998,
+standard,rule,"(15,15,5)",ok,ok,0.006749999999999999,10000.0,0.0,0.0030117644998881588,
+standard,rule,"(19,19,5)",ok,ok,0.006749999999999999,10000.0,0.0,0.0033380259999375994,
+standard,minimax,"(3,3,3)",ok,ok,0.005479181311202777,96537.95643547748,0.0,0.005776958499836837,
+standard,minimax,"(4,4,4)",ok,ok,0.9776084197070545,15478799.97869503,0.0,0.6020265479999125,
+standard,minimax,"(5,5,4)",refused,refused,817.5150625873172,11529058574.949347,0.0,,time/move 14min > 1.0s; memory 11GB > 1GB
+standard,minimax,"(6,6,4)",refused,refused,3143193.405829043,39427776932767.82,0.0,,time/move 873h > 1.0s; memory 36TB > 1GB
+standard,minimax,"(6,7,4)+gravity",refused,refused,254121.15399621986,3016397437678.7075,0.0,,time/move 71h > 1.0s; memory 3TB > 1GB
+standard,minimax,"(7,7,5)",refused,refused,54873868405.44406,6.145051180984184e+17,0.0,,time/move 1.7e+03y > 1.0s; memory 5.5e+02PB > 1GB
+standard,minimax,"(9,9,5)",refused,refused,1.5205994806811293e+21,1.386552143541195e+28,0.0,,time/move 4.8e+13y > 1.0s; memory 1.2e+13PB > 1GB
+standard,minimax,"(11,11,5)",refused,refused,1.6794267717577952e+34,1.2899944768574367e+41,0.0,,time/move 5.3e+26y > 1.0s; memory 1.1e+26PB > 1GB
+standard,minimax,"(15,15,5)",refused,refused,1.2377443902334672e+68,7.395328117747131e+74,0.0,,time/move 3.9e+60y > 1.0s; memory 6.6e+59PB > 1GB
+standard,minimax,"(19,19,5)",refused,refused,2.1240740692674083e+112,1.0788106868847766e+119,0.0,,time/move 6.7e+104y > 1.0s; memory 9.6e+103PB > 1GB
+standard,menace,"(3,3,3)",ok,ok,0.0001062,336308.75,0.3023,7.64554999932443e-05,
+standard,menace,"(4,4,4)",ok,ok,0.00011880000000000001,609946740.0,508.28895000000006,7.260100005623826e-05,
+standard,menace,"(5,5,4)",refused,refused,0.000135,10630923924206.25,8099751.561300001,,memory 10TB > 1GB; training 2250h > 10min
+standard,menace,"(6,6,4)",refused,refused,0.0001548,1.7452671524506606e+18,1203632518931.49,,memory 1.6e+03PB > 1GB; training 3.8e+04y > 10min
+standard,menace,"(6,7,4)+gravity",refused,refused,0.0001656,1.625271373504784e+17,106575172033.1006,,memory 1.4e+02PB > 1GB; training 3.4e+03y > 10min
+standard,menace,"(7,7,5)",refused,refused,0.00017820000000000002,2.663012062416698e+24,1.6514803487855496e+18,,memory 2.4e+09PB > 1GB; training 5.2e+10y > 10min
+standard,menace,"(9,9,5)",refused,refused,0.0002358,4.8114590571729714e+39,2.3907871091542715e+33,,memory 4.3e+24PB > 1GB; training 7.6e+25y > 10min
+standard,menace,"(11,11,5)",refused,refused,0.0003078,5.98869052362853e+58,2.383558417364589e+52,,memory 5.3e+43PB > 1GB; training 7.6e+44y > 10min
+standard,menace,"(15,15,5)",refused,refused,0.000495,2.787877816410697e+108,7.312466403700189e+101,,memory 2.5e+93PB > 1GB; training 2.3e+94y > 10min
+standard,menace,"(19,19,5)",refused,refused,0.0007398,2.464041751259652e+173,4.469917009087804e+166,,memory 2.2e+158PB > 1GB; training 1.4e+159y > 10min
+standard,qlearning,"(3,3,3)",ok,ok,0.000243,291719.5,0.9069,0.0004487185001380567,
+standard,qlearning,"(4,4,4)",degraded,degraded,0.000432,526079063.25,600.0,7.818399990355829e-05,training 25min > 10min
+standard,qlearning,"(5,5,4)",refused,refused,0.000675,9112220506462.5,24299254.683900002,,memory 8TB > 1GB; training 6750h > 10min
+standard,qlearning,"(6,6,4)",refused,refused,0.000972,1.4864861608803901e+18,3610897556794.4697,,memory 1.3e+03PB > 1GB; training 1.1e+05y > 10min
+standard,qlearning,"(6,7,4)+gravity",refused,refused,0.001134,1.3801484778286528e+17,319725516099.3018,,memory 1.2e+02PB > 1GB; training 1.0e+04y > 10min
+standard,qlearning,"(7,7,5)",refused,refused,0.001323,2.2542706760922747e+24,4.954441046356648e+18,,memory 2.0e+09PB > 1GB; training 1.6e+11y > 10min
+standard,qlearning,"(9,9,5)",refused,refused,0.002187,4.0284762789249473e+39,7.172361327462815e+33,,memory 3.6e+24PB > 1GB; training 2.3e+26y > 10min
+standard,qlearning,"(11,11,5)",refused,refused,0.003267,4.969719300205168e+58,7.150675252093767e+52,,memory 4.4e+43PB > 1GB; training 2.3e+45y > 10min
+standard,qlearning,"(15,15,5)",refused,refused,0.0060750000000000005,2.2851457511563088e+108,2.1937399211100565e+102,,memory 2.0e+93PB > 1GB; training 7.0e+94y > 10min
+standard,qlearning,"(19,19,5)",refused,refused,0.009747,2.00475777857588e+173,1.3409751027263412e+167,,memory 1.8e+158PB > 1GB; training 4.3e+159y > 10min
+standard,td,"(3,3,3)",ok,ok,0.000243,291719.5,0.9069,0.00012910949999422883,
+standard,td,"(4,4,4)",degraded,degraded,0.000432,526079063.25,600.0,0.00016348899998774868,training 25min > 10min
+standard,td,"(5,5,4)",refused,refused,0.000675,9112220506462.5,24299254.683900002,,memory 8TB > 1GB; training 6750h > 10min
+standard,td,"(6,6,4)",refused,refused,0.000972,1.4864861608803901e+18,3610897556794.4697,,memory 1.3e+03PB > 1GB; training 1.1e+05y > 10min
+standard,td,"(6,7,4)+gravity",refused,refused,0.001134,1.3801484778286528e+17,319725516099.3018,,memory 1.2e+02PB > 1GB; training 1.0e+04y > 10min
+standard,td,"(7,7,5)",refused,refused,0.001323,2.2542706760922747e+24,4.954441046356648e+18,,memory 2.0e+09PB > 1GB; training 1.6e+11y > 10min
+standard,td,"(9,9,5)",refused,refused,0.002187,4.0284762789249473e+39,7.172361327462815e+33,,memory 3.6e+24PB > 1GB; training 2.3e+26y > 10min
+standard,td,"(11,11,5)",refused,refused,0.003267,4.969719300205168e+58,7.150675252093767e+52,,memory 4.4e+43PB > 1GB; training 2.3e+45y > 10min
+standard,td,"(15,15,5)",refused,refused,0.0060750000000000005,2.2851457511563088e+108,2.1937399211100565e+102,,memory 2.0e+93PB > 1GB; training 7.0e+94y > 10min
+standard,td,"(19,19,5)",refused,refused,0.009747,2.00475777857588e+173,1.3409751027263412e+167,,memory 1.8e+158PB > 1GB; training 4.3e+159y > 10min
+standard,alphabeta:depth=4,"(3,3,3)",ok,ok,0.07077769593735382,735407.9778034417,0.0,0.0008819909999147058,
+standard,alphabeta:depth=4,"(4,4,4)",ok,ok,0.2670116935705976,2424066.868882932,0.0,0.012343224999995073,
+standard,alphabeta:depth=4,"(5,5,4)",ok,ok,0.41349950144786424,3626100.3033243977,0.0,0.03692402849992504,
+standard,alphabeta:depth=4,"(6,6,4)",ok,ok,0.4293663427824917,3626100.3033243977,0.0,0.032294480000018666,
+standard,alphabeta:depth=4,"(6,7,4)+gravity",ok,ok,0.13421422580769657,1124946.974267535,0.0,0.006235131500034186,
+standard,alphabeta:depth=4,"(7,7,5)",ok,ok,0.4913912679996713,3626100.3033243977,0.0,0.0742056629999297,
+standard,alphabeta:depth=4,"(9,9,5)",ok,ok,0.5375493518822235,3626100.3033243977,0.0,0.09620489350004391,
+standard,alphabeta:depth=4,"(11,11,5)",ok,ok,0.595246956735414,3626100.3033243977,0.0,0.10185790600007749,
+standard,alphabeta:depth=4,"(15,15,5)",ok,ok,0.7452607293537089,3626100.3033243977,0.0,0.1330536119999124,
+standard,alphabeta:depth=4,"(19,19,5)",ok,ok,0.941432585854556,3626100.3033243977,0.0,0.1424377875000573,
+standard,mcts:iterations=1000,"(3,3,3)",ok,ok,0.0199,292000.0,0.0,0.01658133349997115,
+standard,mcts:iterations=1000,"(4,4,4)",ok,ok,0.0276,348000.0,0.0,0.02528060000008736,
+standard,mcts:iterations=1000,"(5,5,4)",ok,ok,0.037500000000000006,420000.0,0.0,0.03859159500007081,
+standard,mcts:iterations=1000,"(6,6,4)",ok,ok,0.0484,508000.0,0.0,0.04454831949988147,
+standard,mcts:iterations=1000,"(6,7,4)+gravity",ok,ok,0.0523,556000.0,0.0,0.037739948999842454,
+standard,mcts:iterations=1000,"(7,7,5)",ok,ok,0.05685,612000.0,0.0,0.06957359399984853,
+standard,mcts:iterations=1000,"(9,9,5)",ok,ok,0.07765,620000.0,0.0,0.04615602149988263,
+standard,mcts:iterations=1000,"(11,11,5)",ok,ok,0.10364999999999999,620000.0,0.0,0.05794451649990151,
+standard,mcts:iterations=1000,"(15,15,5)",ok,ok,0.17125,620000.0,0.0,0.09474842349982282,
+standard,mcts:iterations=1000,"(19,19,5)",ok,ok,0.25965,620000.0,0.0,0.1519743159999507,
+tight,random,"(3,3,3)",ok,ok,1.4000000000000001e-05,144.0,0.0,1.6605500150035368e-05,
+tight,random,"(4,4,4)",ok,ok,2.1e-05,256.0,0.0,1.285799999095616e-05,
+tight,random,"(5,5,4)",ok,ok,2.9999999999999997e-05,400.0,0.0,1.674450004429673e-05,
+tight,random,"(6,6,4)",ok,ok,4.1e-05,576.0,0.0,1.4436000128625892e-05,
+tight,random,"(6,7,4)+gravity",ok,ok,4.7e-05,672.0,0.0,1.751950003381353e-05,
+tight,random,"(7,7,5)",ok,ok,5.4e-05,784.0,0.0,1.5355500181613024e-05,
+tight,random,"(9,9,5)",ok,ok,8.599999999999999e-05,1296.0,0.0,2.1212499859757372e-05,
+tight,random,"(11,11,5)",ok,ok,0.000126,1936.0,0.0,1.6694999885658035e-05,
+tight,random,"(15,15,5)",ok,ok,0.00023,3600.0,0.0,1.873500013971352e-05,
+tight,random,"(19,19,5)",ok,ok,0.000366,5776.0,0.0,4.451550012163352e-05,
+tight,rule,"(3,3,3)",ok,ok,0.0005637600000000001,10000.0,0.0,0.0001251900000625028,
+tight,rule,"(4,4,4)",ok,ok,0.0022118399999999996,10000.0,0.0,0.00016248750011982338,
+tight,rule,"(5,5,4)",ok,ok,0.00432,10000.0,0.0,0.00019902250005543465,
+tight,rule,"(6,6,4)",ok,ok,0.00432,10000.0,0.0,0.0003606034999847907,
+tight,rule,"(6,7,4)+gravity",ok,ok,0.00432,10000.0,0.0,8.650599988868635e-05,
+tight,rule,"(7,7,5)",ok,ok,0.006749999999999999,10000.0,0.0,0.0005600184999821067,
+tight,rule,"(9,9,5)",ok,ok,0.006749999999999999,10000.0,0.0,0.000685973000145168,
+tight,rule,"(11,11,5)",ok,ok,0.006749999999999999,10000.0,0.0,0.0015489610000258835,
+tight,rule,"(15,15,5)",ok,ok,0.006749999999999999,10000.0,0.0,0.0023189545001969236,
+tight,rule,"(19,19,5)",ok,ok,0.006749999999999999,10000.0,0.0,0.004832133499803604,
+tight,minimax,"(3,3,3)",ok,ok,0.005479181311202777,96537.95643547748,0.0,0.0019850155001677194,
+tight,minimax,"(4,4,4)",refused,refused,0.9776084197070545,15478799.97869503,0.0,,time/move 978ms > 50ms
+tight,minimax,"(5,5,4)",refused,refused,817.5150625873172,11529058574.949347,0.0,,time/move 14min > 50ms; memory 11GB > 128MB
+tight,minimax,"(6,6,4)",refused,refused,3143193.405829043,39427776932767.82,0.0,,time/move 873h > 50ms; memory 36TB > 128MB
+tight,minimax,"(6,7,4)+gravity",refused,refused,254121.15399621986,3016397437678.7075,0.0,,time/move 71h > 50ms; memory 3TB > 128MB
+tight,minimax,"(7,7,5)",refused,refused,54873868405.44406,6.145051180984184e+17,0.0,,time/move 1.7e+03y > 50ms; memory 5.5e+02PB > 128MB
+tight,minimax,"(9,9,5)",refused,refused,1.5205994806811293e+21,1.386552143541195e+28,0.0,,time/move 4.8e+13y > 50ms; memory 1.2e+13PB > 128MB
+tight,minimax,"(11,11,5)",refused,refused,1.6794267717577952e+34,1.2899944768574367e+41,0.0,,time/move 5.3e+26y > 50ms; memory 1.1e+26PB > 128MB
+tight,minimax,"(15,15,5)",refused,refused,1.2377443902334672e+68,7.395328117747131e+74,0.0,,time/move 3.9e+60y > 50ms; memory 6.6e+59PB > 128MB
+tight,minimax,"(19,19,5)",refused,refused,2.1240740692674083e+112,1.0788106868847766e+119,0.0,,time/move 6.7e+104y > 50ms; memory 9.6e+103PB > 128MB
+tight,menace,"(3,3,3)",ok,ok,0.0001062,336308.75,0.3023,0.00010398449990134395,
+tight,menace,"(4,4,4)",refused,refused,0.00011880000000000001,609946740.0,508.28895000000006,,memory 582MB > 128MB; training 8min > 30.0s
+tight,menace,"(5,5,4)",refused,refused,0.000135,10630923924206.25,8099751.561300001,,memory 10TB > 128MB; training 2250h > 30.0s
+tight,menace,"(6,6,4)",refused,refused,0.0001548,1.7452671524506606e+18,1203632518931.49,,memory 1.6e+03PB > 128MB; training 3.8e+04y > 30.0s
+tight,menace,"(6,7,4)+gravity",refused,refused,0.0001656,1.625271373504784e+17,106575172033.1006,,memory 1.4e+02PB > 128MB; training 3.4e+03y > 30.0s
+tight,menace,"(7,7,5)",refused,refused,0.00017820000000000002,2.663012062416698e+24,1.6514803487855496e+18,,memory 2.4e+09PB > 128MB; training 5.2e+10y > 30.0s
+tight,menace,"(9,9,5)",refused,refused,0.0002358,4.8114590571729714e+39,2.3907871091542715e+33,,memory 4.3e+24PB > 128MB; training 7.6e+25y > 30.0s
+tight,menace,"(11,11,5)",refused,refused,0.0003078,5.98869052362853e+58,2.383558417364589e+52,,memory 5.3e+43PB > 128MB; training 7.6e+44y > 30.0s
+tight,menace,"(15,15,5)",refused,refused,0.000495,2.787877816410697e+108,7.312466403700189e+101,,memory 2.5e+93PB > 128MB; training 2.3e+94y > 30.0s
+tight,menace,"(19,19,5)",refused,refused,0.0007398,2.464041751259652e+173,4.469917009087804e+166,,memory 2.2e+158PB > 128MB; training 1.4e+159y > 30.0s
+tight,qlearning,"(3,3,3)",ok,ok,0.000243,291719.5,0.9069,7.606950020999648e-05,
+tight,qlearning,"(4,4,4)",refused,refused,0.000432,526079063.25,1524.86685,,memory 502MB > 128MB; training 25min > 30.0s
+tight,qlearning,"(5,5,4)",refused,refused,0.000675,9112220506462.5,24299254.683900002,,memory 8TB > 128MB; training 6750h > 30.0s
+tight,qlearning,"(6,6,4)",refused,refused,0.000972,1.4864861608803901e+18,3610897556794.4697,,memory 1.3e+03PB > 128MB; training 1.1e+05y > 30.0s
+tight,qlearning,"(6,7,4)+gravity",refused,refused,0.001134,1.3801484778286528e+17,319725516099.3018,,memory 1.2e+02PB > 128MB; training 1.0e+04y > 30.0s
+tight,qlearning,"(7,7,5)",refused,refused,0.001323,2.2542706760922747e+24,4.954441046356648e+18,,memory 2.0e+09PB > 128MB; training 1.6e+11y > 30.0s
+tight,qlearning,"(9,9,5)",refused,refused,0.002187,4.0284762789249473e+39,7.172361327462815e+33,,memory 3.6e+24PB > 128MB; training 2.3e+26y > 30.0s
+tight,qlearning,"(11,11,5)",refused,refused,0.003267,4.969719300205168e+58,7.150675252093767e+52,,memory 4.4e+43PB > 128MB; training 2.3e+45y > 30.0s
+tight,qlearning,"(15,15,5)",refused,refused,0.0060750000000000005,2.2851457511563088e+108,2.1937399211100565e+102,,memory 2.0e+93PB > 128MB; training 7.0e+94y > 30.0s
+tight,qlearning,"(19,19,5)",refused,refused,0.009747,2.00475777857588e+173,1.3409751027263412e+167,,memory 1.8e+158PB > 128MB; training 4.3e+159y > 30.0s
+tight,td,"(3,3,3)",ok,ok,0.000243,291719.5,0.9069,9.60305001171946e-05,
+tight,td,"(4,4,4)",refused,refused,0.000432,526079063.25,1524.86685,,memory 502MB > 128MB; training 25min > 30.0s
+tight,td,"(5,5,4)",refused,refused,0.000675,9112220506462.5,24299254.683900002,,memory 8TB > 128MB; training 6750h > 30.0s
+tight,td,"(6,6,4)",refused,refused,0.000972,1.4864861608803901e+18,3610897556794.4697,,memory 1.3e+03PB > 128MB; training 1.1e+05y > 30.0s
+tight,td,"(6,7,4)+gravity",refused,refused,0.001134,1.3801484778286528e+17,319725516099.3018,,memory 1.2e+02PB > 128MB; training 1.0e+04y > 30.0s
+tight,td,"(7,7,5)",refused,refused,0.001323,2.2542706760922747e+24,4.954441046356648e+18,,memory 2.0e+09PB > 128MB; training 1.6e+11y > 30.0s
+tight,td,"(9,9,5)",refused,refused,0.002187,4.0284762789249473e+39,7.172361327462815e+33,,memory 3.6e+24PB > 128MB; training 2.3e+26y > 30.0s
+tight,td,"(11,11,5)",refused,refused,0.003267,4.969719300205168e+58,7.150675252093767e+52,,memory 4.4e+43PB > 128MB; training 2.3e+45y > 30.0s
+tight,td,"(15,15,5)",refused,refused,0.0060750000000000005,2.2851457511563088e+108,2.1937399211100565e+102,,memory 2.0e+93PB > 128MB; training 7.0e+94y > 30.0s
+tight,td,"(19,19,5)",refused,refused,0.009747,2.00475777857588e+173,1.3409751027263412e+167,,memory 1.8e+158PB > 128MB; training 4.3e+159y > 30.0s
+tight,alphabeta:depth=4,"(3,3,3)",degraded,degraded,0.01867161272484738,188729.2391325544,0.0,0.0006542570001784043,time/move 71ms > 50ms
+tight,alphabeta:depth=4,"(4,4,4)",degraded,degraded,0.012883542133782894,115998.27851545223,0.0,0.001261339499933456,time/move 267ms > 50ms
+tight,alphabeta:depth=4,"(5,5,4)",degraded,degraded,0.019951703904657784,173997.41777317837,0.0,0.0026429684999129677,time/move 413ms > 50ms
+tight,alphabeta:depth=4,"(6,6,4)",degraded,degraded,0.020717292542859773,173997.41777317837,0.0,0.003080014500028483,time/move 429ms > 50ms
+tight,alphabeta:depth=4,"(6,7,4)+gravity",degraded,degraded,0.04088344352050927,336581.5877100105,0.0,0.0029558935000295605,time/move 134ms > 50ms
+tight,alphabeta:depth=4,"(7,7,5)",degraded,degraded,0.02371004812855844,173997.41777317837,0.0,0.00438617300005717,time/move 491ms > 50ms
+tight,alphabeta:depth=4,"(9,9,5)",degraded,degraded,0.02593721507605512,173997.41777317837,0.0,0.0035519815000952804,time/move 538ms > 50ms
+tight,alphabeta:depth=4,"(11,11,5)",degraded,degraded,0.028721173760425975,173997.41777317837,0.0,0.007087274499781415,time/move 595ms > 50ms
+tight,alphabeta:depth=4,"(15,15,5)",degraded,degraded,0.0359594663397902,173997.41777317837,0.0,0.008561551499951747,time/move 745ms > 50ms
+tight,alphabeta:depth=4,"(19,19,5)",degraded,degraded,0.045424925866651096,173997.41777317837,0.0,0.008718153000017992,time/move 941ms > 50ms
+tight,mcts:iterations=1000,"(3,3,3)",ok,ok,0.0199,292000.0,0.0,0.019191631500007134,
+tight,mcts:iterations=1000,"(4,4,4)",ok,ok,0.0276,348000.0,0.0,0.03610260100026608,
+tight,mcts:iterations=1000,"(5,5,4)",ok,ok,0.037500000000000006,420000.0,0.0,0.045478389999971114,
+tight,mcts:iterations=1000,"(6,6,4)",ok,ok,0.0484,508000.0,0.0,0.04542846700019254,
+tight,mcts:iterations=1000,"(6,7,4)+gravity",degraded,degraded,0.049998799999999996,531536,0.0,0.036668154499921,time/move 52ms > 50ms
+tight,mcts:iterations=1000,"(7,7,5)",degraded,degraded,0.04997115,537948,0.0,0.045515530999864495,time/move 57ms > 50ms
+tight,mcts:iterations=1000,"(9,9,5)",degraded,degraded,0.04992895,398660,0.0,0.02290325050012143,time/move 78ms > 50ms
+tight,mcts:iterations=1000,"(11,11,5)",degraded,degraded,0.0499593,298840,0.0,0.022925640000039493,time/move 104ms > 50ms
+tight,mcts:iterations=1000,"(15,15,5)",degraded,degraded,0.04983375,180420,0.0,0.023060119999854578,time/move 171ms > 50ms
+tight,mcts:iterations=1000,"(19,19,5)",degraded,degraded,0.0498528,119040,0.0,0.023356343500154253,time/move 260ms > 50ms

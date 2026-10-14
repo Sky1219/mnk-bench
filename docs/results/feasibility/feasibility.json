@@ -1,0 +1,3696 @@
+{
+ "meta": {
+  "mnkbench_version": "0.1.0",
+  "python": "3.13.16",
+  "machine": "x86_64",
+  "created": "2026-10-14T07:56:07",
+  "seed": 0,
+  "quick": false
+ },
+ "maps": {
+  "standard": {
+   "agents": [
+    "random",
+    "rule",
+    "minimax",
+    "menace",
+    "qlearning",
+    "td",
+    "alphabeta:depth=4",
+    "mcts:iterations=1000"
+   ],
+   "boards": [
+    "(3,3,3)",
+    "(4,4,4)",
+    "(5,5,4)",
+    "(6,6,4)",
+    "(6,7,4)+gravity",
+    "(7,7,5)",
+    "(9,9,5)",
+    "(11,11,5)",
+    "(15,15,5)",
+    "(19,19,5)"
+   ],
+   "budget": {
+    "time_per_move": 1.0,
+    "memory_bytes": 1073741824,
+    "train_time": 600.0,
+    "cost_per_move": 0.05
+   },
+   "cells": [
+    {
+     "agent": "random",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 1.4000000000000001e-05,
+      "memory_bytes": 144.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.4702499811392045e-05,
+      "max_seconds": 2.571300001363852e-05,
+      "moves": 2,
+      "peak_rss": 50417664.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 2.1e-05,
+      "memory_bytes": 256.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.2916499827042571e-05,
+      "max_seconds": 2.293599982294836e-05,
+      "moves": 2,
+      "peak_rss": 50421760.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 2.9999999999999997e-05,
+      "memory_bytes": 400.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.4048499906493817e-05,
+      "max_seconds": 2.414499977021478e-05,
+      "moves": 2,
+      "peak_rss": 50597888.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 4.1e-05,
+      "memory_bytes": 576.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.3480500001605833e-05,
+      "max_seconds": 2.2661999992124038e-05,
+      "moves": 2,
+      "peak_rss": 50597888.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 4.7e-05,
+      "memory_bytes": 672.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.2033000075462041e-05,
+      "max_seconds": 2.1331999960239045e-05,
+      "moves": 2,
+      "peak_rss": 50606080.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 5.4e-05,
+      "memory_bytes": 784.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.636849992792122e-05,
+      "max_seconds": 2.6793999950314173e-05,
+      "moves": 2,
+      "peak_rss": 50606080.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 8.599999999999999e-05,
+      "memory_bytes": 1296.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.4436000128625892e-05,
+      "max_seconds": 2.3708000298938714e-05,
+      "moves": 2,
+      "peak_rss": 50737152.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.000126,
+      "memory_bytes": 1936.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.921750003930356e-05,
+      "max_seconds": 2.977900021505775e-05,
+      "moves": 2,
+      "peak_rss": 50737152.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.00023,
+      "memory_bytes": 3600.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 2.770800006146601e-05,
+      "max_seconds": 4.252300004736753e-05,
+      "moves": 2,
+      "peak_rss": 51003392.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.000366,
+      "memory_bytes": 5776.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 2.5259500034735538e-05,
+      "max_seconds": 3.686699983518338e-05,
+      "moves": 2,
+      "peak_rss": 51531776.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0005637600000000001,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 7.258199980242352e-05,
+      "max_seconds": 8.625099962955574e-05,
+      "moves": 2,
+      "peak_rss": 50647040.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0022118399999999996,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 9.792600030777976e-05,
+      "max_seconds": 0.00011697300033119973,
+      "moves": 2,
+      "peak_rss": 50651136.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.00432,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.00020566100010910304,
+      "max_seconds": 0.0002642800000103307,
+      "moves": 2,
+      "peak_rss": 50823168.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.00432,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0014474544998392957,
+      "max_seconds": 0.002552626999658969,
+      "moves": 2,
+      "peak_rss": 50823168.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.00432,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 7.765250006741553e-05,
+      "max_seconds": 9.233999981006491e-05,
+      "moves": 2,
+      "peak_rss": 50823168.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.006749999999999999,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.00039160450000963465,
+      "max_seconds": 0.00046594100012953277,
+      "moves": 2,
+      "peak_rss": 50827264.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.006749999999999999,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0007025914999303495,
+      "max_seconds": 0.0009057489996848744,
+      "moves": 2,
+      "peak_rss": 50958336.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.006749999999999999,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0010978380000778998,
+      "max_seconds": 0.001421790000222245,
+      "moves": 2,
+      "peak_rss": 50962432.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.006749999999999999,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0030117644998881588,
+      "max_seconds": 0.004419790999691031,
+      "moves": 2,
+      "peak_rss": 51228672.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.006749999999999999,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0033380259999375994,
+      "max_seconds": 0.005390028999954666,
+      "moves": 2,
+      "peak_rss": 51752960.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "minimax",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.005479181311202777,
+      "memory_bytes": 96537.95643547748,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~3.7e+02 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.005776958499836837,
+      "max_seconds": 0.010833133999767597,
+      "moves": 2,
+      "peak_rss": 50966528.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "minimax",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.9776084197070545,
+      "memory_bytes": 15478799.97869503,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~5.8e+04 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.6020265479999125,
+      "max_seconds": 0.6130567539998992,
+      "moves": 2,
+      "peak_rss": 60968960.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "minimax",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 14min > 1.0s; memory 11GB > 1GB",
+     "estimate": {
+      "time_per_move": 817.5150625873172,
+      "memory_bytes": 11529058574.949347,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~4.2e+07 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "frontier_probe": {
+      "status": "aborted",
+      "seconds_per_move": null,
+      "max_seconds": null,
+      "moves": 0,
+      "peak_rss": null,
+      "reason": "BudgetExceeded: solver exceeded 3.0s"
+     }
+    },
+    {
+     "agent": "minimax",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 873h > 1.0s; memory 36TB > 1GB",
+     "estimate": {
+      "time_per_move": 3143193.405829043,
+      "memory_bytes": 39427776932767.82,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1.4e+11 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 71h > 1.0s; memory 3TB > 1GB",
+     "estimate": {
+      "time_per_move": 254121.15399621986,
+      "memory_bytes": 3016397437678.7075,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1e+10 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 1.7e+03y > 1.0s; memory 5.5e+02PB > 1GB",
+     "estimate": {
+      "time_per_move": 54873868405.44406,
+      "memory_bytes": 6.145051180984184e+17,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~2.1e+15 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 4.8e+13y > 1.0s; memory 1.2e+13PB > 1GB",
+     "estimate": {
+      "time_per_move": 1.5205994806811293e+21,
+      "memory_bytes": 1.386552143541195e+28,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~4.2e+25 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 5.3e+26y > 1.0s; memory 1.1e+26PB > 1GB",
+     "estimate": {
+      "time_per_move": 1.6794267717577952e+34,
+      "memory_bytes": 1.2899944768574367e+41,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~3.5e+38 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 3.9e+60y > 1.0s; memory 6.6e+59PB > 1GB",
+     "estimate": {
+      "time_per_move": 1.2377443902334672e+68,
+      "memory_bytes": 7.395328117747131e+74,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1.6e+72 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 6.7e+104y > 1.0s; memory 9.6e+103PB > 1GB",
+     "estimate": {
+      "time_per_move": 2.1240740692674083e+112,
+      "memory_bytes": 1.0788106868847766e+119,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1.8e+116 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0001062,
+      "memory_bytes": 336308.75,
+      "train_time": 0.3023,
+      "cost_per_move": 0.0,
+      "notes": "up to 7.6e+02 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 7.64554999932443e-05,
+      "max_seconds": 0.00012324199997237884,
+      "moves": 2,
+      "peak_rss": 51437568.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "menace",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.00011880000000000001,
+      "memory_bytes": 609946740.0,
+      "train_time": 508.28895000000006,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.3e+06 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 7.260100005623826e-05,
+      "max_seconds": 0.00011973900018347194,
+      "moves": 2,
+      "peak_rss": 51437568.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "menace",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 10TB > 1GB; training 2250h > 10min",
+     "estimate": {
+      "time_per_move": 0.000135,
+      "memory_bytes": 10630923924206.25,
+      "train_time": 8099751.561300001,
+      "cost_per_move": 0.0,
+      "notes": "up to 2e+10 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.6e+03PB > 1GB; training 3.8e+04y > 10min",
+     "estimate": {
+      "time_per_move": 0.0001548,
+      "memory_bytes": 1.7452671524506606e+18,
+      "train_time": 1203632518931.49,
+      "cost_per_move": 0.0,
+      "notes": "up to 3e+15 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.4e+02PB > 1GB; training 3.4e+03y > 10min",
+     "estimate": {
+      "time_per_move": 0.0001656,
+      "memory_bytes": 1.625271373504784e+17,
+      "train_time": 106575172033.1006,
+      "cost_per_move": 0.0,
+      "notes": "up to 2.7e+14 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.4e+09PB > 1GB; training 5.2e+10y > 10min",
+     "estimate": {
+      "time_per_move": 0.00017820000000000002,
+      "memory_bytes": 2.663012062416698e+24,
+      "train_time": 1.6514803487855496e+18,
+      "cost_per_move": 0.0,
+      "notes": "up to 4.1e+21 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 4.3e+24PB > 1GB; training 7.6e+25y > 10min",
+     "estimate": {
+      "time_per_move": 0.0002358,
+      "memory_bytes": 4.8114590571729714e+39,
+      "train_time": 2.3907871091542715e+33,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+36 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 5.3e+43PB > 1GB; training 7.6e+44y > 10min",
+     "estimate": {
+      "time_per_move": 0.0003078,
+      "memory_bytes": 5.98869052362853e+58,
+      "train_time": 2.383558417364589e+52,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+55 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.5e+93PB > 1GB; training 2.3e+94y > 10min",
+     "estimate": {
+      "time_per_move": 0.000495,
+      "memory_bytes": 2.787877816410697e+108,
+      "train_time": 7.312466403700189e+101,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.8e+105 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.2e+158PB > 1GB; training 1.4e+159y > 10min",
+     "estimate": {
+      "time_per_move": 0.0007398,
+      "memory_bytes": 2.464041751259652e+173,
+      "train_time": 4.469917009087804e+166,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.1e+170 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.000243,
+      "memory_bytes": 291719.5,
+      "train_time": 0.9069,
+      "cost_per_move": 0.0,
+      "notes": "up to 7.6e+02 table entries"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0004487185001380567,
+      "max_seconds": 0.0008706240000719845,
+      "moves": 2,
+      "peak_rss": 51449856.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "qlearning",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "training 25min > 10min",
+     "estimate": {
+      "time_per_move": 0.000432,
+      "memory_bytes": 526079063.25,
+      "train_time": 600.0,
+      "cost_per_move": 0.0,
+      "notes": "under-trained: ~39% of the games needed"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 7.818399990355829e-05,
+      "max_seconds": 0.00013004499987800955,
+      "moves": 2,
+      "peak_rss": 51449856.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "qlearning",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 8TB > 1GB; training 6750h > 10min",
+     "estimate": {
+      "time_per_move": 0.000675,
+      "memory_bytes": 9112220506462.5,
+      "train_time": 24299254.683900002,
+      "cost_per_move": 0.0,
+      "notes": "up to 2e+10 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.3e+03PB > 1GB; training 1.1e+05y > 10min",
+     "estimate": {
+      "time_per_move": 0.000972,
+      "memory_bytes": 1.4864861608803901e+18,
+      "train_time": 3610897556794.4697,
+      "cost_per_move": 0.0,
+      "notes": "up to 3e+15 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.2e+02PB > 1GB; training 1.0e+04y > 10min",
+     "estimate": {
+      "time_per_move": 0.001134,
+      "memory_bytes": 1.3801484778286528e+17,
+      "train_time": 319725516099.3018,
+      "cost_per_move": 0.0,
+      "notes": "up to 2.7e+14 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.0e+09PB > 1GB; training 1.6e+11y > 10min",
+     "estimate": {
+      "time_per_move": 0.001323,
+      "memory_bytes": 2.2542706760922747e+24,
+      "train_time": 4.954441046356648e+18,
+      "cost_per_move": 0.0,
+      "notes": "up to 4.1e+21 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 3.6e+24PB > 1GB; training 2.3e+26y > 10min",
+     "estimate": {
+      "time_per_move": 0.002187,
+      "memory_bytes": 4.0284762789249473e+39,
+      "train_time": 7.172361327462815e+33,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+36 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 4.4e+43PB > 1GB; training 2.3e+45y > 10min",
+     "estimate": {
+      "time_per_move": 0.003267,
+      "memory_bytes": 4.969719300205168e+58,
+      "train_time": 7.150675252093767e+52,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+55 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.0e+93PB > 1GB; training 7.0e+94y > 10min",
+     "estimate": {
+      "time_per_move": 0.0060750000000000005,
+      "memory_bytes": 2.2851457511563088e+108,
+      "train_time": 2.1937399211100565e+102,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.8e+105 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.8e+158PB > 1GB; training 4.3e+159y > 10min",
+     "estimate": {
+      "time_per_move": 0.009747,
+      "memory_bytes": 2.00475777857588e+173,
+      "train_time": 1.3409751027263412e+167,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.1e+170 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.000243,
+      "memory_bytes": 291719.5,
+      "train_time": 0.9069,
+      "cost_per_move": 0.0,
+      "notes": "up to 7.6e+02 table entries"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.00012910949999422883,
+      "max_seconds": 0.00017340700014756294,
+      "moves": 2,
+      "peak_rss": 51453952.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "td",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "training 25min > 10min",
+     "estimate": {
+      "time_per_move": 0.000432,
+      "memory_bytes": 526079063.25,
+      "train_time": 600.0,
+      "cost_per_move": 0.0,
+      "notes": "under-trained: ~39% of the games needed"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.00016348899998774868,
+      "max_seconds": 0.00022459599995272583,
+      "moves": 2,
+      "peak_rss": 51453952.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "td",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 8TB > 1GB; training 6750h > 10min",
+     "estimate": {
+      "time_per_move": 0.000675,
+      "memory_bytes": 9112220506462.5,
+      "train_time": 24299254.683900002,
+      "cost_per_move": 0.0,
+      "notes": "up to 2e+10 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.3e+03PB > 1GB; training 1.1e+05y > 10min",
+     "estimate": {
+      "time_per_move": 0.000972,
+      "memory_bytes": 1.4864861608803901e+18,
+      "train_time": 3610897556794.4697,
+      "cost_per_move": 0.0,
+      "notes": "up to 3e+15 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.2e+02PB > 1GB; training 1.0e+04y > 10min",
+     "estimate": {
+      "time_per_move": 0.001134,
+      "memory_bytes": 1.3801484778286528e+17,
+      "train_time": 319725516099.3018,
+      "cost_per_move": 0.0,
+      "notes": "up to 2.7e+14 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.0e+09PB > 1GB; training 1.6e+11y > 10min",
+     "estimate": {
+      "time_per_move": 0.001323,
+      "memory_bytes": 2.2542706760922747e+24,
+      "train_time": 4.954441046356648e+18,
+      "cost_per_move": 0.0,
+      "notes": "up to 4.1e+21 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 3.6e+24PB > 1GB; training 2.3e+26y > 10min",
+     "estimate": {
+      "time_per_move": 0.002187,
+      "memory_bytes": 4.0284762789249473e+39,
+      "train_time": 7.172361327462815e+33,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+36 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 4.4e+43PB > 1GB; training 2.3e+45y > 10min",
+     "estimate": {
+      "time_per_move": 0.003267,
+      "memory_bytes": 4.969719300205168e+58,
+      "train_time": 7.150675252093767e+52,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+55 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.0e+93PB > 1GB; training 7.0e+94y > 10min",
+     "estimate": {
+      "time_per_move": 0.0060750000000000005,
+      "memory_bytes": 2.2851457511563088e+108,
+      "train_time": 2.1937399211100565e+102,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.8e+105 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.8e+158PB > 1GB; training 4.3e+159y > 10min",
+     "estimate": {
+      "time_per_move": 0.009747,
+      "memory_bytes": 2.00475777857588e+173,
+      "train_time": 1.3409751027263412e+167,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.1e+170 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.07077769593735382,
+      "memory_bytes": 735407.9778034417,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 4"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0008819909999147058,
+      "max_seconds": 0.0016459469998153509,
+      "moves": 2,
+      "peak_rss": 51388416.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.2670116935705976,
+      "memory_bytes": 2424066.868882932,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 4"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.012343224999995073,
+      "max_seconds": 0.024555099999815866,
+      "moves": 2,
+      "peak_rss": 51388416.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.41349950144786424,
+      "memory_bytes": 3626100.3033243977,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 4"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.03692402849992504,
+      "max_seconds": 0.07370754800012946,
+      "moves": 2,
+      "peak_rss": 51388416.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.4293663427824917,
+      "memory_bytes": 3626100.3033243977,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 4"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.032294480000018666,
+      "max_seconds": 0.06443696899987117,
+      "moves": 2,
+      "peak_rss": 51388416.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.13421422580769657,
+      "memory_bytes": 1124946.974267535,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 4"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.006235131500034186,
+      "max_seconds": 0.006818663000103697,
+      "moves": 2,
+      "peak_rss": 51388416.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.4913912679996713,
+      "memory_bytes": 3626100.3033243977,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 4"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0742056629999297,
+      "max_seconds": 0.1482472150000831,
+      "moves": 2,
+      "peak_rss": 51519488.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.5375493518822235,
+      "memory_bytes": 3626100.3033243977,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 4"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.09620489350004391,
+      "max_seconds": 0.19216658699997424,
+      "moves": 2,
+      "peak_rss": 51519488.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.595246956735414,
+      "memory_bytes": 3626100.3033243977,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 4"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.10185790600007749,
+      "max_seconds": 0.20331065900018075,
+      "moves": 2,
+      "peak_rss": 51634176.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.7452607293537089,
+      "memory_bytes": 3626100.3033243977,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 4"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.1330536119999124,
+      "max_seconds": 0.26545480300001145,
+      "moves": 2,
+      "peak_rss": 51896320.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.941432585854556,
+      "memory_bytes": 3626100.3033243977,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 4"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.1424377875000573,
+      "max_seconds": 0.28386147800028994,
+      "moves": 2,
+      "peak_rss": 52420608.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0199,
+      "memory_bytes": 292000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.01658133349997115,
+      "max_seconds": 0.01820410499976788,
+      "moves": 2,
+      "peak_rss": 52080640.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0276,
+      "memory_bytes": 348000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.02528060000008736,
+      "max_seconds": 0.026192568000169558,
+      "moves": 2,
+      "peak_rss": 52211712.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.037500000000000006,
+      "memory_bytes": 420000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.03859159500007081,
+      "max_seconds": 0.041732170000159385,
+      "moves": 2,
+      "peak_rss": 52342784.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0484,
+      "memory_bytes": 508000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.04454831949988147,
+      "max_seconds": 0.0502158369999961,
+      "moves": 2,
+      "peak_rss": 52604928.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0523,
+      "memory_bytes": 556000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.037739948999842454,
+      "max_seconds": 0.041245707999678416,
+      "moves": 2,
+      "peak_rss": 52211712.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.05685,
+      "memory_bytes": 612000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.06957359399984853,
+      "max_seconds": 0.07280923999996958,
+      "moves": 2,
+      "peak_rss": 52871168.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.07765,
+      "memory_bytes": 620000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.04615602149988263,
+      "max_seconds": 0.09214980099977765,
+      "moves": 2,
+      "peak_rss": 52219904.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.10364999999999999,
+      "memory_bytes": 620000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.05794451649990151,
+      "max_seconds": 0.11571718899995176,
+      "moves": 2,
+      "peak_rss": 52350976.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.17125,
+      "memory_bytes": 620000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.09474842349982282,
+      "max_seconds": 0.18914749099985784,
+      "moves": 2,
+      "peak_rss": 52482048.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.25965,
+      "memory_bytes": 620000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.1519743159999507,
+      "max_seconds": 0.3033617090000007,
+      "moves": 2,
+      "peak_rss": 52875264.0,
+      "reason": ""
+     }
+    }
+   ],
+   "frontier": [
+    {
+     "agent": "random",
+     "largest_ok": "(19,19,5)",
+     "largest_usable": "(19,19,5)",
+     "first_refused": null,
+     "aborted": []
+    },
+    {
+     "agent": "rule",
+     "largest_ok": "(19,19,5)",
+     "largest_usable": "(19,19,5)",
+     "first_refused": null,
+     "aborted": []
+    },
+    {
+     "agent": "minimax",
+     "largest_ok": "(4,4,4)",
+     "largest_usable": "(4,4,4)",
+     "first_refused": "(5,5,4)",
+     "aborted": []
+    },
+    {
+     "agent": "menace",
+     "largest_ok": "(4,4,4)",
+     "largest_usable": "(4,4,4)",
+     "first_refused": "(5,5,4)",
+     "aborted": []
+    },
+    {
+     "agent": "qlearning",
+     "largest_ok": "(3,3,3)",
+     "largest_usable": "(4,4,4)",
+     "first_refused": "(5,5,4)",
+     "aborted": []
+    },
+    {
+     "agent": "td",
+     "largest_ok": "(3,3,3)",
+     "largest_usable": "(4,4,4)",
+     "first_refused": "(5,5,4)",
+     "aborted": []
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "largest_ok": "(19,19,5)",
+     "largest_usable": "(19,19,5)",
+     "first_refused": null,
+     "aborted": []
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "largest_ok": "(19,19,5)",
+     "largest_usable": "(19,19,5)",
+     "first_refused": null,
+     "aborted": []
+    }
+   ]
+  },
+  "tight": {
+   "agents": [
+    "random",
+    "rule",
+    "minimax",
+    "menace",
+    "qlearning",
+    "td",
+    "alphabeta:depth=4",
+    "mcts:iterations=1000"
+   ],
+   "boards": [
+    "(3,3,3)",
+    "(4,4,4)",
+    "(5,5,4)",
+    "(6,6,4)",
+    "(6,7,4)+gravity",
+    "(7,7,5)",
+    "(9,9,5)",
+    "(11,11,5)",
+    "(15,15,5)",
+    "(19,19,5)"
+   ],
+   "budget": {
+    "time_per_move": 0.05,
+    "memory_bytes": 134217728,
+    "train_time": 30.0,
+    "cost_per_move": 0.005
+   },
+   "cells": [
+    {
+     "agent": "random",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 1.4000000000000001e-05,
+      "memory_bytes": 144.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.6605500150035368e-05,
+      "max_seconds": 2.9649000225617783e-05,
+      "moves": 2,
+      "peak_rss": 50892800.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 2.1e-05,
+      "memory_bytes": 256.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.285799999095616e-05,
+      "max_seconds": 2.251700016131508e-05,
+      "moves": 2,
+      "peak_rss": 50892800.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 2.9999999999999997e-05,
+      "memory_bytes": 400.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.674450004429673e-05,
+      "max_seconds": 2.9165999876568094e-05,
+      "moves": 2,
+      "peak_rss": 50892800.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 4.1e-05,
+      "memory_bytes": 576.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.4436000128625892e-05,
+      "max_seconds": 2.4372000098082935e-05,
+      "moves": 2,
+      "peak_rss": 50892800.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 4.7e-05,
+      "memory_bytes": 672.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.751950003381353e-05,
+      "max_seconds": 3.133300015178975e-05,
+      "moves": 2,
+      "peak_rss": 50892800.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 5.4e-05,
+      "memory_bytes": 784.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.5355500181613024e-05,
+      "max_seconds": 2.6218000130029395e-05,
+      "moves": 2,
+      "peak_rss": 50892800.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 8.599999999999999e-05,
+      "memory_bytes": 1296.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 2.1212499859757372e-05,
+      "max_seconds": 3.5799999750452116e-05,
+      "moves": 2,
+      "peak_rss": 50892800.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.000126,
+      "memory_bytes": 1936.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.6694999885658035e-05,
+      "max_seconds": 2.693899978112313e-05,
+      "moves": 2,
+      "peak_rss": 51200000.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.00023,
+      "memory_bytes": 3600.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 1.873500013971352e-05,
+      "max_seconds": 2.8806000045733526e-05,
+      "moves": 2,
+      "peak_rss": 51331072.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "random",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.000366,
+      "memory_bytes": 5776.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 4.451550012163352e-05,
+      "max_seconds": 6.935300007171463e-05,
+      "moves": 2,
+      "peak_rss": 51855360.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0005637600000000001,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0001251900000625028,
+      "max_seconds": 0.0001554159998704563,
+      "moves": 2,
+      "peak_rss": 51269632.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0022118399999999996,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.00016248750011982338,
+      "max_seconds": 0.00021568100009972113,
+      "moves": 2,
+      "peak_rss": 51269632.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.00432,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.00019902250005543465,
+      "max_seconds": 0.0002042659998551244,
+      "moves": 2,
+      "peak_rss": 51269632.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.00432,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0003606034999847907,
+      "max_seconds": 0.0003840089998448093,
+      "moves": 2,
+      "peak_rss": 51269632.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.00432,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 8.650599988868635e-05,
+      "max_seconds": 0.0001077130000339821,
+      "moves": 2,
+      "peak_rss": 51269632.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.006749999999999999,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0005600184999821067,
+      "max_seconds": 0.000724370000170893,
+      "moves": 2,
+      "peak_rss": 51269632.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.006749999999999999,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.000685973000145168,
+      "max_seconds": 0.0008854229999997187,
+      "moves": 2,
+      "peak_rss": 51269632.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.006749999999999999,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0015489610000258835,
+      "max_seconds": 0.0019900130000678473,
+      "moves": 2,
+      "peak_rss": 51572736.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.006749999999999999,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0023189545001969236,
+      "max_seconds": 0.0035053430001426022,
+      "moves": 2,
+      "peak_rss": 51838976.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "rule",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.006749999999999999,
+      "memory_bytes": 10000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": ""
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.004832133499803604,
+      "max_seconds": 0.007737470999927609,
+      "moves": 2,
+      "peak_rss": 52232192.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "minimax",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.005479181311202777,
+      "memory_bytes": 96537.95643547748,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~3.7e+02 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0019850155001677194,
+      "max_seconds": 0.0028623070002140594,
+      "moves": 2,
+      "peak_rss": 51404800.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "minimax",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 978ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.9776084197070545,
+      "memory_bytes": 15478799.97869503,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~5.8e+04 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "frontier_probe": {
+      "status": "aborted",
+      "seconds_per_move": null,
+      "max_seconds": null,
+      "moves": 0,
+      "peak_rss": null,
+      "reason": "BudgetExceeded: solver exceeded 0.15000000000000002s"
+     }
+    },
+    {
+     "agent": "minimax",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 14min > 50ms; memory 11GB > 128MB",
+     "estimate": {
+      "time_per_move": 817.5150625873172,
+      "memory_bytes": 11529058574.949347,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~4.2e+07 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 873h > 50ms; memory 36TB > 128MB",
+     "estimate": {
+      "time_per_move": 3143193.405829043,
+      "memory_bytes": 39427776932767.82,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1.4e+11 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 71h > 50ms; memory 3TB > 128MB",
+     "estimate": {
+      "time_per_move": 254121.15399621986,
+      "memory_bytes": 3016397437678.7075,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1e+10 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 1.7e+03y > 50ms; memory 5.5e+02PB > 128MB",
+     "estimate": {
+      "time_per_move": 54873868405.44406,
+      "memory_bytes": 6.145051180984184e+17,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~2.1e+15 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 4.8e+13y > 50ms; memory 1.2e+13PB > 128MB",
+     "estimate": {
+      "time_per_move": 1.5205994806811293e+21,
+      "memory_bytes": 1.386552143541195e+28,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~4.2e+25 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 5.3e+26y > 50ms; memory 1.1e+26PB > 128MB",
+     "estimate": {
+      "time_per_move": 1.6794267717577952e+34,
+      "memory_bytes": 1.2899944768574367e+41,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~3.5e+38 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 3.9e+60y > 50ms; memory 6.6e+59PB > 128MB",
+     "estimate": {
+      "time_per_move": 1.2377443902334672e+68,
+      "memory_bytes": 7.395328117747131e+74,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1.6e+72 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "minimax",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 6.7e+104y > 50ms; memory 9.6e+103PB > 128MB",
+     "estimate": {
+      "time_per_move": 2.1240740692674083e+112,
+      "memory_bytes": 1.0788106868847766e+119,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1.8e+116 nodes to solve the opening position"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0001062,
+      "memory_bytes": 336308.75,
+      "train_time": 0.3023,
+      "cost_per_move": 0.0,
+      "notes": "up to 7.6e+02 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.00010398449990134395,
+      "max_seconds": 0.0001397500000166474,
+      "moves": 2,
+      "peak_rss": 51286016.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "menace",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 582MB > 128MB; training 8min > 30.0s",
+     "estimate": {
+      "time_per_move": 0.00011880000000000001,
+      "memory_bytes": 609946740.0,
+      "train_time": 508.28895000000006,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.3e+06 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 10TB > 128MB; training 2250h > 30.0s",
+     "estimate": {
+      "time_per_move": 0.000135,
+      "memory_bytes": 10630923924206.25,
+      "train_time": 8099751.561300001,
+      "cost_per_move": 0.0,
+      "notes": "up to 2e+10 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.6e+03PB > 128MB; training 3.8e+04y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.0001548,
+      "memory_bytes": 1.7452671524506606e+18,
+      "train_time": 1203632518931.49,
+      "cost_per_move": 0.0,
+      "notes": "up to 3e+15 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.4e+02PB > 128MB; training 3.4e+03y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.0001656,
+      "memory_bytes": 1.625271373504784e+17,
+      "train_time": 106575172033.1006,
+      "cost_per_move": 0.0,
+      "notes": "up to 2.7e+14 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.4e+09PB > 128MB; training 5.2e+10y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.00017820000000000002,
+      "memory_bytes": 2.663012062416698e+24,
+      "train_time": 1.6514803487855496e+18,
+      "cost_per_move": 0.0,
+      "notes": "up to 4.1e+21 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 4.3e+24PB > 128MB; training 7.6e+25y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.0002358,
+      "memory_bytes": 4.8114590571729714e+39,
+      "train_time": 2.3907871091542715e+33,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+36 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 5.3e+43PB > 128MB; training 7.6e+44y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.0003078,
+      "memory_bytes": 5.98869052362853e+58,
+      "train_time": 2.383558417364589e+52,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+55 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.5e+93PB > 128MB; training 2.3e+94y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.000495,
+      "memory_bytes": 2.787877816410697e+108,
+      "train_time": 7.312466403700189e+101,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.8e+105 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "menace",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.2e+158PB > 128MB; training 1.4e+159y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.0007398,
+      "memory_bytes": 2.464041751259652e+173,
+      "train_time": 4.469917009087804e+166,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.1e+170 matchboxes"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.000243,
+      "memory_bytes": 291719.5,
+      "train_time": 0.9069,
+      "cost_per_move": 0.0,
+      "notes": "up to 7.6e+02 table entries"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 7.606950020999648e-05,
+      "max_seconds": 0.00012984800014237408,
+      "moves": 2,
+      "peak_rss": 51294208.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "qlearning",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 502MB > 128MB; training 25min > 30.0s",
+     "estimate": {
+      "time_per_move": 0.000432,
+      "memory_bytes": 526079063.25,
+      "train_time": 1524.86685,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.3e+06 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 8TB > 128MB; training 6750h > 30.0s",
+     "estimate": {
+      "time_per_move": 0.000675,
+      "memory_bytes": 9112220506462.5,
+      "train_time": 24299254.683900002,
+      "cost_per_move": 0.0,
+      "notes": "up to 2e+10 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.3e+03PB > 128MB; training 1.1e+05y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.000972,
+      "memory_bytes": 1.4864861608803901e+18,
+      "train_time": 3610897556794.4697,
+      "cost_per_move": 0.0,
+      "notes": "up to 3e+15 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.2e+02PB > 128MB; training 1.0e+04y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.001134,
+      "memory_bytes": 1.3801484778286528e+17,
+      "train_time": 319725516099.3018,
+      "cost_per_move": 0.0,
+      "notes": "up to 2.7e+14 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.0e+09PB > 128MB; training 1.6e+11y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.001323,
+      "memory_bytes": 2.2542706760922747e+24,
+      "train_time": 4.954441046356648e+18,
+      "cost_per_move": 0.0,
+      "notes": "up to 4.1e+21 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 3.6e+24PB > 128MB; training 2.3e+26y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.002187,
+      "memory_bytes": 4.0284762789249473e+39,
+      "train_time": 7.172361327462815e+33,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+36 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 4.4e+43PB > 128MB; training 2.3e+45y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.003267,
+      "memory_bytes": 4.969719300205168e+58,
+      "train_time": 7.150675252093767e+52,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+55 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.0e+93PB > 128MB; training 7.0e+94y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.0060750000000000005,
+      "memory_bytes": 2.2851457511563088e+108,
+      "train_time": 2.1937399211100565e+102,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.8e+105 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "qlearning",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.8e+158PB > 128MB; training 4.3e+159y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.009747,
+      "memory_bytes": 2.00475777857588e+173,
+      "train_time": 1.3409751027263412e+167,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.1e+170 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.000243,
+      "memory_bytes": 291719.5,
+      "train_time": 0.9069,
+      "cost_per_move": 0.0,
+      "notes": "up to 7.6e+02 table entries"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 9.60305001171946e-05,
+      "max_seconds": 0.00014679400010209065,
+      "moves": 2,
+      "peak_rss": 51298304.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "td",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 502MB > 128MB; training 25min > 30.0s",
+     "estimate": {
+      "time_per_move": 0.000432,
+      "memory_bytes": 526079063.25,
+      "train_time": 1524.86685,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.3e+06 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 8TB > 128MB; training 6750h > 30.0s",
+     "estimate": {
+      "time_per_move": 0.000675,
+      "memory_bytes": 9112220506462.5,
+      "train_time": 24299254.683900002,
+      "cost_per_move": 0.0,
+      "notes": "up to 2e+10 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.3e+03PB > 128MB; training 1.1e+05y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.000972,
+      "memory_bytes": 1.4864861608803901e+18,
+      "train_time": 3610897556794.4697,
+      "cost_per_move": 0.0,
+      "notes": "up to 3e+15 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.2e+02PB > 128MB; training 1.0e+04y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.001134,
+      "memory_bytes": 1.3801484778286528e+17,
+      "train_time": 319725516099.3018,
+      "cost_per_move": 0.0,
+      "notes": "up to 2.7e+14 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.0e+09PB > 128MB; training 1.6e+11y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.001323,
+      "memory_bytes": 2.2542706760922747e+24,
+      "train_time": 4.954441046356648e+18,
+      "cost_per_move": 0.0,
+      "notes": "up to 4.1e+21 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 3.6e+24PB > 128MB; training 2.3e+26y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.002187,
+      "memory_bytes": 4.0284762789249473e+39,
+      "train_time": 7.172361327462815e+33,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+36 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 4.4e+43PB > 128MB; training 2.3e+45y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.003267,
+      "memory_bytes": 4.969719300205168e+58,
+      "train_time": 7.150675252093767e+52,
+      "cost_per_move": 0.0,
+      "notes": "up to 6e+55 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 2.0e+93PB > 128MB; training 7.0e+94y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.0060750000000000005,
+      "memory_bytes": 2.2851457511563088e+108,
+      "train_time": 2.1937399211100565e+102,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.8e+105 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "td",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 1.8e+158PB > 128MB; training 4.3e+159y > 30.0s",
+     "estimate": {
+      "time_per_move": 0.009747,
+      "memory_bytes": 2.00475777857588e+173,
+      "train_time": 1.3409751027263412e+167,
+      "cost_per_move": 0.0,
+      "notes": "up to 1.1e+170 table entries"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 71ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.01867161272484738,
+      "memory_bytes": 188729.2391325544,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 3"
+     },
+     "degraded_params": {
+      "depth": 3
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0006542570001784043,
+      "max_seconds": 0.0011811270001089724,
+      "moves": 2,
+      "peak_rss": 51425280.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 267ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.012883542133782894,
+      "memory_bytes": 115998.27851545223,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 2"
+     },
+     "degraded_params": {
+      "depth": 2
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.001261339499933456,
+      "max_seconds": 0.0023818899999241694,
+      "moves": 2,
+      "peak_rss": 51425280.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 413ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.019951703904657784,
+      "memory_bytes": 173997.41777317837,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 2"
+     },
+     "degraded_params": {
+      "depth": 2
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0026429684999129677,
+      "max_seconds": 0.005137091000051441,
+      "moves": 2,
+      "peak_rss": 51425280.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 429ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.020717292542859773,
+      "memory_bytes": 173997.41777317837,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 2"
+     },
+     "degraded_params": {
+      "depth": 2
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.003080014500028483,
+      "max_seconds": 0.005950378999841632,
+      "moves": 2,
+      "peak_rss": 51429376.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 134ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.04088344352050927,
+      "memory_bytes": 336581.5877100105,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 3"
+     },
+     "degraded_params": {
+      "depth": 3
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0029558935000295605,
+      "max_seconds": 0.0031910560001051635,
+      "moves": 2,
+      "peak_rss": 51433472.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 491ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.02371004812855844,
+      "memory_bytes": 173997.41777317837,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 2"
+     },
+     "degraded_params": {
+      "depth": 2
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.00438617300005717,
+      "max_seconds": 0.00852997200036043,
+      "moves": 2,
+      "peak_rss": 51433472.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 538ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.02593721507605512,
+      "memory_bytes": 173997.41777317837,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 2"
+     },
+     "degraded_params": {
+      "depth": 2
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0035519815000952804,
+      "max_seconds": 0.0068554879999283,
+      "moves": 2,
+      "peak_rss": 51417088.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 595ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.028721173760425975,
+      "memory_bytes": 173997.41777317837,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 2"
+     },
+     "degraded_params": {
+      "depth": 2
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.007087274499781415,
+      "max_seconds": 0.013728860999890458,
+      "moves": 2,
+      "peak_rss": 51548160.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 745ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.0359594663397902,
+      "memory_bytes": 173997.41777317837,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 2"
+     },
+     "degraded_params": {
+      "depth": 2
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.008561551499951747,
+      "max_seconds": 0.016247734999979002,
+      "moves": 2,
+      "peak_rss": 51810304.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 941ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.045424925866651096,
+      "memory_bytes": 173997.41777317837,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "depth 2"
+     },
+     "degraded_params": {
+      "depth": 2
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.008718153000017992,
+      "max_seconds": 0.01614556200001971,
+      "moves": 2,
+      "peak_rss": 52334592.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0199,
+      "memory_bytes": 292000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.019191631500007134,
+      "max_seconds": 0.022456615999999485,
+      "moves": 2,
+      "peak_rss": 52002816.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0276,
+      "memory_bytes": 348000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.03610260100026608,
+      "max_seconds": 0.03832476800016593,
+      "moves": 2,
+      "peak_rss": 52269056.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.037500000000000006,
+      "memory_bytes": 420000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.045478389999971114,
+      "max_seconds": 0.04550458999983675,
+      "moves": 2,
+      "peak_rss": 52269056.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0484,
+      "memory_bytes": 508000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "~1000 playouts/move"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.04542846700019254,
+      "max_seconds": 0.04544849500007331,
+      "moves": 2,
+      "peak_rss": 52269056.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 52ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.049998799999999996,
+      "memory_bytes": 531536,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "956 playouts/move"
+     },
+     "degraded_params": {
+      "iterations": 956
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.036668154499921,
+      "max_seconds": 0.03795642400018551,
+      "moves": 2,
+      "peak_rss": 52137984.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 57ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.04997115,
+      "memory_bytes": 537948,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "879 playouts/move"
+     },
+     "degraded_params": {
+      "iterations": 879
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.045515530999864495,
+      "max_seconds": 0.045703819999744155,
+      "moves": 2,
+      "peak_rss": 52142080.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 78ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.04992895,
+      "memory_bytes": 398660,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "643 playouts/move"
+     },
+     "degraded_params": {
+      "iterations": 643
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.02290325050012143,
+      "max_seconds": 0.045485965000352735,
+      "moves": 2,
+      "peak_rss": 51748864.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 104ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.0499593,
+      "memory_bytes": 298840,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "482 playouts/move"
+     },
+     "degraded_params": {
+      "iterations": 482
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.022925640000039493,
+      "max_seconds": 0.04561425900010363,
+      "moves": 2,
+      "peak_rss": 51748864.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 171ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.04983375,
+      "memory_bytes": 180420,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "291 playouts/move"
+     },
+     "degraded_params": {
+      "iterations": 291
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.023060119999854578,
+      "max_seconds": 0.04565205999961108,
+      "moves": 2,
+      "peak_rss": 51884032.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "degraded",
+     "estimated_status": "degraded",
+     "reason": "time/move 260ms > 50ms",
+     "estimate": {
+      "time_per_move": 0.0498528,
+      "memory_bytes": 119040,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "192 playouts/move"
+     },
+     "degraded_params": {
+      "iterations": 192
+     },
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.023356343500154253,
+      "max_seconds": 0.04599059500014846,
+      "moves": 2,
+      "peak_rss": 52408320.0,
+      "reason": ""
+     }
+    }
+   ],
+   "frontier": [
+    {
+     "agent": "random",
+     "largest_ok": "(19,19,5)",
+     "largest_usable": "(19,19,5)",
+     "first_refused": null,
+     "aborted": []
+    },
+    {
+     "agent": "rule",
+     "largest_ok": "(19,19,5)",
+     "largest_usable": "(19,19,5)",
+     "first_refused": null,
+     "aborted": []
+    },
+    {
+     "agent": "minimax",
+     "largest_ok": "(3,3,3)",
+     "largest_usable": "(3,3,3)",
+     "first_refused": "(4,4,4)",
+     "aborted": []
+    },
+    {
+     "agent": "menace",
+     "largest_ok": "(3,3,3)",
+     "largest_usable": "(3,3,3)",
+     "first_refused": "(4,4,4)",
+     "aborted": []
+    },
+    {
+     "agent": "qlearning",
+     "largest_ok": "(3,3,3)",
+     "largest_usable": "(3,3,3)",
+     "first_refused": "(4,4,4)",
+     "aborted": []
+    },
+    {
+     "agent": "td",
+     "largest_ok": "(3,3,3)",
+     "largest_usable": "(3,3,3)",
+     "first_refused": "(4,4,4)",
+     "aborted": []
+    },
+    {
+     "agent": "alphabeta:depth=4",
+     "largest_ok": null,
+     "largest_usable": "(19,19,5)",
+     "first_refused": null,
+     "aborted": []
+    },
+    {
+     "agent": "mcts:iterations=1000",
+     "largest_ok": "(6,6,4)",
+     "largest_usable": "(19,19,5)",
+     "first_refused": null,
+     "aborted": []
+    }
+   ]
+  }
+ }
+}

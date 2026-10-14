@@ -1,0 +1,8 @@
+agent,win,draw,loss,aborted
+random,47,1,192,0
+rule,179,0,61,0
+menace,39,1,200,0
+qlearning,46,0,194,0
+td,107,0,133,0
+alphabeta:depth=2,181,0,59,0
+alphabeta:depth=4,240,0,0,0
