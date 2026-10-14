@@ -109,7 +109,7 @@ mnk-bench replot --out results                    # redraw every plot from saved
 mnk-bench report --out results                    # rebuild results/index.html
 ```
 
-Experiments: `menace`, `symmetry`, `tabular`, `h2h`, `bigboards`, `mcts`, `elo`, `feasibility`, `perf`, `gomoku`, `alphazero`, `llm`. Each writes `<out>/<name>/<name>.json` (all raw numbers, with metadata and seeds), CSV tables, and PNG plots. Plots and the HTML report are built only from the saved data, so they can be regenerated without re-running anything. All runs are seeded; the same seed reproduces the same games.
+Experiments: `menace`, `symmetry`, `tabular`, `h2h`, `bigboards`, `mcts`, `elo`, `feasibility`, `perf`, `gomoku`, `alphazero`, `llm`, `targeted`. Each writes `<out>/<name>/<name>.json` (all raw numbers, with metadata and seeds), CSV tables, and PNG plots. Plots and the HTML report are built only from the saved data, so they can be regenerated without re-running anything. All runs are seeded; the same seed reproduces the same games.
 
 The committed results live in [`docs/results/`](docs/results/); open [`docs/results/index.html`](docs/results/index.html) for the full report.
 
@@ -156,12 +156,14 @@ src/mnkbench/
   elo.py           Bradley-Terry Elo, bootstrap CIs
   feasibility.py   estimates, guarded subprocess probes, feasibility map
   playout.py       fast random playouts
+  submodular.py    submodular functions, PRISM information measures, greedy
   perf.py          micro-benchmarks
   experiments/     the benchmark suite (writes JSON/CSV/PNG)
   plots.py         all figures, from saved data
   report.py        static HTML report
   cli.py           mnk-bench command
 tests/             pytest suite (fast; torch tests skip without torch)
+docs/research/     paper-style write-up of the targeted-selection (PRISM) study
 docs/results/      committed results, plots and index.html
 ```
 
@@ -235,6 +237,18 @@ The score against the rule-based player on the gravity board swings from one ite
 ### LLM players
 
 The LLM agent is built and tested end to end (prompting, parsing, legality checks, retries, fallback, token and cost accounting) against a mocked client. No API key was available in the environment that produced these results, so `docs/results/llm/` holds a **mock run** that checks the pipeline, not a model. Run `mnk-bench experiment llm --out results` with `ANTHROPIC_API_KEY` set to measure Claude's strength and cost per move.
+
+### Research extension: targeted labelling with submodular information measures (PRISM)
+
+[`docs/research/targeted-selection.md`](docs/research/targeted-selection.md) is a paper-style study that brings PRISM's *targeted learning* (Kothawade et al., AAAI 2022) to game agents. A small AlphaZero-style network on mini Connect Four, (5,5,4)+gravity, misses three tactical motifs: immediate wins, forced blocks and poisoned moves. Given 20 examples of a motif, which positions should an expensive teacher (the exact solver) label so that fine-tuning fixes the motif?
+
+- [`mnkbench.submodular`](src/mnkbench/submodular.py) implements facility location, graph cut, log-determinant and the PRISM measures GCMI, FLMI, FLVMI, COM, LogDetMI, FLCG and FLCMI. It provides vectorised marginal gains and greedy / lazy greedy maximisation, and its tests check the definitions, submodularity and the (1 − 1/e) bound.
+- Results over 5 seeds × 3 motifs × budgets 25–400:
+  - The PRISM measures select **2–3× more motif positions** than random.
+  - Only **LogDetMI** turns that into better motif accuracy: +1.8 points on average, +4.3 at 400 labels; p = 0.012 uncorrected, 0.12 after correcting for 10 methods. The others are within ±1 point of random.
+  - An oracle that labels only motif positions gains +13 points.
+  - A dose-response analysis shows why. Gains track the *number* of motif positions labelled (+4.7 points per doubling). PRISM-selected motif positions are worth no more than random ones, so the network's embedding precision is the bottleneck.
+- Run with `mnk-bench experiment targeted --out results` (needs PyTorch; about 1 hour on 4 cores).
 
 ### Performance
 

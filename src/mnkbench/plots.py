@@ -488,6 +488,11 @@ def plot_targeted(data: dict, out_dir: str | Path) -> list[Path]:
             handles.append(ax.get_lines()[-1])
         ax.legend(handles=handles, loc="upper left")
         ax.set_xscale("log")
+        from matplotlib.ticker import FixedLocator, NullLocator
+
+        ax.xaxis.set_major_locator(FixedLocator([20, 30, 50, 100, 200, 400]))
+        ax.xaxis.set_minor_locator(NullLocator())
+        ax.set_xticklabels(["20", "30", "50", "100", "200", "400"])
         ax.axhline(0, color=AXIS, linewidth=1)
         ax.set_xlabel("motif positions in the training set (selected hits + |Q|, log scale)")
         ax.set_ylabel("target accuracy gain over query-only")

@@ -37,6 +37,31 @@ def test_summaries_and_paired():
     assert {r["method"] for r in pooled} == {"random", "FLMI"}
 
 
+def test_significance_and_dose_response():
+    from mnkbench.experiments.targeted import _sign_test, dose_response, significance
+
+    assert _sign_test(5, 5) == 1.0
+    assert _sign_test(10, 0) == pytest.approx(2 / 1024)
+    rows = []
+    for seed in range(6):
+        for k in (25, 400):
+            rows.append({"target": "win", "method": "random", "seed": seed, "k": k, "acc_target": 0.5,
+                         "acc_critical": 0.6, "hit_target": 0.1})
+            rows.append({"target": "win", "method": "LogDetMI", "seed": seed, "k": k, "acc_target": 0.55,
+                         "acc_critical": 0.59, "hit_target": 0.3})
+            rows.append({"target": "win", "method": "oracle", "seed": seed, "k": k,
+                         "acc_target": 0.5 + 0.05 * np.log2(k + 20), "acc_critical": 0.6, "hit_target": 1.0})
+        rows.append({"target": "win", "method": "query-only", "seed": seed, "k": 0, "acc_target": 0.5,
+                     "acc_critical": 0.6, "hit_target": None})
+    sig = {(x["metric"], x["budgets"], x["method"]): x for x in significance(rows)}
+    s = sig[("acc_target", "all", "LogDetMI")]
+    assert s["wins"] == 12 and s["mean_diff"] == pytest.approx(0.05) and s["p_sign"] < 0.001
+    assert sig[("acc_critical", "all", "LogDetMI")]["losses"] == 12
+    dr = dose_response(rows, nq=20)
+    assert dr["fit"]["slope_per_doubling"] == pytest.approx(0.05, abs=1e-6)
+    assert abs(dr["residuals"]["oracle"]) < 1e-9
+
+
 def test_quick_experiment(tmp_path):
     pytest.importorskip("torch")
     from mnkbench.experiments.targeted import exp_targeted

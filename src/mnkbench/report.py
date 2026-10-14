@@ -332,14 +332,19 @@ def sec_targeted(out: Path) -> str:
     win_rows = [{"method": m, "beats random (seed x motif x k)": f"{w[0]} of {w[2]}", "loses to random": w[1]}
                 for m, w in wins.items()]
     return (
-        "<p>PRISM-style <em>targeted learning</em> for games (see <code>docs/research/targeted-selection.md</code>). "
+        "<p>PRISM-style <em>targeted learning</em> for games (full write-up: <code>docs/research/targeted-selection.md</code>). "
         f"A briefly self-trained network on {html.escape(meta.get('board', ''))} misses tactical motifs "
         "(immediate wins, forced blocks, poisoned moves). Given a few example positions of a motif, each "
         "method picks k positions from an unlabelled pool for the exact solver to label; the network is "
         "fine-tuned on them and evaluated on held-out motif positions. Numbers are averaged over the three "
         f"motifs and {len(d.get('stats', []))} seeds.</p>"
         + table(rows, [("method", "method")] + [(c, c) for c in cols])
-        + "<h3>Paired comparison with random selection</h3>" + table(win_rows)
+        + "<h3>Paired comparison with random selection</h3>"
+        + table([{"method": x["method"], "metric": x["metric"], "budgets": x["budgets"],
+                  "wins/losses": f"{x['wins']}/{x['losses']}", "mean diff": x["mean_diff"], "95% CI": x["ci95"],
+                  "p (sign)": x["p_sign"], "p (Bonferroni)": x["p_bonferroni"]}
+                 for x in d.get("significance", []) if x["budgets"] == "all"]) if d.get("significance")
+        else table(win_rows)
         + figures(out, [("targeted/targeted_budget.png", "budget curves per motif"),
                         ("targeted/targeted_pooled.png", "pooled budget curves"),
                         ("targeted/targeted_dose.png", "dose-response"),

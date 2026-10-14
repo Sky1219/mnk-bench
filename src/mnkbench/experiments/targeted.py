@@ -569,6 +569,43 @@ def dose_response(rows: list[dict], nq: int) -> dict:
             "residuals": {m: float(np.mean(v)) for m, v in res.items()}}
 
 
+def _sign_test(wins: int, losses: int) -> float:
+    """Two-sided exact sign test (ties dropped)."""
+    n = wins + losses
+    if n == 0:
+        return 1.0
+    k = min(wins, losses)
+    return min(1.0, 2 * sum(math.comb(n, i) for i in range(k + 1)) / 2**n)
+
+
+def significance(rows: list[dict], n_methods: int | None = None) -> list[dict]:
+    """Paired differences to random over every (motif, seed, budget), with a
+    95% CI, a two-sided sign test and its Bonferroni correction across the
+    compared methods, for all budgets, k = 400 and k <= 50."""
+    main = [r for r in rows if not r.get("ablation")]
+    rand = {(r["target"], r["seed"], r["k"]): r for r in main if r["method"] == "random"}
+    methods = [m for m in METHODS if m != "random" and any(r["method"] == m for r in main)]
+    n_methods = n_methods or len(methods)
+    budgets = sorted({r["k"] for r in main if r["k"]})
+    out = []
+    for metric in ("acc_target", "acc_critical"):
+        for label, keep in (("all", lambda k: True), (f"k={budgets[-1]}", lambda k: k == budgets[-1]),
+                            ("k<=50", lambda k: k <= 50)):
+            for m in methods:
+                diffs = [r[metric] - rand[(r["target"], r["seed"], r["k"])][metric] for r in main
+                         if r["method"] == m and keep(r["k"]) and (r["target"], r["seed"], r["k"]) in rand]
+                if len(diffs) < 2:
+                    continue
+                wins, losses = sum(x > 0 for x in diffs), sum(x < 0 for x in diffs)
+                mean = float(np.mean(diffs))
+                ci = float(1.96 * np.std(diffs, ddof=1) / math.sqrt(len(diffs)))
+                p = _sign_test(wins, losses)
+                out.append({"metric": metric, "budgets": label, "method": m, "n": len(diffs), "wins": wins,
+                            "losses": losses, "mean_diff": mean, "ci95": ci, "p_sign": p,
+                            "p_bonferroni": min(1.0, p * n_methods)})
+    return out
+
+
 def pooled_over_targets(rows: list[dict]) -> list[dict]:
     """Average each (method, k) over targets and seeds: the headline numbers."""
     main = [r for r in rows if not r.get("ablation")]
@@ -631,11 +668,13 @@ def exp_targeted(out: Path, quick: bool = False, seed: int = 0, log: Log = print
         "paired_critical": paired_vs_random(rows, "acc_critical"),
         "paired_hit": paired_vs_random(rows, "hit_target"),
         "dose_response": dose_response(rows, args["nq"]),
+        "significance": significance(rows),
     }
     save_json(data, out / "targeted" / "targeted.json")
     save_csv(rows, out / "targeted" / "targeted_runs.csv")
     save_csv(data["summary"], out / "targeted" / "targeted_summary.csv")
     save_csv(data["pooled"], out / "targeted" / "targeted_pooled.csv")
+    save_csv(data["significance"], out / "targeted" / "targeted_significance.csv")
     save_csv(data["paired_target"] + data["paired_critical"] + data["paired_hit"],
              out / "targeted" / "targeted_paired.csv")
     replot_targeted(out)
