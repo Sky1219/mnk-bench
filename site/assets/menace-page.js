@@ -16,6 +16,36 @@ const OPPONENTS = {
 };
 const WINDOW = 200, SAMPLE = 25;
 
+// Typical outcomes (won/drawn/lost % of the last 200 games) on tic-tac-toe, averaged
+// over 8 runs of this exact code: [after 300 games, after 1,000, after 5,000].
+const EXPECT = {
+  "1|random": [[70, 12, 18], [80, 9, 11], [85, 9, 6], "Wins most games quickly; losses fade slowly but never quite reach zero, because random play rarely punishes a bad move."],
+  "1|minimax": [[0, 97, 3], [0, 100, 0], [0, 100, 0], "It can never win (tic-tac-toe is a draw with best play). Expect losses for the first ~100 games, then nearly all draws within a few hundred. It only meets ~30 positions, so it learns a narrow repertoire."],
+  "1|mixed": [[46, 30, 25], [60, 32, 8], [68, 29, 3], "Slower than a single teacher, but it learns to beat random play and to hold perfect play to a draw: the most robust training."],
+  "1|rule": [[0, 99, 1], [0, 100, 0], [0, 100, 0], "The rule-based player blocks everything, so MENACE settles into all draws within a few hundred games, using only ~20 positions."],
+  "2|random": [[44, 16, 40], [61, 16, 23], [75, 13, 13], "Moving second is harder: it loses often at first and needs a few thousand games to win most of them."],
+  "2|minimax": [[0, 18, 82], [0, 93, 8], [0, 100, 0], "Loses almost every game for the first few hundred, then learns to draw; about 1,000 games until draws dominate."],
+  "2|mixed": [[22, 23, 55], [41, 42, 17], [46, 50, 4], "Loses most early games; after a few thousand it wins against the random half and draws the perfect half."],
+  "2|rule": [[0, 99, 1], [0, 100, 0], [0, 100, 0], "Quickly learns the few lines the rule-based player allows and draws them all."],
+};
+
+function renderExpect() {
+  const box = $("#expect");
+  if (S.board !== "3,3,3") {
+    box.innerHTML = `<p style="margin:0">On ${S.board === "4,4,4" ? "(4,4,4)" : "(3,4,3)"} expect the matchbox count to keep climbing while results improve only slowly. ` +
+      (S.board === "4,4,4"
+        ? "As X against the mix, a typical run has ~1,500 boxes after 300 games and ~13,000 after 3,000, still losing about 40% of games. There are simply too many positions to learn one by one."
+        : "(3,4,3) is a first-player win, so as X MENACE can actually win games, unlike on tic-tac-toe. Against the mix, a typical run wins 45% / loses 53% after 300 games (~470 boxes), 65% / 32% after 1,000 (~1,000 boxes) and 85% / 13% after 5,000 (~2,000 boxes): more positions, so slower than tic-tac-toe.") + "</p>";
+    return;
+  }
+  const [a, b, c, text] = EXPECT[`${S.side}|${S.opponent}`];
+  const f = ([w, d, l]) => `<span style="color:var(--ok)">${w}</span> / ${d} / <span style="color:var(--refused)">${l}</span>`;
+  box.innerHTML = `<p style="margin:0 0 6px">${text}</p>
+    <table class="data small"><thead><tr><th>after</th><th class="num">won / drawn / lost %</th></tr></thead><tbody>
+    <tr><td>300 games</td><td class="num">${f(a)}</td></tr><tr><td>1,000</td><td class="num">${f(b)}</td></tr><tr><td>5,000</td><td class="num">${f(c)}</td></tr>
+    </tbody></table><p class="muted" style="margin:6px 0 0">Typical numbers; each run differs because beads are drawn at random.</p>`;
+}
+
 const $ = (s) => document.querySelector(s);
 const rng = makeRng(Date.now() & 0xffff);
 const S = {
@@ -243,9 +273,9 @@ function init() {
   for (const k of Object.keys(BOARDS)) bs.appendChild(new Option(`(${k})${k === "3,3,3" ? " tic-tac-toe" : ""}`, k));
   for (const [k, v] of Object.entries(OPPONENTS)) os.appendChild(new Option(v, k));
   bs.value = S.board; os.value = S.opponent;
-  bs.onchange = () => { S.board = bs.value; reset(); };
-  os.onchange = () => { S.opponent = os.value; };
-  $("#side-select").onchange = (e) => { S.side = +e.target.value; reset(); };
+  bs.onchange = () => { S.board = bs.value; reset(); renderExpect(); };
+  os.onchange = () => { S.opponent = os.value; renderExpect(); };
+  $("#side-select").onchange = (e) => { S.side = +e.target.value; reset(); renderExpect(); };
   $("#train").onclick = () => (S.running ? stop() : start());
   $("#reset").onclick = reset;
   $("#watch").onclick = watch;
@@ -256,6 +286,7 @@ function init() {
     s.push(+c.dataset.cell);
     humanStep();
   });
+  renderExpect();
   window.addEventListener("resize", drawChart);
   matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", drawChart);
   reset();

@@ -86,6 +86,30 @@
         </div>
       </aside>
     </div>
+    <h2>How to play</h2>
+    <ul style="max-width:820px">
+      <li>Pick a board from the presets or set your own under <i>Custom board</i>. X always moves first, and the first to get <b>k in a row</b> (across, down or diagonally) wins. With <i>exactly k</i>, a line longer than k does not count.</li>
+      <li>Click an empty cell to place a stone; on big boards stones go on the grid intersections, as in gomoku. With gravity (Connect Four), click anywhere in a column and the stone drops to the lowest free cell.</li>
+      <li><b>Undo</b> takes back moves to your previous turn. <b>Swap sides</b> exchanges the X and O players and starts a new game.</li>
+      <li>Set both players to agents to watch them play each other. <b>Pause</b> and <b>Step</b> let you go one move at a time. To run many games at once, use the <a href="arena.html">Arena</a>.</li>
+      <li>The address bar keeps the board and players, so you can copy the link to share a setup.</li>
+    </ul>
+
+    <h2>What to expect from each opponent</h2>
+    <div class="card scroll-x">
+      <table class="data">
+        <thead><tr><th>player</th><th>on small boards (tic-tac-toe, 4×4)</th><th>on big boards (Connect Four, gomoku)</th><th>time per move</th></tr></thead>
+        <tbody>
+          <tr><td><b>Random</b><br><span class="pill">baseline</span></td><td>Picks any legal move. Easy to beat.</td><td>Same: you win as soon as you make a line.</td><td>instant</td></tr>
+          <tr><td><b>Rule-based</b><br><span class="pill">baseline</span></td><td>Never misses a win or a block, and makes and blocks forks. Hard to beat on tic-tac-toe.</td><td>Sees only one move ahead, so two threats at once (an open three in gomoku) beat it.</td><td>instant</td></tr>
+          <tr><td><b>MENACE</b><br><span class="pill">learning: matchboxes</span></td><td>Trains before its first move (a short pause), then plays sensibly on tic-tac-toe. After 2,000 training games it still loses some games to strong opponents such as MCTS, because training hasn't covered every line; choose 10,000 games for stronger play.</td><td>Has met almost none of the positions, so most moves are random and you'll see a warning. This is where MENACE breaks.</td><td>training ~0.1–1 s once, then instant</td></tr>
+          <tr><td><b>Minimax</b><br><span class="pill">exact search</span></td><td>Perfect play up to about (4,4,4): you can at best draw tic-tac-toe, and on boards that are a first-player win, such as (3,4,3), it wins as X. It takes the fastest win and delays losses.</td><td>Refuses: solving would take years. It plays depth-4 alpha-beta instead and says so in a yellow note.</td><td>under 1 ms on tic-tac-toe; up to ~1 s for the first move on (4,4,4)</td></tr>
+          <tr><td><b>Alpha-beta</b><br><span class="pill">heuristic search</span></td><td>Strong at depth 3–4, though it can occasionally be tricked because it does not search to the end.</td><td>The strongest agent here. It looks <i>depth</i> moves ahead and scores threats, so beat it with a plan longer than its horizon. Depth 1–2 is beatable; depth 4–6 is tough.</td><td>a few ms on Connect Four, ~10–50 ms on gomoku at depth 4; deeper is slower</td></tr>
+          <tr><td><b>MCTS</b><br><span class="pill">sampling</span></td><td>Plays well: random playouts are informative on small boards.</td><td>Weak on open boards: random playouts say little, so it misses threats. It loses to rule-based in about 10 moves on gomoku. More playouts help, slowly.</td><td>~5–50 ms at 1,000 playouts, up to the 5 s setting</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small muted" style="max-width:820px">Agents run in a background thread, so the page stays responsive while they think. The <i>Last agent move</i> panel shows what the agent did: nodes searched, playouts, MENACE's matchbox, or why it refused a board.</p>
   </div>
 </main>
 <!-- FOOTER -->
