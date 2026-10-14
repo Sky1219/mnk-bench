@@ -4,6 +4,8 @@
 
 `mnk-bench` is a Python framework for pitting different kinds of AI agents against each other on any *m,n,k* game, from tic-tac-toe to gomoku, and measuring exactly how their strength, speed, and cost change as the game grows.
 
+**Website: [sky1219.github.io/mnk-bench](https://sky1219.github.io/mnk-bench/)**. Play the agents in your browser, train MENACE live, and explore the feasibility map, the results report and the research write-up.
+
 > Status: all nine roadmap steps and both stretch goals (AlphaZero-style agent, LLM players) are implemented, tested and benchmarked. Results are in [`docs/results/`](docs/results/) and summarised [below](#results).
 
 ## Why I'm building this
@@ -143,6 +145,18 @@ Each move the model gets the rules, the board with coordinates, the opponent's l
 
 Without an API key, tests and CI use the mock client and live tests (`pytest -m live`) are skipped; the feasibility check reports `llm` as *unavailable*.
 
+## Website
+
+The site at [sky1219.github.io/mnk-bench](https://sky1219.github.io/mnk-bench/) is static. `site/assets/` holds JavaScript ports of the engine (`mnk.js`), the random, rule-based, minimax, alpha-beta and MCTS agents (`agents.js`, run in a Web Worker) and MENACE (`menace.js`). The browser minimax uses the same feasibility rule as the package: it estimates the nodes needed to solve the board and refuses, falling back to alpha-beta, when the board is too big. The landing page reads the committed JSON in `docs/results/`.
+
+```bash
+node --test site/tests/*.test.mjs                  # engine/agent/MENACE tests (Node 20+)
+pip install markdown && python site/build.py       # -> _site/
+python -m http.server -d _site 8000                # preview at http://localhost:8000
+```
+
+`.github/workflows/pages.yml` builds and tests the site on every pull request and deploys it to GitHub Pages on every push to `main`.
+
 ## Project layout
 
 ```
@@ -165,6 +179,8 @@ src/mnkbench/
 tests/             pytest suite (fast; torch tests skip without torch)
 docs/research/     paper-style write-up of the targeted-selection (PRISM) study
 docs/results/      committed results, plots and index.html
+site/              the website: JS ports of the engine, agents and MENACE,
+                   pages, build.py (-> _site/), node tests
 ```
 
 ## Results

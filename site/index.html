@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mnk-bench: where game AIs fall apart</title>
+<meta name="description" content="A benchmark of game-playing AI on m,n,k games, from tic-tac-toe to gomoku: where exact search, tabular learning, MCTS, alpha-beta and AlphaZero each break as the board grows. Play every agent in your browser.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <div class="kicker">From tic-tac-toe to gomoku</div>
+      <h1>Where does each game-playing AI fall apart as the board gets bigger?</h1>
+      <p class="lede">In 1961 Donald Michie taught about 300 matchboxes to play tic-tac-toe. Gomoku is the same game on a 15×15 board, where a matchbox per position would need more boxes than there are atoms in the universe. mnk-bench measures exactly where that approach, and every other kind of game AI, breaks down, and why.</p>
+      <div class="row">
+        <a class="btn primary" href="play.html">Play the agents</a>
+        <a class="btn" href="menace.html">Train MENACE live</a>
+        <a class="btn" href="results/index.html">Full results</a>
+      </div>
+    </section>
+
+    <h2>What is an m,n,k game?</h2>
+    <p style="max-width:760px">Two players take turns placing stones on an <b>m×n</b> board, and the first to get <b>k</b> in a row wins. Tic-tac-toe is (3,3,3) and gomoku is (15,15,5). With gravity, stones drop to the bottom of their column, so Connect Four is (6,7,4)+gravity. One engine covers all of them, so the same agents can be measured on every board.</p>
+
+    <h2>Where each method breaks</h2>
+    <p class="muted" style="max-width:760px">Every agent estimates its own time, memory and training cost before playing, then runs, degrades to cheaper settings, or refuses. Guarded probes on real hardware confirmed the estimates; no probe had to be aborted. Click a cell for its numbers.</p>
+    <div class="row" style="justify-content:space-between;margin-bottom:6px">
+      <div class="seg" id="map-toggle" role="group" aria-label="Budget">
+        <button type="button" data-map="standard" aria-pressed="true">Standard budget</button>
+        <button type="button" data-map="tight" aria-pressed="false">Tight budget</button>
+      </div>
+      <span class="small muted" id="budget"></span>
+    </div>
+    <div class="map-layout">
+      <div class="card scroll-x" style="padding:12px"><div id="fmap" class="small muted">Loading…</div>
+        <div class="legend">
+          <span><i class="s-ok"></i>ok</span><span><i class="s-degraded"></i>degraded</span><span><i class="s-refused"></i>refused</span>
+          <span><i class="s-unavailable"></i>unavailable (no API key)</span><span>· = estimate only</span>
+        </div>
+      </div>
+      <div class="card detail" id="fdetail" aria-live="polite"></div>
+    </div>
+
+    <div class="card scroll-x" style="margin-top:16px">
+      <table class="data">
+        <thead><tr><th>method</th><th>breaks at</th><th>why</th></tr></thead>
+        <tbody>
+          <tr><td>Minimax (exact)</td><td>(5,5,4)</td><td>About 4×10⁷ nodes to solve the opening (an estimated 14 min per move and 11 GB). A forced run is killed by its guards, which confirms the refusal.</td></tr>
+          <tr><td>MENACE, Q-learning, TD</td><td>(4,4,4) in practice</td><td>One table entry per position. After 3,000 games they have seen only 28 to 50% of the positions they meet on (6,6,4), and from (5,5,4) on they score 0 against the rule-based player.</td></tr>
+          <tr><td>AlphaZero-style</td><td>beyond (6,7,4)</td><td>Play stays cheap (~60 ms per move). The limit is self-play training: an estimated 23 min for (7,7,5) and 42 h for gomoku on one core.</td></tr>
+          <tr><td>MCTS (random playouts)</td><td>never refuses, but weakens</td><td>Random playouts carry little signal on open boards: it scores 0.19 against rule-based on (6,6,4), even with 3,200 playouts per move.</td></tr>
+          <tr><td>Alpha-beta (depth-limited)</td><td>nowhere up to 19×19</td><td>Cost grows with the candidate set, not the state space: 0.15 s per move at depth 4 on 19×19.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Bigger boards spread the ratings out</h2>
+    <div class="grid cols-2" style="align-items:start">
+      <div class="card">
+        <div class="seg" id="elo-tabs" role="group" aria-label="Board" style="margin-bottom:14px;flex-wrap:wrap"></div>
+        <div class="bars" id="elo"></div>
+        <p class="small muted" id="elo-note" style="margin:10px 0 0"></p>
+      </div>
+      <div>
+        <p>On tic-tac-toe every competent agent draws the others, so the ratings bunch up between 1,418 (MENACE) and 1,525. On (6,6,4) depth-4 alpha-beta went 240–0 and the trained tables lost to everything except random.</p>
+        <p>On Connect Four a 39k-parameter network trained only by self-play, for 10 minutes on one CPU core, is level with alpha-beta and beats the rule-based player 40–0. The same network trained on (3,3,3) and (4,4,4) never loses to perfect play.</p>
+        <p><a href="play.html#b=6,7,4+gravity&x=human&o=alphabeta:4">Try Connect Four against alpha-beta →</a></p>
+      </div>
+    </div>
+
+    <h2>Explore</h2>
+    <div class="grid cols-3">
+      <a class="card" href="play.html" style="text-decoration:none;color:inherit">
+        <h3 style="margin-top:0">Play</h3>
+        <p class="small muted" style="margin:0">Any board up to 19×19, with gravity or exact-k rules. Play against the exact solver, alpha-beta, MCTS or the rule-based agent, or set two agents against each other. All of them run in your browser.</p>
+      </a>
+      <a class="card" href="menace.html" style="text-decoration:none;color:inherit">
+        <h3 style="margin-top:0">MENACE, live</h3>
+        <p class="small muted" style="margin:0">Train the matchbox learner against different teachers, watch its beads move, then play against what it learned. Reproduces Michie's 304 matchboxes exactly.</p>
+      </a>
+      <a class="card" href="results/index.html" style="text-decoration:none;color:inherit">
+        <h3 style="margin-top:0">Results report</h3>
+        <p class="small muted" style="margin:0">Every experiment with its plots and tables: learning curves, symmetry ablations, head-to-head results, Elo with confidence intervals, feasibility maps, performance and AlphaZero training.</p>
+      </a>
+      <a class="card" href="research/targeted-selection.html" style="text-decoration:none;color:inherit">
+        <h3 style="margin-top:0">Research: targeted labelling</h3>
+        <p class="small muted" style="margin:0">PRISM's submodular information measures applied to fixing an AlphaZero-style network's tactical blind spots. They find 2 to 3× more relevant positions, but only LogDetMI turns that into accuracy.</p>
+      </a>
+      <a class="card" href="https://github.com/Sky1219/mnk-bench" style="text-decoration:none;color:inherit">
+        <h3 style="margin-top:0">Python package</h3>
+        <p class="small muted" style="margin:0"><code>pip install -e .</code> then <code>mnk-bench tournament</code>, <code>feasibility</code>, <code>experiment</code>. It adds MENACE, Q-learning, TD, AlphaZero-style and LLM players, and every result here is reproducible from a seed.</p>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- FOOTER -->
+<script type="module" src="assets/home.js"></script>
+</body>
+</html>
