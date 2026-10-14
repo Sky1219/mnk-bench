@@ -177,6 +177,20 @@ function undo() {
 // ---------------------------------------------------------------- rendering
 const boardEl = () => $("#board");
 
+/** Star points (hoshi): four near the corners and the centre, plus the sides on 19×19. */
+function starPoints(m, n) {
+  const off = Math.min(m, n) >= 13 ? 3 : 2;
+  const rows = [off, m - 1 - off], cols = [off, n - 1 - off], out = new Set();
+  const cr = m % 2 ? (m - 1) / 2 : null, cc = n % 2 ? (n - 1) / 2 : null;
+  for (const r of rows) for (const c of cols) out.add(r * n + c);
+  if (cr !== null && cc !== null) out.add(cr * n + cc);
+  if (m >= 19 && n >= 19) {
+    for (const r of rows) out.add(r * n + cc);
+    for (const c of cols) out.add(cr * n + c);
+  }
+  return out;
+}
+
 function renderBoard(full = false) {
   const g = getGame(ui.cfg), s = ui.state, b = boardEl();
   if (full || b.children.length !== g.size) {
@@ -185,11 +199,24 @@ function renderBoard(full = false) {
     b.style.setProperty("--aspect", `${g.n} / ${g.m}`);
     b.style.setProperty("--board-max", `${Math.min(620, Math.max(300, g.n * 64))}px`);
     b.classList.toggle("gravity", !!g.gravity);
-    b.classList.toggle("small-gap", g.n > 11);
+    // Gomoku-sized free-placement boards are drawn like a go board: stones sit on
+    // the intersections of the grid lines. Small boards and gravity boards keep cells.
+    const goban = !g.gravity && g.m >= 9 && g.n >= 9;
+    b.classList.toggle("goban", goban);
+    b.classList.toggle("small-gap", !goban && g.n > 11);
+    const stars = goban ? starPoints(g.m, g.n) : new Set();
     for (let i = 0; i < g.size; i++) {
       const c = el("button", "cell");
       c.type = "button";
       c.dataset.cell = i;
+      if (goban) {
+        const r = Math.floor(i / g.n), col = i % g.n;
+        if (col === 0) c.classList.add("el");
+        if (col === g.n - 1) c.classList.add("er");
+        if (r === 0) c.classList.add("et");
+        if (r === g.m - 1) c.classList.add("eb");
+        if (stars.has(i)) c.classList.add("star");
+      }
       b.appendChild(c);
     }
   }
