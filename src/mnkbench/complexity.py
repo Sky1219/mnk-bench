@@ -21,7 +21,7 @@ def position_bound(config: GameConfig) -> float:
     n_cells = config.size
     free = sum(math.comb(n_cells, i) * math.comb(i, i // 2) for i in range(n_cells + 1))
     if config.gravity:
-        stacked = float((2 ** (config.m + 1) - 1)) ** config.n
+        stacked = float(2 ** (config.m + 1) - 1) ** config.n
         return float(min(free, stacked))
     return float(free)
 

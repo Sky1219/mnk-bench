@@ -1,6 +1,5 @@
 import pytest
 
-from mnkbench.agents.base import BudgetExceeded
 from mnkbench.agents.minimax import MinimaxAgent, Solver
 from mnkbench.agents.random_agent import RandomAgent
 from mnkbench.game import TIC_TAC_TOE, GameConfig, State, get_game

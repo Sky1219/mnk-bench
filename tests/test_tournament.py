@@ -1,5 +1,5 @@
-from mnkbench.agents.random_agent import RandomAgent
 from mnkbench.agents.minimax import MinimaxAgent
+from mnkbench.agents.random_agent import RandomAgent
 from mnkbench.game import TIC_TAC_TOE, GameConfig
 from mnkbench.tournament import play_game, play_match, round_robin
 

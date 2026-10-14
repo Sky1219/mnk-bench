@@ -12,7 +12,7 @@ from collections.abc import Callable, Sequence
 from dataclasses import asdict, dataclass, field
 
 from .agents.base import Agent, AgentRefused, BudgetExceeded
-from .game import DRAW, O, X, Game, GameConfig, IllegalMoveError, State, get_game
+from .game import DRAW, Game, GameConfig, O, State, X, get_game
 
 
 @dataclass

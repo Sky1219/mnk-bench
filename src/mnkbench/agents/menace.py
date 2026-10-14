@@ -118,8 +118,10 @@ class MenaceAgent(Agent):
                 return canon.from_canon(sym, cm)
         if self.training:
             pick = self.rng.random() * total
-            for cm, beads in box.items():
+            cm = -1
+            for move, beads in box.items():
                 pick -= beads
+                cm = move
                 if pick < 0:
                     break
         else:

@@ -181,7 +181,7 @@ def plot_table_growth(runs: Sequence[dict], path: str | Path, title: str | None 
     ax.set_xlabel("training games")
     ax.set_ylabel("table entries")
     ax.set_title(title or "Table size during training", loc="left")
-    ax.legend(loc="lower right")
+    ax.legend(loc="center left", bbox_to_anchor=(1.08, 0.5))
     fig.tight_layout()
     return _save(fig, path)
 
@@ -297,7 +297,7 @@ def plot_feasibility_map(data: dict, path: str | Path, title: str | None = None)
     cmap = ListedColormap([STATUS_COLORS[s] for s in order])
     grid = [[order.index(cells[(a, b)]["status"]) if (a, b) in cells else math.nan for b in boards]
             for a in agents]
-    fig, ax = plt.subplots(figsize=(1.2 + 0.78 * len(boards), 0.9 + 0.48 * len(agents)))
+    fig, ax = plt.subplots(figsize=(max(6.5, 1.2 + 0.78 * len(boards)), 0.9 + 0.48 * len(agents)))
     ax.imshow(grid, cmap=cmap, vmin=-0.5, vmax=len(order) - 0.5, aspect="auto")
     ax.grid(False)
     short = {"ok": "ok", "degraded": "degr", "aborted": "abort", "refused": "refuse", "unavailable": "n/a"}

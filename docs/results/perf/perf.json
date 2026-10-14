@@ -1,0 +1,117 @@
+{
+ "meta": {
+  "mnkbench_version": "0.1.0",
+  "python": "3.13.16",
+  "machine": "x86_64",
+  "created": "2026-10-14T08:08:38",
+  "seed": 0,
+  "quick": false
+ },
+ "benchmarks": [
+  {
+   "config": "(3,3,3)",
+   "cells": 9,
+   "push_pop_per_s": 1231140.0248831725,
+   "playouts_per_s": 113830.4120655924,
+   "sec_per_move[rule]": 3.306333322446638e-05,
+   "sec_per_move[alphabeta:depth=2]": 0.000130817000050835,
+   "sec_per_move[alphabeta:depth=4]": 0.0002165699999447194,
+   "sec_per_move[mcts:iterations=500]": 0.0044811949998499285,
+   "sec_per_move[minimax]": 0.0013613119999718037
+  },
+  {
+   "config": "(6,6,4)",
+   "cells": 36,
+   "push_pop_per_s": 1131166.5320984235,
+   "playouts_per_s": 46621.92738192163,
+   "sec_per_move[rule]": 0.00026326300015474163,
+   "sec_per_move[alphabeta:depth=2]": 0.0018317276668919173,
+   "sec_per_move[alphabeta:depth=4]": 0.025314435333408863,
+   "sec_per_move[mcts:iterations=500]": 0.01498558566693949
+  },
+  {
+   "config": "(6,7,4)+gravity",
+   "cells": 42,
+   "push_pop_per_s": 853680.1190620217,
+   "playouts_per_s": 49620.84167150971,
+   "sec_per_move[rule]": 7.284233318690288e-05,
+   "sec_per_move[alphabeta:depth=2]": 0.0004249836665621842,
+   "sec_per_move[alphabeta:depth=4]": 0.002602826333259145,
+   "sec_per_move[mcts:iterations=500]": 0.009631116333366663
+  },
+  {
+   "config": "(9,9,5)",
+   "cells": 81,
+   "push_pop_per_s": 1423554.6697531415,
+   "playouts_per_s": 18229.899644402638,
+   "sec_per_move[rule]": 0.0006291613334118059,
+   "sec_per_move[alphabeta:depth=2]": 0.0034770323333456568,
+   "sec_per_move[alphabeta:depth=4]": 0.0773395136666295,
+   "sec_per_move[mcts:iterations=500]": 0.038355641666536634
+  },
+  {
+   "config": "(15,15,5)",
+   "cells": 225,
+   "push_pop_per_s": 1127415.3601638419,
+   "playouts_per_s": 10223.184231658117,
+   "sec_per_move[rule]": 0.001350844666831108,
+   "sec_per_move[alphabeta:depth=2]": 0.005025389333241037,
+   "sec_per_move[alphabeta:depth=4]": 0.09859353999991072,
+   "sec_per_move[mcts:iterations=500]": 0.06151082900002317
+  },
+  {
+   "config": "(19,19,5)",
+   "cells": 361,
+   "push_pop_per_s": 1102942.9763005294,
+   "playouts_per_s": 5514.224038398385,
+   "sec_per_move[rule]": 0.00204483299982409,
+   "sec_per_move[alphabeta:depth=2]": 0.008462235666684137,
+   "sec_per_move[alphabeta:depth=4]": 0.14613163933336182,
+   "sec_per_move[mcts:iterations=500]": 0.10369174033333668
+  }
+ ],
+ "playouts": [
+  {
+   "config": "(3,3,3)",
+   "cells": 9,
+   "reference_per_s": 61885.42285651495,
+   "fast_per_s": 132338.82483126616,
+   "speedup": 2.1384490680156074
+  },
+  {
+   "config": "(6,6,4)",
+   "cells": 36,
+   "reference_per_s": 15164.671787062794,
+   "fast_per_s": 49220.84425476921,
+   "speedup": 3.2457573065814875
+  },
+  {
+   "config": "(6,7,4)+gravity",
+   "cells": 42,
+   "reference_per_s": 22271.72231616566,
+   "fast_per_s": 48148.9226097681,
+   "speedup": 2.161885907441464
+  },
+  {
+   "config": "(9,9,5)",
+   "cells": 81,
+   "reference_per_s": 3735.6719855855945,
+   "fast_per_s": 21804.55775931387,
+   "speedup": 5.836850195479848
+  },
+  {
+   "config": "(15,15,5)",
+   "cells": 225,
+   "reference_per_s": 853.2318609526471,
+   "fast_per_s": 7908.284629798653,
+   "speedup": 9.268623209837624
+  },
+  {
+   "config": "(19,19,5)",
+   "cells": 361,
+   "reference_per_s": 361.448677994067,
+   "fast_per_s": 5411.044701701293,
+   "speedup": 14.970437108059121
+  }
+ ]
+}

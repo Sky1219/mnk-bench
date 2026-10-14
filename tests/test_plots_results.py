@@ -1,12 +1,12 @@
 import math
 
+from mnkbench.agents.minimax import MinimaxAgent
+from mnkbench.agents.random_agent import RandomAgent
 from mnkbench.experiments.learning import learning_curve
 from mnkbench.game import TIC_TAC_TOE
 from mnkbench.plots import plot_learning_curves, plot_score_matrix
 from mnkbench.results import load_json, save_csv, save_json
 from mnkbench.tournament import round_robin
-from mnkbench.agents.random_agent import RandomAgent
-from mnkbench.agents.minimax import MinimaxAgent
 
 
 def test_json_roundtrip_handles_nan(tmp_path):

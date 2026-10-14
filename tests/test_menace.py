@@ -1,8 +1,8 @@
 from mnkbench.agents.menace import MenaceAgent, count_matchboxes
+from mnkbench.agents.minimax import MinimaxAgent
 from mnkbench.experiments.learning import learning_curve, train
 from mnkbench.game import TIC_TAC_TOE, State, get_game
 from mnkbench.metrics import wdl
-from mnkbench.agents.minimax import MinimaxAgent
 
 
 def test_matchbox_count_matches_michie():

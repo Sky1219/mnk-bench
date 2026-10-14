@@ -1,9 +1,9 @@
+import pytest
+
 from mnkbench.agents import make_agent
 from mnkbench.agents.base import AgentRefused, Budget, Status
 from mnkbench.feasibility import assess, feasibility_map, probe
 from mnkbench.game import GOMOKU, TIC_TAC_TOE, GameConfig
-
-import pytest
 
 
 def test_minimax_ok_small_refused_large():

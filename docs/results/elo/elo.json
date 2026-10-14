@@ -1,0 +1,2887 @@
+{
+ "meta": {
+  "mnkbench_version": "0.1.0",
+  "python": "3.13.16",
+  "machine": "x86_64",
+  "created": "2026-10-14T07:59:32",
+  "seed": 0,
+  "quick": false,
+  "games_per_pair": 40
+ },
+ "boards": [
+  {
+   "config": "(3,3,3)",
+   "tournament": {
+    "config": "(3,3,3)",
+    "agents": [
+     "random",
+     "rule",
+     "minimax",
+     "menace",
+     "qlearning",
+     "td",
+     "alphabeta:depth=2",
+     "alphabeta:depth=4",
+     "mcts:iterations=200",
+     "mcts:iterations=1000"
+    ],
+    "seed": 0,
+    "games_per_pair": 40,
+    "matches": [
+     {
+      "a": "random",
+      "b": "rule",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 38,
+      "draws": 2,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 2,
+       "loss": 18
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 1.8055648070003372e-06,
+       "rule": 2.9429063499178266e-05
+      },
+      "max_time_per_move": {
+       "random": 1.403600026606e-05,
+       "rule": 0.00013674999991053483
+      },
+      "mean_length": 5.85,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.025
+     },
+     {
+      "a": "random",
+      "b": "minimax",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 32,
+      "draws": 8,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 5,
+       "loss": 15
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 3,
+       "loss": 17
+      },
+      "time_per_move": {
+       "random": 2.0263410748552006e-06,
+       "minimax": 0.0001766474861142342
+      },
+      "max_time_per_move": {
+       "random": 2.1933999960310757e-05,
+       "minimax": 0.002524636000089231
+      },
+      "mean_length": 6.825,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.1
+     },
+     {
+      "a": "random",
+      "b": "menace",
+      "config": "(3,3,3)",
+      "wins_a": 3,
+      "wins_b": 30,
+      "draws": 7,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 3,
+       "loss": 17
+      },
+      "a_as_o": {
+       "win": 3,
+       "draw": 4,
+       "loss": 13
+      },
+      "time_per_move": {
+       "random": 1.297251741676404e-06,
+       "menace": 5.307242031304454e-06
+      },
+      "max_time_per_move": {
+       "random": 3.3030000849976204e-06,
+       "menace": 2.9961000109324232e-05
+      },
+      "mean_length": 7.5,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.1625
+     },
+     {
+      "a": "random",
+      "b": "qlearning",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 38,
+      "draws": 2,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 1,
+       "loss": 19
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 1,
+       "loss": 19
+      },
+      "time_per_move": {
+       "random": 2.1830344747223565e-06,
+       "qlearning": 7.747533342168295e-06
+      },
+      "max_time_per_move": {
+       "random": 1.3828000192006584e-05,
+       "qlearning": 2.4483999823132763e-05
+      },
+      "mean_length": 6.275,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.025
+     },
+     {
+      "a": "random",
+      "b": "td",
+      "config": "(3,3,3)",
+      "wins_a": 1,
+      "wins_b": 38,
+      "draws": 1,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 1,
+       "draw": 1,
+       "loss": 18
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 1.336554520424794e-06,
+       "td": 2.377825779475984e-05
+      },
+      "max_time_per_move": {
+       "random": 3.0830001378490124e-06,
+       "td": 7.173299991336535e-05
+      },
+      "mean_length": 5.95,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0375
+     },
+     {
+      "a": "random",
+      "b": "alphabeta:depth=2",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 38,
+      "draws": 2,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 2,
+       "loss": 18
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 2.370594601260408e-06,
+       "alphabeta:depth=2": 0.00014447037983347766
+      },
+      "max_time_per_move": {
+       "random": 6.534700014526607e-05,
+       "alphabeta:depth=2": 0.000644283999918116
+      },
+      "mean_length": 6.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.025
+     },
+     {
+      "a": "random",
+      "b": "alphabeta:depth=4",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 38,
+      "draws": 2,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 2,
+       "loss": 18
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 1.8493893967549402e-06,
+       "alphabeta:depth=4": 0.00047936451142917757
+      },
+      "max_time_per_move": {
+       "random": 4.2699998630268965e-06,
+       "alphabeta:depth=4": 0.0018391079997854831
+      },
+      "mean_length": 6.1,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.025
+     },
+     {
+      "a": "random",
+      "b": "mcts:iterations=200",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 33,
+      "draws": 7,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 6,
+       "loss": 14
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 1,
+       "loss": 19
+      },
+      "time_per_move": {
+       "random": 3.630877058714729e-06,
+       "mcts:iterations=200": 0.0019610343235118466
+      },
+      "max_time_per_move": {
+       "random": 1.3551999927585712e-05,
+       "mcts:iterations=200": 0.005706871999791474
+      },
+      "mean_length": 6.45,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0875
+     },
+     {
+      "a": "random",
+      "b": "mcts:iterations=1000",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 35,
+      "draws": 5,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 5,
+       "loss": 15
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 4.297211882843285e-06,
+       "mcts:iterations=1000": 0.008579271398478963
+      },
+      "max_time_per_move": {
+       "random": 1.2485999832279049e-05,
+       "mcts:iterations=1000": 0.03799381999988327
+      },
+      "mean_length": 6.275,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0625
+     },
+     {
+      "a": "rule",
+      "b": "minimax",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "rule": 2.4461905554239316e-05,
+       "minimax": 7.913469445763137e-05
+      },
+      "max_time_per_move": {
+       "rule": 7.77710001784726e-05,
+       "minimax": 0.00030568100009986665
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "rule",
+      "b": "menace",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "rule": 2.630327775376726e-05,
+       "menace": 8.177844440777133e-06
+      },
+      "max_time_per_move": {
+       "rule": 8.151600013661664e-05,
+       "menace": 9.513899976809626e-05
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "rule",
+      "b": "qlearning",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "rule": 2.8178655566080123e-05,
+       "qlearning": 8.177799991749958e-06
+      },
+      "max_time_per_move": {
+       "rule": 0.0001543119997222675,
+       "qlearning": 5.0379999720462365e-05
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "rule",
+      "b": "td",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "rule": 2.545455556123165e-05,
+       "td": 2.9591755570537416e-05
+      },
+      "max_time_per_move": {
+       "rule": 0.00013078699976176722,
+       "td": 0.00013130400020600064
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "rule",
+      "b": "alphabeta:depth=2",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "rule": 2.522144442688538e-05,
+       "alphabeta:depth=2": 0.00015187550555866537
+      },
+      "max_time_per_move": {
+       "rule": 0.00013593700032288325,
+       "alphabeta:depth=2": 0.0006300620002548385
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "rule",
+      "b": "alphabeta:depth=4",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "rule": 2.2045705557300406e-05,
+       "alphabeta:depth=4": 0.00042249237776306677
+      },
+      "max_time_per_move": {
+       "rule": 0.00012163299970779917,
+       "alphabeta:depth=4": 0.0023662439998588525
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "rule",
+      "b": "mcts:iterations=200",
+      "config": "(3,3,3)",
+      "wins_a": 4,
+      "wins_b": 0,
+      "draws": 36,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 4,
+       "draw": 16,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "rule": 2.0492102270902084e-05,
+       "mcts:iterations=200": 0.000963950392066305
+      },
+      "max_time_per_move": {
+       "rule": 8.360399988305289e-05,
+       "mcts:iterations=200": 0.006492138999874442
+      },
+      "mean_length": 8.8,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.55
+     },
+     {
+      "a": "rule",
+      "b": "mcts:iterations=1000",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "rule": 3.0812205545771575e-05,
+       "mcts:iterations=1000": 0.0068078127833309235
+      },
+      "max_time_per_move": {
+       "rule": 0.0001599960000930878,
+       "mcts:iterations=1000": 0.056261961000018346
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "minimax",
+      "b": "menace",
+      "config": "(3,3,3)",
+      "wins_a": 1,
+      "wins_b": 0,
+      "draws": 39,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 1,
+       "draw": 19,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "minimax": 8.929001683100068e-05,
+       "menace": 8.936022452595925e-06
+      },
+      "max_time_per_move": {
+       "minimax": 0.00024780300009297207,
+       "menace": 8.583699991504545e-05
+      },
+      "mean_length": 8.9,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5125
+     },
+     {
+      "a": "minimax",
+      "b": "qlearning",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "minimax": 8.498259446443828e-05,
+       "qlearning": 7.676222235709752e-06
+      },
+      "max_time_per_move": {
+       "minimax": 0.00029991900009918027,
+       "qlearning": 3.9155000195023604e-05
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "minimax",
+      "b": "td",
+      "config": "(3,3,3)",
+      "wins_a": 7,
+      "wins_b": 0,
+      "draws": 33,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 7,
+       "draw": 13,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "minimax": 8.809942194029592e-05,
+       "td": 2.905410404420206e-05
+      },
+      "max_time_per_move": {
+       "minimax": 0.00023749499996483792,
+       "td": 8.218899984058226e-05
+      },
+      "mean_length": 8.65,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5875
+     },
+     {
+      "a": "minimax",
+      "b": "alphabeta:depth=2",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "minimax": 8.691938889013627e-05,
+       "alphabeta:depth=2": 0.00018419006668813785
+      },
+      "max_time_per_move": {
+       "minimax": 0.00025623300007282523,
+       "alphabeta:depth=2": 0.0007067810001899488
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "minimax",
+      "b": "alphabeta:depth=4",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "minimax": 8.829745554016376e-05,
+       "alphabeta:depth=4": 0.0005528057888745429
+      },
+      "max_time_per_move": {
+       "minimax": 0.00028074700003344333,
+       "alphabeta:depth=4": 0.0027234519998273754
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "minimax",
+      "b": "mcts:iterations=200",
+      "config": "(3,3,3)",
+      "wins_a": 10,
+      "wins_b": 0,
+      "draws": 30,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 10,
+       "draw": 10,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "minimax": 7.941187057921899e-05,
+       "mcts:iterations=200": 0.0012601364117525759
+      },
+      "max_time_per_move": {
+       "minimax": 0.0005430060000435333,
+       "mcts:iterations=200": 0.0057252199999311415
+      },
+      "mean_length": 8.5,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.625
+     },
+     {
+      "a": "minimax",
+      "b": "mcts:iterations=1000",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "minimax": 9.542496113934047e-05,
+       "mcts:iterations=1000": 0.00807919484999123
+      },
+      "max_time_per_move": {
+       "minimax": 0.0003557360000741028,
+       "mcts:iterations=1000": 0.09485348399994109
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "menace",
+      "b": "qlearning",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 20,
+      "draws": 20,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "menace": 4.687578582109251e-06,
+       "qlearning": 4.053985701700315e-06
+      },
+      "max_time_per_move": {
+       "menace": 3.076700022575096e-05,
+       "qlearning": 1.6063000202848343e-05
+      },
+      "mean_length": 7.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.25
+     },
+     {
+      "a": "menace",
+      "b": "td",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "menace": 4.941627776133828e-06,
+       "td": 1.9415877778151803e-05
+      },
+      "max_time_per_move": {
+       "menace": 3.056600007766974e-05,
+       "td": 6.154399989100057e-05
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "menace",
+      "b": "alphabeta:depth=2",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 20,
+      "draws": 20,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "menace": 6.152992880613186e-06,
+       "alphabeta:depth=2": 0.0001368601071460164
+      },
+      "max_time_per_move": {
+       "menace": 1.254600010724971e-05,
+       "alphabeta:depth=2": 0.0005164740000509482
+      },
+      "mean_length": 7.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.25
+     },
+     {
+      "a": "menace",
+      "b": "alphabeta:depth=4",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 20,
+      "draws": 20,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "menace": 6.8954571393728e-06,
+       "alphabeta:depth=4": 0.00046896749286458675
+      },
+      "max_time_per_move": {
+       "menace": 2.116699988619075e-05,
+       "alphabeta:depth=4": 0.001799656999992294
+      },
+      "mean_length": 7.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.25
+     },
+     {
+      "a": "menace",
+      "b": "mcts:iterations=200",
+      "config": "(3,3,3)",
+      "wins_a": 4,
+      "wins_b": 8,
+      "draws": 28,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 4,
+       "draw": 15,
+       "loss": 1
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 13,
+       "loss": 7
+      },
+      "time_per_move": {
+       "menace": 1.1592687491202014e-05,
+       "mcts:iterations=200": 0.0012453725714113937
+      },
+      "max_time_per_move": {
+       "menace": 4.1398999655939406e-05,
+       "mcts:iterations=200": 0.00856227200029025
+      },
+      "mean_length": 8.025,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.45
+     },
+     {
+      "a": "menace",
+      "b": "mcts:iterations=1000",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 16,
+      "draws": 24,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 4,
+       "loss": 16
+      },
+      "time_per_move": {
+       "menace": 2.9882060796292018e-05,
+       "mcts:iterations=1000": 0.007812126898636814
+      },
+      "max_time_per_move": {
+       "menace": 0.0002475020000929362,
+       "mcts:iterations=1000": 0.02859645199987426
+      },
+      "mean_length": 7.4,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.3
+     },
+     {
+      "a": "qlearning",
+      "b": "td",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "qlearning": 5.337572214456385e-06,
+       "td": 2.1367516647943476e-05
+      },
+      "max_time_per_move": {
+       "qlearning": 9.278399966206052e-05,
+       "td": 6.192699993334827e-05
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "qlearning",
+      "b": "alphabeta:depth=2",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "qlearning": 6.1988444561696575e-06,
+       "alphabeta:depth=2": 0.0001367707666582242
+      },
+      "max_time_per_move": {
+       "qlearning": 1.4953999652789207e-05,
+       "alphabeta:depth=2": 0.0005640680001306464
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "qlearning",
+      "b": "alphabeta:depth=4",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "qlearning": 7.053555547524108e-06,
+       "alphabeta:depth=4": 0.0004461464000036762
+      },
+      "max_time_per_move": {
+       "qlearning": 3.0127000172797125e-05,
+       "alphabeta:depth=4": 0.00309026900004028
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "qlearning",
+      "b": "mcts:iterations=200",
+      "config": "(3,3,3)",
+      "wins_a": 5,
+      "wins_b": 0,
+      "draws": 35,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 5,
+       "draw": 15,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "qlearning": 1.1367702845745954e-05,
+       "mcts:iterations=200": 0.0014026050399765413
+      },
+      "max_time_per_move": {
+       "qlearning": 0.0001883640002233733,
+       "mcts:iterations=200": 0.040842624999640975
+      },
+      "mean_length": 8.75,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5625
+     },
+     {
+      "a": "qlearning",
+      "b": "mcts:iterations=1000",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "qlearning": 2.751872779198392e-05,
+       "mcts:iterations=1000": 0.006901094899990312
+      },
+      "max_time_per_move": {
+       "qlearning": 0.001137343000209512,
+       "mcts:iterations=1000": 0.027778920999935508
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "td",
+      "b": "alphabeta:depth=2",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "td": 2.942805554084771e-05,
+       "alphabeta:depth=2": 0.0001436204333332272
+      },
+      "max_time_per_move": {
+       "td": 0.000325843000155146,
+       "alphabeta:depth=2": 0.0006734819999110186
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "td",
+      "b": "alphabeta:depth=4",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "td": 2.466586109524845e-05,
+       "alphabeta:depth=4": 0.0004269011444547585
+      },
+      "max_time_per_move": {
+       "td": 7.256599974425626e-05,
+       "alphabeta:depth=4": 0.003229488000215497
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "td",
+      "b": "mcts:iterations=200",
+      "config": "(3,3,3)",
+      "wins_a": 9,
+      "wins_b": 8,
+      "draws": 23,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 9,
+       "draw": 11,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 12,
+       "loss": 8
+      },
+      "time_per_move": {
+       "td": 3.977070183728468e-05,
+       "mcts:iterations=200": 0.0015318646956837718
+      },
+      "max_time_per_move": {
+       "td": 0.00014850900015517254,
+       "mcts:iterations=200": 0.007948466000016197
+      },
+      "mean_length": 8.05,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5125
+     },
+     {
+      "a": "td",
+      "b": "mcts:iterations=1000",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 3,
+      "draws": 37,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 17,
+       "loss": 3
+      },
+      "time_per_move": {
+       "td": 4.240938985641269e-05,
+       "mcts:iterations=1000": 0.00698900014687731
+      },
+      "max_time_per_move": {
+       "td": 0.00010724000003392575,
+       "mcts:iterations=1000": 0.05441114499990363
+      },
+      "mean_length": 8.85,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.4625
+     },
+     {
+      "a": "alphabeta:depth=2",
+      "b": "alphabeta:depth=4",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "alphabeta:depth=2": 0.00011400106109754739,
+       "alphabeta:depth=4": 0.0003741539166614732
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=2": 0.0004905309997411678,
+       "alphabeta:depth=4": 0.0018803040002239868
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "alphabeta:depth=2",
+      "b": "mcts:iterations=200",
+      "config": "(3,3,3)",
+      "wins_a": 3,
+      "wins_b": 0,
+      "draws": 37,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 3,
+       "draw": 17,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "alphabeta:depth=2": 0.00016812031072336114,
+       "mcts:iterations=200": 0.0010683317909726386
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=2": 0.002549097000155598,
+       "mcts:iterations=200": 0.005702658999780397
+      },
+      "mean_length": 8.85,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5375
+     },
+     {
+      "a": "alphabeta:depth=2",
+      "b": "mcts:iterations=1000",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "alphabeta:depth=2": 0.00014237213887200698,
+       "mcts:iterations=1000": 0.00632293833333127
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=2": 0.0006712710001011146,
+       "mcts:iterations=1000": 0.06309727100006057
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "alphabeta:depth=4",
+      "b": "mcts:iterations=200",
+      "config": "(3,3,3)",
+      "wins_a": 1,
+      "wins_b": 0,
+      "draws": 39,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 1,
+       "draw": 19,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "alphabeta:depth=4": 0.00041810313408524314,
+       "mcts:iterations=200": 0.0009953092849147712
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=4": 0.001999233999868011,
+       "mcts:iterations=200": 0.004005641999810905
+      },
+      "mean_length": 8.95,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5125
+     },
+     {
+      "a": "alphabeta:depth=4",
+      "b": "mcts:iterations=1000",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 0,
+      "draws": 40,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "time_per_move": {
+       "alphabeta:depth=4": 0.0004305217000036363,
+       "mcts:iterations=1000": 0.0060719862555844075
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=4": 0.004541700999652676,
+       "mcts:iterations=1000": 0.04768719300000157
+      },
+      "mean_length": 9.0,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "mcts:iterations=200",
+      "b": "mcts:iterations=1000",
+      "config": "(3,3,3)",
+      "wins_a": 0,
+      "wins_b": 2,
+      "draws": 38,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 20,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 18,
+       "loss": 2
+      },
+      "time_per_move": {
+       "mcts:iterations=200": 0.0012144126011320255,
+       "mcts:iterations=1000": 0.007977539882000364
+      },
+      "max_time_per_move": {
+       "mcts:iterations=200": 0.008506338000188407,
+       "mcts:iterations=1000": 0.08622688500008735
+      },
+      "mean_length": 8.9,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.475
+     }
+    ],
+    "score_matrix": {
+     "random": {
+      "rule": 0.025,
+      "minimax": 0.1,
+      "menace": 0.1625,
+      "qlearning": 0.025,
+      "td": 0.0375,
+      "alphabeta:depth=2": 0.025,
+      "alphabeta:depth=4": 0.025,
+      "mcts:iterations=200": 0.0875,
+      "mcts:iterations=1000": 0.0625
+     },
+     "rule": {
+      "random": 0.975,
+      "minimax": 0.5,
+      "menace": 0.5,
+      "qlearning": 0.5,
+      "td": 0.5,
+      "alphabeta:depth=2": 0.5,
+      "alphabeta:depth=4": 0.5,
+      "mcts:iterations=200": 0.55,
+      "mcts:iterations=1000": 0.5
+     },
+     "minimax": {
+      "random": 0.9,
+      "rule": 0.5,
+      "menace": 0.5125,
+      "qlearning": 0.5,
+      "td": 0.5875,
+      "alphabeta:depth=2": 0.5,
+      "alphabeta:depth=4": 0.5,
+      "mcts:iterations=200": 0.625,
+      "mcts:iterations=1000": 0.5
+     },
+     "menace": {
+      "random": 0.8375,
+      "rule": 0.5,
+      "minimax": 0.48750000000000004,
+      "qlearning": 0.25,
+      "td": 0.5,
+      "alphabeta:depth=2": 0.25,
+      "alphabeta:depth=4": 0.25,
+      "mcts:iterations=200": 0.45,
+      "mcts:iterations=1000": 0.3
+     },
+     "qlearning": {
+      "random": 0.975,
+      "rule": 0.5,
+      "minimax": 0.5,
+      "menace": 0.75,
+      "td": 0.5,
+      "alphabeta:depth=2": 0.5,
+      "alphabeta:depth=4": 0.5,
+      "mcts:iterations=200": 0.5625,
+      "mcts:iterations=1000": 0.5
+     },
+     "td": {
+      "random": 0.9625,
+      "rule": 0.5,
+      "minimax": 0.4125,
+      "menace": 0.5,
+      "qlearning": 0.5,
+      "alphabeta:depth=2": 0.5,
+      "alphabeta:depth=4": 0.5,
+      "mcts:iterations=200": 0.5125,
+      "mcts:iterations=1000": 0.4625
+     },
+     "alphabeta:depth=2": {
+      "random": 0.975,
+      "rule": 0.5,
+      "minimax": 0.5,
+      "menace": 0.75,
+      "qlearning": 0.5,
+      "td": 0.5,
+      "alphabeta:depth=4": 0.5,
+      "mcts:iterations=200": 0.5375,
+      "mcts:iterations=1000": 0.5
+     },
+     "alphabeta:depth=4": {
+      "random": 0.975,
+      "rule": 0.5,
+      "minimax": 0.5,
+      "menace": 0.75,
+      "qlearning": 0.5,
+      "td": 0.5,
+      "alphabeta:depth=2": 0.5,
+      "mcts:iterations=200": 0.5125,
+      "mcts:iterations=1000": 0.5
+     },
+     "mcts:iterations=200": {
+      "random": 0.9125,
+      "rule": 0.44999999999999996,
+      "minimax": 0.375,
+      "menace": 0.55,
+      "qlearning": 0.4375,
+      "td": 0.48750000000000004,
+      "alphabeta:depth=2": 0.4625,
+      "alphabeta:depth=4": 0.48750000000000004,
+      "mcts:iterations=1000": 0.475
+     },
+     "mcts:iterations=1000": {
+      "random": 0.9375,
+      "rule": 0.5,
+      "minimax": 0.5,
+      "menace": 0.7,
+      "qlearning": 0.5,
+      "td": 0.5375,
+      "alphabeta:depth=2": 0.5,
+      "alphabeta:depth=4": 0.5,
+      "mcts:iterations=200": 0.525
+     }
+    },
+    "wdl": [
+     {
+      "agent": "random",
+      "win": 4,
+      "draw": 36,
+      "loss": 320,
+      "aborted": 0
+     },
+     {
+      "agent": "rule",
+      "win": 42,
+      "draw": 318,
+      "loss": 0,
+      "aborted": 0
+     },
+     {
+      "agent": "minimax",
+      "win": 50,
+      "draw": 310,
+      "loss": 0,
+      "aborted": 0
+     },
+     {
+      "agent": "menace",
+      "win": 34,
+      "draw": 238,
+      "loss": 88,
+      "aborted": 0
+     },
+     {
+      "agent": "qlearning",
+      "win": 63,
+      "draw": 297,
+      "loss": 0,
+      "aborted": 0
+     },
+     {
+      "agent": "td",
+      "win": 47,
+      "draw": 294,
+      "loss": 19,
+      "aborted": 0
+     },
+     {
+      "agent": "alphabeta:depth=2",
+      "win": 61,
+      "draw": 299,
+      "loss": 0,
+      "aborted": 0
+     },
+     {
+      "agent": "alphabeta:depth=4",
+      "win": 59,
+      "draw": 301,
+      "loss": 0,
+      "aborted": 0
+     },
+     {
+      "agent": "mcts:iterations=200",
+      "win": 49,
+      "draw": 273,
+      "loss": 38,
+      "aborted": 0
+     },
+     {
+      "agent": "mcts:iterations=1000",
+      "win": 56,
+      "draw": 304,
+      "loss": 0,
+      "aborted": 0
+     }
+    ]
+   },
+   "elo": {
+    "ratings": {
+     "alphabeta:depth=2": 1498.8733980762074,
+     "alphabeta:depth=4": 1496.9655861101685,
+     "mcts:iterations=1000": 1494.107006586349,
+     "mcts:iterations=200": 1451.4419097499722,
+     "menace": 1388.771275878059,
+     "minimax": 1488.3998062982798,
+     "qlearning": 1500.7830114123515,
+     "random": 1000.0,
+     "rule": 1480.8066222842313,
+     "td": 1467.5448210946724
+    },
+    "ci95": {
+     "alphabeta:depth=2": [
+      1449.352155061593,
+      1557.7409254101449
+     ],
+     "alphabeta:depth=4": [
+      1447.3715795718106,
+      1556.1726460905882
+     ],
+     "mcts:iterations=1000": [
+      1442.1448382177741,
+      1549.3476935236781
+     ],
+     "mcts:iterations=200": [
+      1400.227197770498,
+      1515.0041574479753
+     ],
+     "menace": [
+      1336.2862429857082,
+      1451.97726029099
+     ],
+     "minimax": [
+      1435.3192472380952,
+      1546.1936413908174
+     ],
+     "qlearning": [
+      1449.9840214743522,
+      1561.1020732933205
+     ],
+     "random": [
+      999.9999999999999,
+      1000.0000000000001
+     ],
+     "rule": [
+      1431.2551013241264,
+      1542.3610611161223
+     ],
+     "td": [
+      1419.0820355746573,
+      1528.3136000750587
+     ]
+    },
+    "games": 1800
+   }
+  },
+  {
+   "config": "(6,6,4)",
+   "tournament": {
+    "config": "(6,6,4)",
+    "agents": [
+     "random",
+     "rule",
+     "alphabeta:depth=2",
+     "alphabeta:depth=4",
+     "mcts:iterations=200",
+     "mcts:iterations=1000"
+    ],
+    "seed": 0,
+    "games_per_pair": 40,
+    "matches": [
+     {
+      "a": "random",
+      "b": "rule",
+      "config": "(6,6,4)",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 2.3878827834841072e-06,
+       "rule": 0.00013236694546294253
+      },
+      "max_time_per_move": {
+       "random": 6.482000117102871e-06,
+       "rule": 0.0002951659998871037
+      },
+      "mean_length": 7.75,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "random",
+      "b": "alphabeta:depth=2",
+      "config": "(6,6,4)",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 5.659493053953055e-06,
+       "alphabeta:depth=2": 0.0026171244024575705
+      },
+      "max_time_per_move": {
+       "random": 5.4365999858418945e-05,
+       "alphabeta:depth=2": 0.010301841000000422
+      },
+      "mean_length": 7.7,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "random",
+      "b": "alphabeta:depth=4",
+      "config": "(6,6,4)",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 9.459562100233431e-06,
+       "alphabeta:depth=4": 0.02622576838727892
+      },
+      "max_time_per_move": {
+       "random": 4.5988999772816896e-05,
+       "alphabeta:depth=4": 0.10061027100027786
+      },
+      "mean_length": 8.15,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "random",
+      "b": "mcts:iterations=200",
+      "config": "(6,6,4)",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 4.800298325453925e-06,
+       "mcts:iterations=200": 0.006356841155038214
+      },
+      "max_time_per_move": {
+       "random": 1.5638000149920117e-05,
+       "mcts:iterations=200": 0.013818718000038643
+      },
+      "mean_length": 12.4,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "random",
+      "b": "mcts:iterations=1000",
+      "config": "(6,6,4)",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 7.694243108920427e-06,
+       "mcts:iterations=1000": 0.03451216667662406
+      },
+      "max_time_per_move": {
+       "random": 4.5806000343873166e-05,
+       "mcts:iterations=1000": 0.08913733400004276
+      },
+      "mean_length": 9.55,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "rule",
+      "b": "alphabeta:depth=2",
+      "config": "(6,6,4)",
+      "wins_a": 15,
+      "wins_b": 25,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 9,
+       "draw": 0,
+       "loss": 11
+      },
+      "a_as_o": {
+       "win": 6,
+       "draw": 0,
+       "loss": 14
+      },
+      "time_per_move": {
+       "rule": 0.00017078638182448975,
+       "alphabeta:depth=2": 0.0027759585022007136
+      },
+      "max_time_per_move": {
+       "rule": 0.0003658489999907033,
+       "alphabeta:depth=2": 0.007536410000284377
+      },
+      "mean_length": 11.125,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.375
+     },
+     {
+      "a": "rule",
+      "b": "alphabeta:depth=4",
+      "config": "(6,6,4)",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "rule": 0.00019329281778482254,
+       "alphabeta:depth=4": 0.018867420204078743
+      },
+      "max_time_per_move": {
+       "rule": 0.000446662000285869,
+       "alphabeta:depth=4": 0.09518006700000115
+      },
+      "mean_length": 11.75,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "rule",
+      "b": "mcts:iterations=200",
+      "config": "(6,6,4)",
+      "wins_a": 40,
+      "wins_b": 0,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "time_per_move": {
+       "rule": 0.00021018036145725057,
+       "mcts:iterations=200": 0.010248924493141688
+      },
+      "max_time_per_move": {
+       "rule": 0.0004569600000650098,
+       "mcts:iterations=200": 0.022648490999927162
+      },
+      "mean_length": 7.8,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 1.0
+     },
+     {
+      "a": "rule",
+      "b": "mcts:iterations=1000",
+      "config": "(6,6,4)",
+      "wins_a": 38,
+      "wins_b": 1,
+      "draws": 1,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 18,
+       "draw": 1,
+       "loss": 1
+      },
+      "time_per_move": {
+       "rule": 0.00017730017347674927,
+       "mcts:iterations=1000": 0.03911371687006278
+      },
+      "max_time_per_move": {
+       "rule": 0.0004883189999418391,
+       "mcts:iterations=1000": 0.10125028100037525
+      },
+      "mean_length": 9.325,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.9625
+     },
+     {
+      "a": "alphabeta:depth=2",
+      "b": "alphabeta:depth=4",
+      "config": "(6,6,4)",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "alphabeta:depth=2": 0.003238110763657625,
+       "alphabeta:depth=4": 0.018889579750007594
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=2": 0.008420872999977291,
+       "alphabeta:depth=4": 0.10138184400011596
+      },
+      "mean_length": 11.5,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "alphabeta:depth=2",
+      "b": "mcts:iterations=200",
+      "config": "(6,6,4)",
+      "wins_a": 40,
+      "wins_b": 0,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "time_per_move": {
+       "alphabeta:depth=2": 0.001911774024401117,
+       "mcts:iterations=200": 0.007223843625006844
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=2": 0.005515805999948498,
+       "mcts:iterations=200": 0.010974723000344966
+      },
+      "mean_length": 7.7,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 1.0
+     },
+     {
+      "a": "alphabeta:depth=2",
+      "b": "mcts:iterations=1000",
+      "config": "(6,6,4)",
+      "wins_a": 39,
+      "wins_b": 1,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 19,
+       "draw": 0,
+       "loss": 1
+      },
+      "time_per_move": {
+       "alphabeta:depth=2": 0.002553556982793557,
+       "mcts:iterations=1000": 0.04487867293549449
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=2": 0.009774810999715555,
+       "mcts:iterations=1000": 0.11107379299983222
+      },
+      "mean_length": 8.225,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.975
+     },
+     {
+      "a": "alphabeta:depth=4",
+      "b": "mcts:iterations=200",
+      "config": "(6,6,4)",
+      "wins_a": 40,
+      "wins_b": 0,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "time_per_move": {
+       "alphabeta:depth=4": 0.025033506863912095,
+       "mcts:iterations=200": 0.007995376744996816
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=4": 0.10503570699984266,
+       "mcts:iterations=200": 0.013316742999904818
+      },
+      "mean_length": 7.95,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 1.0
+     },
+     {
+      "a": "alphabeta:depth=4",
+      "b": "mcts:iterations=1000",
+      "config": "(6,6,4)",
+      "wins_a": 39,
+      "wins_b": 1,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 19,
+       "draw": 0,
+       "loss": 1
+      },
+      "time_per_move": {
+       "alphabeta:depth=4": 0.02388208375555223,
+       "mcts:iterations=1000": 0.041438818757743315
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=4": 0.09240260299975489,
+       "mcts:iterations=1000": 0.07608651100008501
+      },
+      "mean_length": 8.525,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.975
+     },
+     {
+      "a": "mcts:iterations=200",
+      "b": "mcts:iterations=1000",
+      "config": "(6,6,4)",
+      "wins_a": 9,
+      "wins_b": 31,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 5,
+       "draw": 0,
+       "loss": 15
+      },
+      "a_as_o": {
+       "win": 4,
+       "draw": 0,
+       "loss": 16
+      },
+      "time_per_move": {
+       "mcts:iterations=200": 0.0071320987731855285,
+       "mcts:iterations=1000": 0.03446559090733034
+      },
+      "max_time_per_move": {
+       "mcts:iterations=200": 0.018696401999932277,
+       "mcts:iterations=1000": 0.09390360900033556
+      },
+      "mean_length": 9.975,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.225
+     }
+    ],
+    "score_matrix": {
+     "random": {
+      "rule": 0.0,
+      "alphabeta:depth=2": 0.0,
+      "alphabeta:depth=4": 0.0,
+      "mcts:iterations=200": 0.0,
+      "mcts:iterations=1000": 0.0
+     },
+     "rule": {
+      "random": 1.0,
+      "alphabeta:depth=2": 0.375,
+      "alphabeta:depth=4": 0.0,
+      "mcts:iterations=200": 1.0,
+      "mcts:iterations=1000": 0.9625
+     },
+     "alphabeta:depth=2": {
+      "random": 1.0,
+      "rule": 0.625,
+      "alphabeta:depth=4": 0.0,
+      "mcts:iterations=200": 1.0,
+      "mcts:iterations=1000": 0.975
+     },
+     "alphabeta:depth=4": {
+      "random": 1.0,
+      "rule": 1.0,
+      "alphabeta:depth=2": 1.0,
+      "mcts:iterations=200": 1.0,
+      "mcts:iterations=1000": 0.975
+     },
+     "mcts:iterations=200": {
+      "random": 1.0,
+      "rule": 0.0,
+      "alphabeta:depth=2": 0.0,
+      "alphabeta:depth=4": 0.0,
+      "mcts:iterations=1000": 0.225
+     },
+     "mcts:iterations=1000": {
+      "random": 1.0,
+      "rule": 0.03749999999999998,
+      "alphabeta:depth=2": 0.025000000000000022,
+      "alphabeta:depth=4": 0.025000000000000022,
+      "mcts:iterations=200": 0.775
+     }
+    },
+    "wdl": [
+     {
+      "agent": "random",
+      "win": 0,
+      "draw": 0,
+      "loss": 200,
+      "aborted": 0
+     },
+     {
+      "agent": "rule",
+      "win": 133,
+      "draw": 1,
+      "loss": 66,
+      "aborted": 0
+     },
+     {
+      "agent": "alphabeta:depth=2",
+      "win": 144,
+      "draw": 0,
+      "loss": 56,
+      "aborted": 0
+     },
+     {
+      "agent": "alphabeta:depth=4",
+      "win": 199,
+      "draw": 0,
+      "loss": 1,
+      "aborted": 0
+     },
+     {
+      "agent": "mcts:iterations=200",
+      "win": 49,
+      "draw": 0,
+      "loss": 151,
+      "aborted": 0
+     },
+     {
+      "agent": "mcts:iterations=1000",
+      "win": 74,
+      "draw": 1,
+      "loss": 125,
+      "aborted": 0
+     }
+    ]
+   },
+   "elo": {
+    "ratings": {
+     "alphabeta:depth=2": 2604.007178716108,
+     "alphabeta:depth=4": 3266.043978254854,
+     "mcts:iterations=1000": 2027.68398952359,
+     "mcts:iterations=200": 1806.6288591910468,
+     "random": 1000.0,
+     "rule": 2523.363997400298
+    },
+    "ci95": {
+     "alphabeta:depth=2": [
+      2485.9920434933783,
+      2787.229308592913
+     ],
+     "alphabeta:depth=4": [
+      3033.4028716096063,
+      3540.9972220701047
+     ],
+     "mcts:iterations=1000": [
+      1945.341018936183,
+      2164.4495236370567
+     ],
+     "mcts:iterations=200": [
+      1749.1497758326886,
+      1851.9348888294744
+     ],
+     "random": [
+      999.9999999999998,
+      1000.0000000000002
+     ],
+     "rule": [
+      2406.9286934805527,
+      2712.82866921216
+     ]
+    },
+    "games": 600
+   }
+  },
+  {
+   "config": "(6,7,4)+gravity",
+   "tournament": {
+    "config": "(6,7,4)+gravity",
+    "agents": [
+     "random",
+     "rule",
+     "alphabeta:depth=2",
+     "alphabeta:depth=4",
+     "mcts:iterations=200",
+     "mcts:iterations=1000"
+    ],
+    "seed": 0,
+    "games_per_pair": 40,
+    "matches": [
+     {
+      "a": "random",
+      "b": "rule",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 1.591517076765119e-06,
+       "rule": 4.0062826675340246e-05
+      },
+      "max_time_per_move": {
+       "random": 3.194900000380585e-05,
+       "rule": 0.00011418000030971598
+      },
+      "mean_length": 10.75,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "random",
+      "b": "alphabeta:depth=2",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 2.0924292170318756e-06,
+       "alphabeta:depth=2": 0.00041351951626634624
+      },
+      "max_time_per_move": {
+       "random": 1.6007999875000678e-05,
+       "alphabeta:depth=2": 0.0007872009996390261
+      },
+      "mean_length": 11.8,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "random",
+      "b": "alphabeta:depth=4",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 3.4077725396753896e-06,
+       "alphabeta:depth=4": 0.004148605683778025
+      },
+      "max_time_per_move": {
+       "random": 2.1684999865101418e-05,
+       "alphabeta:depth=4": 0.012737403999835806
+      },
+      "mean_length": 12.15,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "random",
+      "b": "mcts:iterations=200",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 3.887135271681192e-06,
+       "mcts:iterations=200": 0.007250300854615697
+      },
+      "max_time_per_move": {
+       "random": 8.6850000116101e-06,
+       "mcts:iterations=200": 0.056525653999869974
+      },
+      "mean_length": 10.85,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "random",
+      "b": "mcts:iterations=1000",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "random": 6.6507513322725786e-06,
+       "mcts:iterations=1000": 0.034377252550239844
+      },
+      "max_time_per_move": {
+       "random": 1.8412999907013727e-05,
+       "mcts:iterations=1000": 0.08005392799987021
+      },
+      "mean_length": 9.95,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "rule",
+      "b": "alphabeta:depth=2",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 0,
+      "wins_b": 40,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "rule": 4.96873888778282e-05,
+       "alphabeta:depth=2": 0.0004151688499919864
+      },
+      "max_time_per_move": {
+       "rule": 0.00012194700002510217,
+       "alphabeta:depth=2": 0.0009535009999126487
+      },
+      "mean_length": 18.5,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.0
+     },
+     {
+      "a": "rule",
+      "b": "alphabeta:depth=4",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 20,
+      "wins_b": 20,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 0,
+       "draw": 0,
+       "loss": 20
+      },
+      "time_per_move": {
+       "rule": 4.9087132184483336e-05,
+       "alphabeta:depth=4": 0.003444326996597769
+      },
+      "max_time_per_move": {
+       "rule": 0.00020539699971777736,
+       "alphabeta:depth=4": 0.014725478999935149
+      },
+      "mean_length": 29.5,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.5
+     },
+     {
+      "a": "rule",
+      "b": "mcts:iterations=200",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 17,
+      "wins_b": 23,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 8,
+       "draw": 0,
+       "loss": 12
+      },
+      "a_as_o": {
+       "win": 9,
+       "draw": 0,
+       "loss": 11
+      },
+      "time_per_move": {
+       "rule": 7.101615368676262e-05,
+       "mcts:iterations=200": 0.005767425327377847
+      },
+      "max_time_per_move": {
+       "rule": 0.0009495760000390874,
+       "mcts:iterations=200": 0.05541066200021305
+      },
+      "mean_length": 25.125,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.425
+     },
+     {
+      "a": "rule",
+      "b": "mcts:iterations=1000",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 8,
+      "wins_b": 32,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 3,
+       "draw": 0,
+       "loss": 17
+      },
+      "a_as_o": {
+       "win": 5,
+       "draw": 0,
+       "loss": 15
+      },
+      "time_per_move": {
+       "rule": 7.113929607162301e-05,
+       "mcts:iterations=1000": 0.02543578728736243
+      },
+      "max_time_per_move": {
+       "rule": 0.00035283999977764324,
+       "mcts:iterations=1000": 0.11441110300029322
+      },
+      "mean_length": 25.8,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.2
+     },
+     {
+      "a": "alphabeta:depth=2",
+      "b": "alphabeta:depth=4",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 40,
+      "wins_b": 0,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "a_as_o": {
+       "win": 20,
+       "draw": 0,
+       "loss": 0
+      },
+      "time_per_move": {
+       "alphabeta:depth=2": 0.00045695158620407615,
+       "alphabeta:depth=4": 0.004385176137535694
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=2": 0.0013025040002503374,
+       "alphabeta:depth=4": 0.014047023999864905
+      },
+      "mean_length": 31.4,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 1.0
+     },
+     {
+      "a": "alphabeta:depth=2",
+      "b": "mcts:iterations=200",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 28,
+      "wins_b": 10,
+      "draws": 2,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 15,
+       "draw": 0,
+       "loss": 5
+      },
+      "a_as_o": {
+       "win": 13,
+       "draw": 2,
+       "loss": 5
+      },
+      "time_per_move": {
+       "alphabeta:depth=2": 0.00046477589876788315,
+       "mcts:iterations=200": 0.0046317581772197065
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=2": 0.00118264899992937,
+       "mcts:iterations=200": 0.01362528299978294
+      },
+      "mean_length": 27.9,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.725
+     },
+     {
+      "a": "alphabeta:depth=2",
+      "b": "mcts:iterations=1000",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 23,
+      "wins_b": 15,
+      "draws": 2,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 10,
+       "draw": 0,
+       "loss": 10
+      },
+      "a_as_o": {
+       "win": 13,
+       "draw": 2,
+       "loss": 5
+      },
+      "time_per_move": {
+       "alphabeta:depth=2": 0.0004570713944476531,
+       "mcts:iterations=1000": 0.023678054567669575
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=2": 0.0030786019997322,
+       "mcts:iterations=1000": 0.10192188700011684
+      },
+      "mean_length": 30.425,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.6
+     },
+     {
+      "a": "alphabeta:depth=4",
+      "b": "mcts:iterations=200",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 28,
+      "wins_b": 12,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 14,
+       "draw": 0,
+       "loss": 6
+      },
+      "a_as_o": {
+       "win": 14,
+       "draw": 0,
+       "loss": 6
+      },
+      "time_per_move": {
+       "alphabeta:depth=4": 0.003830644486831767,
+       "mcts:iterations=200": 0.004807495679390129
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=4": 0.015644834999875457,
+       "mcts:iterations=200": 0.013048556999819994
+      },
+      "mean_length": 26.4,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.7
+     },
+     {
+      "a": "alphabeta:depth=4",
+      "b": "mcts:iterations=1000",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 18,
+      "wins_b": 22,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 9,
+       "draw": 0,
+       "loss": 11
+      },
+      "a_as_o": {
+       "win": 9,
+       "draw": 0,
+       "loss": 11
+      },
+      "time_per_move": {
+       "alphabeta:depth=4": 0.003598219793840634,
+       "mcts:iterations=1000": 0.02425390583588931
+      },
+      "max_time_per_move": {
+       "alphabeta:depth=4": 0.013641332000133843,
+       "mcts:iterations=1000": 0.11204442899997957
+      },
+      "mean_length": 32.55,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.45
+     },
+     {
+      "a": "mcts:iterations=200",
+      "b": "mcts:iterations=1000",
+      "config": "(6,7,4)+gravity",
+      "wins_a": 4,
+      "wins_b": 36,
+      "draws": 0,
+      "aborted": 0,
+      "a_as_x": {
+       "win": 2,
+       "draw": 0,
+       "loss": 18
+      },
+      "a_as_o": {
+       "win": 2,
+       "draw": 0,
+       "loss": 18
+      },
+      "time_per_move": {
+       "mcts:iterations=200": 0.004599593950256567,
+       "mcts:iterations=1000": 0.025503742858379686
+      },
+      "max_time_per_move": {
+       "mcts:iterations=200": 0.014200241999787977,
+       "mcts:iterations=1000": 0.08533324900008665
+      },
+      "mean_length": 28.55,
+      "abort_reasons": [],
+      "n_games": 40,
+      "score_a": 0.1
+     }
+    ],
+    "score_matrix": {
+     "random": {
+      "rule": 0.0,
+      "alphabeta:depth=2": 0.0,
+      "alphabeta:depth=4": 0.0,
+      "mcts:iterations=200": 0.0,
+      "mcts:iterations=1000": 0.0
+     },
+     "rule": {
+      "random": 1.0,
+      "alphabeta:depth=2": 0.0,
+      "alphabeta:depth=4": 0.5,
+      "mcts:iterations=200": 0.425,
+      "mcts:iterations=1000": 0.2
+     },
+     "alphabeta:depth=2": {
+      "random": 1.0,
+      "rule": 1.0,
+      "alphabeta:depth=4": 1.0,
+      "mcts:iterations=200": 0.725,
+      "mcts:iterations=1000": 0.6
+     },
+     "alphabeta:depth=4": {
+      "random": 1.0,
+      "rule": 0.5,
+      "alphabeta:depth=2": 0.0,
+      "mcts:iterations=200": 0.7,
+      "mcts:iterations=1000": 0.45
+     },
+     "mcts:iterations=200": {
+      "random": 1.0,
+      "rule": 0.575,
+      "alphabeta:depth=2": 0.275,
+      "alphabeta:depth=4": 0.30000000000000004,
+      "mcts:iterations=1000": 0.1
+     },
+     "mcts:iterations=1000": {
+      "random": 1.0,
+      "rule": 0.8,
+      "alphabeta:depth=2": 0.4,
+      "alphabeta:depth=4": 0.55,
+      "mcts:iterations=200": 0.9
+     }
+    },
+    "wdl": [
+     {
+      "agent": "random",
+      "win": 0,
+      "draw": 0,
+      "loss": 200,
+      "aborted": 0
+     },
+     {
+      "agent": "rule",
+      "win": 85,
+      "draw": 0,
+      "loss": 115,
+      "aborted": 0
+     },
+     {
+      "agent": "alphabeta:depth=2",
+      "win": 171,
+      "draw": 4,
+      "loss": 25,
+      "aborted": 0
+     },
+     {
+      "agent": "alphabeta:depth=4",
+      "win": 106,
+      "draw": 0,
+      "loss": 94,
+      "aborted": 0
+     },
+     {
+      "agent": "mcts:iterations=200",
+      "win": 89,
+      "draw": 2,
+      "loss": 109,
+      "aborted": 0
+     },
+     {
+      "agent": "mcts:iterations=1000",
+      "win": 145,
+      "draw": 2,
+      "loss": 53,
+      "aborted": 0
+     }
+    ]
+   },
+   "elo": {
+    "ratings": {
+     "alphabeta:depth=2": 2327.9712198688235,
+     "alphabeta:depth=4": 2031.1102970127379,
+     "mcts:iterations=1000": 2196.837559962758,
+     "mcts:iterations=200": 1964.3865185588984,
+     "random": 1000.0000000000001,
+     "rule": 1942.6334931916529
+    },
+    "ci95": {
+     "alphabeta:depth=2": [
+      2259.822078449741,
+      2432.2922910337315
+     ],
+     "alphabeta:depth=4": [
+      1970.186039355206,
+      2097.401764467761
+     ],
+     "mcts:iterations=1000": [
+      2127.48205096613,
+      2275.4778700574443
+     ],
+     "mcts:iterations=200": [
+      1917.365772295722,
+      2016.2414847152606
+     ],
+     "random": [
+      999.9999999999999,
+      1000.0000000000001
+     ],
+     "rule": [
+      1890.393820572598,
+      1986.8351985330291
+     ]
+    },
+    "games": 600
+   }
+  }
+ ]
+}
