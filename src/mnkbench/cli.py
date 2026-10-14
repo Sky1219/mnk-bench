@@ -196,7 +196,10 @@ def cmd_experiment(args) -> int:
     if unknown:
         print(f"unknown experiment(s) {unknown}; choose from {', '.join(EXPERIMENTS)}")
         return 2
-    run(names, args.out, quick=args.quick, seed=args.seed, log=print if args.verbose else (lambda s: None))
+    # Pass the user's list as given: an empty list means "everything", which
+    # skips experiments whose optional dependency (PyTorch) is missing.
+    run(args.names, args.out, quick=args.quick, seed=args.seed,
+        log=print if args.verbose else (lambda s: None))
     if not args.no_report:
         from .report import build_report
 

@@ -78,3 +78,12 @@ def test_run_all_skips_missing_optional_dependency(tmp_path, monkeypatch):
     assert any("skipping alphazero" in m for m in logs)
     with pytest.raises(ImportError):
         suite.run(["alphazero"], tmp_path, quick=True, log=logs.append)
+
+
+def test_cli_experiment_all_passes_empty_names(tmp_path, monkeypatch):
+    from mnkbench.experiments import suite
+
+    seen = {}
+    monkeypatch.setattr(suite, "run", lambda names, *a, **k: seen.setdefault("names", names))
+    assert main(["experiment", "--quick", "--no-report", "--out", str(tmp_path)]) == 0
+    assert seen["names"] == []
