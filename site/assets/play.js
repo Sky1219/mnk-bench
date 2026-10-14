@@ -166,7 +166,10 @@ function renderBoard(full = false) {
     b.innerHTML = "";
     b.style.setProperty("--cells", g.n);
     b.style.setProperty("--aspect", `${g.n} / ${g.m}`);
-    b.style.setProperty("--board-max", `${Math.min(620, Math.max(300, g.n * 64))}px`);
+    const boardMax = Math.min(620, Math.max(300, g.n * 64));
+    b.style.setProperty("--board-max", `${boardMax}px`);
+    // size the board column to the board so the side panels sit right next to it
+    document.querySelector(".play-layout").style.setProperty("--play-board", `${Math.max(440, boardMax)}px`);
     b.classList.toggle("gravity", !!g.gravity);
     // Gomoku-sized free-placement boards are drawn like a go board: stones sit on
     // the intersections of the grid lines. Small boards and gravity boards keep cells.

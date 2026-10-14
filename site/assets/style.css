@@ -164,7 +164,7 @@ table.data td.num, table.data th.num { text-align: right; }
 @media (prefers-reduced-motion: reduce) { .board.drop .cell .stone { animation: none; } }
 
 /* ---- play page ---- */
-.play-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
+.play-layout { display: grid; grid-template-columns: minmax(0, var(--play-board, 1fr)) minmax(300px, 1fr); gap: 24px; align-items: start; }
 @media (max-width: 860px) { .play-layout { grid-template-columns: minmax(0, 1fr); } }
 .status { font-size: 1.15rem; font-weight: 600; min-height: 1.6em; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
 .dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; flex: none; }
@@ -279,3 +279,8 @@ optgroup { font-style: normal; color: var(--muted); }
 .steps .card { position: relative; padding-top: 18px; }
 .steps .step { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--bg); display: grid; place-items: center; font-weight: 700; font-size: .9rem; }
 .steps h3 { margin-top: 10px; }
+
+/* play page: the secondary cards sit in an even row under the board */
+.play-extras { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; align-items: start; }
+.play-extras .panel h3 { margin-top: 0; }
+.play-extras .movelog { max-height: 150px; }
