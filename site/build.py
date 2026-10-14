@@ -26,6 +26,7 @@ REPO_URL = "https://github.com/Sky1219/mnk-bench"
 NAV = [
     ("index.html", "Overview"),
     ("play.html", "Play"),
+    ("arena.html", "Arena"),
     ("menace.html", "MENACE"),
     ("results/index.html", "Results"),
     ("research/targeted-selection.html", "Research"),
