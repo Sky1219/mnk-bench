@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MENACE · mnk-bench</title>
+<meta name="description" content="Train Donald Michie's 1961 matchbox learner live in your browser, watch its beads change, then play against it.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <div class="wrap">
+    <div class="kicker">1961, rebuilt in JavaScript</div>
+    <h1>Teach a pile of matchboxes to play</h1>
+    <p class="muted" style="max-width:720px">MENACE keeps one matchbox per position and one colour of bead per move. To move, it draws a bead at random, so moves with more beads are likelier. After each game every move it made gains 3 beads for a win and 1 for a draw, and loses 1 for a loss. Boards that are rotations or reflections of each other share a box. Train it below and watch the opening box fill up.</p>
+
+    <div class="play-layout">
+      <section>
+        <div class="row" style="margin-bottom:12px">
+          <label class="field">Board<select id="board-select"></select></label>
+          <label class="field">MENACE plays<select id="side-select"><option value="1">X (first)</option><option value="2">O (second)</option></select></label>
+          <label class="field">Opponent during training<select id="opp-select"></select></label>
+        </div>
+        <div class="row" style="margin-bottom:16px">
+          <button class="btn primary" id="train" type="button">Train</button>
+          <label class="field" style="flex-direction:row;align-items:center;gap:8px">Speed
+            <input type="range" id="speed" min="0" max="2" step="1" value="1" aria-label="Training speed: 1, 10 or 100 games per frame">
+          </label>
+          <button class="btn" id="watch" type="button">Watch one game</button>
+          <button class="btn" id="play" type="button">Play against it</button>
+          <button class="btn" id="reset" type="button">Reset</button>
+        </div>
+        <div class="board" id="mboard" style="--board-max:300px" aria-label="MENACE board: numbers are beads per move"></div>
+        <p class="small muted" id="caption" style="margin-top:10px;min-height:3em" aria-live="polite"></p>
+      </section>
+
+      <aside>
+        <div class="card panel">
+          <div class="grid" style="grid-template-columns:1fr 1fr">
+            <div><div class="stat" id="st-games">0</div><div class="stat-label">games played</div></div>
+            <div><div class="stat" id="st-boxes">0</div><div class="stat-label">matchboxes</div></div>
+          </div>
+          <p class="small muted" id="boxes-note" style="margin:8px 0 0"></p>
+        </div>
+        <div class="card panel">
+          <h3>Last 200 games</h3>
+          <div class="score">
+            <div><div class="stat" id="st-w" style="color:var(--ok)">–</div><div class="stat-label">won</div></div>
+            <div><div class="stat" id="st-d">–</div><div class="stat-label">drawn</div></div>
+            <div><div class="stat" id="st-l" style="color:var(--refused)">–</div><div class="stat-label">lost</div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3 style="margin-top:0">Learning curve</h3>
+      <canvas class="chart" id="chart" aria-label="Rolling win, draw and loss rates against games played"></canvas>
+      <div class="legend"><span><i class="s-ok"></i>won</span><span><i class="s-unavailable"></i>drawn</span><span><i class="s-refused"></i>lost</span></div>
+    </div>
+
+    <h2>Things to try</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3 style="margin-top:0">Who you learn from matters</h3><p class="small">Train only against <b>Random</b>, then switch the opponent to <b>Perfect play</b> and keep going: the losses come back. The benchmark found that MENACE trained on random play never stops losing to a perfect player (57% non-loss after 5,000 games). Trained on a mix, it reaches 100% within about 2,000 games.</p></div>
+      <div class="card"><h3 style="margin-top:0">Why it can't scale</h3><p class="small">Switch to <b>(4,4,4)</b>. The box count keeps climbing and the curve barely moves. On (6,6,4) the tables in the benchmark had seen only 28 to 50% of the positions they met after 3,000 games, and they lost to the rule-based player every time.</p></div>
+      <div class="card"><h3 style="margin-top:0">Be the trainer</h3><p class="small">Use <b>Play against it</b> after a few hundred games. MENACE keeps learning from your games, just as Michie's did. If you beat it the same way twice, the second time it has fewer beads for the moves that lost.</p></div>
+    </div>
+    <p class="small muted" style="margin-top:20px">Full experiments, including symmetry ablations and the comparison with Q-learning and TD(0): <a href="results/index.html">results report</a>.</p>
+  </div>
+</main>
+<!-- FOOTER -->
+<script type="module" src="assets/menace-page.js"></script>
+</body>
+</html>

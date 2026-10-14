@@ -20,7 +20,7 @@ jobs:
       - name: Install
         run: pip install -e ".[dev,llm]"
       - name: Lint
-        run: ruff check src tests
+        run: ruff check src tests site
       - name: Tests
         # No ANTHROPIC_API_KEY here: LLM tests use a mocked client and live
         # tests are deselected (pytest.ini addopts = -m 'not live').

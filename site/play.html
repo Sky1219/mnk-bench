@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play · mnk-bench</title>
+<meta name="description" content="Play any m,n,k game (tic-tac-toe, Connect Four, gomoku) against minimax, alpha-beta, MCTS and rule-based agents running in your browser.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <div class="wrap">
+    <h1>Play</h1>
+    <p class="muted" style="max-width:720px">Pick a board and two players. Every agent runs in your browser, ported from the Python package. The exact solver plays perfectly while a board is small enough to solve; on bigger boards it refuses and falls back to alpha-beta, just as in the benchmark.</p>
+
+    <div class="play-layout">
+      <section>
+        <div class="presets" id="presets" aria-label="Board presets"></div>
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+        <div class="board" id="board" aria-label="Game board"></div>
+        <div class="row" style="margin-top:14px">
+          <button class="btn primary" id="new" type="button">New game</button>
+          <button class="btn" id="undo" type="button">Undo</button>
+          <button class="btn" id="swap" type="button" title="Swap the X and O players and start again">Swap sides</button>
+          <button class="btn" id="pause" type="button" hidden>Pause</button>
+          <button class="btn" id="step" type="button" hidden>Step</button>
+          <span class="think" id="think"></span>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card panel">
+          <h3>Players</h3>
+          <div class="fields">
+            <label class="field"><span><span class="dot x"></span> X (moves first)</span><select id="p1-kind"></select></label>
+            <label class="field">Strength<select id="p1-level"></select></label>
+            <p class="full small muted" id="p1-blurb" style="margin:0"></p>
+            <label class="field"><span><span class="dot o"></span> O</span><select id="p2-kind"></select></label>
+            <label class="field">Strength<select id="p2-level"></select></label>
+            <p class="full small muted" id="p2-blurb" style="margin:0"></p>
+            <label class="field full">Delay between moves when two agents play
+              <input type="range" id="delay" min="0" max="1500" step="50" value="400">
+            </label>
+          </div>
+        </div>
+
+        <div class="card panel">
+          <h3>Last agent move</h3>
+          <div id="info" class="small"></div>
+        </div>
+
+        <div class="card panel">
+          <h3>Score this session</h3>
+          <div class="score">
+            <div><div class="stat" id="score-x" style="color:var(--x)">0</div><div class="stat-label">X wins</div></div>
+            <div><div class="stat" id="score-d">0</div><div class="stat-label">Draws</div></div>
+            <div><div class="stat" id="score-o" style="color:var(--o)">0</div><div class="stat-label">O wins</div></div>
+          </div>
+          <div style="text-align:right;margin-top:6px"><button class="btn small" id="reset-score" type="button">Reset</button></div>
+        </div>
+
+        <div class="card panel">
+          <h3>Custom board</h3>
+          <div class="row">
+            <label class="field">rows m<input type="number" id="m" min="2" max="19"></label>
+            <label class="field">cols n<input type="number" id="n" min="2" max="19"></label>
+            <label class="field">k in a row<input type="number" id="k" min="2" max="19"></label>
+          </div>
+          <div class="row small" style="margin:10px 0">
+            <label><input type="checkbox" id="gravity"> gravity (Connect Four)</label>
+            <label><input type="checkbox" id="exact"> exactly k (overlines don't win)</label>
+          </div>
+          <button class="btn" id="apply" type="button">Start on this board</button>
+        </div>
+
+        <div class="card panel">
+          <h3>Is this board solvable?</h3>
+          <div id="feas" class="small"></div>
+        </div>
+
+        <div class="card panel">
+          <h3>Moves</h3>
+          <div class="movelog" id="log"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+<!-- FOOTER -->
+<script type="module" src="assets/play.js"></script>
+</body>
+</html>
