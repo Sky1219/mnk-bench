@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mnk-bench"
+version = "0.1.0"
+description = "Benchmark game-playing AI agents on m,n,k games, from tic-tac-toe to gomoku."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+alphazero = ["torch>=2.1"]
+llm = ["anthropic>=0.60"]
+openai = ["openai>=1.0"]
+memory = ["psutil>=5.9"]
+dev = ["pytest>=7.4", "ruff>=0.5", "psutil>=5.9"]
+all = ["torch>=2.1", "anthropic>=0.60", "psutil>=5.9"]
+
+[project.scripts]
+mnk-bench = "mnkbench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mnkbench = ["data/alphazero/*.pt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: longer-running tests (deselect with -m 'not slow')",
+    "live: tests that call a real LLM API (need ANTHROPIC_API_KEY)",
+]
+addopts = "-m 'not live'"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501", "B905", "E741"]
