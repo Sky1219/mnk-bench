@@ -3,7 +3,7 @@
   "mnkbench_version": "0.1.0",
   "python": "3.13.16",
   "machine": "x86_64",
-  "created": "2026-10-14T07:38:34",
+  "created": "2026-10-14T08:24:09",
   "seed": 0,
   "quick": false
  },
@@ -40,7 +40,7 @@
        "draw": 12,
        "loss": 61
       },
-      "time_per_move": 7.442804941454523e-06
+      "time_per_move": 8.127617665549057e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -58,7 +58,7 @@
        "draw": 4,
        "loss": 96
       },
-      "time_per_move": 1.0174217180609098e-05
+      "time_per_move": 1.2342103735938222e-05
      },
      "optimal_rate": 0.6377952755905512,
      "critical_optimal_rate": 0.4566929133858268,
@@ -86,7 +86,7 @@
        "draw": 11,
        "loss": 19
       },
-      "time_per_move": 4.479836507982936e-06
+      "time_per_move": 6.246389649359042e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -104,14 +104,14 @@
        "draw": 10,
        "loss": 90
       },
-      "time_per_move": 5.815035356426839e-06
+      "time_per_move": 6.761254209826686e-06
      },
      "optimal_rate": 0.7726027397260274,
      "critical_optimal_rate": 0.6819923371647509,
      "moves": 365,
      "critical_moves": 261,
      "games": 250,
-     "train_time": 0.010313117000123384,
+     "train_time": 0.011240108000038163,
      "table_size": 318,
      "memory_bytes": 149342
     },
@@ -132,7 +132,7 @@
        "draw": 12,
        "loss": 27
       },
-      "time_per_move": 4.333999993976154e-06
+      "time_per_move": 4.119641272429307e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -150,14 +150,14 @@
        "draw": 37,
        "loss": 63
       },
-      "time_per_move": 5.762096865938419e-06
+      "time_per_move": 7.76112518541691e-06
      },
      "optimal_rate": 0.8609625668449198,
      "critical_optimal_rate": 0.8,
      "moves": 374,
      "critical_moves": 260,
      "games": 500,
-     "train_time": 0.0249050850002277,
+     "train_time": 0.022662749999653897,
      "table_size": 413,
      "memory_bytes": 193093
     },
@@ -178,7 +178,7 @@
        "draw": 14,
        "loss": 14
       },
-      "time_per_move": 4.13304420445602e-06
+      "time_per_move": 5.7271408827319996e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -196,14 +196,14 @@
        "draw": 39,
        "loss": 61
       },
-      "time_per_move": 5.396929844195887e-06
+      "time_per_move": 7.630487251431912e-06
      },
      "optimal_rate": 0.8467966573816156,
      "critical_optimal_rate": 0.7940074906367042,
      "moves": 359,
      "critical_moves": 267,
      "games": 750,
-     "train_time": 0.03458154800023294,
+     "train_time": 0.03219400499983749,
      "table_size": 459,
      "memory_bytes": 214259
     },
@@ -224,7 +224,7 @@
        "draw": 15,
        "loss": 19
       },
-      "time_per_move": 3.7740915416428134e-06
+      "time_per_move": 5.616156723286387e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -242,14 +242,14 @@
        "draw": 60,
        "loss": 40
       },
-      "time_per_move": 5.514121646954386e-06
+      "time_per_move": 7.574473741101283e-06
      },
      "optimal_rate": 0.8711484593837535,
      "critical_optimal_rate": 0.8264150943396227,
      "moves": 357,
      "critical_moves": 265,
      "games": 1000,
-     "train_time": 0.042629619000308594,
+     "train_time": 0.04268379399991318,
      "table_size": 484,
      "memory_bytes": 225764
     },
@@ -270,7 +270,7 @@
        "draw": 17,
        "loss": 17
       },
-      "time_per_move": 4.18808093292086e-06
+      "time_per_move": 5.938449917497358e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -288,14 +288,14 @@
        "draw": 28,
        "loss": 72
       },
-      "time_per_move": 5.524079347538825e-06
+      "time_per_move": 7.3883077908079895e-06
      },
      "optimal_rate": 0.8617886178861789,
      "critical_optimal_rate": 0.8068181818181818,
      "moves": 369,
      "critical_moves": 264,
      "games": 1250,
-     "train_time": 0.05423049900036858,
+     "train_time": 0.05346083299991733,
      "table_size": 501,
      "memory_bytes": 233565
     },
@@ -316,7 +316,7 @@
        "draw": 10,
        "loss": 12
       },
-      "time_per_move": 3.6399739017794604e-06
+      "time_per_move": 5.801032963453119e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -334,14 +334,14 @@
        "draw": 30,
        "loss": 70
       },
-      "time_per_move": 4.938625170136703e-06
+      "time_per_move": 6.849206083278563e-06
      },
      "optimal_rate": 0.8699186991869918,
      "critical_optimal_rate": 0.8146718146718147,
      "moves": 369,
      "critical_moves": 259,
      "games": 1500,
-     "train_time": 0.06194646600033593,
+     "train_time": 0.06417556700034766,
      "table_size": 518,
      "memory_bytes": 241366
     },
@@ -362,7 +362,7 @@
        "draw": 4,
        "loss": 11
       },
-      "time_per_move": 7.12927972303701e-06
+      "time_per_move": 5.665223778288981e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -380,14 +380,14 @@
        "draw": 28,
        "loss": 72
       },
-      "time_per_move": 4.818214580139732e-06
+      "time_per_move": 5.1453603954600705e-06
      },
      "optimal_rate": 0.8911174785100286,
      "critical_optimal_rate": 0.8467741935483871,
      "moves": 349,
      "critical_moves": 248,
      "games": 1750,
-     "train_time": 0.06991929300033917,
+     "train_time": 0.07451588300000367,
      "table_size": 525,
      "memory_bytes": 244501
     },
@@ -408,7 +408,7 @@
        "draw": 12,
        "loss": 10
       },
-      "time_per_move": 3.990544114531271e-06
+      "time_per_move": 4.009782082660077e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -426,14 +426,14 @@
        "draw": 32,
        "loss": 68
       },
-      "time_per_move": 5.1824061314234615e-06
+      "time_per_move": 5.220107423617877e-06
      },
      "optimal_rate": 0.9285714285714286,
      "critical_optimal_rate": 0.8951612903225806,
      "moves": 364,
      "critical_moves": 248,
      "games": 2000,
-     "train_time": 0.07761158100038301,
+     "train_time": 0.08192825800006176,
      "table_size": 529,
      "memory_bytes": 246345
     },
@@ -454,7 +454,7 @@
        "draw": 4,
        "loss": 14
       },
-      "time_per_move": 3.764324823840986e-06
+      "time_per_move": 3.977334767217576e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -472,14 +472,14 @@
        "draw": 11,
        "loss": 89
       },
-      "time_per_move": 6.002080002360799e-06
+      "time_per_move": 5.411772502839085e-06
      },
      "optimal_rate": 0.8214285714285714,
      "critical_optimal_rate": 0.7440944881889764,
      "moves": 364,
      "critical_moves": 254,
      "games": 2250,
-     "train_time": 0.0847680580004635,
+     "train_time": 0.08908681499997329,
      "table_size": 535,
      "memory_bytes": 249087
     },
@@ -500,7 +500,7 @@
        "draw": 5,
        "loss": 11
       },
-      "time_per_move": 3.9725623212099235e-06
+      "time_per_move": 4.127922088615228e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -518,14 +518,14 @@
        "draw": 16,
        "loss": 84
       },
-      "time_per_move": 5.715502486204222e-06
+      "time_per_move": 5.286378110661224e-06
      },
      "optimal_rate": 0.8872832369942196,
      "critical_optimal_rate": 0.8433734939759037,
      "moves": 346,
      "critical_moves": 249,
      "games": 2500,
-     "train_time": 0.09385800500058394,
+     "train_time": 0.096790578999844,
      "table_size": 539,
      "memory_bytes": 250915
     },
@@ -546,7 +546,7 @@
        "draw": 2,
        "loss": 12
       },
-      "time_per_move": 4.477645958653781e-06
+      "time_per_move": 4.185330925598579e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -564,14 +564,14 @@
        "draw": 11,
        "loss": 89
       },
-      "time_per_move": 5.5374849986833395e-06
+      "time_per_move": 5.478080012153441e-06
      },
      "optimal_rate": 0.8660968660968661,
      "critical_optimal_rate": 0.8156862745098039,
      "moves": 351,
      "critical_moves": 255,
      "games": 2750,
-     "train_time": 0.10177307300045868,
+     "train_time": 0.10461199400015175,
      "table_size": 543,
      "memory_bytes": 252711
     },
@@ -592,7 +592,7 @@
        "draw": 0,
        "loss": 18
       },
-      "time_per_move": 3.7329559040473273e-06
+      "time_per_move": 6.4110497853164445e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -610,14 +610,14 @@
        "draw": 10,
        "loss": 90
       },
-      "time_per_move": 5.705910210334635e-06
+      "time_per_move": 7.720420666908417e-06
      },
      "optimal_rate": 0.86,
      "critical_optimal_rate": 0.8024193548387096,
      "moves": 350,
      "critical_moves": 248,
      "games": 3000,
-     "train_time": 0.10920198800045,
+     "train_time": 0.11590940699989005,
      "table_size": 546,
      "memory_bytes": 254130
     },
@@ -638,7 +638,7 @@
        "draw": 1,
        "loss": 13
       },
-      "time_per_move": 3.921270001033658e-06
+      "time_per_move": 5.707972860753736e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -656,14 +656,14 @@
        "draw": 14,
        "loss": 86
       },
-      "time_per_move": 5.036431449189425e-06
+      "time_per_move": 7.4120251619600784e-06
      },
      "optimal_rate": 0.867816091954023,
      "critical_optimal_rate": 0.8174603174603174,
      "moves": 348,
      "critical_moves": 252,
      "games": 3250,
-     "train_time": 0.11687034700048571,
+     "train_time": 0.1257455619997927,
      "table_size": 547,
      "memory_bytes": 254603
     },
@@ -684,7 +684,7 @@
        "draw": 5,
        "loss": 11
       },
-      "time_per_move": 3.909238913939499e-06
+      "time_per_move": 5.091334765992294e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -702,14 +702,14 @@
        "draw": 39,
        "loss": 61
       },
-      "time_per_move": 4.621712219774656e-06
+      "time_per_move": 7.155406283818549e-06
      },
      "optimal_rate": 0.888235294117647,
      "critical_optimal_rate": 0.8429752066115702,
      "moves": 340,
      "critical_moves": 242,
      "games": 3500,
-     "train_time": 0.12421374800055673,
+     "train_time": 0.1333412689996294,
      "table_size": 548,
      "memory_bytes": 255060
     },
@@ -730,7 +730,7 @@
        "draw": 2,
        "loss": 14
       },
-      "time_per_move": 3.744779178624974e-06
+      "time_per_move": 5.944773561545761e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -748,14 +748,14 @@
        "draw": 20,
        "loss": 80
       },
-      "time_per_move": 4.898166243947344e-06
+      "time_per_move": 7.030993760395177e-06
      },
      "optimal_rate": 0.8961748633879781,
      "critical_optimal_rate": 0.8515625,
      "moves": 366,
      "critical_moves": 256,
      "games": 3750,
-     "train_time": 0.13105208600063634,
+     "train_time": 0.14300999499982936,
      "table_size": 548,
      "memory_bytes": 255060
     },
@@ -776,7 +776,7 @@
        "draw": 3,
        "loss": 8
       },
-      "time_per_move": 3.7328887337550862e-06
+      "time_per_move": 5.53896761246019e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -794,14 +794,14 @@
        "draw": 26,
        "loss": 74
       },
-      "time_per_move": 4.903767445460644e-06
+      "time_per_move": 6.663165241063978e-06
      },
      "optimal_rate": 0.888268156424581,
      "critical_optimal_rate": 0.8443579766536965,
      "moves": 358,
      "critical_moves": 257,
      "games": 4000,
-     "train_time": 0.13853535700059183,
+     "train_time": 0.1530344369998602,
      "table_size": 549,
      "memory_bytes": 255517
     },
@@ -822,7 +822,7 @@
        "draw": 4,
        "loss": 11
       },
-      "time_per_move": 4.1268382967813625e-06
+      "time_per_move": 6.865557435235745e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -840,14 +840,14 @@
        "draw": 26,
        "loss": 74
       },
-      "time_per_move": 6.220246080048798e-06
+      "time_per_move": 7.094188174793677e-06
      },
      "optimal_rate": 0.9150141643059491,
      "critical_optimal_rate": 0.8780487804878049,
      "moves": 353,
      "critical_moves": 246,
      "games": 4250,
-     "train_time": 0.14618008500065116,
+     "train_time": 0.16528759899983925,
      "table_size": 549,
      "memory_bytes": 255517
     },
@@ -868,7 +868,7 @@
        "draw": 2,
        "loss": 18
       },
-      "time_per_move": 4.1197540274954e-06
+      "time_per_move": 4.215956077256273e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -886,14 +886,14 @@
        "draw": 16,
        "loss": 84
       },
-      "time_per_move": 4.929585178963604e-06
+      "time_per_move": 7.256529625010444e-06
      },
      "optimal_rate": 0.8831908831908832,
      "critical_optimal_rate": 0.8385826771653543,
      "moves": 351,
      "critical_moves": 254,
      "games": 4500,
-     "train_time": 0.1534434570007761,
+     "train_time": 0.1736150199999429,
      "table_size": 549,
      "memory_bytes": 255517
     },
@@ -914,7 +914,7 @@
        "draw": 7,
        "loss": 11
       },
-      "time_per_move": 4.290511331821041e-06
+      "time_per_move": 5.506432017185269e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -932,14 +932,14 @@
        "draw": 16,
        "loss": 84
       },
-      "time_per_move": 4.973532359378087e-06
+      "time_per_move": 7.856649572048864e-06
      },
      "optimal_rate": 0.8724637681159421,
      "critical_optimal_rate": 0.8274509803921568,
      "moves": 345,
      "critical_moves": 255,
      "games": 4750,
-     "train_time": 0.16131336300077237,
+     "train_time": 0.18300351300013062,
      "table_size": 549,
      "memory_bytes": 255517
     },
@@ -960,7 +960,7 @@
        "draw": 1,
        "loss": 14
       },
-      "time_per_move": 3.897950937125761e-06
+      "time_per_move": 5.8508975333564836e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -978,14 +978,14 @@
        "draw": 15,
        "loss": 85
       },
-      "time_per_move": 5.245249378033956e-06
+      "time_per_move": 6.359014955399599e-06
      },
      "optimal_rate": 0.8982035928143712,
      "critical_optimal_rate": 0.8553191489361702,
      "moves": 334,
      "critical_moves": 235,
      "games": 5000,
-     "train_time": 0.16853682500072864,
+     "train_time": 0.19296213699999498,
      "table_size": 551,
      "memory_bytes": 256431
     }
@@ -1024,7 +1024,7 @@
        "draw": 12,
        "loss": 61
       },
-      "time_per_move": 7.263309488390939e-06
+      "time_per_move": 7.374790636474395e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1042,7 +1042,7 @@
        "draw": 4,
        "loss": 96
       },
-      "time_per_move": 9.25553485327649e-06
+      "time_per_move": 9.472722848807027e-06
      },
      "optimal_rate": 0.6377952755905512,
      "critical_optimal_rate": 0.4566929133858268,
@@ -1070,7 +1070,7 @@
        "draw": 21,
        "loss": 39
       },
-      "time_per_move": 6.04555882261321e-06
+      "time_per_move": 5.545452683256134e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1088,14 +1088,14 @@
        "draw": 39,
        "loss": 61
       },
-      "time_per_move": 5.0388308602999095e-06
+      "time_per_move": 5.0328370445955154e-06
      },
      "optimal_rate": 0.7474226804123711,
      "critical_optimal_rate": 0.5967078189300411,
      "moves": 388,
      "critical_moves": 243,
      "games": 250,
-     "train_time": 0.0795401390000734,
+     "train_time": 0.07611965900014184,
      "table_size": 100,
      "memory_bytes": 47284
     },
@@ -1116,7 +1116,7 @@
        "draw": 20,
        "loss": 40
       },
-      "time_per_move": 6.597148198919207e-06
+      "time_per_move": 5.673485989749987e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1134,14 +1134,14 @@
        "draw": 46,
        "loss": 54
       },
-      "time_per_move": 6.576714104692207e-06
+      "time_per_move": 4.915338785617071e-06
      },
      "optimal_rate": 0.7204030226700252,
      "critical_optimal_rate": 0.5336134453781513,
      "moves": 397,
      "critical_moves": 238,
      "games": 500,
-     "train_time": 0.1688237810001283,
+     "train_time": 0.15958928300005937,
      "table_size": 110,
      "memory_bytes": 51918
     },
@@ -1162,7 +1162,7 @@
        "draw": 33,
        "loss": 23
       },
-      "time_per_move": 5.369948560084043e-06
+      "time_per_move": 5.469853189826295e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1180,14 +1180,14 @@
        "draw": 81,
        "loss": 19
       },
-      "time_per_move": 4.7325098232165615e-06
+      "time_per_move": 4.944601158773482e-06
      },
      "optimal_rate": 0.8051282051282052,
      "critical_optimal_rate": 0.7054263565891473,
      "moves": 390,
      "critical_moves": 258,
      "games": 750,
-     "train_time": 0.24407387000019298,
+     "train_time": 0.2354836580002484,
      "table_size": 110,
      "memory_bytes": 51918
     },
@@ -1208,7 +1208,7 @@
        "draw": 26,
        "loss": 22
       },
-      "time_per_move": 5.706965254550966e-06
+      "time_per_move": 5.46557657798985e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1226,14 +1226,14 @@
        "draw": 91,
        "loss": 9
       },
-      "time_per_move": 4.874361271073771e-06
+      "time_per_move": 4.834147220458543e-06
      },
      "optimal_rate": 0.8070175438596491,
      "critical_optimal_rate": 0.6980392156862745,
      "moves": 399,
      "critical_moves": 255,
      "games": 1000,
-     "train_time": 0.32135016900019764,
+     "train_time": 0.31227379200026917,
      "table_size": 112,
      "memory_bytes": 52864
     },
@@ -1254,7 +1254,7 @@
        "draw": 36,
        "loss": 15
       },
-      "time_per_move": 5.1729453607688334e-06
+      "time_per_move": 5.668141047135116e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1272,14 +1272,14 @@
        "draw": 91,
        "loss": 9
       },
-      "time_per_move": 6.057080227397346e-06
+      "time_per_move": 5.266326551037376e-06
      },
      "optimal_rate": 0.8071065989847716,
      "critical_optimal_rate": 0.6996047430830039,
      "moves": 394,
      "critical_moves": 253,
      "games": 1250,
-     "train_time": 0.40901129700023375,
+     "train_time": 0.39261062400009905,
      "table_size": 112,
      "memory_bytes": 52864
     },
@@ -1300,7 +1300,7 @@
        "draw": 33,
        "loss": 16
       },
-      "time_per_move": 5.0028982131622375e-06
+      "time_per_move": 5.3959999989878385e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1318,14 +1318,14 @@
        "draw": 86,
        "loss": 14
       },
-      "time_per_move": 4.5634354355570395e-06
+      "time_per_move": 4.88879657599942e-06
      },
      "optimal_rate": 0.835820895522388,
      "critical_optimal_rate": 0.7573529411764706,
      "moves": 402,
      "critical_moves": 272,
      "games": 1500,
-     "train_time": 0.4837280520000604,
+     "train_time": 0.47869249199993646,
      "table_size": 112,
      "memory_bytes": 52864
     },
@@ -1346,7 +1346,7 @@
        "draw": 27,
        "loss": 18
       },
-      "time_per_move": 7.399849228878085e-06
+      "time_per_move": 5.397158500005558e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1364,14 +1364,14 @@
        "draw": 91,
        "loss": 9
       },
-      "time_per_move": 5.661987560615177e-06
+      "time_per_move": 5.0030429894618195e-06
      },
      "optimal_rate": 0.8328912466843501,
      "critical_optimal_rate": 0.75390625,
      "moves": 377,
      "critical_moves": 256,
      "games": 1750,
-     "train_time": 0.5660569590002069,
+     "train_time": 0.5591959049997968,
      "table_size": 112,
      "memory_bytes": 52864
     },
@@ -1392,7 +1392,7 @@
        "draw": 30,
        "loss": 25
       },
-      "time_per_move": 6.8820948194996525e-06
+      "time_per_move": 5.523975970389743e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1410,14 +1410,14 @@
        "draw": 88,
        "loss": 12
       },
-      "time_per_move": 5.9407716894508655e-06
+      "time_per_move": 5.265246589937571e-06
      },
      "optimal_rate": 0.8427835051546392,
      "critical_optimal_rate": 0.7458333333333333,
      "moves": 388,
      "critical_moves": 240,
      "games": 2000,
-     "train_time": 0.6635844830000224,
+     "train_time": 0.635657374999937,
      "table_size": 112,
      "memory_bytes": 52864
     },
@@ -1438,7 +1438,7 @@
        "draw": 41,
        "loss": 15
       },
-      "time_per_move": 7.083187501929647e-06
+      "time_per_move": 5.534707911790195e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1456,14 +1456,14 @@
        "draw": 88,
        "loss": 12
       },
-      "time_per_move": 5.4982902486012694e-06
+      "time_per_move": 5.097409294481919e-06
      },
      "optimal_rate": 0.8140703517587939,
      "critical_optimal_rate": 0.724907063197026,
      "moves": 398,
      "critical_moves": 269,
      "games": 2250,
-     "train_time": 0.754673480000065,
+     "train_time": 0.7125781520003329,
      "table_size": 113,
      "memory_bytes": 53305
     },
@@ -1484,7 +1484,7 @@
        "draw": 27,
        "loss": 18
       },
-      "time_per_move": 7.988159639104826e-06
+      "time_per_move": 5.631044697990359e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1502,14 +1502,14 @@
        "draw": 83,
        "loss": 17
       },
-      "time_per_move": 6.747830252659457e-06
+      "time_per_move": 5.223591216922792e-06
      },
      "optimal_rate": 0.8160621761658031,
      "critical_optimal_rate": 0.7193675889328063,
      "moves": 386,
      "critical_moves": 253,
      "games": 2500,
-     "train_time": 0.8609402909999062,
+     "train_time": 0.7893355810006142,
      "table_size": 113,
      "memory_bytes": 53305
     },
@@ -1530,7 +1530,7 @@
        "draw": 31,
        "loss": 16
       },
-      "time_per_move": 5.3472525527635005e-06
+      "time_per_move": 7.268094386907771e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1548,14 +1548,14 @@
        "draw": 98,
        "loss": 2
       },
-      "time_per_move": 4.7340868580498814e-06
+      "time_per_move": 6.297640305888561e-06
      },
      "optimal_rate": 0.8085642317380353,
      "critical_optimal_rate": 0.7076923076923077,
      "moves": 397,
      "critical_moves": 260,
      "games": 2750,
-     "train_time": 0.9391571599999224,
+     "train_time": 0.8729221620005774,
      "table_size": 113,
      "memory_bytes": 53305
     },
@@ -1576,7 +1576,7 @@
        "draw": 39,
        "loss": 20
       },
-      "time_per_move": 5.6995425407398875e-06
+      "time_per_move": 7.761646109958745e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1594,14 +1594,14 @@
        "draw": 96,
        "loss": 4
       },
-      "time_per_move": 4.7727785236030455e-06
+      "time_per_move": 6.85539149238747e-06
      },
      "optimal_rate": 0.8467336683417085,
      "critical_optimal_rate": 0.7569721115537849,
      "moves": 398,
      "critical_moves": 251,
      "games": 3000,
-     "train_time": 1.0240698599998268,
+     "train_time": 0.9803886650006461,
      "table_size": 114,
      "memory_bytes": 53746
     },
@@ -1622,7 +1622,7 @@
        "draw": 25,
        "loss": 25
       },
-      "time_per_move": 7.308365366388231e-06
+      "time_per_move": 7.233764859139445e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1640,14 +1640,14 @@
        "draw": 88,
        "loss": 12
       },
-      "time_per_move": 5.809011388449031e-06
+      "time_per_move": 7.3523120836336296e-06
      },
      "optimal_rate": 0.8148148148148148,
      "critical_optimal_rate": 0.7188755020080321,
      "moves": 378,
      "critical_moves": 249,
      "games": 3250,
-     "train_time": 1.1262494309999056,
+     "train_time": 1.0868526540007224,
      "table_size": 114,
      "memory_bytes": 53746
     },
@@ -1668,7 +1668,7 @@
        "draw": 30,
        "loss": 20
       },
-      "time_per_move": 7.424138580125749e-06
+      "time_per_move": 6.924519348058368e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1686,14 +1686,14 @@
        "draw": 90,
        "loss": 10
       },
-      "time_per_move": 5.4181055650037714e-06
+      "time_per_move": 5.385460835266354e-06
      },
      "optimal_rate": 0.8446115288220551,
      "critical_optimal_rate": 0.743801652892562,
      "moves": 399,
      "critical_moves": 242,
      "games": 3500,
-     "train_time": 1.2209411319997798,
+     "train_time": 1.1905640280006082,
      "table_size": 114,
      "memory_bytes": 53746
     },
@@ -1714,7 +1714,7 @@
        "draw": 29,
        "loss": 18
       },
-      "time_per_move": 8.035434281910712e-06
+      "time_per_move": 5.606146907066619e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1732,14 +1732,14 @@
        "draw": 98,
        "loss": 2
       },
-      "time_per_move": 4.903760042600831e-06
+      "time_per_move": 5.6692298977217045e-06
      },
      "optimal_rate": 0.8337531486146096,
      "critical_optimal_rate": 0.7555555555555555,
      "moves": 397,
      "critical_moves": 270,
      "games": 3750,
-     "train_time": 1.304333714999757,
+     "train_time": 1.272714449000432,
      "table_size": 114,
      "memory_bytes": 53746
     },
@@ -1760,7 +1760,7 @@
        "draw": 32,
        "loss": 20
       },
-      "time_per_move": 5.503759544315485e-06
+      "time_per_move": 6.315391857397557e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1778,14 +1778,14 @@
        "draw": 99,
        "loss": 1
       },
-      "time_per_move": 5.0598266663352355e-06
+      "time_per_move": 6.678598889872471e-06
      },
      "optimal_rate": 0.8161209068010076,
      "critical_optimal_rate": 0.7276119402985075,
      "moves": 397,
      "critical_moves": 268,
      "games": 4000,
-     "train_time": 1.3830116149997593,
+     "train_time": 1.3750903110003492,
      "table_size": 114,
      "memory_bytes": 53746
     },
@@ -1806,7 +1806,7 @@
        "draw": 28,
        "loss": 30
       },
-      "time_per_move": 5.346825037238626e-06
+      "time_per_move": 6.214045957748733e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1824,14 +1824,14 @@
        "draw": 99,
        "loss": 1
       },
-      "time_per_move": 4.981096781021643e-06
+      "time_per_move": 5.466834244259581e-06
      },
      "optimal_rate": 0.7944162436548223,
      "critical_optimal_rate": 0.6966292134831461,
      "moves": 394,
      "critical_moves": 267,
      "games": 4250,
-     "train_time": 1.4678896149998764,
+     "train_time": 1.4697395990006044,
      "table_size": 116,
      "memory_bytes": 54660
     },
@@ -1852,7 +1852,7 @@
        "draw": 29,
        "loss": 20
       },
-      "time_per_move": 5.365245236884812e-06
+      "time_per_move": 5.73512197880903e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1870,14 +1870,14 @@
        "draw": 99,
        "loss": 1
       },
-      "time_per_move": 5.152797547927267e-06
+      "time_per_move": 5.486621797762128e-06
      },
      "optimal_rate": 0.8195876288659794,
      "critical_optimal_rate": 0.7388059701492538,
      "moves": 388,
      "critical_moves": 268,
      "games": 4500,
-     "train_time": 1.5487499389998902,
+     "train_time": 1.5613034990005872,
      "table_size": 116,
      "memory_bytes": 54660
     },
@@ -1898,7 +1898,7 @@
        "draw": 29,
        "loss": 26
       },
-      "time_per_move": 6.760680149884883e-06
+      "time_per_move": 5.611393159186875e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1916,14 +1916,14 @@
        "draw": 96,
        "loss": 4
       },
-      "time_per_move": 5.9716174505827994e-06
+      "time_per_move": 5.893196877015229e-06
      },
      "optimal_rate": 0.8225,
      "critical_optimal_rate": 0.7248062015503876,
      "moves": 400,
      "critical_moves": 258,
      "games": 4750,
-     "train_time": 1.643662741999833,
+     "train_time": 1.6532695710002372,
      "table_size": 116,
      "memory_bytes": 54660
     },
@@ -1944,7 +1944,7 @@
        "draw": 40,
        "loss": 18
       },
-      "time_per_move": 5.541496892583337e-06
+      "time_per_move": 5.6254022371014906e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -1962,14 +1962,14 @@
        "draw": 100,
        "loss": 0
       },
-      "time_per_move": 4.8840200004936685e-06
+      "time_per_move": 5.3281844601668935e-06
      },
      "optimal_rate": 0.830379746835443,
      "critical_optimal_rate": 0.7490636704119851,
      "moves": 395,
      "critical_moves": 267,
      "games": 5000,
-     "train_time": 1.730715890999818,
+     "train_time": 1.7353918580006393,
      "table_size": 116,
      "memory_bytes": 54660
     }
@@ -2008,7 +2008,7 @@
        "draw": 12,
        "loss": 61
       },
-      "time_per_move": 7.315175554981194e-06
+      "time_per_move": 1.063612483842944e-05
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2026,7 +2026,7 @@
        "draw": 4,
        "loss": 96
       },
-      "time_per_move": 9.441867097916251e-06
+      "time_per_move": 1.0794481357364372e-05
      },
      "optimal_rate": 0.6377952755905512,
      "critical_optimal_rate": 0.4566929133858268,
@@ -2054,7 +2054,7 @@
        "draw": 11,
        "loss": 22
       },
-      "time_per_move": 4.347669303178163e-06
+      "time_per_move": 4.277914361413379e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2072,14 +2072,14 @@
        "draw": 26,
        "loss": 74
       },
-      "time_per_move": 5.2656899625817296e-06
+      "time_per_move": 5.133218550433321e-06
      },
      "optimal_rate": 0.7893333333333333,
      "critical_optimal_rate": 0.639269406392694,
      "moves": 375,
      "critical_moves": 219,
      "games": 250,
-     "train_time": 0.04303838999999243,
+     "train_time": 0.04280764999975872,
      "table_size": 217,
      "memory_bytes": 102017
     },
@@ -2100,7 +2100,7 @@
        "draw": 16,
        "loss": 15
       },
-      "time_per_move": 4.1276213726279946e-06
+      "time_per_move": 5.9353403715232645e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2118,14 +2118,14 @@
        "draw": 67,
        "loss": 33
       },
-      "time_per_move": 4.994193313840152e-06
+      "time_per_move": 5.320793555306311e-06
      },
      "optimal_rate": 0.85,
      "critical_optimal_rate": 0.7663934426229508,
      "moves": 380,
      "critical_moves": 244,
      "games": 500,
-     "train_time": 0.08625032899999496,
+     "train_time": 0.08463965999999346,
      "table_size": 275,
      "memory_bytes": 128955
     },
@@ -2146,7 +2146,7 @@
        "draw": 17,
        "loss": 10
       },
-      "time_per_move": 4.66138577312188e-06
+      "time_per_move": 5.553532142154541e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2164,14 +2164,14 @@
        "draw": 64,
        "loss": 36
       },
-      "time_per_move": 5.313220356741706e-06
+      "time_per_move": 6.243592821726294e-06
      },
      "optimal_rate": 0.8850267379679144,
      "critical_optimal_rate": 0.8208333333333333,
      "moves": 374,
      "critical_moves": 240,
      "games": 750,
-     "train_time": 0.13168727300012506,
+     "train_time": 0.13556587899984152,
      "table_size": 306,
      "memory_bytes": 143234
     },
@@ -2192,7 +2192,7 @@
        "draw": 19,
        "loss": 12
       },
-      "time_per_move": 3.9892192384944965e-06
+      "time_per_move": 6.009082024312659e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2210,14 +2210,14 @@
        "draw": 62,
        "loss": 38
       },
-      "time_per_move": 4.910261133311158e-06
+      "time_per_move": 7.24827196395912e-06
      },
      "optimal_rate": 0.8409090909090909,
      "critical_optimal_rate": 0.7647058823529411,
      "moves": 352,
      "critical_moves": 238,
      "games": 1000,
-     "train_time": 0.1804286620001676,
+     "train_time": 0.18461659900003724,
      "table_size": 333,
      "memory_bytes": 155701
     },
@@ -2238,7 +2238,7 @@
        "draw": 20,
        "loss": 20
       },
-      "time_per_move": 3.650415299457091e-06
+      "time_per_move": 6.008368859387145e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2256,14 +2256,14 @@
        "draw": 68,
        "loss": 32
       },
-      "time_per_move": 5.016056147756756e-06
+      "time_per_move": 7.792537634983089e-06
      },
      "optimal_rate": 0.8662952646239555,
      "critical_optimal_rate": 0.8064516129032258,
      "moves": 359,
      "critical_moves": 248,
      "games": 1250,
-     "train_time": 0.22548785499998303,
+     "train_time": 0.24132641899996088,
      "table_size": 347,
      "memory_bytes": 162275
     },
@@ -2284,7 +2284,7 @@
        "draw": 16,
        "loss": 11
       },
-      "time_per_move": 3.849731434196916e-06
+      "time_per_move": 6.302578583147676e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2302,14 +2302,14 @@
        "draw": 73,
        "loss": 27
       },
-      "time_per_move": 5.31292099079985e-06
+      "time_per_move": 8.36489977769335e-06
      },
      "optimal_rate": 0.8953488372093024,
      "critical_optimal_rate": 0.85,
      "moves": 344,
      "critical_moves": 240,
      "games": 1500,
-     "train_time": 0.2692612379998991,
+     "train_time": 0.3052472780000244,
      "table_size": 357,
      "memory_bytes": 166877
     },
@@ -2330,7 +2330,7 @@
        "draw": 24,
        "loss": 11
       },
-      "time_per_move": 3.83894522371336e-06
+      "time_per_move": 4.439341293153815e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2348,14 +2348,14 @@
        "draw": 71,
        "loss": 29
       },
-      "time_per_move": 4.756648871782311e-06
+      "time_per_move": 5.272232512074129e-06
      },
      "optimal_rate": 0.8715083798882681,
      "critical_optimal_rate": 0.8167330677290837,
      "moves": 358,
      "critical_moves": 251,
      "games": 1750,
-     "train_time": 0.3133959759998106,
+     "train_time": 0.34927186999993864,
      "table_size": 361,
      "memory_bytes": 168785
     },
@@ -2376,7 +2376,7 @@
        "draw": 16,
        "loss": 6
       },
-      "time_per_move": 6.182311960175991e-06
+      "time_per_move": 4.0396438773697494e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2394,14 +2394,14 @@
        "draw": 94,
        "loss": 6
       },
-      "time_per_move": 5.144468469718443e-06
+      "time_per_move": 5.335560801442527e-06
      },
      "optimal_rate": 0.9197707736389685,
      "critical_optimal_rate": 0.8798283261802575,
      "moves": 349,
      "critical_moves": 233,
      "games": 2000,
-     "train_time": 0.365848499999629,
+     "train_time": 0.39362909500005117,
      "table_size": 370,
      "memory_bytes": 173010
     },
@@ -2422,7 +2422,7 @@
        "draw": 10,
        "loss": 4
       },
-      "time_per_move": 3.588803396271786e-06
+      "time_per_move": 3.923760953961059e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2440,14 +2440,14 @@
        "draw": 94,
        "loss": 6
       },
-      "time_per_move": 5.61415202371807e-06
+      "time_per_move": 5.374320940964927e-06
      },
      "optimal_rate": 0.9487179487179487,
      "critical_optimal_rate": 0.9196428571428571,
      "moves": 351,
      "critical_moves": 224,
      "games": 2250,
-     "train_time": 0.4090848149996873,
+     "train_time": 0.44026672200016037,
      "table_size": 377,
      "memory_bytes": 176145
     },
@@ -2468,7 +2468,7 @@
        "draw": 11,
        "loss": 4
       },
-      "time_per_move": 5.4021712232314315e-06
+      "time_per_move": 4.307503601378701e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2486,14 +2486,14 @@
        "draw": 98,
        "loss": 2
       },
-      "time_per_move": 5.934619417351834e-06
+      "time_per_move": 5.784116081335762e-06
      },
      "optimal_rate": 0.9261363636363636,
      "critical_optimal_rate": 0.8921161825726142,
      "moves": 352,
      "critical_moves": 241,
      "games": 2500,
-     "train_time": 0.4705478049997964,
+     "train_time": 0.4916408360004425,
      "table_size": 382,
      "memory_bytes": 178446
     },
@@ -2514,7 +2514,7 @@
        "draw": 13,
        "loss": 5
       },
-      "time_per_move": 4.250923185954098e-06
+      "time_per_move": 4.6106521593806655e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2532,14 +2532,14 @@
        "draw": 100,
        "loss": 0
       },
-      "time_per_move": 6.861178884870848e-06
+      "time_per_move": 9.744302219587553e-06
      },
      "optimal_rate": 0.9215116279069767,
      "critical_optimal_rate": 0.881578947368421,
      "moves": 344,
      "critical_moves": 228,
      "games": 2750,
-     "train_time": 0.519236614999727,
+     "train_time": 0.5414961630008293,
      "table_size": 384,
      "memory_bytes": 179360
     },
@@ -2560,7 +2560,7 @@
        "draw": 17,
        "loss": 2
       },
-      "time_per_move": 3.911345015407671e-06
+      "time_per_move": 4.067100977653613e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2578,14 +2578,14 @@
        "draw": 100,
        "loss": 0
       },
-      "time_per_move": 5.280445558987089e-06
+      "time_per_move": 5.663835545419715e-06
      },
      "optimal_rate": 0.9375,
      "critical_optimal_rate": 0.9022222222222223,
      "moves": 352,
      "critical_moves": 225,
      "games": 3000,
-     "train_time": 0.5639439359997596,
+     "train_time": 0.5931444500006364,
      "table_size": 385,
      "memory_bytes": 179849
     },
@@ -2606,7 +2606,7 @@
        "draw": 14,
        "loss": 0
       },
-      "time_per_move": 3.7173800639084746e-06
+      "time_per_move": 4.086998544121632e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2624,14 +2624,14 @@
        "draw": 98,
        "loss": 2
       },
-      "time_per_move": 4.920455363789854e-06
+      "time_per_move": 5.692243304520973e-06
      },
      "optimal_rate": 0.9501466275659824,
      "critical_optimal_rate": 0.9234234234234234,
      "moves": 341,
      "critical_moves": 222,
      "games": 3250,
-     "train_time": 0.6086225809997359,
+     "train_time": 0.6386757950008359,
      "table_size": 388,
      "memory_bytes": 181252
     },
@@ -2652,7 +2652,7 @@
        "draw": 24,
        "loss": 4
       },
-      "time_per_move": 3.918085135941888e-06
+      "time_per_move": 4.008884565413331e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2670,14 +2670,14 @@
        "draw": 95,
        "loss": 5
       },
-      "time_per_move": 4.806571911011703e-06
+      "time_per_move": 5.558846076158088e-06
      },
      "optimal_rate": 0.9548022598870056,
      "critical_optimal_rate": 0.9324894514767933,
      "moves": 354,
      "critical_moves": 237,
      "games": 3500,
-     "train_time": 0.6553211469997677,
+     "train_time": 0.6875314410008286,
      "table_size": 392,
      "memory_bytes": 183080
     },
@@ -2698,7 +2698,7 @@
        "draw": 18,
        "loss": 1
       },
-      "time_per_move": 4.179899711707444e-06
+      "time_per_move": 4.511997130480802e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2716,14 +2716,14 @@
        "draw": 100,
        "loss": 0
       },
-      "time_per_move": 6.547570003224084e-06
+      "time_per_move": 5.552869997700327e-06
      },
      "optimal_rate": 0.9481268011527377,
      "critical_optimal_rate": 0.9230769230769231,
      "moves": 347,
      "critical_moves": 234,
      "games": 3750,
-     "train_time": 0.7027817629998481,
+     "train_time": 0.7330919880009787,
      "table_size": 397,
      "memory_bytes": 185365
     },
@@ -2744,7 +2744,7 @@
        "draw": 9,
        "loss": 2
       },
-      "time_per_move": 3.7768358463080106e-06
+      "time_per_move": 3.94512951570724e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2762,14 +2762,14 @@
        "draw": 100,
        "loss": 0
       },
-      "time_per_move": 5.037065558452822e-06
+      "time_per_move": 6.1204377678020845e-06
      },
      "optimal_rate": 0.9683908045977011,
      "critical_optimal_rate": 0.9527896995708155,
      "moves": 348,
      "critical_moves": 233,
      "games": 4000,
-     "train_time": 0.755052165999814,
+     "train_time": 0.7783310860013444,
      "table_size": 400,
      "memory_bytes": 186720
     },
@@ -2790,7 +2790,7 @@
        "draw": 14,
        "loss": 4
       },
-      "time_per_move": 3.7451570717156276e-06
+      "time_per_move": 4.127757922881779e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2808,14 +2808,14 @@
        "draw": 100,
        "loss": 0
       },
-      "time_per_move": 5.010164448625195e-06
+      "time_per_move": 5.48821555892371e-06
      },
      "optimal_rate": 0.9589442815249267,
      "critical_optimal_rate": 0.940677966101695,
      "moves": 341,
      "critical_moves": 236,
      "games": 4250,
-     "train_time": 0.802374535999661,
+     "train_time": 0.8253907150010491,
      "table_size": 403,
      "memory_bytes": 188091
     },
@@ -2836,7 +2836,7 @@
        "draw": 20,
        "loss": 1
       },
-      "time_per_move": 3.811523273749843e-06
+      "time_per_move": 5.651960518931621e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2854,14 +2854,14 @@
        "draw": 100,
        "loss": 0
       },
-      "time_per_move": 4.832704446723963e-06
+      "time_per_move": 5.861526669832529e-06
      },
      "optimal_rate": 0.9597701149425287,
      "critical_optimal_rate": 0.9411764705882353,
      "moves": 348,
      "critical_moves": 238,
      "games": 4500,
-     "train_time": 0.8453198359995895,
+     "train_time": 0.8777334740011611,
      "table_size": 405,
      "memory_bytes": 188989
     },
@@ -2882,7 +2882,7 @@
        "draw": 22,
        "loss": 2
       },
-      "time_per_move": 3.7129623728653337e-06
+      "time_per_move": 4.0373256096852085e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2900,14 +2900,14 @@
        "draw": 100,
        "loss": 0
       },
-      "time_per_move": 6.506974446235997e-06
+      "time_per_move": 5.596030008645256e-06
      },
      "optimal_rate": 0.9701492537313433,
      "critical_optimal_rate": 0.9570815450643777,
      "moves": 335,
      "critical_moves": 233,
      "games": 4750,
-     "train_time": 0.8883095139995021,
+     "train_time": 0.9223663330008094,
      "table_size": 409,
      "memory_bytes": 190833
     },
@@ -2928,7 +2928,7 @@
        "draw": 9,
        "loss": 1
       },
-      "time_per_move": 3.7485087003902213e-06
+      "time_per_move": 4.004424640104686e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -2946,14 +2946,14 @@
        "draw": 100,
        "loss": 0
       },
-      "time_per_move": 4.627086665702033e-06
+      "time_per_move": 5.090573334503764e-06
      },
      "optimal_rate": 0.9442815249266863,
      "critical_optimal_rate": 0.9188034188034188,
      "moves": 341,
      "critical_moves": 234,
      "games": 5000,
-     "train_time": 0.9317462569995314,
+     "train_time": 0.9656091930005459,
      "table_size": 410,
      "memory_bytes": 191322
     }
@@ -2992,7 +2992,7 @@
        "draw": 12,
        "loss": 61
       },
-      "time_per_move": 7.36301170436065e-06
+      "time_per_move": 8.586501953615858e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3010,7 +3010,7 @@
        "draw": 4,
        "loss": 96
       },
-      "time_per_move": 8.97751053935207e-06
+      "time_per_move": 1.0094392216618918e-05
      },
      "optimal_rate": 0.6377952755905512,
      "critical_optimal_rate": 0.4566929133858268,
@@ -3038,7 +3038,7 @@
        "draw": 18,
        "loss": 19
       },
-      "time_per_move": 4.437642480654607e-06
+      "time_per_move": 5.9644314477179335e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3056,14 +3056,14 @@
        "draw": 17,
        "loss": 83
       },
-      "time_per_move": 5.459205625971886e-06
+      "time_per_move": 7.1776781550888906e-06
      },
      "optimal_rate": 0.7219251336898396,
      "critical_optimal_rate": 0.6104868913857678,
      "moves": 374,
      "critical_moves": 267,
      "games": 250,
-     "train_time": 0.011047807000068133,
+     "train_time": 0.01395945500007656,
      "table_size": 317,
      "memory_bytes": 148165
     },
@@ -3084,7 +3084,7 @@
        "draw": 21,
        "loss": 18
       },
-      "time_per_move": 4.154615698356562e-06
+      "time_per_move": 4.609214874265993e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3102,14 +3102,14 @@
        "draw": 25,
        "loss": 75
       },
-      "time_per_move": 8.13094832751008e-06
+      "time_per_move": 7.294502581295769e-06
      },
      "optimal_rate": 0.7853260869565217,
      "critical_optimal_rate": 0.704119850187266,
      "moves": 368,
      "critical_moves": 267,
      "games": 500,
-     "train_time": 0.02093440599992391,
+     "train_time": 0.024503528000423103,
      "table_size": 389,
      "memory_bytes": 181485
     },
@@ -3130,7 +3130,7 @@
        "draw": 23,
        "loss": 15
       },
-      "time_per_move": 4.812523304484513e-06
+      "time_per_move": 4.48498535352385e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3148,14 +3148,14 @@
        "draw": 36,
        "loss": 64
       },
-      "time_per_move": 5.572201269652523e-06
+      "time_per_move": 5.650917731295119e-06
      },
      "optimal_rate": 0.824,
      "critical_optimal_rate": 0.7421875,
      "moves": 375,
      "critical_moves": 256,
      "games": 750,
-     "train_time": 0.03171033999979045,
+     "train_time": 0.034983178000402404,
      "table_size": 415,
      "memory_bytes": 193591
     },
@@ -3176,7 +3176,7 @@
        "draw": 12,
        "loss": 22
       },
-      "time_per_move": 5.847859893225217e-06
+      "time_per_move": 4.4114945031291786e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3194,14 +3194,14 @@
        "draw": 12,
        "loss": 88
       },
-      "time_per_move": 7.141390525480166e-06
+      "time_per_move": 5.525935978763445e-06
      },
      "optimal_rate": 0.7956403269754768,
      "critical_optimal_rate": 0.6987951807228916,
      "moves": 367,
      "critical_moves": 249,
      "games": 1000,
-     "train_time": 0.0494937549997303,
+     "train_time": 0.04463547000023027,
      "table_size": 439,
      "memory_bytes": 204687
     },
@@ -3222,7 +3222,7 @@
        "draw": 26,
        "loss": 10
       },
-      "time_per_move": 5.944090548019811e-06
+      "time_per_move": 4.3219693754712085e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3240,14 +3240,14 @@
        "draw": 28,
        "loss": 72
       },
-      "time_per_move": 7.5523884122007415e-06
+      "time_per_move": 5.381558564870422e-06
      },
      "optimal_rate": 0.7984084880636605,
      "critical_optimal_rate": 0.7088122605363985,
      "moves": 377,
      "critical_moves": 261,
      "games": 1250,
-     "train_time": 0.06306779699980325,
+     "train_time": 0.05412790899981701,
      "table_size": 458,
      "memory_bytes": 213450
     },
@@ -3268,7 +3268,7 @@
        "draw": 19,
        "loss": 8
       },
-      "time_per_move": 6.059279132810957e-06
+      "time_per_move": 4.470882121862627e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3286,14 +3286,14 @@
        "draw": 25,
        "loss": 75
       },
-      "time_per_move": 6.675317285392081e-06
+      "time_per_move": 5.4575024714048835e-06
      },
      "optimal_rate": 0.7757255936675461,
      "critical_optimal_rate": 0.678030303030303,
      "moves": 379,
      "critical_moves": 264,
      "games": 1500,
-     "train_time": 0.0762069799998244,
+     "train_time": 0.06346592599948053,
      "table_size": 466,
      "memory_bytes": 217186
     },
@@ -3314,7 +3314,7 @@
        "draw": 18,
        "loss": 11
       },
-      "time_per_move": 4.154382397929141e-06
+      "time_per_move": 4.223662993890772e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3332,14 +3332,14 @@
        "draw": 29,
        "loss": 71
       },
-      "time_per_move": 4.973492162123072e-06
+      "time_per_move": 5.106294323115602e-06
      },
      "optimal_rate": 0.7944444444444444,
      "critical_optimal_rate": 0.7153846153846154,
      "moves": 360,
      "critical_moves": 260,
      "games": 1750,
-     "train_time": 0.08616599499987387,
+     "train_time": 0.07306592199938677,
      "table_size": 473,
      "memory_bytes": 220369
     },
@@ -3360,7 +3360,7 @@
        "draw": 21,
        "loss": 8
       },
-      "time_per_move": 4.061068623713425e-06
+      "time_per_move": 4.117473389712922e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3378,14 +3378,14 @@
        "draw": 24,
        "loss": 76
       },
-      "time_per_move": 4.9403895655434575e-06
+      "time_per_move": 5.7268762071385246e-06
      },
      "optimal_rate": 0.8016085790884718,
      "critical_optimal_rate": 0.725925925925926,
      "moves": 373,
      "critical_moves": 270,
      "games": 2000,
-     "train_time": 0.09726259900003242,
+     "train_time": 0.08499961399911626,
      "table_size": 483,
      "memory_bytes": 224955
     },
@@ -3406,7 +3406,7 @@
        "draw": 31,
        "loss": 4
       },
-      "time_per_move": 3.771084681820182e-06
+      "time_per_move": 4.414446235748846e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3424,14 +3424,14 @@
        "draw": 20,
        "loss": 80
       },
-      "time_per_move": 5.440862184968864e-06
+      "time_per_move": 5.424498786163806e-06
      },
      "optimal_rate": 0.8125,
      "critical_optimal_rate": 0.73046875,
      "moves": 368,
      "critical_moves": 256,
      "games": 2250,
-     "train_time": 0.1084885050001958,
+     "train_time": 0.09691743699886501,
      "table_size": 487,
      "memory_bytes": 226799
     },
@@ -3452,7 +3452,7 @@
        "draw": 15,
        "loss": 9
       },
-      "time_per_move": 4.287243169389508e-06
+      "time_per_move": 4.568341534297381e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3470,14 +3470,14 @@
        "draw": 25,
        "loss": 75
       },
-      "time_per_move": 5.899910305687985e-06
+      "time_per_move": 5.827320003322022e-06
      },
      "optimal_rate": 0.7983870967741935,
      "critical_optimal_rate": 0.7272727272727273,
      "moves": 372,
      "critical_moves": 275,
      "games": 2500,
-     "train_time": 0.12009586700014552,
+     "train_time": 0.11019904099885025,
      "table_size": 489,
      "memory_bytes": 227745
     },
@@ -3498,7 +3498,7 @@
        "draw": 25,
        "loss": 11
       },
-      "time_per_move": 4.037158322974224e-06
+      "time_per_move": 5.163499320862465e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3516,14 +3516,14 @@
        "draw": 17,
        "loss": 83
       },
-      "time_per_move": 4.875534881706378e-06
+      "time_per_move": 6.647031823087457e-06
      },
      "optimal_rate": 0.7940379403794038,
      "critical_optimal_rate": 0.7054263565891473,
      "moves": 369,
      "critical_moves": 258,
      "games": 2750,
-     "train_time": 0.131806706000134,
+     "train_time": 0.12216398199871037,
      "table_size": 493,
      "memory_bytes": 229541
     },
@@ -3544,7 +3544,7 @@
        "draw": 17,
        "loss": 13
       },
-      "time_per_move": 4.050729310857486e-06
+      "time_per_move": 4.286150071052112e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3562,14 +3562,14 @@
        "draw": 24,
        "loss": 76
       },
-      "time_per_move": 4.8718082472448955e-06
+      "time_per_move": 5.547132289645287e-06
      },
      "optimal_rate": 0.7675675675675676,
      "critical_optimal_rate": 0.6814814814814815,
      "moves": 370,
      "critical_moves": 270,
      "games": 3000,
-     "train_time": 0.142878815000131,
+     "train_time": 0.13397100599877376,
      "table_size": 494,
      "memory_bytes": 230014
     },
@@ -3590,7 +3590,7 @@
        "draw": 14,
        "loss": 6
       },
-      "time_per_move": 4.000805213031333e-06
+      "time_per_move": 5.3750809306976355e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3608,14 +3608,14 @@
        "draw": 28,
        "loss": 72
       },
-      "time_per_move": 4.90406279937455e-06
+      "time_per_move": 6.085565209597064e-06
      },
      "optimal_rate": 0.8241758241758241,
      "critical_optimal_rate": 0.7689530685920578,
      "moves": 364,
      "critical_moves": 277,
      "games": 3250,
-     "train_time": 0.15457329600008052,
+     "train_time": 0.1488952949985105,
      "table_size": 495,
      "memory_bytes": 230455
     },
@@ -3636,7 +3636,7 @@
        "draw": 21,
        "loss": 5
       },
-      "time_per_move": 4.66861591037826e-06
+      "time_per_move": 4.192094649689653e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3654,14 +3654,14 @@
        "draw": 30,
        "loss": 70
       },
-      "time_per_move": 4.877749403701262e-06
+      "time_per_move": 5.517519275599625e-06
      },
      "optimal_rate": 0.8486486486486486,
      "critical_optimal_rate": 0.7956204379562044,
      "moves": 370,
      "critical_moves": 274,
      "games": 3500,
-     "train_time": 0.16598475499995402,
+     "train_time": 0.16061884299870144,
      "table_size": 497,
      "memory_bytes": 231417
     },
@@ -3682,7 +3682,7 @@
        "draw": 19,
        "loss": 5
       },
-      "time_per_move": 3.884139971815413e-06
+      "time_per_move": 4.4817119797254635e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3700,14 +3700,14 @@
        "draw": 37,
        "loss": 63
       },
-      "time_per_move": 4.835314213154759e-06
+      "time_per_move": 5.6736475567717905e-06
      },
      "optimal_rate": 0.8346666666666667,
      "critical_optimal_rate": 0.7712177121771218,
      "moves": 375,
      "critical_moves": 271,
      "games": 3750,
-     "train_time": 0.17713722499979667,
+     "train_time": 0.1721788749987354,
      "table_size": 501,
      "memory_bytes": 233245
     },
@@ -3728,7 +3728,7 @@
        "draw": 12,
        "loss": 12
       },
-      "time_per_move": 6.6874844346618665e-06
+      "time_per_move": 4.453729363305243e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3746,14 +3746,14 @@
        "draw": 37,
        "loss": 63
       },
-      "time_per_move": 8.597740741752292e-06
+      "time_per_move": 5.9001027409046674e-06
      },
      "optimal_rate": 0.8416666666666667,
      "critical_optimal_rate": 0.7849056603773585,
      "moves": 360,
      "critical_moves": 265,
      "games": 4000,
-     "train_time": 0.1908911769999122,
+     "train_time": 0.1847859609988518,
      "table_size": 504,
      "memory_bytes": 234600
     },
@@ -3774,7 +3774,7 @@
        "draw": 25,
        "loss": 8
       },
-      "time_per_move": 3.909918441519905e-06
+      "time_per_move": 4.6412072122543064e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3792,14 +3792,14 @@
        "draw": 30,
        "loss": 70
       },
-      "time_per_move": 5.312292770290093e-06
+      "time_per_move": 5.817422894017591e-06
      },
      "optimal_rate": 0.8373983739837398,
      "critical_optimal_rate": 0.7769516728624535,
      "moves": 369,
      "critical_moves": 269,
      "games": 4250,
-     "train_time": 0.20271115799982908,
+     "train_time": 0.19733118199883393,
      "table_size": 504,
      "memory_bytes": 234600
     },
@@ -3820,7 +3820,7 @@
        "draw": 20,
        "loss": 8
       },
-      "time_per_move": 3.949501346191077e-06
+      "time_per_move": 6.4039486441952e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3838,14 +3838,14 @@
        "draw": 23,
        "loss": 77
       },
-      "time_per_move": 5.012770347942179e-06
+      "time_per_move": 7.717758215714566e-06
      },
      "optimal_rate": 0.851063829787234,
      "critical_optimal_rate": 0.7948717948717948,
      "moves": 376,
      "critical_moves": 273,
      "games": 4500,
-     "train_time": 0.2176606659998015,
+     "train_time": 0.21320720999892728,
      "table_size": 506,
      "memory_bytes": 235562
     },
@@ -3866,7 +3866,7 @@
        "draw": 14,
        "loss": 2
       },
-      "time_per_move": 4.927256098477513e-06
+      "time_per_move": 6.011776428495857e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3884,14 +3884,14 @@
        "draw": 33,
        "loss": 67
       },
-      "time_per_move": 6.558087638355336e-06
+      "time_per_move": 8.172477787722652e-06
      },
      "optimal_rate": 0.8605898123324397,
      "critical_optimal_rate": 0.8037735849056604,
      "moves": 373,
      "critical_moves": 265,
      "games": 4750,
-     "train_time": 0.2312067049997495,
+     "train_time": 0.22791927399885026,
      "table_size": 509,
      "memory_bytes": 236965
     },
@@ -3912,7 +3912,7 @@
        "draw": 19,
        "loss": 2
       },
-      "time_per_move": 5.209646893108142e-06
+      "time_per_move": 5.998327505606214e-06
      },
      "vs_minimax": {
       "win": 0.0,
@@ -3930,14 +3930,14 @@
        "draw": 36,
        "loss": 64
       },
-      "time_per_move": 6.494460530410089e-06
+      "time_per_move": 7.4233983182609065e-06
      },
      "optimal_rate": 0.8425414364640884,
      "critical_optimal_rate": 0.7840909090909091,
      "moves": 362,
      "critical_moves": 264,
      "games": 5000,
-     "train_time": 0.2458226119997562,
+     "train_time": 0.24141217099895584,
      "table_size": 509,
      "memory_bytes": 236965
     }

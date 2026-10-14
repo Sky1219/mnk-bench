@@ -1,0 +1,85 @@
+{
+ "meta": {
+  "mnkbench_version": "0.1.0",
+  "python": "3.13.16",
+  "machine": "x86_64",
+  "created": "2026-10-14T08:35:13",
+  "seed": 0,
+  "quick": false,
+  "live": false,
+  "spec": "llm:provider=mock"
+ },
+ "note": "No ANTHROPIC_API_KEY was available when these results were generated, so this table comes from the offline mock client (random legal moves with simulated token counts). It checks the pipeline, not a model. Set ANTHROPIC_API_KEY and run `mnk-bench experiment llm` for real numbers.",
+ "rows": [
+  {
+   "agent": "llm:provider=mock",
+   "config": "(3,3,3)",
+   "opponent": "random",
+   "games": 10,
+   "win": 4,
+   "draw": 1,
+   "loss": 5,
+   "score": 0.45,
+   "sec_per_move": 3.630702624497261e-05,
+   "input_tokens_per_move": 219.78947368421052,
+   "output_tokens_per_move": 40.0,
+   "cost_per_move_usd": 0.0008395789473684211,
+   "retry_rate": 0.0,
+   "fallback_rate": 0.0
+  },
+  {
+   "agent": "llm:provider=mock",
+   "config": "(3,3,3)",
+   "opponent": "rule",
+   "games": 10,
+   "win": 0,
+   "draw": 0,
+   "loss": 10,
+   "score": 0.0,
+   "sec_per_move": 2.819596151172076e-05,
+   "input_tokens_per_move": 220.19230769230768,
+   "output_tokens_per_move": 40.0,
+   "cost_per_move_usd": 0.0008403846153846153,
+   "retry_rate": 0.0,
+   "fallback_rate": 0.0
+  },
+  {
+   "agent": "llm:provider=mock",
+   "config": "(6,7,4)+gravity",
+   "opponent": "rule",
+   "games": 4,
+   "win": 0,
+   "draw": 0,
+   "loss": 4,
+   "score": 0.0,
+   "sec_per_move": 3.248525001708913e-05,
+   "input_tokens_per_move": 275.875,
+   "output_tokens_per_move": 40.0,
+   "cost_per_move_usd": 0.0009517499999999999,
+   "retry_rate": 0.0,
+   "fallback_rate": 0.0
+  },
+  {
+   "agent": "llm:provider=mock",
+   "config": "(9,9,5)",
+   "opponent": "rule",
+   "games": 2,
+   "win": 0,
+   "draw": 0,
+   "loss": 2,
+   "score": 0.0,
+   "sec_per_move": 6.734800000332244e-05,
+   "input_tokens_per_move": 315.44444444444446,
+   "output_tokens_per_move": 40.0,
+   "cost_per_move_usd": 0.001030888888888889,
+   "retry_rate": 0.0,
+   "fallback_rate": 0.0
+  }
+ ],
+ "optimal_move_rate_333": {
+  "optimal_rate": 0.6285714285714286,
+  "critical_optimal_rate": 0.4090909090909091,
+  "moves": 35,
+  "critical_moves": 22
+ }
+}

@@ -1,0 +1,5 @@
+agent,config,opponent,games,win,draw,loss,score,sec_per_move,input_tokens_per_move,output_tokens_per_move,cost_per_move_usd,retry_rate,fallback_rate
+llm:provider=mock,"(3,3,3)",random,10,4,1,5,0.45,3.630702624497261e-05,219.78947368421052,40.0,0.0008395789473684211,0.0,0.0
+llm:provider=mock,"(3,3,3)",rule,10,0,0,10,0.0,2.819596151172076e-05,220.19230769230768,40.0,0.0008403846153846153,0.0,0.0
+llm:provider=mock,"(6,7,4)+gravity",rule,4,0,0,4,0.0,3.248525001708913e-05,275.875,40.0,0.0009517499999999999,0.0,0.0
+llm:provider=mock,"(9,9,5)",rule,2,0,0,2,0.0,6.734800000332244e-05,315.44444444444446,40.0,0.001030888888888889,0.0,0.0

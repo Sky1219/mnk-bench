@@ -3,7 +3,7 @@
   "mnkbench_version": "0.1.0",
   "python": "3.13.16",
   "machine": "x86_64",
-  "created": "2026-10-14T07:56:07",
+  "created": "2026-10-14T08:44:17",
   "seed": 0,
   "quick": false
  },
@@ -17,7 +17,9 @@
     "qlearning",
     "td",
     "alphabeta:depth=4",
-    "mcts:iterations=1000"
+    "mcts:iterations=1000",
+    "alphazero",
+    "llm"
    ],
    "boards": [
     "(3,3,3)",
@@ -56,10 +58,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.4702499811392045e-05,
-      "max_seconds": 2.571300001363852e-05,
+      "seconds_per_move": 1.0038500022346852e-05,
+      "max_seconds": 1.6647999473207165e-05,
       "moves": 2,
-      "peak_rss": 50417664.0,
+      "peak_rss": 15208448.0,
       "reason": ""
      }
     },
@@ -81,10 +83,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.2916499827042571e-05,
-      "max_seconds": 2.293599982294836e-05,
+      "seconds_per_move": 1.2030000107188243e-05,
+      "max_seconds": 2.0339000002422836e-05,
       "moves": 2,
-      "peak_rss": 50421760.0,
+      "peak_rss": 15208448.0,
       "reason": ""
      }
     },
@@ -106,10 +108,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.4048499906493817e-05,
-      "max_seconds": 2.414499977021478e-05,
+      "seconds_per_move": 1.742350013955729e-05,
+      "max_seconds": 2.839700027834624e-05,
       "moves": 2,
-      "peak_rss": 50597888.0,
+      "peak_rss": 15208448.0,
       "reason": ""
      }
     },
@@ -131,10 +133,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.3480500001605833e-05,
-      "max_seconds": 2.2661999992124038e-05,
+      "seconds_per_move": 1.1945499863941222e-05,
+      "max_seconds": 1.944999985425966e-05,
       "moves": 2,
-      "peak_rss": 50597888.0,
+      "peak_rss": 15208448.0,
       "reason": ""
      }
     },
@@ -156,10 +158,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.2033000075462041e-05,
-      "max_seconds": 2.1331999960239045e-05,
+      "seconds_per_move": 1.334750049863942e-05,
+      "max_seconds": 2.2991000150796026e-05,
       "moves": 2,
-      "peak_rss": 50606080.0,
+      "peak_rss": 15208448.0,
       "reason": ""
      }
     },
@@ -181,10 +183,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.636849992792122e-05,
-      "max_seconds": 2.6793999950314173e-05,
+      "seconds_per_move": 1.1630000244622352e-05,
+      "max_seconds": 1.7905000277096406e-05,
       "moves": 2,
-      "peak_rss": 50606080.0,
+      "peak_rss": 15208448.0,
       "reason": ""
      }
     },
@@ -206,10 +208,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.4436000128625892e-05,
-      "max_seconds": 2.3708000298938714e-05,
+      "seconds_per_move": 1.359350017082761e-05,
+      "max_seconds": 2.0716000108222943e-05,
       "moves": 2,
-      "peak_rss": 50737152.0,
+      "peak_rss": 15339520.0,
       "reason": ""
      }
     },
@@ -231,10 +233,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.921750003930356e-05,
-      "max_seconds": 2.977900021505775e-05,
+      "seconds_per_move": 1.0675000339688268e-05,
+      "max_seconds": 1.5346000509453006e-05,
       "moves": 2,
-      "peak_rss": 50737152.0,
+      "peak_rss": 15486976.0,
       "reason": ""
      }
     },
@@ -256,10 +258,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 2.770800006146601e-05,
-      "max_seconds": 4.252300004736753e-05,
+      "seconds_per_move": 1.3208000382292084e-05,
+      "max_seconds": 1.6713000150048174e-05,
       "moves": 2,
-      "peak_rss": 51003392.0,
+      "peak_rss": 15749120.0,
       "reason": ""
      }
     },
@@ -281,10 +283,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 2.5259500034735538e-05,
-      "max_seconds": 3.686699983518338e-05,
+      "seconds_per_move": 2.1794999611302046e-05,
+      "max_seconds": 3.014799949596636e-05,
       "moves": 2,
-      "peak_rss": 51531776.0,
+      "peak_rss": 16273408.0,
       "reason": ""
      }
     },
@@ -306,10 +308,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 7.258199980242352e-05,
-      "max_seconds": 8.625099962955574e-05,
+      "seconds_per_move": 7.569100034743315e-05,
+      "max_seconds": 9.142199996858835e-05,
       "moves": 2,
-      "peak_rss": 50647040.0,
+      "peak_rss": 15388672.0,
       "reason": ""
      }
     },
@@ -331,10 +333,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 9.792600030777976e-05,
-      "max_seconds": 0.00011697300033119973,
+      "seconds_per_move": 9.50314993133361e-05,
+      "max_seconds": 9.904799935611663e-05,
       "moves": 2,
-      "peak_rss": 50651136.0,
+      "peak_rss": 15388672.0,
       "reason": ""
      }
     },
@@ -356,10 +358,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.00020566100010910304,
-      "max_seconds": 0.0002642800000103307,
+      "seconds_per_move": 0.00016829950027386076,
+      "max_seconds": 0.00017359699995722622,
       "moves": 2,
-      "peak_rss": 50823168.0,
+      "peak_rss": 15388672.0,
       "reason": ""
      }
     },
@@ -381,10 +383,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0014474544998392957,
-      "max_seconds": 0.002552626999658969,
+      "seconds_per_move": 0.00035161799996785703,
+      "max_seconds": 0.0003659170006358181,
       "moves": 2,
-      "peak_rss": 50823168.0,
+      "peak_rss": 15388672.0,
       "reason": ""
      }
     },
@@ -406,10 +408,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 7.765250006741553e-05,
-      "max_seconds": 9.233999981006491e-05,
+      "seconds_per_move": 0.00010024150014942279,
+      "max_seconds": 0.00011780499971791869,
       "moves": 2,
-      "peak_rss": 50823168.0,
+      "peak_rss": 15388672.0,
       "reason": ""
      }
     },
@@ -431,10 +433,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.00039160450000963465,
-      "max_seconds": 0.00046594100012953277,
+      "seconds_per_move": 0.0004005810001217469,
+      "max_seconds": 0.0004935580000164919,
       "moves": 2,
-      "peak_rss": 50827264.0,
+      "peak_rss": 15388672.0,
       "reason": ""
      }
     },
@@ -456,10 +458,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0007025914999303495,
-      "max_seconds": 0.0009057489996848744,
+      "seconds_per_move": 0.0007340044999182282,
+      "max_seconds": 0.0009534319997328566,
       "moves": 2,
-      "peak_rss": 50958336.0,
+      "peak_rss": 15519744.0,
       "reason": ""
      }
     },
@@ -481,10 +483,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0010978380000778998,
-      "max_seconds": 0.001421790000222245,
+      "seconds_per_move": 0.0011451494997345435,
+      "max_seconds": 0.0014759899995624437,
       "moves": 2,
-      "peak_rss": 50962432.0,
+      "peak_rss": 15638528.0,
       "reason": ""
      }
     },
@@ -506,10 +508,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0030117644998881588,
-      "max_seconds": 0.004419790999691031,
+      "seconds_per_move": 0.0027416174998506904,
+      "max_seconds": 0.004367202000139514,
       "moves": 2,
-      "peak_rss": 51228672.0,
+      "peak_rss": 15900672.0,
       "reason": ""
      }
     },
@@ -531,10 +533,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0033380259999375994,
-      "max_seconds": 0.005390028999954666,
+      "seconds_per_move": 0.00391286800004309,
+      "max_seconds": 0.00590252399979363,
       "moves": 2,
-      "peak_rss": 51752960.0,
+      "peak_rss": 16424960.0,
       "reason": ""
      }
     },
@@ -556,10 +558,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.005776958499836837,
-      "max_seconds": 0.010833133999767597,
+      "seconds_per_move": 0.0015751979999549803,
+      "max_seconds": 0.0024754659998507123,
       "moves": 2,
-      "peak_rss": 50966528.0,
+      "peak_rss": 15577088.0,
       "reason": ""
      }
     },
@@ -581,10 +583,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.6020265479999125,
-      "max_seconds": 0.6130567539998992,
+      "seconds_per_move": 0.7214841325003363,
+      "max_seconds": 0.7954013970002052,
       "moves": 2,
-      "peak_rss": 60968960.0,
+      "peak_rss": 25423872.0,
       "reason": ""
      }
     },
@@ -750,10 +752,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 7.64554999932443e-05,
-      "max_seconds": 0.00012324199997237884,
+      "seconds_per_move": 4.766550000567804e-05,
+      "max_seconds": 6.070000017643906e-05,
       "moves": 2,
-      "peak_rss": 51437568.0,
+      "peak_rss": 15392768.0,
       "reason": ""
      }
     },
@@ -775,10 +777,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 7.260100005623826e-05,
-      "max_seconds": 0.00011973900018347194,
+      "seconds_per_move": 4.0983999952004524e-05,
+      "max_seconds": 5.5683000027784146e-05,
       "moves": 2,
-      "peak_rss": 51437568.0,
+      "peak_rss": 15392768.0,
       "reason": ""
      }
     },
@@ -936,10 +938,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0004487185001380567,
-      "max_seconds": 0.0008706240000719845,
+      "seconds_per_move": 3.7414999951579375e-05,
+      "max_seconds": 5.216899990045931e-05,
       "moves": 2,
-      "peak_rss": 51449856.0,
+      "peak_rss": 15392768.0,
       "reason": ""
      }
     },
@@ -961,10 +963,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 7.818399990355829e-05,
-      "max_seconds": 0.00013004499987800955,
+      "seconds_per_move": 5.5941499795153504e-05,
+      "max_seconds": 7.734799964964623e-05,
       "moves": 2,
-      "peak_rss": 51449856.0,
+      "peak_rss": 15392768.0,
       "reason": ""
      }
     },
@@ -1122,10 +1124,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.00012910949999422883,
-      "max_seconds": 0.00017340700014756294,
+      "seconds_per_move": 8.00654997874517e-05,
+      "max_seconds": 0.00010833600026671775,
       "moves": 2,
-      "peak_rss": 51453952.0,
+      "peak_rss": 15392768.0,
       "reason": ""
      }
     },
@@ -1147,10 +1149,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.00016348899998774868,
-      "max_seconds": 0.00022459599995272583,
+      "seconds_per_move": 0.00015503800022997893,
+      "max_seconds": 0.00020481000046856934,
       "moves": 2,
-      "peak_rss": 51453952.0,
+      "peak_rss": 15392768.0,
       "reason": ""
      }
     },
@@ -1308,10 +1310,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0008819909999147058,
-      "max_seconds": 0.0016459469998153509,
+      "seconds_per_move": 0.0003879740002048493,
+      "max_seconds": 0.0007262130002345657,
       "moves": 2,
-      "peak_rss": 51388416.0,
+      "peak_rss": 15396864.0,
       "reason": ""
      }
     },
@@ -1333,10 +1335,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.012343224999995073,
-      "max_seconds": 0.024555099999815866,
+      "seconds_per_move": 0.00306111050031177,
+      "max_seconds": 0.006057617000806204,
       "moves": 2,
-      "peak_rss": 51388416.0,
+      "peak_rss": 15396864.0,
       "reason": ""
      }
     },
@@ -1358,10 +1360,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.03692402849992504,
-      "max_seconds": 0.07370754800012946,
+      "seconds_per_move": 0.010125290500127448,
+      "max_seconds": 0.020174080000288086,
       "moves": 2,
-      "peak_rss": 51388416.0,
+      "peak_rss": 15527936.0,
       "reason": ""
      }
     },
@@ -1383,10 +1385,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.032294480000018666,
-      "max_seconds": 0.06443696899987117,
+      "seconds_per_move": 0.010755649999737216,
+      "max_seconds": 0.021344428999327647,
       "moves": 2,
-      "peak_rss": 51388416.0,
+      "peak_rss": 15527936.0,
       "reason": ""
      }
     },
@@ -1408,10 +1410,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.006235131500034186,
-      "max_seconds": 0.006818663000103697,
+      "seconds_per_move": 0.006072758500522468,
+      "max_seconds": 0.006641896000473935,
       "moves": 2,
-      "peak_rss": 51388416.0,
+      "peak_rss": 15396864.0,
       "reason": ""
      }
     },
@@ -1433,10 +1435,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0742056629999297,
-      "max_seconds": 0.1482472150000831,
+      "seconds_per_move": 0.0325006680000115,
+      "max_seconds": 0.06481349200021214,
       "moves": 2,
-      "peak_rss": 51519488.0,
+      "peak_rss": 15527936.0,
       "reason": ""
      }
     },
@@ -1458,10 +1460,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.09620489350004391,
-      "max_seconds": 0.19216658699997424,
+      "seconds_per_move": 0.026041653000447695,
+      "max_seconds": 0.051870706000045175,
       "moves": 2,
-      "peak_rss": 51519488.0,
+      "peak_rss": 15527936.0,
       "reason": ""
      }
     },
@@ -1483,10 +1485,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.10185790600007749,
-      "max_seconds": 0.20331065900018075,
+      "seconds_per_move": 0.034983015000307205,
+      "max_seconds": 0.06963095799983421,
       "moves": 2,
-      "peak_rss": 51634176.0,
+      "peak_rss": 15806464.0,
       "reason": ""
      }
     },
@@ -1508,10 +1510,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.1330536119999124,
-      "max_seconds": 0.26545480300001145,
+      "seconds_per_move": 0.05464648699944519,
+      "max_seconds": 0.1086617249993651,
       "moves": 2,
-      "peak_rss": 51896320.0,
+      "peak_rss": 16068608.0,
       "reason": ""
      }
     },
@@ -1533,10 +1535,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.1424377875000573,
-      "max_seconds": 0.28386147800028994,
+      "seconds_per_move": 0.05099318799966568,
+      "max_seconds": 0.10089132899975084,
       "moves": 2,
-      "peak_rss": 52420608.0,
+      "peak_rss": 16723968.0,
       "reason": ""
      }
     },
@@ -1548,7 +1550,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.0199,
+      "time_per_move": 0.01275,
       "memory_bytes": 292000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -1558,10 +1560,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.01658133349997115,
-      "max_seconds": 0.01820410499976788,
+      "seconds_per_move": 0.013269537999804015,
+      "max_seconds": 0.017178019000311906,
       "moves": 2,
-      "peak_rss": 52080640.0,
+      "peak_rss": 16097280.0,
       "reason": ""
      }
     },
@@ -1573,7 +1575,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.0276,
+      "time_per_move": 0.018000000000000002,
       "memory_bytes": 348000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -1583,10 +1585,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.02528060000008736,
-      "max_seconds": 0.026192568000169558,
+      "seconds_per_move": 0.027830286000153137,
+      "max_seconds": 0.030756809000195062,
       "moves": 2,
-      "peak_rss": 52211712.0,
+      "peak_rss": 16359424.0,
       "reason": ""
      }
     },
@@ -1598,7 +1600,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.037500000000000006,
+      "time_per_move": 0.02475,
       "memory_bytes": 420000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -1608,10 +1610,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.03859159500007081,
-      "max_seconds": 0.041732170000159385,
+      "seconds_per_move": 0.03319810349967156,
+      "max_seconds": 0.0380268029994113,
       "moves": 2,
-      "peak_rss": 52342784.0,
+      "peak_rss": 16490496.0,
       "reason": ""
      }
     },
@@ -1623,7 +1625,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.0484,
+      "time_per_move": 0.033,
       "memory_bytes": 508000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -1633,10 +1635,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.04454831949988147,
-      "max_seconds": 0.0502158369999961,
+      "seconds_per_move": 0.03236413199965682,
+      "max_seconds": 0.03797706699970149,
       "moves": 2,
-      "peak_rss": 52604928.0,
+      "peak_rss": 16621568.0,
       "reason": ""
      }
     },
@@ -1648,7 +1650,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.0523,
+      "time_per_move": 0.037500000000000006,
       "memory_bytes": 556000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -1658,10 +1660,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.037739948999842454,
-      "max_seconds": 0.041245707999678416,
+      "seconds_per_move": 0.025644164999903296,
+      "max_seconds": 0.02750438099974417,
       "moves": 2,
-      "peak_rss": 52211712.0,
+      "peak_rss": 16228352.0,
       "reason": ""
      }
     },
@@ -1673,7 +1675,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.05685,
+      "time_per_move": 0.0425,
       "memory_bytes": 612000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -1683,10 +1685,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.06957359399984853,
-      "max_seconds": 0.07280923999996958,
+      "seconds_per_move": 0.04536335649981993,
+      "max_seconds": 0.04776561299968307,
       "moves": 2,
-      "peak_rss": 52871168.0,
+      "peak_rss": 16883712.0,
       "reason": ""
      }
     },
@@ -1698,7 +1700,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.07765,
+      "time_per_move": 0.058499999999999996,
       "memory_bytes": 620000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -1708,10 +1710,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.04615602149988263,
-      "max_seconds": 0.09214980099977765,
+      "seconds_per_move": 0.040235749000203214,
+      "max_seconds": 0.08035529000062525,
       "moves": 2,
-      "peak_rss": 52219904.0,
+      "peak_rss": 16228352.0,
       "reason": ""
      }
     },
@@ -1723,7 +1725,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.10364999999999999,
+      "time_per_move": 0.0785,
       "memory_bytes": 620000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -1733,10 +1735,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.05794451649990151,
-      "max_seconds": 0.11571718899995176,
+      "seconds_per_move": 0.038574053500269656,
+      "max_seconds": 0.07697741200081509,
       "moves": 2,
-      "peak_rss": 52350976.0,
+      "peak_rss": 16302080.0,
       "reason": ""
      }
     },
@@ -1748,7 +1750,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.17125,
+      "time_per_move": 0.1305,
       "memory_bytes": 620000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -1758,10 +1760,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.09474842349982282,
-      "max_seconds": 0.18914749099985784,
+      "seconds_per_move": 0.05951296499961245,
+      "max_seconds": 0.11872530199980247,
       "moves": 2,
-      "peak_rss": 52482048.0,
+      "peak_rss": 16695296.0,
       "reason": ""
      }
     },
@@ -1773,7 +1775,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.25965,
+      "time_per_move": 0.1985,
       "memory_bytes": 620000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -1783,12 +1785,392 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.1519743159999507,
-      "max_seconds": 0.3033617090000007,
+      "seconds_per_move": 0.08134174500037261,
+      "max_seconds": 0.1621721230003459,
       "moves": 2,
-      "peak_rss": 52875264.0,
+      "peak_rss": 17219584.0,
       "reason": ""
      }
+    },
+    {
+     "agent": "alphazero",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0168,
+      "memory_bytes": 450216064.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "bundled checkpoint"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.08292539199965177,
+      "max_seconds": 0.15703551799924753,
+      "moves": 2,
+      "peak_rss": 517361664.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphazero",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.018199999999999997,
+      "memory_bytes": 450260864.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "bundled checkpoint"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.10096795299978112,
+      "max_seconds": 0.15685581599973375,
+      "moves": 2,
+      "peak_rss": 517636096.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphazero",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.019999999999999997,
+      "memory_bytes": 450318464.0,
+      "train_time": 208.33333333333331,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.0731886669996129,
+      "max_seconds": 0.08537018799961515,
+      "moves": 2,
+      "peak_rss": 517984256.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphazero",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.022199999999999998,
+      "memory_bytes": 450388864.0,
+      "train_time": 575.4239999999999,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.07944898100049613,
+      "max_seconds": 0.08459915300045395,
+      "moves": 2,
+      "peak_rss": 518250496.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphazero",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
+     "estimate": {
+      "time_per_move": 0.0234,
+      "memory_bytes": 450427264.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "bundled checkpoint"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "probe": {
+      "status": "ok",
+      "seconds_per_move": 0.06467768200036517,
+      "max_seconds": 0.07593815200016252,
+      "moves": 2,
+      "peak_rss": 517558272.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphazero",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "training 23min > 10min",
+     "estimate": {
+      "time_per_move": 0.024799999999999996,
+      "memory_bytes": 450472064.0,
+      "train_time": 1389.3786666666665,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "training 102min > 10min",
+     "estimate": {
+      "time_per_move": 0.0312,
+      "memory_bytes": 450676864.0,
+      "train_time": 6141.096,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "training 6h > 10min",
+     "estimate": {
+      "time_per_move": 0.0392,
+      "memory_bytes": 450932864.0,
+      "train_time": 21043.997333333333,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "training 42h > 10min",
+     "estimate": {
+      "time_per_move": 0.06,
+      "memory_bytes": 451598464.0,
+      "train_time": 151875.0,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "training 200h > 10min",
+     "estimate": {
+      "time_per_move": 0.0872,
+      "memory_bytes": 452468864.0,
+      "train_time": 719719.4426666668,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.007908,
+      "notes": "~295 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.007938,
+      "notes": "~308 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.007978,
+      "notes": "~325 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.008026,
+      "notes": "~345 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.008052,
+      "notes": "~355 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.008082,
+      "notes": "~368 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.00822,
+      "notes": "~425 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.00839,
+      "notes": "~496 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.008828,
+      "notes": "~679 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0094,
+      "notes": "~917 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
     }
    ],
    "frontier": [
@@ -1847,6 +2229,20 @@
      "largest_usable": "(19,19,5)",
      "first_refused": null,
      "aborted": []
+    },
+    {
+     "agent": "alphazero",
+     "largest_ok": "(6,7,4)+gravity",
+     "largest_usable": "(6,7,4)+gravity",
+     "first_refused": "(7,7,5)",
+     "aborted": []
+    },
+    {
+     "agent": "llm",
+     "largest_ok": null,
+     "largest_usable": null,
+     "first_refused": null,
+     "aborted": []
     }
    ]
   },
@@ -1859,7 +2255,9 @@
     "qlearning",
     "td",
     "alphabeta:depth=4",
-    "mcts:iterations=1000"
+    "mcts:iterations=1000",
+    "alphazero",
+    "llm"
    ],
    "boards": [
     "(3,3,3)",
@@ -1898,10 +2296,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.6605500150035368e-05,
-      "max_seconds": 2.9649000225617783e-05,
+      "seconds_per_move": 1.7102500351029448e-05,
+      "max_seconds": 3.0076000257395208e-05,
       "moves": 2,
-      "peak_rss": 50892800.0,
+      "peak_rss": 15036416.0,
       "reason": ""
      }
     },
@@ -1923,10 +2321,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.285799999095616e-05,
-      "max_seconds": 2.251700016131508e-05,
+      "seconds_per_move": 1.8824000107997563e-05,
+      "max_seconds": 3.368800025782548e-05,
       "moves": 2,
-      "peak_rss": 50892800.0,
+      "peak_rss": 15036416.0,
       "reason": ""
      }
     },
@@ -1948,10 +2346,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.674450004429673e-05,
-      "max_seconds": 2.9165999876568094e-05,
+      "seconds_per_move": 1.2965499536221614e-05,
+      "max_seconds": 2.1779999769933056e-05,
       "moves": 2,
-      "peak_rss": 50892800.0,
+      "peak_rss": 15036416.0,
       "reason": ""
      }
     },
@@ -1973,10 +2371,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.4436000128625892e-05,
-      "max_seconds": 2.4372000098082935e-05,
+      "seconds_per_move": 1.4294000720838085e-05,
+      "max_seconds": 2.3185000827652402e-05,
       "moves": 2,
-      "peak_rss": 50892800.0,
+      "peak_rss": 15036416.0,
       "reason": ""
      }
     },
@@ -1998,10 +2396,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.751950003381353e-05,
-      "max_seconds": 3.133300015178975e-05,
+      "seconds_per_move": 1.0575000032986281e-05,
+      "max_seconds": 1.7721999938657973e-05,
       "moves": 2,
-      "peak_rss": 50892800.0,
+      "peak_rss": 15036416.0,
       "reason": ""
      }
     },
@@ -2023,10 +2421,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.5355500181613024e-05,
-      "max_seconds": 2.6218000130029395e-05,
+      "seconds_per_move": 1.1988499863946345e-05,
+      "max_seconds": 1.8617000023368746e-05,
       "moves": 2,
-      "peak_rss": 50892800.0,
+      "peak_rss": 15036416.0,
       "reason": ""
      }
     },
@@ -2048,10 +2446,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 2.1212499859757372e-05,
-      "max_seconds": 3.5799999750452116e-05,
+      "seconds_per_move": 1.3903999843023485e-05,
+      "max_seconds": 2.1548000404436607e-05,
       "moves": 2,
-      "peak_rss": 50892800.0,
+      "peak_rss": 15167488.0,
       "reason": ""
      }
     },
@@ -2073,10 +2471,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.6694999885658035e-05,
-      "max_seconds": 2.693899978112313e-05,
+      "seconds_per_move": 1.0346499948354904e-05,
+      "max_seconds": 1.4762000319024082e-05,
       "moves": 2,
-      "peak_rss": 51200000.0,
+      "peak_rss": 15298560.0,
       "reason": ""
      }
     },
@@ -2098,10 +2496,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 1.873500013971352e-05,
-      "max_seconds": 2.8806000045733526e-05,
+      "seconds_per_move": 1.4825500329607166e-05,
+      "max_seconds": 2.1352000658225734e-05,
       "moves": 2,
-      "peak_rss": 51331072.0,
+      "peak_rss": 15560704.0,
       "reason": ""
      }
     },
@@ -2123,10 +2521,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 4.451550012163352e-05,
-      "max_seconds": 6.935300007171463e-05,
+      "seconds_per_move": 2.1490999642992392e-05,
+      "max_seconds": 2.89209992843098e-05,
       "moves": 2,
-      "peak_rss": 51855360.0,
+      "peak_rss": 16084992.0,
       "reason": ""
      }
     },
@@ -2148,10 +2546,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0001251900000625028,
-      "max_seconds": 0.0001554159998704563,
+      "seconds_per_move": 9.007249946080265e-05,
+      "max_seconds": 9.305699950346025e-05,
       "moves": 2,
-      "peak_rss": 51269632.0,
+      "peak_rss": 15384576.0,
       "reason": ""
      }
     },
@@ -2173,10 +2571,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.00016248750011982338,
-      "max_seconds": 0.00021568100009972113,
+      "seconds_per_move": 9.20104998840543e-05,
+      "max_seconds": 9.960599982150597e-05,
       "moves": 2,
-      "peak_rss": 51269632.0,
+      "peak_rss": 15384576.0,
       "reason": ""
      }
     },
@@ -2198,10 +2596,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.00019902250005543465,
-      "max_seconds": 0.0002042659998551244,
+      "seconds_per_move": 0.0001870855003289762,
+      "max_seconds": 0.00019894500019290717,
       "moves": 2,
-      "peak_rss": 51269632.0,
+      "peak_rss": 15384576.0,
       "reason": ""
      }
     },
@@ -2223,10 +2621,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0003606034999847907,
-      "max_seconds": 0.0003840089998448093,
+      "seconds_per_move": 0.0002761239998108067,
+      "max_seconds": 0.0002970140003526467,
       "moves": 2,
-      "peak_rss": 51269632.0,
+      "peak_rss": 15384576.0,
       "reason": ""
      }
     },
@@ -2248,10 +2646,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 8.650599988868635e-05,
-      "max_seconds": 0.0001077130000339821,
+      "seconds_per_move": 9.941650023392867e-05,
+      "max_seconds": 0.00010600200039334595,
       "moves": 2,
-      "peak_rss": 51269632.0,
+      "peak_rss": 15384576.0,
       "reason": ""
      }
     },
@@ -2273,10 +2671,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0005600184999821067,
-      "max_seconds": 0.000724370000170893,
+      "seconds_per_move": 0.00037894050001341384,
+      "max_seconds": 0.0004165840000496246,
       "moves": 2,
-      "peak_rss": 51269632.0,
+      "peak_rss": 15384576.0,
       "reason": ""
      }
     },
@@ -2298,10 +2696,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.000685973000145168,
-      "max_seconds": 0.0008854229999997187,
+      "seconds_per_move": 0.000845477999519062,
+      "max_seconds": 0.0011473019994809874,
       "moves": 2,
-      "peak_rss": 51269632.0,
+      "peak_rss": 15515648.0,
       "reason": ""
      }
     },
@@ -2323,10 +2721,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0015489610000258835,
-      "max_seconds": 0.0019900130000678473,
+      "seconds_per_move": 0.0013826170002175786,
+      "max_seconds": 0.0017701249998935964,
       "moves": 2,
-      "peak_rss": 51572736.0,
+      "peak_rss": 15638528.0,
       "reason": ""
      }
     },
@@ -2348,10 +2746,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0023189545001969236,
-      "max_seconds": 0.0035053430001426022,
+      "seconds_per_move": 0.0021580554998763546,
+      "max_seconds": 0.0032119249999595922,
       "moves": 2,
-      "peak_rss": 51838976.0,
+      "peak_rss": 15900672.0,
       "reason": ""
      }
     },
@@ -2373,10 +2771,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.004832133499803604,
-      "max_seconds": 0.007737470999927609,
+      "seconds_per_move": 0.004305126500184997,
+      "max_seconds": 0.007057431999783148,
       "moves": 2,
-      "peak_rss": 52232192.0,
+      "peak_rss": 16424960.0,
       "reason": ""
      }
     },
@@ -2398,10 +2796,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0019850155001677194,
-      "max_seconds": 0.0028623070002140594,
+      "seconds_per_move": 0.0020550560002448037,
+      "max_seconds": 0.003238584000428091,
       "moves": 2,
-      "peak_rss": 51404800.0,
+      "peak_rss": 15577088.0,
       "reason": ""
      }
     },
@@ -2584,10 +2982,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.00010398449990134395,
-      "max_seconds": 0.0001397500000166474,
+      "seconds_per_move": 4.913599968858762e-05,
+      "max_seconds": 6.579599994438468e-05,
       "moves": 2,
-      "peak_rss": 51286016.0,
+      "peak_rss": 15261696.0,
       "reason": ""
      }
     },
@@ -2762,10 +3160,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 7.606950020999648e-05,
-      "max_seconds": 0.00012984800014237408,
+      "seconds_per_move": 5.041700023866724e-05,
+      "max_seconds": 7.094100055837771e-05,
       "moves": 2,
-      "peak_rss": 51294208.0,
+      "peak_rss": 15261696.0,
       "reason": ""
      }
     },
@@ -2940,10 +3338,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 9.60305001171946e-05,
-      "max_seconds": 0.00014679400010209065,
+      "seconds_per_move": 8.897999941837043e-05,
+      "max_seconds": 0.0001228499995704624,
       "moves": 2,
-      "peak_rss": 51298304.0,
+      "peak_rss": 15261696.0,
       "reason": ""
      }
     },
@@ -3120,10 +3518,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0006542570001784043,
-      "max_seconds": 0.0011811270001089724,
+      "seconds_per_move": 0.00031946399985827156,
+      "max_seconds": 0.0005793410000478616,
       "moves": 2,
-      "peak_rss": 51425280.0,
+      "peak_rss": 15335424.0,
       "reason": ""
      }
     },
@@ -3147,10 +3545,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.001261339499933456,
-      "max_seconds": 0.0023818899999241694,
+      "seconds_per_move": 0.0004506144996412331,
+      "max_seconds": 0.000826624999717751,
       "moves": 2,
-      "peak_rss": 51425280.0,
+      "peak_rss": 15335424.0,
       "reason": ""
      }
     },
@@ -3174,10 +3572,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0026429684999129677,
-      "max_seconds": 0.005137091000051441,
+      "seconds_per_move": 0.0008668549999129027,
+      "max_seconds": 0.00154196099992987,
       "moves": 2,
-      "peak_rss": 51425280.0,
+      "peak_rss": 15335424.0,
       "reason": ""
      }
     },
@@ -3201,10 +3599,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.003080014500028483,
-      "max_seconds": 0.005950378999841632,
+      "seconds_per_move": 0.0009457324999857519,
+      "max_seconds": 0.001789421000466973,
       "moves": 2,
-      "peak_rss": 51429376.0,
+      "peak_rss": 15335424.0,
       "reason": ""
      }
     },
@@ -3228,10 +3626,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0029558935000295605,
-      "max_seconds": 0.0031910560001051635,
+      "seconds_per_move": 0.0014186299999892071,
+      "max_seconds": 0.001528298000266659,
       "moves": 2,
-      "peak_rss": 51433472.0,
+      "peak_rss": 15335424.0,
       "reason": ""
      }
     },
@@ -3255,10 +3653,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.00438617300005717,
-      "max_seconds": 0.00852997200036043,
+      "seconds_per_move": 0.0014229314997464826,
+      "max_seconds": 0.0027140689999214374,
       "moves": 2,
-      "peak_rss": 51433472.0,
+      "peak_rss": 15335424.0,
       "reason": ""
      }
     },
@@ -3282,10 +3680,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.0035519815000952804,
-      "max_seconds": 0.0068554879999283,
+      "seconds_per_move": 0.0018275725001331011,
+      "max_seconds": 0.003423990000555932,
       "moves": 2,
-      "peak_rss": 51417088.0,
+      "peak_rss": 15466496.0,
       "reason": ""
      }
     },
@@ -3309,10 +3707,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.007087274499781415,
-      "max_seconds": 0.013728860999890458,
+      "seconds_per_move": 0.002160394999464188,
+      "max_seconds": 0.003889904999596183,
       "moves": 2,
-      "peak_rss": 51548160.0,
+      "peak_rss": 15613952.0,
       "reason": ""
      }
     },
@@ -3336,10 +3734,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.008561551499951747,
-      "max_seconds": 0.016247734999979002,
+      "seconds_per_move": 0.004835007999645313,
+      "max_seconds": 0.008977223999863782,
       "moves": 2,
-      "peak_rss": 51810304.0,
+      "peak_rss": 15876096.0,
       "reason": ""
      }
     },
@@ -3363,10 +3761,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.008718153000017992,
-      "max_seconds": 0.01614556200001971,
+      "seconds_per_move": 0.004395240000121703,
+      "max_seconds": 0.007393630000478879,
       "moves": 2,
-      "peak_rss": 52334592.0,
+      "peak_rss": 16400384.0,
       "reason": ""
      }
     },
@@ -3378,7 +3776,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.0199,
+      "time_per_move": 0.01275,
       "memory_bytes": 292000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -3388,10 +3786,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.019191631500007134,
-      "max_seconds": 0.022456615999999485,
+      "seconds_per_move": 0.015337843500219606,
+      "max_seconds": 0.019760296000640665,
       "moves": 2,
-      "peak_rss": 52002816.0,
+      "peak_rss": 16048128.0,
       "reason": ""
      }
     },
@@ -3403,7 +3801,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.0276,
+      "time_per_move": 0.018000000000000002,
       "memory_bytes": 348000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -3413,10 +3811,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.03610260100026608,
-      "max_seconds": 0.03832476800016593,
+      "seconds_per_move": 0.020984980500088568,
+      "max_seconds": 0.024631532000057632,
       "moves": 2,
-      "peak_rss": 52269056.0,
+      "peak_rss": 16310272.0,
       "reason": ""
      }
     },
@@ -3428,7 +3826,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.037500000000000006,
+      "time_per_move": 0.02475,
       "memory_bytes": 420000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -3438,10 +3836,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.045478389999971114,
-      "max_seconds": 0.04550458999983675,
+      "seconds_per_move": 0.03006648500013398,
+      "max_seconds": 0.03259446000083699,
       "moves": 2,
-      "peak_rss": 52269056.0,
+      "peak_rss": 16441344.0,
       "reason": ""
      }
     },
@@ -3453,7 +3851,7 @@
      "estimated_status": "ok",
      "reason": "",
      "estimate": {
-      "time_per_move": 0.0484,
+      "time_per_move": 0.033,
       "memory_bytes": 508000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
@@ -3463,10 +3861,10 @@
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.04542846700019254,
-      "max_seconds": 0.04544849500007331,
+      "seconds_per_move": 0.0372253915006695,
+      "max_seconds": 0.04615051500059053,
       "moves": 2,
-      "peak_rss": 52269056.0,
+      "peak_rss": 16310272.0,
       "reason": ""
      }
     },
@@ -3474,26 +3872,24 @@
      "agent": "mcts:iterations=1000",
      "config": "(6,7,4)+gravity",
      "cells": 42,
-     "status": "degraded",
-     "estimated_status": "degraded",
-     "reason": "time/move 52ms > 50ms",
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
      "estimate": {
-      "time_per_move": 0.049998799999999996,
-      "memory_bytes": 531536,
+      "time_per_move": 0.037500000000000006,
+      "memory_bytes": 556000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
-      "notes": "956 playouts/move"
+      "notes": "~1000 playouts/move"
      },
-     "degraded_params": {
-      "iterations": 956
-     },
+     "degraded_params": {},
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.036668154499921,
-      "max_seconds": 0.03795642400018551,
+      "seconds_per_move": 0.033637743500094075,
+      "max_seconds": 0.039419316000021354,
       "moves": 2,
-      "peak_rss": 52137984.0,
+      "peak_rss": 16052224.0,
       "reason": ""
      }
     },
@@ -3501,26 +3897,24 @@
      "agent": "mcts:iterations=1000",
      "config": "(7,7,5)",
      "cells": 49,
-     "status": "degraded",
-     "estimated_status": "degraded",
-     "reason": "time/move 57ms > 50ms",
+     "status": "ok",
+     "estimated_status": "ok",
+     "reason": "",
      "estimate": {
-      "time_per_move": 0.04997115,
-      "memory_bytes": 537948,
+      "time_per_move": 0.0425,
+      "memory_bytes": 612000.0,
       "train_time": 0.0,
       "cost_per_move": 0.0,
-      "notes": "879 playouts/move"
+      "notes": "~1000 playouts/move"
      },
-     "degraded_params": {
-      "iterations": 879
-     },
+     "degraded_params": {},
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.045515530999864495,
-      "max_seconds": 0.045703819999744155,
+      "seconds_per_move": 0.045356958500178735,
+      "max_seconds": 0.04536812700007431,
       "moves": 2,
-      "peak_rss": 52142080.0,
+      "peak_rss": 16572416.0,
       "reason": ""
      }
     },
@@ -3530,24 +3924,24 @@
      "cells": 81,
      "status": "degraded",
      "estimated_status": "degraded",
-     "reason": "time/move 78ms > 50ms",
+     "reason": "time/move 58ms > 50ms",
      "estimate": {
-      "time_per_move": 0.04992895,
-      "memory_bytes": 398660,
+      "time_per_move": 0.049958999999999996,
+      "memory_bytes": 529480,
       "train_time": 0.0,
       "cost_per_move": 0.0,
-      "notes": "643 playouts/move"
+      "notes": "854 playouts/move"
      },
      "degraded_params": {
-      "iterations": 643
+      "iterations": 854
      },
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.02290325050012143,
-      "max_seconds": 0.045485965000352735,
+      "seconds_per_move": 0.022786199000165652,
+      "max_seconds": 0.04544359400006215,
       "moves": 2,
-      "peak_rss": 51748864.0,
+      "peak_rss": 16048128.0,
       "reason": ""
      }
     },
@@ -3557,24 +3951,24 @@
      "cells": 121,
      "status": "degraded",
      "estimated_status": "degraded",
-     "reason": "time/move 104ms > 50ms",
+     "reason": "time/move 78ms > 50ms",
      "estimate": {
-      "time_per_move": 0.0499593,
-      "memory_bytes": 298840,
+      "time_per_move": 0.049926,
+      "memory_bytes": 394320,
       "train_time": 0.0,
       "cost_per_move": 0.0,
-      "notes": "482 playouts/move"
+      "notes": "636 playouts/move"
      },
      "degraded_params": {
-      "iterations": 482
+      "iterations": 636
      },
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.022925640000039493,
-      "max_seconds": 0.04561425900010363,
+      "seconds_per_move": 0.022802832999332168,
+      "max_seconds": 0.045379028999377624,
       "moves": 2,
-      "peak_rss": 51748864.0,
+      "peak_rss": 16035840.0,
       "reason": ""
      }
     },
@@ -3584,24 +3978,24 @@
      "cells": 225,
      "status": "degraded",
      "estimated_status": "degraded",
-     "reason": "time/move 171ms > 50ms",
+     "reason": "time/move 130ms > 50ms",
      "estimate": {
-      "time_per_move": 0.04983375,
-      "memory_bytes": 180420,
+      "time_per_move": 0.0499815,
+      "memory_bytes": 237460,
       "train_time": 0.0,
       "cost_per_move": 0.0,
-      "notes": "291 playouts/move"
+      "notes": "383 playouts/move"
      },
      "degraded_params": {
-      "iterations": 291
+      "iterations": 383
      },
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.023060119999854578,
-      "max_seconds": 0.04565205999961108,
+      "seconds_per_move": 0.022017492500253866,
+      "max_seconds": 0.043707046000236005,
       "moves": 2,
-      "peak_rss": 51884032.0,
+      "peak_rss": 16166912.0,
       "reason": ""
      }
     },
@@ -3611,26 +4005,374 @@
      "cells": 361,
      "status": "degraded",
      "estimated_status": "degraded",
-     "reason": "time/move 260ms > 50ms",
+     "reason": "time/move 198ms > 50ms",
      "estimate": {
-      "time_per_move": 0.0498528,
-      "memory_bytes": 119040,
+      "time_per_move": 0.0498235,
+      "memory_bytes": 155620,
       "train_time": 0.0,
       "cost_per_move": 0.0,
-      "notes": "192 playouts/move"
+      "notes": "251 playouts/move"
      },
      "degraded_params": {
-      "iterations": 192
+      "iterations": 251
      },
      "measured": true,
      "probe": {
       "status": "ok",
-      "seconds_per_move": 0.023356343500154253,
-      "max_seconds": 0.04599059500014846,
+      "seconds_per_move": 0.02319393800007674,
+      "max_seconds": 0.04581912100002228,
       "moves": 2,
-      "peak_rss": 52408320.0,
+      "peak_rss": 16560128.0,
       "reason": ""
      }
+    },
+    {
+     "agent": "alphazero",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 429MB > 128MB",
+     "estimate": {
+      "time_per_move": 0.0168,
+      "memory_bytes": 450216064.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "bundled checkpoint"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 429MB > 128MB",
+     "estimate": {
+      "time_per_move": 0.018199999999999997,
+      "memory_bytes": 450260864.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "bundled checkpoint"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 429MB > 128MB; training 3min > 30.0s",
+     "estimate": {
+      "time_per_move": 0.019999999999999997,
+      "memory_bytes": 450318464.0,
+      "train_time": 208.33333333333331,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 430MB > 128MB; training 10min > 30.0s",
+     "estimate": {
+      "time_per_move": 0.022199999999999998,
+      "memory_bytes": 450388864.0,
+      "train_time": 575.4239999999999,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 430MB > 128MB",
+     "estimate": {
+      "time_per_move": 0.0234,
+      "memory_bytes": 450427264.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0,
+      "notes": "bundled checkpoint"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 430MB > 128MB; training 23min > 30.0s",
+     "estimate": {
+      "time_per_move": 0.024799999999999996,
+      "memory_bytes": 450472064.0,
+      "train_time": 1389.3786666666665,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 430MB > 128MB; training 102min > 30.0s",
+     "estimate": {
+      "time_per_move": 0.0312,
+      "memory_bytes": 450676864.0,
+      "train_time": 6141.096,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "memory 430MB > 128MB; training 6h > 30.0s",
+     "estimate": {
+      "time_per_move": 0.0392,
+      "memory_bytes": 450932864.0,
+      "train_time": 21043.997333333333,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "alphazero",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 60ms > 50ms; memory 431MB > 128MB; training 42h > 30.0s",
+     "estimate": {
+      "time_per_move": 0.06,
+      "memory_bytes": 451598464.0,
+      "train_time": 151875.0,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": true,
+     "frontier_probe": {
+      "status": "aborted",
+      "seconds_per_move": 0.15966996799943445,
+      "max_seconds": 0.15966996799943445,
+      "moves": 1,
+      "peak_rss": 524025856.0,
+      "reason": ""
+     }
+    },
+    {
+     "agent": "alphazero",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "refused",
+     "estimated_status": "refused",
+     "reason": "time/move 87ms > 50ms; memory 432MB > 128MB; training 200h > 30.0s",
+     "estimate": {
+      "time_per_move": 0.0872,
+      "memory_bytes": 452468864.0,
+      "train_time": 719719.4426666668,
+      "cost_per_move": 0.0,
+      "notes": "needs self-play training"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(3,3,3)",
+     "cells": 9,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.007908,
+      "notes": "~295 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(4,4,4)",
+     "cells": 16,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.007938,
+      "notes": "~308 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(5,5,4)",
+     "cells": 25,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.007978,
+      "notes": "~325 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(6,6,4)",
+     "cells": 36,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.008026,
+      "notes": "~345 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(6,7,4)+gravity",
+     "cells": 42,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.008052,
+      "notes": "~355 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(7,7,5)",
+     "cells": 49,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.008082,
+      "notes": "~368 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(9,9,5)",
+     "cells": 81,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.00822,
+      "notes": "~425 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(11,11,5)",
+     "cells": 121,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.00839,
+      "notes": "~496 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(15,15,5)",
+     "cells": 225,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.008828,
+      "notes": "~679 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
+    },
+    {
+     "agent": "llm",
+     "config": "(19,19,5)",
+     "cells": 361,
+     "status": "unavailable",
+     "estimated_status": "unavailable",
+     "reason": "no credentials for provider 'anthropic'",
+     "estimate": {
+      "time_per_move": 11.5,
+      "memory_bytes": 2000000.0,
+      "train_time": 0.0,
+      "cost_per_move": 0.0094,
+      "notes": "~917 input / ~600 output tokens per move"
+     },
+     "degraded_params": {},
+     "measured": false
     }
    ],
    "frontier": [
@@ -3685,8 +4427,22 @@
     },
     {
      "agent": "mcts:iterations=1000",
-     "largest_ok": "(6,6,4)",
+     "largest_ok": "(7,7,5)",
      "largest_usable": "(19,19,5)",
+     "first_refused": null,
+     "aborted": []
+    },
+    {
+     "agent": "alphazero",
+     "largest_ok": null,
+     "largest_usable": null,
+     "first_refused": "(3,3,3)",
+     "aborted": []
+    },
+    {
+     "agent": "llm",
+     "largest_ok": null,
+     "largest_usable": null,
      "first_refused": null,
      "aborted": []
     }

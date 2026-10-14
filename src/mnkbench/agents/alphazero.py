@@ -297,7 +297,7 @@ class AlphaZeroAgent(Agent):
         train_time = 0.0 if trained else games_needed * (0.6 * config.size) * 50 * per_eval
         params = (4 * 9 + 2 * 2 * 9 * self.channels) * self.channels + 50 * self.channels
         return CostEstimate(time_per_move=self.simulations * per_eval,
-                            memory_bytes=params * 4 + self.simulations * config.size * 64 + 300e6,
+                            memory_bytes=params * 4 + self.simulations * config.size * 64 + 450e6,
                             train_time=train_time,
                             notes="bundled checkpoint" if trained else "needs self-play training")
 

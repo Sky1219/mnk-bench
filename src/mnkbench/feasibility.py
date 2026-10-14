@@ -55,21 +55,37 @@ class ProbeResult:
                 "reason": self.reason}
 
 
+def _vm_size() -> float:
+    """Current virtual memory size of this process in bytes (Linux), else 0."""
+    try:
+        with open("/proc/self/status") as f:
+            for line in f:
+                if line.startswith("VmSize:"):
+                    return float(line.split()[1]) * 1024
+    except OSError:
+        pass
+    return 0.0
+
+
 def _probe_child(spec: str, config: GameConfig, budget: Budget, moves: int, memory_limit: float | None,
                  force: bool, conn) -> None:  # pragma: no cover - runs in a subprocess
     try:
-        if memory_limit:
-            try:
-                import resource
-
-                resource.setrlimit(resource.RLIMIT_AS, (int(memory_limit), int(memory_limit)))
-            except (ImportError, ValueError, OSError):
-                pass
         if force:
             agent = make_agent(spec, seed=0)
             agent.apply_budget(budget)
         else:
             agent = make_agent(spec, seed=0).adapt(config, budget)
+        if memory_limit:
+            # Cap the address space *relative to what is already mapped*:
+            # imports such as PyTorch reserve gigabytes of virtual memory up
+            # front, so an absolute cap would break them rather than the agent.
+            try:
+                import resource
+
+                limit = int(_vm_size() + memory_limit)
+                resource.setrlimit(resource.RLIMIT_AS, (limit, limit))
+            except (ImportError, ValueError, OSError):
+                pass
         game = get_game(config)
         state = game.new_state()
         opponent = make_agent("random", seed=1)
@@ -119,7 +135,7 @@ def probe(spec: str, config: GameConfig, budget: Budget, moves: int = 3, slack: 
     methods = mp.get_all_start_methods()
     ctx = mp.get_context("forkserver" if "forkserver" in methods else "spawn")
     parent, child = ctx.Pipe(duplex=False)
-    mem = budget.memory_bytes + 1.5 * 2**30 if enforce_memory else None
+    mem = budget.memory_bytes + 0.5 * 2**30 if enforce_memory else None
     proc = ctx.Process(target=_probe_child, args=(spec, config, budget, moves, mem, force, child), daemon=True)
     proc.start()
     child.close()

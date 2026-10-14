@@ -1,7 +1,10 @@
 agent,win,draw,loss,aborted
-random,8,47,445,0
-rule,93,407,0,0
-minimax,112,388,0,0
-menace,78,365,57,0
-qlearning,148,351,1,0
-td,94,376,30,0
+random,8,69,723,0
+rule,93,707,0,0
+minimax,111,689,0,0
+menace,78,566,156,0
+qlearning,148,652,0,0
+td,96,650,54,0
+alphabeta:depth=4,145,655,0,0
+mcts:iterations=1000,143,651,6,0
+alphazero,117,683,0,0

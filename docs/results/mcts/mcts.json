@@ -3,7 +3,7 @@
   "mnkbench_version": "0.1.0",
   "python": "3.13.16",
   "machine": "x86_64",
-  "created": "2026-10-14T07:56:13",
+  "created": "2026-10-14T08:26:06",
   "seed": 0,
   "quick": false,
   "games": 40
@@ -14,100 +14,100 @@
    "iterations": 25,
    "config": "(3,3,3)",
    "metric": "optimal_rate",
-   "value": 0.8270676691729323
+   "value": 0.8244274809160306
   },
   {
    "agent": "mcts",
    "iterations": 25,
    "config": "(4,4,4)",
-   "metric": "score_vs_rule",
-   "value": 0.5,
-   "time_per_move": 0.0003754705906217737
-  },
-  {
-   "agent": "mcts",
-   "iterations": 25,
-   "config": "(6,6,4)",
-   "metric": "score_vs_rule",
-   "value": 0.0,
-   "time_per_move": 0.0011643511134670206
-  },
-  {
-   "agent": "mcts",
-   "iterations": 25,
-   "config": "(6,7,4)+gravity",
-   "metric": "score_vs_rule",
-   "value": 0.15,
-   "time_per_move": 0.0006981567186670847
-  },
-  {
-   "agent": "mcts",
-   "iterations": 50,
-   "config": "(3,3,3)",
-   "metric": "optimal_rate",
-   "value": 0.823076923076923
-  },
-  {
-   "agent": "mcts",
-   "iterations": 50,
-   "config": "(4,4,4)",
-   "metric": "score_vs_rule",
-   "value": 0.5,
-   "time_per_move": 0.000586510190618128
-  },
-  {
-   "agent": "mcts",
-   "iterations": 50,
-   "config": "(6,6,4)",
-   "metric": "score_vs_rule",
-   "value": 0.0,
-   "time_per_move": 0.0017032916549351925
-  },
-  {
-   "agent": "mcts",
-   "iterations": 50,
-   "config": "(6,7,4)+gravity",
-   "metric": "score_vs_rule",
-   "value": 0.25,
-   "time_per_move": 0.001144097581101056
-  },
-  {
-   "agent": "mcts",
-   "iterations": 100,
-   "config": "(3,3,3)",
-   "metric": "optimal_rate",
-   "value": 0.888
-  },
-  {
-   "agent": "mcts",
-   "iterations": 100,
-   "config": "(4,4,4)",
-   "metric": "score_vs_rule",
-   "value": 0.5,
-   "time_per_move": 0.0014331250843738984
-  },
-  {
-   "agent": "mcts",
-   "iterations": 100,
-   "config": "(6,6,4)",
-   "metric": "score_vs_rule",
-   "value": 0.0,
-   "time_per_move": 0.004237801059224766
-  },
-  {
-   "agent": "mcts",
-   "iterations": 100,
-   "config": "(6,7,4)+gravity",
    "metric": "score_vs_rule",
    "value": 0.4875,
-   "time_per_move": 0.0020894258952818805
+   "time_per_move": 0.00023528865094618286
+  },
+  {
+   "agent": "mcts",
+   "iterations": 25,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.0,
+   "time_per_move": 0.0005610160774747936
+  },
+  {
+   "agent": "mcts",
+   "iterations": 25,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.075,
+   "time_per_move": 0.0004383692744622988
+  },
+  {
+   "agent": "mcts",
+   "iterations": 50,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 0.8712121212121212
+  },
+  {
+   "agent": "mcts",
+   "iterations": 50,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.0005535969468851931
+  },
+  {
+   "agent": "mcts",
+   "iterations": 50,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.0,
+   "time_per_move": 0.0010708965874200531
+  },
+  {
+   "agent": "mcts",
+   "iterations": 50,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.1875,
+   "time_per_move": 0.0006589927094776752
+  },
+  {
+   "agent": "mcts",
+   "iterations": 100,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 0.8787878787878788
+  },
+  {
+   "agent": "mcts",
+   "iterations": 100,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.0009192779374970428
+  },
+  {
+   "agent": "mcts",
+   "iterations": 100,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.0,
+   "time_per_move": 0.0026706480872455006
+  },
+  {
+   "agent": "mcts",
+   "iterations": 100,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.125,
+   "time_per_move": 0.0015575659285767861
   },
   {
    "agent": "mcts",
    "iterations": 200,
    "config": "(3,3,3)",
    "metric": "optimal_rate",
-   "value": 0.953125
+   "value": 0.9029850746268657
   },
   {
    "agent": "mcts",
@@ -115,7 +115,7 @@
    "config": "(4,4,4)",
    "metric": "score_vs_rule",
    "value": 0.5,
-   "time_per_move": 0.002649573834376895
+   "time_per_move": 0.0024049079187463463
   },
   {
    "agent": "mcts",
@@ -123,22 +123,22 @@
    "config": "(6,6,4)",
    "metric": "score_vs_rule",
    "value": 0.0,
-   "time_per_move": 0.008074928613797086
+   "time_per_move": 0.006190064437507519
   },
   {
    "agent": "mcts",
    "iterations": 200,
    "config": "(6,7,4)+gravity",
    "metric": "score_vs_rule",
-   "value": 0.3375,
-   "time_per_move": 0.005221203770523642
+   "value": 0.6124999999999999,
+   "time_per_move": 0.0032658921183451144
   },
   {
    "agent": "mcts",
    "iterations": 400,
    "config": "(3,3,3)",
    "metric": "optimal_rate",
-   "value": 0.9774436090225563
+   "value": 0.9689922480620154
   },
   {
    "agent": "mcts",
@@ -146,30 +146,30 @@
    "config": "(4,4,4)",
    "metric": "score_vs_rule",
    "value": 0.5,
-   "time_per_move": 0.006045552181246449
+   "time_per_move": 0.00467330245623856
   },
   {
    "agent": "mcts",
    "iterations": 400,
    "config": "(6,6,4)",
    "metric": "score_vs_rule",
-   "value": 0.025,
-   "time_per_move": 0.01540848434394326
+   "value": 0.0,
+   "time_per_move": 0.012127704731553586
   },
   {
    "agent": "mcts",
    "iterations": 400,
    "config": "(6,7,4)+gravity",
    "metric": "score_vs_rule",
-   "value": 0.6375,
-   "time_per_move": 0.009431101200380954
+   "value": 0.65,
+   "time_per_move": 0.006478370063117768
   },
   {
    "agent": "mcts",
    "iterations": 800,
    "config": "(3,3,3)",
    "metric": "optimal_rate",
-   "value": 1.0
+   "value": 0.9850746268656716
   },
   {
    "agent": "mcts",
@@ -177,54 +177,54 @@
    "config": "(4,4,4)",
    "metric": "score_vs_rule",
    "value": 0.5,
-   "time_per_move": 0.012461215978126461
+   "time_per_move": 0.011940440437504663
   },
   {
    "agent": "mcts",
    "iterations": 800,
-   "config": "(6,6,4)",
-   "metric": "score_vs_rule",
-   "value": 0.05,
-   "time_per_move": 0.034854939656976204
-  },
-  {
-   "agent": "mcts",
-   "iterations": 800,
-   "config": "(6,7,4)+gravity",
-   "metric": "score_vs_rule",
-   "value": 0.725,
-   "time_per_move": 0.01968611407969599
-  },
-  {
-   "agent": "mcts",
-   "iterations": 1600,
-   "config": "(3,3,3)",
-   "metric": "optimal_rate",
-   "value": 1.0
-  },
-  {
-   "agent": "mcts",
-   "iterations": 1600,
-   "config": "(4,4,4)",
-   "metric": "score_vs_rule",
-   "value": 0.5,
-   "time_per_move": 0.026081514243742276
-  },
-  {
-   "agent": "mcts",
-   "iterations": 1600,
    "config": "(6,6,4)",
    "metric": "score_vs_rule",
    "value": 0.125,
-   "time_per_move": 0.06635267601171359
+   "time_per_move": 0.02229046130950218
+  },
+  {
+   "agent": "mcts",
+   "iterations": 800,
+   "config": "(6,7,4)+gravity",
+   "metric": "score_vs_rule",
+   "value": 0.875,
+   "time_per_move": 0.014093999558835824
+  },
+  {
+   "agent": "mcts",
+   "iterations": 1600,
+   "config": "(3,3,3)",
+   "metric": "optimal_rate",
+   "value": 1.0
+  },
+  {
+   "agent": "mcts",
+   "iterations": 1600,
+   "config": "(4,4,4)",
+   "metric": "score_vs_rule",
+   "value": 0.5,
+   "time_per_move": 0.0221714376187478
+  },
+  {
+   "agent": "mcts",
+   "iterations": 1600,
+   "config": "(6,6,4)",
+   "metric": "score_vs_rule",
+   "value": 0.175,
+   "time_per_move": 0.04647632697206114
   },
   {
    "agent": "mcts",
    "iterations": 1600,
    "config": "(6,7,4)+gravity",
    "metric": "score_vs_rule",
-   "value": 0.825,
-   "time_per_move": 0.04233043275918153
+   "value": 0.7000000000000001,
+   "time_per_move": 0.031276399591913626
   },
   {
    "agent": "mcts",
@@ -239,23 +239,23 @@
    "config": "(4,4,4)",
    "metric": "score_vs_rule",
    "value": 0.5,
-   "time_per_move": 0.056183612425009244
+   "time_per_move": 0.046232310428111136
   },
   {
    "agent": "mcts",
    "iterations": 3200,
    "config": "(6,6,4)",
    "metric": "score_vs_rule",
-   "value": 0.23750000000000002,
-   "time_per_move": 0.1264975553875778
+   "value": 0.1875,
+   "time_per_move": 0.08734725691489374
   },
   {
    "agent": "mcts",
    "iterations": 3200,
    "config": "(6,7,4)+gravity",
    "metric": "score_vs_rule",
-   "value": 0.875,
-   "time_per_move": 0.08486242220119915
+   "value": 0.85,
+   "time_per_move": 0.06392431917329866
   }
  ]
 }
