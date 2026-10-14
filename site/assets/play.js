@@ -1,39 +1,8 @@
 // Play page: any m,n,k board, any mix of humans and agents. Agents think in a Web Worker.
 import { getGame, X, O, DRAW, positionBound } from "./mnk.js";
 import { AGENTS, minimaxEstimate, fmtNum, fmtTime } from "./agents.js";
+import { PRESETS, PLAYERS, STYLES, fillPlayerSelect, fillLevelSelect, playerParams } from "./players.js";
 
-const PRESETS = [
-  { id: "ttt", name: "Tic-tac-toe", cfg: { m: 3, n: 3, k: 3 } },
-  { id: "444", name: "4×4, 4 in a row", cfg: { m: 4, n: 4, k: 4 } },
-  { id: "554", name: "5×5, 4", cfg: { m: 5, n: 5, k: 4 } },
-  { id: "664", name: "6×6, 4", cfg: { m: 6, n: 6, k: 4 } },
-  { id: "c4", name: "Connect Four", cfg: { m: 6, n: 7, k: 4, gravity: true } },
-  { id: "775", name: "7×7, 5", cfg: { m: 7, n: 7, k: 5 } },
-  { id: "gomoku", name: "Gomoku", cfg: { m: 15, n: 15, k: 5 } },
-  { id: "gomoku-exact", name: "Gomoku (exact 5)", cfg: { m: 15, n: 15, k: 5, exact: true } },
-  { id: "go", name: "19×19, 5", cfg: { m: 19, n: 19, k: 5 } },
-];
-
-const PLAYERS = {
-  human: { label: "Human" },
-  random: { label: "Random" },
-  rule: { label: "Rule-based" },
-  minimax: {
-    label: "Minimax (perfect)",
-    levels: [["2", "2 s budget"], ["5", "5 s budget"], ["15", "15 s budget"]], def: "5",
-    params: (v) => ({ budget: +v }),
-  },
-  alphabeta: {
-    label: "Alpha-beta",
-    levels: [["1", "depth 1"], ["2", "depth 2"], ["3", "depth 3"], ["4", "depth 4"], ["5", "depth 5"], ["6", "depth 6"]], def: "4",
-    params: (v) => ({ depth: +v, timeLimit: 8 }),
-  },
-  mcts: {
-    label: "MCTS",
-    levels: [["200", "200 playouts"], ["1000", "1,000 playouts"], ["5000", "5,000 playouts"], ["t2", "2 s thinking"], ["t5", "5 s thinking"]], def: "1000",
-    params: (v) => v[0] === "t" ? { iterations: 1e9, timeLimit: +v.slice(1) } : { iterations: +v, timeLimit: 10 },
-  },
-};
 
 const $ = (sel) => document.querySelector(sel);
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -99,7 +68,7 @@ function requestMove() {
   setThinking(side);
   ensureWorker().postMessage({
     id, config: ui.cfg, history: s.history, agent: p.kind,
-    params: PLAYERS[p.kind].params ? PLAYERS[p.kind].params(p.level) : {},
+    params: playerParams(p),
   });
 }
 
@@ -177,6 +146,20 @@ function undo() {
 // ---------------------------------------------------------------- rendering
 const boardEl = () => $("#board");
 
+/** Star points (hoshi): four near the corners and the centre, plus the sides on 19×19. */
+function starPoints(m, n) {
+  const off = Math.min(m, n) >= 13 ? 3 : 2;
+  const rows = [off, m - 1 - off], cols = [off, n - 1 - off], out = new Set();
+  const cr = m % 2 ? (m - 1) / 2 : null, cc = n % 2 ? (n - 1) / 2 : null;
+  for (const r of rows) for (const c of cols) out.add(r * n + c);
+  if (cr !== null && cc !== null) out.add(cr * n + cc);
+  if (m >= 19 && n >= 19) {
+    for (const r of rows) out.add(r * n + cc);
+    for (const c of cols) out.add(cr * n + c);
+  }
+  return out;
+}
+
 function renderBoard(full = false) {
   const g = getGame(ui.cfg), s = ui.state, b = boardEl();
   if (full || b.children.length !== g.size) {
@@ -185,11 +168,24 @@ function renderBoard(full = false) {
     b.style.setProperty("--aspect", `${g.n} / ${g.m}`);
     b.style.setProperty("--board-max", `${Math.min(620, Math.max(300, g.n * 64))}px`);
     b.classList.toggle("gravity", !!g.gravity);
-    b.classList.toggle("small-gap", g.n > 11);
+    // Gomoku-sized free-placement boards are drawn like a go board: stones sit on
+    // the intersections of the grid lines. Small boards and gravity boards keep cells.
+    const goban = !g.gravity && g.m >= 9 && g.n >= 9;
+    b.classList.toggle("goban", goban);
+    b.classList.toggle("small-gap", !goban && g.n > 11);
+    const stars = goban ? starPoints(g.m, g.n) : new Set();
     for (let i = 0; i < g.size; i++) {
       const c = el("button", "cell");
       c.type = "button";
       c.dataset.cell = i;
+      if (goban) {
+        const r = Math.floor(i / g.n), col = i % g.n;
+        if (col === 0) c.classList.add("el");
+        if (col === g.n - 1) c.classList.add("er");
+        if (r === 0) c.classList.add("et");
+        if (r === g.m - 1) c.classList.add("eb");
+        if (stars.has(i)) c.classList.add("star");
+      }
       b.appendChild(c);
     }
   }
@@ -228,7 +224,10 @@ function updateStatus() {
   const dot = (side) => `<span class="dot ${side === X ? "x" : "o"}"></span>`;
   if (s.winner === DRAW) return showStatus("Draw.");
   if (s.winner) return showStatus(`${dot(s.winner)} ${sideName(s.winner)} ${sideName(s.winner) === "You" ? "win" : "wins"}!`);
-  if (pending) return showStatus(`${dot(s.toMove)} ${sideName(s.toMove)} is thinking… <span class="spinner" aria-hidden="true"></span>`);
+  if (pending) {
+    const what = ui.players[s.toMove].kind === "menace" && s.history.length < 2 ? "is training its matchboxes" : "is thinking";
+    return showStatus(`${dot(s.toMove)} ${sideName(s.toMove)} ${what}… <span class="spinner" aria-hidden="true"></span>`);
+  }
   if (isHuman(s.toMove)) {
     const verb = ui.cfg.gravity ? "drop a stone in a column" : "place a stone";
     return showStatus(`${dot(s.toMove)} ${sideName(s.toMove) === "You" ? "Your" : sideName(s.toMove) + "'s"} move: ${verb}.`);
@@ -278,14 +277,20 @@ function renderInfo() {
   const box = $("#info"), li = ui.lastInfo;
   if (!li) { box.innerHTML = '<span class="muted">After an agent moves, what it saw (nodes searched, playouts, verdict) shows up here.</span>'; return; }
   const { info, ms, kind } = li, parts = [];
-  parts.push(`<b>${PLAYERS[kind].label}</b> took ${fmtTime(ms / 1000)}`);
+  parts.push(info.trainMs ? `<b>${PLAYERS[kind].label}</b> trained for ${fmtTime(info.trainMs / 1000)}, then took ${fmtTime((ms - info.trainMs) / 1000)} to move`
+    : `<b>${PLAYERS[kind].label}</b> took ${fmtTime(ms / 1000)}`);
   if (info.verdict) parts.push(`verdict for the side to move: <b>${info.verdict}</b> with perfect play`);
   if (info.nodes) parts.push(`${fmtNum(info.nodes)} nodes searched`);
   if (info.depth) parts.push(`depth ${info.depth}`);
   if (info.playouts) parts.push(`${fmtNum(info.playouts)} playouts`);
   if (info.winRate != null) parts.push(`estimated win rate ${(info.winRate * 100).toFixed(0)}%`);
   if (info.rule) parts.push(`rule: ${info.rule}`);
-  const big = info.refused || info.aborted;
+  if (info.trained != null) {
+    parts.push(`${fmtNum(info.boxes)} matchboxes after ${fmtNum(info.trained)} training games (teacher: ${info.teacher === "minimax" ? "random + perfect play" : "random + rule-based"})`);
+    parts.push(info.unseen ? "no box for this position" : "drew from this position's matchbox");
+    if (info.trainNote) parts.push(info.trainNote);
+  }
+  const big = info.refused || info.aborted || info.unseen;
   if (info.note && !big) parts.push(info.note);
   let html = parts.join(" · ");
   if (big) html = `<div class="note warn">${info.note}</div>` + html;
@@ -342,21 +347,14 @@ function readCustom() {
 
 function buildPlayerSelect(side) {
   const kindSel = $(`#p${side}-kind`), levelSel = $(`#p${side}-level`);
-  for (const [k, v] of Object.entries(PLAYERS)) kindSel.appendChild(new Option(v.label, k));
+  fillPlayerSelect(kindSel);
   const syncLevel = () => {
-    const p = ui.players[side], spec = PLAYERS[p.kind];
+    const p = ui.players[side];
     kindSel.value = p.kind;
-    levelSel.innerHTML = "";
-    levelSel.disabled = !spec.levels;
-    if (spec.levels) {
-      spec.levels.forEach(([v, l]) => levelSel.appendChild(new Option(l, v)));
-      if (!spec.levels.some(([v]) => v === p.level)) p.level = spec.def;
-      levelSel.value = p.level;
-    } else {
-      levelSel.appendChild(new Option("—", ""));
-      p.level = null;
-    }
-    $(`#p${side}-blurb`).textContent = p.kind === "human" ? "Click the board to move." : AGENTS[p.kind].blurb;
+    p.level = fillLevelSelect(levelSel, p.kind, p.level);
+    const style = STYLES.find(([k]) => k === PLAYERS[p.kind].style)[1];
+    $(`#p${side}-blurb`).innerHTML = p.kind === "human" ? "Click the board to move."
+      : `<span class="pill">${style}</span> ${AGENTS[p.kind].blurb}`;
   };
   kindSel.onchange = () => { ui.players[side] = { kind: kindSel.value, level: PLAYERS[kindSel.value].def ?? null }; syncLevel(); playersChanged(); };
   levelSel.onchange = () => { ui.players[side].level = levelSel.value; playersChanged(); };

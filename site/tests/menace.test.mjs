@@ -46,3 +46,23 @@ test("MENACE learns to stop losing to perfect play", () => {
   const beads = menace.beadsFor(g.newState());
   assert.equal(beads.size, 9); // every opening cell maps to one of the 3 distinct opening moves
 });
+
+test("the MENACE agent trains on first use and never loses tic-tac-toe after training", () => {
+  const g = getGame({ m: 3, n: 3, k: 3 });
+  for (let seed = 0; seed < 20; seed++) {
+    const s = g.newState(), rng = makeRng(seed);
+    while (s.winner === null) {
+      const r = s.toMove === X ? AGENTS.menace.select(s, { games: 3000 }, rng) : AGENTS.random.select(s, {}, rng);
+      assert.ok(s.isLegal(r.move));
+      s.push(r.move);
+    }
+    assert.notEqual(s.winner, O, `lost on seed ${seed}`);
+  }
+});
+
+test("MENACE on a big board reports unseen positions instead of failing", () => {
+  const s = getGame({ m: 9, n: 9, k: 5 }).newState();
+  s.push(0); s.push(80); s.push(8); s.push(72);
+  const r = AGENTS.menace.select(s, { games: 50, trainSeconds: 2 }, makeRng(1));
+  assert.ok(s.isLegal(r.move) && r.info.unseen && r.info.trained > 0);
+});

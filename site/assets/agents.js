@@ -3,6 +3,7 @@
 // human-readable stats (nodes searched, playouts, depth, notes).
 
 import { DRAW, EMPTY, positionBound } from "./mnk.js";
+import { Menace } from "./menace.js";
 
 export class BudgetExceeded extends Error {}
 
@@ -493,6 +494,47 @@ function mctsAgent(state, params, rng) {
   return { move: best.move, info: { playouts: it, winRate: best.w / best.n } };
 }
 
+// ------------------------------------------------------------------ MENACE
+// Michie's matchbox learner. Trained on first use (per board, side and training
+// length) against a 50/50 mix of random play and a teacher: perfect play where
+// the board is solvable, the rule-based agent otherwise. Then it plays greedily
+// (the move with most beads); positions it never met in training get a random move.
+const menaces = new Map();
+function menaceAgent(state, params, rng) {
+  const g = state.game, side = state.toMove, games = params.games ?? 2000;
+  const key = `${g.label}|${side}|${games}`;
+  let entry = menaces.get(key), trainMs = 0;
+  if (!entry) {
+    const t0 = performance.now(), limit = (params.trainSeconds ?? 8) * 1000;
+    const m = new Menace(g, { rng: () => rng() });
+    const teacher = minimaxEstimate(g).seconds < 1 ? "minimax" : "rule";
+    let played = 0;
+    for (; played < games && performance.now() - t0 < limit; played++) {
+      const s = g.newState();
+      while (s.winner === null) {
+        if (s.toMove === side) s.push(m.select(s).move);
+        else s.push(AGENTS[rng() < 0.5 ? "random" : teacher].select(s, {}, rng).move);
+      }
+      m.learn(s, side);
+    }
+    m.training = false;
+    entry = { m, played, teacher, seconds: (performance.now() - t0) / 1000 };
+    menaces.set(key, entry);
+    trainMs = performance.now() - t0;
+  }
+  const { m, played, teacher } = entry;
+  const r = m.select(state);
+  const info = { boxes: m.boxes.size, trained: played, teacher, trainMs };
+  if (played < games) info.trainNote = `training stopped after ${fmtNum(played)} of ${fmtNum(games)} games (time limit)`;
+  if (!r.seen) {
+    const sym = g.gravity ? 2 : g.m === g.n ? 8 : 4;
+    info.unseen = true;
+    info.note = `No matchbox for this position: MENACE never reached it in ${fmtNum(played)} training games, so it moved at random. ` +
+      `This board has up to ${fmtNum(positionBound(g) / sym)} positions after symmetry; it has ${fmtNum(m.boxes.size)} boxes.`;
+  }
+  return { move: r.move, info };
+}
+
 // ------------------------------------------------------------------ registry
 export const AGENTS = {
   random: { label: "Random", select: randomAgent, blurb: "Uniformly random legal moves: the floor." },
@@ -500,6 +542,12 @@ export const AGENTS = {
   minimax: { label: "Minimax (perfect)", select: minimaxAgent, blurb: "Full alpha-beta search to the end of the game. Perfect, but refuses boards it cannot solve in time." },
   alphabeta: { label: "Alpha-beta (depth-limited)", select: alphabetaAgent, blurb: "Looks a few moves ahead and scores leaves with a threat evaluation." },
   mcts: { label: "MCTS", select: mctsAgent, blurb: "Monte Carlo Tree Search with random playouts." },
+  menace: {
+    label: "MENACE (matchboxes)", select: menaceAgent,
+    blurb: "Michie's 1961 matchbox learner: one box per position, beads per move. It trains before its first move " +
+      "(half against random play, half against perfect play, or rule-based where the board can't be solved), then plays " +
+      "the move with the most beads. Positions it never saw get a random move, which is how it falls apart on big boards.",
+  },
 };
 
 const SUP = "⁰¹²³⁴⁵⁶⁷⁸⁹";

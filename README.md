@@ -4,7 +4,7 @@
 
 `mnk-bench` is a Python framework for pitting different kinds of AI agents against each other on any *m,n,k* game, from tic-tac-toe to gomoku, and measuring exactly how their strength, speed, and cost change as the game grows.
 
-**Website: [sky1219.github.io/mnk-bench](https://sky1219.github.io/mnk-bench/)**. Play the agents in your browser, train MENACE live, and explore the feasibility map, the results report and the research write-up.
+**Website: [sky1219.github.io/mnk-bench](https://sky1219.github.io/mnk-bench/)**. Play the agents in your browser, run many games in parallel in the Arena, train MENACE live, and explore the feasibility map, the results report and the research write-up.
 
 > Status: all nine roadmap steps and both stretch goals (AlphaZero-style agent, LLM players) are implemented, tested and benchmarked. Results are in [`docs/results/`](docs/results/) and summarised [below](#results).
 
@@ -147,7 +147,7 @@ Without an API key, tests and CI use the mock client and live tests (`pytest -m 
 
 ## Website
 
-The site at [sky1219.github.io/mnk-bench](https://sky1219.github.io/mnk-bench/) is static. `site/assets/` holds JavaScript ports of the engine (`mnk.js`), the random, rule-based, minimax, alpha-beta and MCTS agents (`agents.js`, run in a Web Worker) and MENACE (`menace.js`). The browser minimax uses the same feasibility rule as the package: it estimates the nodes needed to solve the board and refuses, falling back to alpha-beta, when the board is too big. The landing page reads the committed JSON in `docs/results/`.
+The site at [sky1219.github.io/mnk-bench](https://sky1219.github.io/mnk-bench/) is static. `site/assets/` holds JavaScript ports of the engine (`mnk.js`), the random, rule-based, MENACE, minimax, alpha-beta and MCTS agents (`agents.js`, run in Web Workers; the Arena page runs a pool of them) and MENACE's matchboxes (`menace.js`). The browser minimax uses the same feasibility rule as the package: it estimates the nodes needed to solve the board and refuses, falling back to alpha-beta, when the board is too big. The landing page reads the committed JSON in `docs/results/`.
 
 ```bash
 node --test site/tests/*.test.mjs                  # engine/agent/MENACE tests (Node 20+)

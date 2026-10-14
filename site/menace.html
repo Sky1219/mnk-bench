@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MENACE · mnk-bench</title>
-<meta name="description" content="Train Donald Michie's 1961 matchbox learner live in your browser, watch its beads change, then play against it.">
+<meta name="description" content="Train Donald Michie's 1961 matchbox learner live in your browser: how MENACE works, what to expect while it learns, and why it cannot scale to bigger boards.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -14,26 +14,28 @@
   <div class="wrap">
     <div class="kicker">1961, rebuilt in JavaScript</div>
     <h1>Teach a pile of matchboxes to play</h1>
-    <p class="muted" style="max-width:720px">MENACE keeps one matchbox per position and one colour of bead per move. To move, it draws a bead at random, so moves with more beads are likelier. After each game every move it made gains 3 beads for a win and 1 for a draw, and loses 1 for a loss. Boards that are rotations or reflections of each other share a box. Train it below and watch the opening box fill up.</p>
+    <p style="max-width:760px">MENACE (Machine Educable Noughts And Crosses Engine) was built by Donald Michie in 1961 from about 300 matchboxes and a bag of coloured beads. It knows nothing about the game except which moves are legal, and it learns only from wins, draws and losses. This page runs the same algorithm. Train it, watch how its beads change, and then try to beat it.</p>
+    <div class="note" style="max-width:760px"><b>In one sentence:</b> each position has a box of beads, one colour per possible move. MENACE moves by drawing a random bead, then after the game it adds beads for the moves of a game it won or drew and takes them away after a loss, so good moves slowly become likely and bad ones rare.</div>
 
     <div class="play-layout">
       <section>
         <div class="row" style="margin-bottom:12px">
           <label class="field">Board<select id="board-select"></select></label>
-          <label class="field">MENACE plays<select id="side-select"><option value="1">X (first)</option><option value="2">O (second)</option></select></label>
-          <label class="field">Opponent during training<select id="opp-select"></select></label>
+          <label class="field">MENACE plays<select id="side-select"><option value="1">X (moves first)</option><option value="2">O (moves second)</option></select></label>
+          <label class="field">Training opponent<select id="opp-select"></select></label>
         </div>
         <div class="row" style="margin-bottom:16px">
           <button class="btn primary" id="train" type="button">Train</button>
           <label class="field" style="flex-direction:row;align-items:center;gap:8px">Speed
-            <input type="range" id="speed" min="0" max="2" step="1" value="1" aria-label="Training speed: 1, 10 or 100 games per frame">
+            <input type="range" id="speed" min="0" max="2" step="1" value="1" aria-label="Training speed: about 60, 600 or 6,000 games a second">
           </label>
           <button class="btn" id="watch" type="button">Watch one game</button>
           <button class="btn" id="play" type="button">Play against it</button>
           <button class="btn" id="reset" type="button">Reset</button>
         </div>
         <div class="board" id="mboard" style="--board-max:300px" aria-label="MENACE board: numbers are beads per move"></div>
-        <p class="small muted" id="caption" style="margin-top:10px;min-height:3em" aria-live="polite"></p>
+        <p class="small" id="caption" style="margin-top:10px;min-height:3em" aria-live="polite"></p>
+        <p class="small muted" style="max-width:520px"><b>Reading the board:</b> the number on an empty cell is how many beads MENACE holds for that move in the box for the position shown. Darker cells have more beads, so MENACE is more likely to pick them. Cells that are mirror images of each other show the same number because they share one bead colour. During <i>Watch one game</i>, the drawn bead is outlined.</p>
       </section>
 
       <aside>
@@ -42,7 +44,7 @@
             <div><div class="stat" id="st-games">0</div><div class="stat-label">games played</div></div>
             <div><div class="stat" id="st-boxes">0</div><div class="stat-label">matchboxes</div></div>
           </div>
-          <p class="small muted" id="boxes-note" style="margin:8px 0 0"></p>
+          <p class="small muted" style="margin:8px 0 0">A matchbox is created the first time MENACE has to move from a new position, so this counts the positions it has actually met. <span id="boxes-note"></span></p>
         </div>
         <div class="card panel">
           <h3>Last 200 games</h3>
@@ -52,22 +54,70 @@
             <div><div class="stat" id="st-l" style="color:var(--refused)">–</div><div class="stat-label">lost</div></div>
           </div>
         </div>
+        <div class="card panel">
+          <h3>What to expect</h3>
+          <div id="expect" class="small"></div>
+        </div>
+        <div class="card panel">
+          <h3>The buttons</h3>
+          <ul class="small" style="margin:0;padding-left:18px">
+            <li><b>Train</b> plays games against the training opponent as fast as the speed slider allows, learning after each one. Press again to pause.</li>
+            <li><b>Watch one game</b> plays a single game slowly, showing each box MENACE opens and the bead it draws.</li>
+            <li><b>Play against it</b>: you are the opponent. MENACE still draws beads at random, so even a well-trained MENACE occasionally picks a weaker move. It learns from your games too.</li>
+            <li><b>Reset</b> empties every matchbox. Changing the board or side also resets.</li>
+          </ul>
+        </div>
       </aside>
     </div>
 
     <div class="card" style="margin-top:24px">
       <h3 style="margin-top:0">Learning curve</h3>
+      <p class="small muted" style="margin-top:0">Share of the last 200 games won, drawn and lost, plotted as training goes on. Switching the training opponent mid-run shows up as a change in the curve.</p>
       <canvas class="chart" id="chart" aria-label="Rolling win, draw and loss rates against games played"></canvas>
       <div class="legend"><span><i class="s-ok"></i>won</span><span><i class="s-unavailable"></i>drawn</span><span><i class="s-refused"></i>lost</span></div>
     </div>
 
-    <h2>Things to try</h2>
-    <div class="grid cols-3">
-      <div class="card"><h3 style="margin-top:0">Who you learn from matters</h3><p class="small">Train only against <b>Random</b>, then switch the opponent to <b>Perfect play</b> and keep going: the losses come back. The benchmark found that MENACE trained on random play never stops losing to a perfect player (57% non-loss after 5,000 games). Trained on a mix, it reaches 100% within about 2,000 games.</p></div>
-      <div class="card"><h3 style="margin-top:0">Why it can't scale</h3><p class="small">Switch to <b>(4,4,4)</b>. The box count keeps climbing and the curve barely moves. On (6,6,4) the tables in the benchmark had seen only 28 to 50% of the positions they met after 3,000 games, and they lost to the rule-based player every time.</p></div>
-      <div class="card"><h3 style="margin-top:0">Be the trainer</h3><p class="small">Use <b>Play against it</b> after a few hundred games. MENACE keeps learning from your games, just as Michie's did. If you beat it the same way twice, the second time it has fewer beads for the moves that lost.</p></div>
+    <h2>How MENACE works</h2>
+    <div class="grid cols-2 steps">
+      <div class="card"><div class="step">1</div><h3>One matchbox per position</h3>
+        <p class="small">Every position MENACE might have to move from gets its own box. Positions that are rotations or reflections of each other share a box, which is how Michie fit tic-tac-toe into about 300 boxes. Positions with only one sensible move (after symmetry) get no box at all. For X on tic-tac-toe that leaves exactly <b>304</b> possible boxes, and this page reproduces that count.</p></div>
+      <div class="card"><div class="step">2</div><h3>One bead colour per move</h3>
+        <p class="small">A new box starts with the same number of beads for every distinct move: 4 each for MENACE's first move, then 3, 2 and 1 for its later moves (Michie's schedule). Early moves start with more beads, so they change more slowly.</p></div>
+      <div class="card"><div class="step">3</div><h3>Move by drawing a bead</h3>
+        <p class="small">To move, MENACE opens the box for the current position and draws a bead at random. A move with 6 beads in a box holding 8 in total is chosen 75% of the time. Even after training, a move with a few beads left can still be drawn now and then.</p></div>
+      <div class="card"><div class="step">4</div><h3>Learn from the result</h3>
+        <p class="small">After the game, every move MENACE made gets <b>+3 beads for a win</b>, <b>+1 for a draw</b> and <b>−1 for a loss</b>. Moves that keep losing run out of beads and stop being played. If a whole box runs empty, Michie's machine resigned; this version refills it.</p></div>
     </div>
-    <p class="small muted" style="margin-top:20px">Full experiments, including symmetry ablations and the comparison with Q-learning and TD(0): <a href="results/index.html">results report</a>.</p>
+    <p class="small muted" style="max-width:760px">That is the whole algorithm: there is no search and no evaluation of positions. MENACE only remembers which beads came out in games that went well, the simplest form of reinforcement learning.</p>
+
+    <h2>What to expect on tic-tac-toe</h2>
+    <p style="max-width:760px">Typical results for this page's MENACE, averaged over 8 training runs. Each cell is the share of the last 200 games <span style="color:var(--ok)">won</span> / drawn / <span style="color:var(--refused)">lost</span>. Your run will differ by a few points, because every bead draw is random.</p>
+    <div class="card scroll-x">
+      <table class="data">
+        <thead><tr><th>MENACE plays</th><th>training opponent</th><th class="num">100 games</th><th class="num">300</th><th class="num">1,000</th><th class="num">5,000</th><th class="num">boxes used</th></tr></thead>
+        <tbody>
+          <tr><td>X</td><td>Random</td><td class="num">66 / 12 / 22</td><td class="num">70 / 12 / 18</td><td class="num">80 / 9 / 11</td><td class="num">85 / 9 / 6</td><td class="num">~285</td></tr>
+          <tr><td>X</td><td>Perfect play</td><td class="num">0 / 70 / 30</td><td class="num">0 / 97 / 3</td><td class="num">0 / 100 / 0</td><td class="num">0 / 100 / 0</td><td class="num">~31</td></tr>
+          <tr><td>X</td><td>Mix (half random, half perfect)</td><td class="num">36 / 24 / 41</td><td class="num">46 / 30 / 25</td><td class="num">60 / 32 / 8</td><td class="num">68 / 29 / 3</td><td class="num">~210</td></tr>
+          <tr><td>X</td><td>Rule-based</td><td class="num">0 / 69 / 31</td><td class="num">0 / 99 / 1</td><td class="num">0 / 100 / 0</td><td class="num">0 / 100 / 0</td><td class="num">~21</td></tr>
+          <tr><td>O</td><td>Random</td><td class="num">34 / 13 / 54</td><td class="num">44 / 16 / 40</td><td class="num">61 / 16 / 23</td><td class="num">75 / 13 / 13</td><td class="num">~274</td></tr>
+          <tr><td>O</td><td>Perfect play</td><td class="num">0 / 5 / 95</td><td class="num">0 / 18 / 82</td><td class="num">0 / 93 / 8</td><td class="num">0 / 100 / 0</td><td class="num">~97</td></tr>
+          <tr><td>O</td><td>Mix (half random, half perfect)</td><td class="num">14 / 11 / 75</td><td class="num">22 / 23 / 55</td><td class="num">41 / 42 / 17</td><td class="num">46 / 50 / 4</td><td class="num">~222</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid cols-3" style="margin-top:16px">
+      <div class="card"><h3 style="margin-top:0">Against perfect play it can only draw</h3><p class="small">Tic-tac-toe is a draw with best play, so a perfect opponent can never be beaten. The best MENACE can do is learn to draw every game. It manages that within a few hundred games as X, and about 1,000 as O, which is harder.</p></div>
+      <div class="card"><h3 style="margin-top:0">Fast learning can be narrow learning</h3><p class="small">A perfect or rule-based opponent steers every game down the same few lines, so MENACE meets only 20 to 100 positions and learns just those. Against random play it sees almost all of them but learns more slowly: random opponents rarely punish a bad move, so its losses fade gradually and never quite reach zero.</p></div>
+      <div class="card"><h3 style="margin-top:0">Try it</h3><p class="small">Train against <b>Perfect play</b> until it draws every game, then switch the opponent to <b>Random</b>. Losses reappear, because random play reaches positions MENACE never met. The mix of both teachers is the best all-round training: in the benchmark it reached 100% non-loss against perfect play within about 2,000 games.</p></div>
+    </div>
+
+    <h2>Why it can't scale</h2>
+    <p style="max-width:760px">MENACE needs a box for every position it might face, and it only learns about positions it has actually played. On tic-tac-toe that is a few hundred boxes. Switch the board to <b>(4,4,4)</b> and the box count climbs into the thousands while the learning curve barely moves. A board like (6,6,4) has up to about 3×10<sup>15</sup> positions, even after symmetry. In the benchmark, tables trained for 3,000 games had seen only 28 to 50% of the positions they met there, and they lost to the rule-based player every game. On gomoku it would need more boxes than there are atoms in the universe. Exact search fails at about the same size; <a href="index.html">the overview</a> shows where every method breaks.</p>
+
+    <h2>MENACE elsewhere on this site</h2>
+    <p style="max-width:760px">On the <a href="play.html#b=3,3,3&x=menace:2000&o=human">Play</a> and <a href="arena.html">Arena</a> pages, MENACE is listed under <i>Learning: MENACE-style matchboxes</i>. There it trains before its first move (2,000 games by default, half against random play and half against perfect or rule-based play), then plays the move with the most beads instead of drawing at random. When it reaches a position it never saw in training, it says so and moves at random. On big boards that happens almost every move, which is the scaling problem in action.</p>
+    <p class="small muted">Full experiments, including symmetry ablations and the comparison with Q-learning and TD(0): <a href="results/index.html">results report</a>.</p>
   </div>
 </main>
 <!-- FOOTER -->

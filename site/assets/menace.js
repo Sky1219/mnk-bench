@@ -79,9 +79,10 @@ export class Menace {
   select(state) {
     const [key, sym] = this.canon.canonical(state.cells);
     let box = this.boxes.get(key);
+    const seen = !!box;
     if (!box) {
       const moves = this.canon.orbitReps(key, state.legalMoves().map((mv) => this.canon.toCanon(sym, mv)));
-      if (moves.length === 1) return { move: this.canon.fromCanon(sym, moves[0]), box: null };
+      if (moves.length === 1) return { move: this.canon.fromCanon(sym, moves[0]), box: null, seen: true, forced: true };
       const beads = this.initialBeads(state.history.length);
       box = new Map(moves.map((mv) => [mv, beads]));
       if (this.training) this.boxes.set(key, box);
@@ -102,7 +103,7 @@ export class Menace {
       const top = Math.max(...box.values()), best = [...box].filter(([, b]) => b === top).map(([mv]) => mv);
       cm = best[Math.floor(this.rng() * best.length)];
     }
-    return { move: this.canon.fromCanon(sym, cm), box, canonMove: cm, sym };
+    return { move: this.canon.fromCanon(sym, cm), box, canonMove: cm, sym, seen };
   }
 
   /** Reinforce the moves `player` made in the finished game. */

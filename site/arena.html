@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arena · mnk-bench</title>
+<meta name="description" content="Run many m,n,k games at once: queue matchups or a round robin between MENACE, minimax, alpha-beta, MCTS and rule-based agents, played in parallel in your browser.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<!-- HEADER -->
+<main>
+  <div class="wrap">
+    <h1>Arena</h1>
+    <p class="muted" style="max-width:760px">Queue as many matchups as you like, then run them all at once. Games are spread over a pool of Web Workers, one per core, so several play in parallel and you can watch them live. Sides alternate between games so neither player always moves first. Results stay in this tab; download them as CSV.</p>
+
+    <div class="grid cols-2" style="align-items:start">
+      <div class="card panel">
+        <h3>1. Board</h3>
+        <label class="field">Board<select id="board-preset"></select></label>
+        <div id="custom" hidden style="margin-top:10px">
+          <div class="row">
+            <label class="field">rows m<input type="number" id="m" min="2" max="19" value="6"></label>
+            <label class="field">cols n<input type="number" id="n" min="2" max="19" value="6"></label>
+            <label class="field">k in a row<input type="number" id="k" min="2" max="19" value="4"></label>
+          </div>
+          <div class="row small" style="margin-top:8px">
+            <label><input type="checkbox" id="gravity"> gravity</label>
+            <label><input type="checkbox" id="exact"> exactly k</label>
+          </div>
+        </div>
+        <div class="row" style="margin-top:12px">
+          <label class="field">Games per matchup<input type="number" id="games" min="1" max="1000" value="10"></label>
+          <label class="small" style="align-self:flex-end;padding-bottom:8px"><input type="checkbox" id="alternate" checked> alternate who moves first</label>
+        </div>
+      </div>
+
+      <div class="card panel">
+        <h3>2. Add a matchup</h3>
+        <div class="fields">
+          <label class="field">Player A<select id="a-kind"></select></label>
+          <label class="field">Strength<select id="a-level"></select></label>
+          <label class="field">Player B<select id="b-kind"></select></label>
+          <label class="field">Strength<select id="b-level"></select></label>
+        </div>
+        <button class="btn" id="add" type="button" style="margin-top:12px">Add matchup</button>
+        <h3 style="margin-top:18px">…or a round robin</h3>
+        <div class="rr-list" id="rr-list"></div>
+        <button class="btn" id="add-rr" type="button" style="margin-top:10px">Add round robin</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="row" style="justify-content:space-between">
+        <h3 style="margin:0">3. Run</h3>
+        <div class="row">
+          <label class="field" style="flex-direction:row;align-items:center;gap:6px">Games in parallel<select id="workers"></select></label>
+          <label class="small"><input type="checkbox" id="live" checked> live boards</label>
+          <button class="btn primary" id="run" type="button">Run</button>
+          <button class="btn" id="stop" type="button">Stop</button>
+          <button class="btn" id="clear" type="button">Clear</button>
+          <button class="btn" id="csv" type="button">Download CSV</button>
+        </div>
+      </div>
+      <p class="small muted" style="margin:8px 0 0"><span id="cores"></span> <span id="overall"></span> <span id="run-state" aria-live="polite"></span></p>
+      <div class="live-grid" id="live-grid" aria-label="Games in progress"></div>
+      <div class="scroll-x" style="margin-top:12px">
+        <table class="data" id="matchups">
+          <thead><tr><th>board</th><th>player A</th><th>player B</th><th>progress</th><th class="num">A wins</th><th class="num">draws</th><th class="num">B wins</th><th class="num">A score</th><th class="num">avg plies</th><th class="num">time/move A / B</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="small muted" style="margin:8px 0 0">Score = (wins + draws/2) / games, from player A's side.</p>
+    </div>
+
+    <div class="card" id="standings-card" style="margin-top:16px" hidden>
+      <h3 style="margin-top:0">Standings</h3>
+      <div class="scroll-x">
+        <table class="data" id="standings">
+          <thead><tr><th>board</th><th>player</th><th class="num">games</th><th class="num">won</th><th class="num">drawn</th><th class="num">lost</th><th class="num">score</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <h2>What to expect</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3 style="margin-top:0">Results</h3><ul class="small" style="padding-left:18px;margin:0">
+        <li><b>Tic-tac-toe is a draw with good play</b>, so nearly every pairing of competent agents draws, and standings bunch up around a score of 0.5. Random is the exception.</li>
+        <li><b>Bigger boards spread the agents out.</b> In our runs on (6,6,4), alpha-beta depth 4 beat MCTS (1,000 playouts) every game, and MENACE lost to rule-based every game: it has met almost none of the positions.</li>
+        <li><b>Moving first matters</b> on gomoku and Connect Four. In our gomoku runs, alpha-beta depth 4 against depth 2 was won by whoever moved first. Keep <i>alternate who moves first</i> on so each player gets both sides.</li>
+        <li><b>Small samples are noisy.</b> With 10 games a score can be off by ±0.3; use 50 or more games before trusting a difference.</li>
+      </ul></div>
+      <div class="card"><h3 style="margin-top:0">Speed</h3><ul class="small" style="padding-left:18px;margin:0">
+        <li>Each game runs on one core. <i>Games in parallel</i> sets how many run at once. More than your core count doesn't help, and the default leaves one core free for the page.</li>
+        <li>Tic-tac-toe games take milliseconds. Alpha-beta games on gomoku take about 0.1–0.3 s each, and Connect Four is faster.</li>
+        <li>The <i>5 s thinking</i> MCTS setting and minimax with a 15 s budget can make one game take minutes; on big boards minimax refuses and plays alpha-beta.</li>
+        <li>MENACE trains once per board, side and training length <i>in each worker</i>, so the first game in each worker starts more slowly. Training time is not counted in its time per move.</li>
+        <li>Every matchup gets its own random seed, so adding the same matchup again plays different games. Results stay in this tab until you clear them or download the CSV.</li>
+      </ul></div>
+    </div>
+    <h2>The players</h2>
+    <ul class="small" id="agent-styles" style="max-width:820px"></ul>
+  </div>
+</main>
+<!-- FOOTER -->
+<script type="module" src="assets/arena.js"></script>
+</body>
+</html>
