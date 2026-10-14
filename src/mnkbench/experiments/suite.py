@@ -105,6 +105,56 @@ def replot_symmetry(out: Path) -> None:
                       "Matchboxes used, with and without symmetries")
 
 
+# ---------------------------------------------------------------- tabular
+TABULAR = ("menace", "qlearning", "td")
+
+
+def exp_tabular(out: Path, quick: bool = False, seed: int = 0, log: Log = _noop) -> dict:
+    """MENACE vs Q-learning vs TD(0) on tic-tac-toe, against two training regimes."""
+    total, every, evals = (200, 100, 10) if quick else (6000, 500, 200)
+    seeds = [seed] if quick else [seed, seed + 1, seed + 2]
+    runs = []
+    for spec in TABULAR:
+        for opp in ("random+minimax", "self"):
+            for sd in seeds:
+                log(f"{spec} vs {opp} seed {sd}")
+                runs.append(learning_curve(spec, TIC_TAC_TOE, total, every, evals, opponent=opp, seed=sd))
+    summary = []
+    for spec in TABULAR:
+        for opp in ("random+minimax", "self"):
+            rs = [r for r in runs if r["agent"] == spec and r["opponent"] == opp]
+            learned = [r["games_to_learn"] for r in rs]
+            last = [r["checkpoints"][-1] for r in rs]
+            summary.append({
+                "agent": spec,
+                "opponent": opp,
+                "seeds": len(rs),
+                "games_to_learn": learned,
+                "learned_runs": sum(g is not None for g in learned),
+                "final_nonloss_vs_minimax": sum(1 - c["vs_minimax"]["loss"] for c in last) / len(last),
+                "final_win_vs_random": sum(c["vs_random"]["win"] for c in last) / len(last),
+                "final_optimal_rate": sum(c["optimal_rate"] for c in last) / len(last),
+                "table_size": sum(c["table_size"] for c in last) / len(last),
+                "train_time": sum(c["train_time"] for c in last) / len(last),
+            })
+    data = {"meta": metadata(seed=seed, quick=quick, seeds=seeds), "runs": runs, "summary": summary}
+    save_json(data, out / "tabular" / "tabular.json")
+    save_csv(summary, out / "tabular" / "tabular_summary.csv")
+    replot_tabular(out)
+    return data
+
+
+def replot_tabular(out: Path) -> None:
+    data = load_json(out / "tabular" / "tabular.json")
+    first_seed = data["meta"]["seeds"][0]
+    for opp, tag in (("random+minimax", "mixed"), ("self", "selfplay")):
+        runs = [r for r in data["runs"] if r["opponent"] == opp and r["seed"] == first_seed]
+        plot_learning_curves(runs, out / "tabular" / f"tabular_{tag}.png",
+                             f"Tabular learners on (3,3,3), trained vs {opp}")
+    runs = [r for r in data["runs"] if r["opponent"] == "random+minimax" and r["seed"] == first_seed]
+    plot_table_growth(runs, out / "tabular" / "tabular_tables.png", "Table entries during training")
+
+
 # ------------------------------------------------------------ head to head
 def trained_factory(spec: str, config: GameConfig, games: int, opponent: str = "random+minimax",
                     seed: int = 0) -> Callable[[], Agent]:
@@ -164,6 +214,8 @@ def h2h_agents(cfg: GameConfig, train_games: int, seed: int, quick: bool) -> dic
         "rule": lambda: make_agent("rule"),
         "minimax": lambda: make_agent("minimax"),
         "menace": trained_factory("menace", cfg, train_games, seed=seed),
+        "qlearning": trained_factory("qlearning", cfg, train_games, seed=seed),
+        "td": trained_factory("td", cfg, train_games, seed=seed),
     }
 
 
@@ -175,11 +227,13 @@ def replot_h2h(out: Path) -> None:
 EXPERIMENTS: dict[str, Callable[..., dict]] = {
     "menace": exp_menace,
     "symmetry": exp_symmetry,
+    "tabular": exp_tabular,
     "h2h": exp_h2h,
 }
 REPLOTTERS: dict[str, Callable[[Path], None]] = {
     "menace": replot_menace,
     "symmetry": replot_symmetry,
+    "tabular": replot_tabular,
     "h2h": replot_h2h,
 }
 

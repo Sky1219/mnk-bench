@@ -21,6 +21,8 @@ REGISTRY: dict[str, tuple[str, str]] = {
     "minimax": ("mnkbench.agents.minimax", "MinimaxAgent"),
     "menace": ("mnkbench.agents.menace", "MenaceAgent"),
     "rule": ("mnkbench.agents.rule_based", "RuleBasedAgent"),
+    "qlearning": ("mnkbench.agents.tabular", "QLearningAgent"),
+    "td": ("mnkbench.agents.tabular", "TDAgent"),
 }
 
 DESCRIPTIONS: dict[str, str] = {
@@ -28,6 +30,8 @@ DESCRIPTIONS: dict[str, str] = {
     "minimax": "perfect play: full alpha-beta search with transposition table",
     "menace": "Michie's matchbox learner (bead reinforcement)",
     "rule": "win / block / fork / block-fork rules, then line potential",
+    "qlearning": "tabular Q-learning with epsilon-greedy exploration",
+    "td": "TD(0) afterstate value learning (Sutton & Barto)",
 }
 
 
