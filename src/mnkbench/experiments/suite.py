@@ -222,7 +222,21 @@ def h2h_agents(cfg: GameConfig, train_games: int, seed: int, quick: bool) -> dic
         "menace": trained_factory("menace", cfg, train_games, seed=seed),
         "qlearning": trained_factory("qlearning", cfg, train_games, seed=seed),
         "td": trained_factory("td", cfg, train_games, seed=seed),
+        "alphabeta:depth=4": lambda: make_agent("alphabeta:depth=4"),
+        "mcts:iterations=1000": lambda: make_agent("mcts:iterations=1000"),
+        **_alphazero_entry(cfg),
     }
+
+
+def _alphazero_entry(cfg: GameConfig) -> dict[str, Callable[[], Agent]]:
+    """Include the AlphaZero agent when PyTorch and a trained network are available."""
+    try:
+        from ..agents.alphazero import has_bundled_checkpoint
+    except ImportError:
+        return {}
+    if not has_bundled_checkpoint(cfg):
+        return {}
+    return {"alphazero": lambda: make_agent("alphazero:simulations=100")}
 
 
 def replot_h2h(out: Path) -> None:

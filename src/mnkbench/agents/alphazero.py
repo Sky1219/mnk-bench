@@ -49,6 +49,11 @@ def require_torch() -> None:
         raise ImportError("the AlphaZero agent needs PyTorch: pip install 'mnk-bench[alphazero]'")
 
 
+def has_bundled_checkpoint(config: GameConfig) -> bool:
+    """True if PyTorch is installed and a trained network ships for ``config``."""
+    return HAVE_TORCH and (DATA_DIR / checkpoint_name(config)).exists()
+
+
 def checkpoint_name(config: GameConfig) -> str:
     slug = f"{config.m}-{config.n}-{config.k}" + ("-gravity" if config.gravity else "") + (
         "-exact" if config.exact_k else "")

@@ -81,6 +81,9 @@ def elo_agents(cfg: GameConfig, quick: bool, seed: int) -> dict[str, Callable[[]
     agents["alphabeta:depth=4"] = lambda: make_agent("alphabeta:depth=4")
     agents["mcts:iterations=200"] = lambda: make_agent("mcts:iterations=200")
     agents["mcts:iterations=1000"] = lambda: make_agent("mcts:iterations=1000")
+    from .suite import _alphazero_entry
+
+    agents.update(_alphazero_entry(cfg))
     return agents
 
 
