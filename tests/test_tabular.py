@@ -9,16 +9,21 @@ from mnkbench.metrics import wdl
 from mnkbench.tournament import play_game
 
 
-def test_q_update_on_win():
-    a = QLearningAgent(seed=0, epsilon=0.0, alpha=0.5)
-    game = get_game(TIC_TAC_TOE)
-    a.new_game(game, 1)
-    s = State.from_string(TIC_TAC_TOE, "XX./OO./...")
-    mv = a.select_move(s)
-    key, cm = a._pending[1]
-    s.push(mv)
-    a.end_game(s, 1)
-    assert a.q[key][cm] == pytest.approx(0.5 * (1.0 if s.winner == 1 else 0.0))
+def test_q_update_on_win_and_bootstrap():
+    a = QLearningAgent(seed=0, epsilon=0.0, alpha=0.5, gamma=0.9)
+    a.new_game(get_game(TIC_TAC_TOE), 1)
+    a.q = {b"k": {0: 0.0}}
+    a._pending[1] = (b"k", 0)
+    a.end_game(State.from_string(TIC_TAC_TOE, "XXX/OO./..."), 1)
+    assert a.q[b"k"][0] == pytest.approx(0.5)
+    # Bootstrapped update at the next decision point: target = gamma * max Q(s').
+    a.new_game(get_game(TIC_TAC_TOE), 1)
+    a._pending[1] = (b"k", 0)
+    s = State.from_string(TIC_TAC_TOE, "X../.O./...")
+    key, _ = a._canon.canonical(s.cells)
+    a.q[key] = {m: 1.0 for m in range(9)}
+    a.select_move(s)
+    assert a.q[b"k"][0] == pytest.approx(0.5 + 0.5 * (0.9 - 0.5))
 
 
 def test_td_values_move_towards_result():
