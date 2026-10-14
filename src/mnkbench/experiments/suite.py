@@ -275,10 +275,19 @@ REPLOTTERS: dict[str, Callable[[Path], None]] = {
 
 
 def run(names: list[str] | None, out: str | Path, quick: bool = False, seed: int = 0, log: Log = print) -> None:
+    """Run experiments. When running everything (``names`` empty), experiments
+    whose optional dependency is missing (AlphaZero without PyTorch) are
+    skipped; explicitly requested ones raise."""
     out = Path(out)
+    explicit = bool(names)
     for name in names or list(EXPERIMENTS):
         log(f"== experiment {name} ==")
-        EXPERIMENTS[name](out, quick=quick, seed=seed, log=log)
+        try:
+            EXPERIMENTS[name](out, quick=quick, seed=seed, log=log)
+        except ImportError as exc:
+            if explicit:
+                raise
+            log(f"skipping {name}: {exc}")
 
 
 def replot(out: str | Path, names: list[str] | None = None) -> list[str]:

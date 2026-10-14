@@ -64,3 +64,17 @@ def test_experiment_replot_report(tmp_path, capsys):
 
 def test_empty_report(tmp_path):
     assert "No results found" in build_report(tmp_path).read_text()
+
+
+def test_run_all_skips_missing_optional_dependency(tmp_path, monkeypatch):
+    from mnkbench.experiments import suite
+
+    def needs_torch(*a, **k):
+        raise ImportError("needs PyTorch")
+
+    monkeypatch.setattr(suite, "EXPERIMENTS", {"alphazero": needs_torch})
+    logs = []
+    suite.run(None, tmp_path, quick=True, log=logs.append)
+    assert any("skipping alphazero" in m for m in logs)
+    with pytest.raises(ImportError):
+        suite.run(["alphazero"], tmp_path, quick=True, log=logs.append)
