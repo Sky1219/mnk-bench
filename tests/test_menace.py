@@ -54,3 +54,19 @@ def test_learning_curve_shape():
     assert [cp["games"] for cp in run["checkpoints"]] == [0, 100, 200]
     cp = run["checkpoints"][-1]
     assert {"vs_random", "vs_minimax", "optimal_rate", "table_size"} <= set(cp)
+
+
+def test_symmetry_reduces_boxes():
+    sym, nosym = MenaceAgent(seed=0), MenaceAgent(seed=0, use_symmetry=False)
+    train(sym, TIC_TAC_TOE, 600, opponent="random")
+    train(nosym, TIC_TAC_TOE, 600, opponent="random")
+    assert sym.num_boxes * 2 < nosym.num_boxes
+
+
+def test_symmetry_experiment_quick(tmp_path):
+    from mnkbench.experiments.suite import exp_symmetry
+
+    data = exp_symmetry(tmp_path, quick=True)
+    counts = {(c["player"], c["symmetry"], c["skip_forced"]): c["matchboxes"] for c in data["matchbox_counts"]}
+    assert counts[("X", True, True)] == 304
+    assert (tmp_path / "symmetry" / "symmetry_learning.png").exists()

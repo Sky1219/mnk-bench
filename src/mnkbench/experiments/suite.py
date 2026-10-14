@@ -68,6 +68,43 @@ def replot_menace(out: Path) -> None:
     plot_table_growth(runs, out / "menace" / "menace_boxes.png", "MENACE matchboxes in use")
 
 
+# --------------------------------------------------------------- symmetry
+def exp_symmetry(out: Path, quick: bool = False, seed: int = 0, log: Log = _noop) -> dict:
+    """How much do board symmetries shrink MENACE, and does it learn faster?"""
+    from ..agents.menace import count_matchboxes
+
+    counts = []
+    for cfg in (TIC_TAC_TOE,) if quick else (TIC_TAC_TOE, GameConfig(3, 4, 3)):
+        for player in (1, 2):
+            for sym in (True, False):
+                for forced in (True, False):
+                    n = count_matchboxes(cfg, player, use_symmetry=sym, skip_forced=forced)
+                    counts.append({"config": cfg.label, "player": "XO"[player - 1], "symmetry": sym,
+                                   "skip_forced": forced, "matchboxes": n})
+                    log(f"{cfg.label} {'XO'[player - 1]} symmetry={sym} skip_forced={forced}: {n}")
+    total, every, evals = (200, 100, 10) if quick else (4000, 250, 200)
+    runs = []
+    for sym in (True, False):
+        spec = f"menace:use_symmetry={sym}"
+        log(spec)
+        run = learning_curve(spec, TIC_TAC_TOE, total, every, evals, opponent="random+minimax", seed=seed)
+        run["agent"] = "menace" if sym else "menace (no symmetry)"
+        runs.append(run)
+    data = {"meta": metadata(seed=seed, quick=quick), "matchbox_counts": counts, "runs": runs}
+    save_json(data, out / "symmetry" / "symmetry.json")
+    save_csv(counts, out / "symmetry" / "matchbox_counts.csv")
+    replot_symmetry(out)
+    return data
+
+
+def replot_symmetry(out: Path) -> None:
+    data = load_json(out / "symmetry" / "symmetry.json")
+    plot_learning_curves(data["runs"], out / "symmetry" / "symmetry_learning.png",
+                         "MENACE with and without board symmetries (3,3,3)")
+    plot_table_growth(data["runs"], out / "symmetry" / "symmetry_boxes.png",
+                      "Matchboxes used, with and without symmetries")
+
+
 # ------------------------------------------------------------ head to head
 def trained_factory(spec: str, config: GameConfig, games: int, opponent: str = "random+minimax",
                     seed: int = 0) -> Callable[[], Agent]:
@@ -137,10 +174,12 @@ def replot_h2h(out: Path) -> None:
 
 EXPERIMENTS: dict[str, Callable[..., dict]] = {
     "menace": exp_menace,
+    "symmetry": exp_symmetry,
     "h2h": exp_h2h,
 }
 REPLOTTERS: dict[str, Callable[[Path], None]] = {
     "menace": replot_menace,
+    "symmetry": replot_symmetry,
     "h2h": replot_h2h,
 }
 
