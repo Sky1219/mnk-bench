@@ -11,10 +11,13 @@ from __future__ import annotations
 from collections.abc import Callable
 from pathlib import Path
 
-from ..game import TIC_TAC_TOE
-from ..plots import plot_learning_curves, plot_table_growth
+from ..agents import make_agent
+from ..agents.base import Agent
+from ..game import TIC_TAC_TOE, GameConfig
+from ..plots import plot_learning_curves, plot_score_matrix, plot_table_growth
 from ..results import load_json, metadata, save_csv, save_json
-from .learning import learning_curve
+from ..tournament import round_robin
+from .learning import learning_curve, train
 
 Log = Callable[[str], None]
 
@@ -65,11 +68,80 @@ def replot_menace(out: Path) -> None:
     plot_table_growth(runs, out / "menace" / "menace_boxes.png", "MENACE matchboxes in use")
 
 
+# ------------------------------------------------------------ head to head
+def trained_factory(spec: str, config: GameConfig, games: int, opponent: str = "random+minimax",
+                    seed: int = 0) -> Callable[[], Agent]:
+    """Factory for a learner pre-trained for ``games`` games, then frozen.
+    The trained agent is built once and reused by every match."""
+    cache: dict[str, Agent] = {}
+
+    def make() -> Agent:
+        if "agent" not in cache:
+            agent = make_agent(spec, seed=seed)
+            train(agent, config, games, opponent)
+            agent.training = False
+            cache["agent"] = agent
+        return cache["agent"]
+
+    return make
+
+
+def head_to_head(config: GameConfig, factories: dict[str, Callable[[], Agent]], games_per_pair: int,
+                 seed: int = 0, log: Log = _noop) -> dict:
+    t = round_robin(config, factories, games_per_pair, seed=seed, progress=log)
+    return t.to_dict()
+
+
+def wdl_markdown(tournament: dict) -> str:
+    """Markdown table of total W/D/L per agent, best score first."""
+    rows = []
+    for r in tournament["wdl"]:
+        n = r["win"] + r["draw"] + r["loss"]
+        score = (r["win"] + 0.5 * r["draw"]) / n if n else float("nan")
+        rows.append((score, r, n))
+    rows.sort(key=lambda t: -t[0])
+    lines = ["| agent | games | win | draw | loss | score |", "|---|---:|---:|---:|---:|---:|"]
+    for score, r, n in rows:
+        lines.append(f"| {r['agent']} | {n} | {r['win']} | {r['draw']} | {r['loss']} | {score:.3f} |")
+    return "\n".join(lines) + "\n"
+
+
+def exp_h2h(out: Path, quick: bool = False, seed: int = 0, log: Log = _noop) -> dict:
+    """Round robin on tic-tac-toe between every baseline and trained learner."""
+    games = 10 if quick else 100
+    train_games = 200 if quick else 5000
+    cfg = TIC_TAC_TOE
+    factories = h2h_agents(cfg, train_games, seed, quick)
+    data = head_to_head(cfg, factories, games, seed, log)
+    data["meta"] = metadata(seed=seed, quick=quick, train_games=train_games)
+    save_json(data, out / "h2h" / "h2h.json")
+    save_csv(data["wdl"], out / "h2h" / "h2h_wdl.csv")
+    (out / "h2h" / "h2h_wdl.md").write_text(wdl_markdown(data))
+    replot_h2h(out)
+    return data
+
+
+def h2h_agents(cfg: GameConfig, train_games: int, seed: int, quick: bool) -> dict[str, Callable[[], Agent]]:
+    return {
+        "random": lambda: make_agent("random"),
+        "rule": lambda: make_agent("rule"),
+        "minimax": lambda: make_agent("minimax"),
+        "menace": trained_factory("menace", cfg, train_games, seed=seed),
+    }
+
+
+def replot_h2h(out: Path) -> None:
+    data = load_json(out / "h2h" / "h2h.json")
+    plot_score_matrix(data, out / "h2h" / "h2h_matrix.png", "Head-to-head score on (3,3,3), row vs column")
+
+
 EXPERIMENTS: dict[str, Callable[..., dict]] = {
     "menace": exp_menace,
+    "h2h": exp_h2h,
 }
 REPLOTTERS: dict[str, Callable[[Path], None]] = {
     "menace": replot_menace,
+    "h2h": replot_h2h,
 }
 
 

@@ -20,12 +20,14 @@ REGISTRY: dict[str, tuple[str, str]] = {
     "random": ("mnkbench.agents.random_agent", "RandomAgent"),
     "minimax": ("mnkbench.agents.minimax", "MinimaxAgent"),
     "menace": ("mnkbench.agents.menace", "MenaceAgent"),
+    "rule": ("mnkbench.agents.rule_based", "RuleBasedAgent"),
 }
 
 DESCRIPTIONS: dict[str, str] = {
     "random": "uniformly random legal moves",
     "minimax": "perfect play: full alpha-beta search with transposition table",
     "menace": "Michie's matchbox learner (bead reinforcement)",
+    "rule": "win / block / fork / block-fork rules, then line potential",
 }
 
 
