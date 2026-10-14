@@ -18,7 +18,10 @@ from ..plots import plot_learning_curves, plot_score_matrix, plot_table_growth
 from ..results import load_json, metadata, save_csv, save_json
 from ..tournament import round_robin
 from .bigboards import exp_bigboards, replot_bigboards
+from .feasible import exp_feasibility, replot_feasibility
+from .gomoku import exp_gomoku, exp_perf, replot_gomoku, replot_perf
 from .learning import learning_curve, train
+from .sampling import exp_elo, exp_mcts, replot_elo, replot_mcts
 
 Log = Callable[[str], None]
 
@@ -231,6 +234,11 @@ EXPERIMENTS: dict[str, Callable[..., dict]] = {
     "tabular": exp_tabular,
     "h2h": exp_h2h,
     "bigboards": exp_bigboards,
+    "mcts": exp_mcts,
+    "elo": exp_elo,
+    "feasibility": exp_feasibility,
+    "perf": exp_perf,
+    "gomoku": exp_gomoku,
 }
 REPLOTTERS: dict[str, Callable[[Path], None]] = {
     "menace": replot_menace,
@@ -238,6 +246,11 @@ REPLOTTERS: dict[str, Callable[[Path], None]] = {
     "tabular": replot_tabular,
     "h2h": replot_h2h,
     "bigboards": replot_bigboards,
+    "mcts": replot_mcts,
+    "elo": replot_elo,
+    "feasibility": replot_feasibility,
+    "perf": replot_perf,
+    "gomoku": replot_gomoku,
 }
 
 

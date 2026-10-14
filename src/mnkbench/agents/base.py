@@ -174,13 +174,20 @@ class Agent:
         already fits, a degraded copy if one exists, else raise AgentRefused."""
         report = self.feasibility(config, budget)
         if report.status == Status.OK:
-            return self
-        if report.status == Status.DEGRADED:
+            agent = self
+        elif report.status == Status.DEGRADED:
             params = {**self.params(), **report.degraded_params}
-            clone = type(self)(**params)
-            clone.name = self.name
-            return clone
-        raise AgentRefused(f"{self.name} refuses {config.label}: {report.reason}")
+            agent = type(self)(**params)
+            agent.name = self.name
+        else:
+            raise AgentRefused(f"{self.name} refuses {config.label}: {report.reason}")
+        agent.apply_budget(budget)
+        return agent
+
+    def apply_budget(self, budget: Budget) -> None:
+        """Install run-time guards (time/node limits) so the agent raises
+        :class:`BudgetExceeded` or cuts its search short instead of
+        overrunning when its estimate was wrong. No-op by default."""
 
     def __repr__(self) -> str:
         return self.describe()
@@ -198,6 +205,20 @@ def budget_problems(est: CostEstimate, budget: Budget) -> list[str]:
     if est.cost_per_move > budget.cost_per_move:
         problems.append(f"cost/move ${est.cost_per_move:.4f} > ${budget.cost_per_move:.4f}")
     return problems
+
+
+def under_trained(est: CostEstimate, budget: Budget) -> tuple[dict, CostEstimate] | None:
+    """Degrade option for learners: if the table fits in memory and play is
+    fast enough but full training would take too long, train only for the
+    time budget (an under-trained agent is still a legal player)."""
+    if est.memory_bytes > budget.memory_bytes or est.time_per_move > budget.time_per_move:
+        return None
+    if est.train_time <= budget.train_time:
+        return None
+    share = budget.train_time / est.train_time
+    capped = CostEstimate(est.time_per_move, est.memory_bytes, budget.train_time, est.cost_per_move,
+                          notes=f"under-trained: ~{100 * share:.0f}% of the games needed")
+    return {}, capped
 
 
 def fmt_seconds(s: float) -> str:

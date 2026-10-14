@@ -49,6 +49,10 @@ class _Board:
         self.so = 0.0  # value of O's open lines
         self.near = [0] * game.size
         self.neigh = game.neighbors1 if radius <= 1 else game.neighbors2
+        # "Hot" windows: k-1 stones of one player and one empty cell, i.e.
+        # an immediate winning threat. Tracked incrementally.
+        self.km1 = k - 1
+        self.hot = {1: set(), 2: set()}
         cells = self.state.cells
         for wi, window in enumerate(game.windows):
             for c in window:
@@ -64,6 +68,37 @@ class _Board:
         for mv in self.state.history:
             for c in self.neigh[mv]:
                 self.near[c] += 1
+        for wi in range(nw):
+            self._update_hot(wi)
+
+    def _update_hot(self, wi: int) -> None:
+        x, o = self.wx[wi], self.wo[wi]
+        if o == 0 and x == self.km1:
+            self.hot[1].add(wi)
+        else:
+            self.hot[1].discard(wi)
+        if x == 0 and o == self.km1:
+            self.hot[2].add(wi)
+        else:
+            self.hot[2].discard(wi)
+
+    def win_cells(self, player: int) -> list[int]:
+        """Legal cells where ``player`` would win immediately."""
+        hot = self.hot[player]
+        if not hot:
+            return []
+        st = self.state
+        cells = st.cells
+        windows = self.game.windows
+        check = self.game.exact_k or self.game.gravity
+        out = []
+        for wi in hot:
+            for c in windows[wi]:
+                if cells[c] == EMPTY:
+                    if c not in out and (not check or (st.is_legal(c) and st.would_win(c, player))):
+                        out.append(c)
+                    break
+        return out
 
     def push(self, mv: int) -> None:
         player = self.state.to_move
@@ -82,6 +117,7 @@ class _Board:
             elif own[wi] == 0:
                 loss += weights[o]  # the opponent's line is now blocked
             own[wi] += 1
+            self._update_hot(wi)
         if player == 1:
             self.sx += gain
             self.so -= loss
@@ -103,6 +139,7 @@ class _Board:
         gain = loss = 0.0
         for wi in self.game.cell_windows[mv]:
             own[wi] -= 1
+            self._update_hot(wi)
             o = opp[wi]
             if o == 0:
                 c = own[wi]
@@ -194,12 +231,9 @@ class AlphaBetaAgent(Agent):
         st = b.state
         player = st.to_move
         opp = 3 - player
-        moves = b.candidates()
-        would_win = st.would_win
-        for mv in moves:
-            if would_win(mv, player):
-                return WIN - ply
-        threats = [mv for mv in moves if would_win(mv, opp)]
+        if b.win_cells(player):
+            return WIN - ply
+        threats = b.win_cells(opp)
         if len(threats) >= 2:
             return -(WIN - ply - 1)
         if depth <= 0:
@@ -221,7 +255,7 @@ class AlphaBetaAgent(Agent):
         if threats:
             moves = threats
         else:
-            moves = self._ordered(b, moves, player, tt_move, limit=True)
+            moves = self._ordered(b, b.candidates(), player, tt_move, limit=True)
         a0 = alpha
         best, best_mv = -WIN * 2.0, moves[0]
         for mv in moves:
@@ -304,6 +338,11 @@ class AlphaBetaAgent(Agent):
 
     def memory_bytes(self) -> float:
         return len(self.tt) * 300.0
+
+    def apply_budget(self, budget: Budget) -> None:
+        # Iterative deepening stops at the deadline and keeps the best move so far.
+        if self.time_limit is None or self.time_limit > budget.time_per_move:
+            self.time_limit = 0.9 * budget.time_per_move
 
     # ------------------------------------------------------------ feasibility
     @staticmethod

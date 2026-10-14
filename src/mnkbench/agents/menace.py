@@ -22,7 +22,7 @@ from __future__ import annotations
 from ..complexity import position_bound, symmetry_count
 from ..game import DRAW, Game, GameConfig, State, get_game
 from ..symmetry import Canonicalizer
-from .base import Agent, CostEstimate
+from .base import Agent, Budget, CostEstimate, under_trained
 
 BYTES_PER_BOX = 400  # dict entry + bytes key + small dict of beads
 
@@ -162,6 +162,10 @@ class MenaceAgent(Agent):
             train_time=games * config.size * 2e-5,
             notes=f"up to {boxes:.2g} matchboxes",
         )
+
+
+    def degrade(self, config: GameConfig, budget: Budget):
+        return under_trained(self.estimate(config), budget)
 
 
 def count_matchboxes(config: GameConfig, player: int = 1, use_symmetry: bool = True, skip_forced: bool = True) -> int:

@@ -236,7 +236,8 @@ def plot_elo(ratings: dict[str, float], path: str | Path, title: str | None = No
 
 # --------------------------------------------------------------- scaling
 def plot_scaling(rows: Sequence[dict], x: str, y: str, path: str | Path, title: str,
-                 xlabel: str, ylabel: str, logy: bool = True, group: str = "agent") -> Path:
+                 xlabel: str, ylabel: str, logy: bool = True, group: str = "agent",
+                 logx: bool = False) -> Path:
     """Line per agent of ``y`` against ``x`` (e.g. time per move vs board size).
 
     If ``x`` values are strings (board labels) they are placed in order of
@@ -275,6 +276,8 @@ def plot_scaling(rows: Sequence[dict], x: str, y: str, path: str | Path, title: 
         ax.set_xticks(range(len(cats)), cats, rotation=30, ha="right")
     if logy:
         ax.set_yscale("log")
+    if logx:
+        ax.set_xscale("log")
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     ax.set_title(title, loc="left")
@@ -309,12 +312,20 @@ def plot_feasibility_map(data: dict, path: str | Path, title: str | None = None)
                         color=INK if c["status"] in ("degraded", "unavailable", "aborted") else "white")
     ax.set_xticks(range(len(boards)), boards, rotation=45, ha="right")
     ax.set_yticks(range(len(agents)), agents)
+    # 2px surface-coloured gaps between cells.
+    ax.set_xticks([x - 0.5 for x in range(1, len(boards))], minor=True)
+    ax.set_yticks([y - 0.5 for y in range(1, len(agents))], minor=True)
+    ax.grid(which="minor", color=SURFACE, linewidth=2)
+    ax.tick_params(which="minor", length=0)
     for spine in ax.spines.values():
         spine.set_visible(False)
     from matplotlib.patches import Patch
 
     handles = [Patch(color=STATUS_COLORS[s], label=s) for s in order]
-    ax.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, -0.28), ncol=len(order))
+    leg = ax.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, -0.28), ncol=len(order),
+                    title="* = confirmed by running the agent in a guarded subprocess")
+    leg.get_title().set_fontsize(7)
+    leg.get_title().set_color(MUTED)
     budget = data.get("budget", {})
     sub = ""
     if budget:

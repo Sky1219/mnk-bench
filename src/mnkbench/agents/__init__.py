@@ -24,6 +24,7 @@ REGISTRY: dict[str, tuple[str, str]] = {
     "qlearning": ("mnkbench.agents.tabular", "QLearningAgent"),
     "td": ("mnkbench.agents.tabular", "TDAgent"),
     "alphabeta": ("mnkbench.agents.alphabeta", "AlphaBetaAgent"),
+    "mcts": ("mnkbench.agents.mcts", "MCTSAgent"),
 }
 
 DESCRIPTIONS: dict[str, str] = {
@@ -34,6 +35,7 @@ DESCRIPTIONS: dict[str, str] = {
     "qlearning": "tabular Q-learning with epsilon-greedy exploration",
     "td": "TD(0) afterstate value learning (Sutton & Barto)",
     "alphabeta": "depth-limited alpha-beta with a threat-based evaluation",
+    "mcts": "Monte Carlo Tree Search (UCT, random playouts)",
 }
 
 

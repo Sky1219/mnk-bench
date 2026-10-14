@@ -278,6 +278,13 @@ class MinimaxAgent(Agent):
     def memory_bytes(self) -> float:
         return self._solver.memory_bytes() if self._solver else 0.0
 
+    def apply_budget(self, budget) -> None:
+        # The first move solves the whole game, so allow a few move-budgets
+        # for it; the node cap keeps the transposition table within memory.
+        self.time_limit = self.time_limit or 3 * budget.time_per_move
+        self.max_nodes = self.max_nodes or int(budget.memory_bytes / BYTES_PER_ENTRY)
+        self._solver = None
+
     def estimate(self, config: GameConfig) -> CostEstimate:
         nodes = estimate_nodes(config, self.use_symmetry)
         per_node = SECONDS_PER_NODE * (1 + config.size / 40)

@@ -17,7 +17,7 @@ from __future__ import annotations
 from ..complexity import position_bound, symmetry_count
 from ..game import DRAW, Game, GameConfig, State
 from ..symmetry import Canonicalizer
-from .base import Agent, CostEstimate
+from .base import Agent, Budget, CostEstimate, under_trained
 
 BYTES_PER_ENTRY = 350
 
@@ -68,6 +68,10 @@ class _Tabular(Agent):
             train_time=games * config.size * 3e-5,
             notes=f"up to {entries:.2g} table entries",
         )
+
+
+    def degrade(self, config: GameConfig, budget: Budget):
+        return under_trained(self.estimate(config), budget)
 
 
 def _reward(state: State, player: int) -> float:
