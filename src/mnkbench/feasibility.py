@@ -17,7 +17,6 @@ Two levels of checking:
 from __future__ import annotations
 
 import multiprocessing as mp
-import os
 import time
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass
@@ -115,7 +114,10 @@ def probe(spec: str, config: GameConfig, budget: Budget, moves: int = 3, slack: 
     ``force=True`` the agent plays even if it would refuse (with its run-time
     guards installed), to check that a refusal was justified.
     """
-    ctx = mp.get_context("fork") if hasattr(os, "fork") else mp.get_context()
+    # forkserver/spawn rather than fork: forking a process that already runs
+    # threads (e.g. after PyTorch is imported) can deadlock the child.
+    methods = mp.get_all_start_methods()
+    ctx = mp.get_context("forkserver" if "forkserver" in methods else "spawn")
     parent, child = ctx.Pipe(duplex=False)
     mem = budget.memory_bytes + 1.5 * 2**30 if enforce_memory else None
     proc = ctx.Process(target=_probe_child, args=(spec, config, budget, moves, mem, force, child), daemon=True)

@@ -333,3 +333,36 @@ def plot_feasibility_map(data: dict, path: str | Path, title: str | None = None)
     ax.set_title((title or "Feasibility map") + sub, loc="left")
     fig.tight_layout()
     return _save(fig, path)
+
+
+# -------------------------------------------------------------- AlphaZero
+AZ_PANELS = (
+    ("score_vs_random", "Score vs random"),
+    ("score_vs_rule", "Score vs rule-based"),
+    ("optimal_rate", "Optimal-move rate"),
+)
+
+
+def plot_alphazero(runs: Sequence[dict], path: str | Path, title: str | None = None) -> Path:
+    """Evaluation after each self-play iteration; one line per board."""
+    style()
+    runs = list(runs)[:8]
+    panels = [p for p in AZ_PANELS if any(h.get(p[0]) is not None for r in runs for h in r["history"])]
+    fig, axes = plt.subplots(1, len(panels), figsize=(4.2 * len(panels), 3.5), squeeze=False)
+    for idx, run in enumerate(runs):
+        xs = [h["games"] for h in run["history"]]
+        for ax, (key, _) in zip(axes[0], panels):
+            ys = [h.get(key) for h in run["history"]]
+            pts = [(x, y) for x, y in zip(xs, ys) if y is not None]
+            if pts:
+                ax.plot(*zip(*pts), color=SERIES[idx], marker="o", markersize=4, label=run["config"])
+    for ax, (_, name) in zip(axes[0], panels):
+        ax.set_title(name, loc="left")
+        ax.set_xlabel("self-play games")
+        ax.set_ylim(-0.02, 1.02)
+    handles, labels = axes[0][0].get_legend_handles_labels()
+    if len(runs) > 1:
+        fig.legend(handles, labels, loc="lower center", ncol=min(4, len(labels)), bbox_to_anchor=(0.5, -0.08))
+    fig.suptitle(title or "AlphaZero-style self-play training", x=0.01, ha="left", color=INK, fontweight="bold")
+    fig.tight_layout()
+    return _save(fig, path)

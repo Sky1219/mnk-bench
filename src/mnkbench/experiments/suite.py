@@ -17,10 +17,12 @@ from ..game import TIC_TAC_TOE, GameConfig
 from ..plots import plot_learning_curves, plot_score_matrix, plot_table_growth
 from ..results import load_json, metadata, save_csv, save_json
 from ..tournament import round_robin
+from .az_exp import exp_alphazero, replot_alphazero
 from .bigboards import exp_bigboards, replot_bigboards
 from .feasible import exp_feasibility, replot_feasibility
 from .gomoku import exp_gomoku, exp_perf, replot_gomoku, replot_perf
 from .learning import learning_curve, train
+from .llm_exp import exp_llm, replot_llm
 from .sampling import exp_elo, exp_mcts, replot_elo, replot_mcts
 
 Log = Callable[[str], None]
@@ -239,6 +241,8 @@ EXPERIMENTS: dict[str, Callable[..., dict]] = {
     "feasibility": exp_feasibility,
     "perf": exp_perf,
     "gomoku": exp_gomoku,
+    "alphazero": exp_alphazero,
+    "llm": exp_llm,
 }
 REPLOTTERS: dict[str, Callable[[Path], None]] = {
     "menace": replot_menace,
@@ -251,6 +255,8 @@ REPLOTTERS: dict[str, Callable[[Path], None]] = {
     "feasibility": replot_feasibility,
     "perf": replot_perf,
     "gomoku": replot_gomoku,
+    "alphazero": replot_alphazero,
+    "llm": replot_llm,
 }
 
 
