@@ -22,6 +22,7 @@ import markdown
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 REPO_URL = "https://github.com/Sky1219/mnk-bench"
+PORTFOLIO_URL = "https://sky1219.github.io"
 
 NAV = [
     ("index.html", "Overview"),
@@ -41,6 +42,18 @@ RESEARCH = [
 SKIP_SUFFIXES = {".pt"}  # model checkpoints: large and useless in a browser
 
 
+# On narrow screens the nav scrolls sideways with no scrollbar: mark which edges hide more links
+# (style.css fades them) and bring the current page's link into view.
+NAV_SCRIPT = (
+    "(()=>{const n=document.currentScript.previousElementSibling,"
+    "f=()=>{n.classList.toggle('more-l',n.scrollLeft>2);"
+    "n.classList.toggle('more-r',n.scrollLeft+n.clientWidth<n.scrollWidth-2)},"
+    "a=n.querySelector('[aria-current]');"
+    "if(a&&a.offsetLeft+a.offsetWidth>n.clientWidth)n.scrollLeft=a.offsetLeft+a.offsetWidth-n.clientWidth+24;"
+    "n.addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f()})()"
+)
+
+
 def header(page: str) -> str:
     prefix = "../" * page.count("/")
     current = ' aria-current="page"'
@@ -53,6 +66,7 @@ def header(page: str) -> str:
         f'<a class="brand" href="{prefix}index.html"><span class="logo" aria-hidden="true">{logo}</span>'
         '<span class="name">mnk-bench</span></a>'
         f'<nav class="main" aria-label="Site">{links}<a href="{REPO_URL}">GitHub</a></nav>'
+        f"<script>{NAV_SCRIPT}</script>"
         "</div></header>"
     )
 
@@ -60,7 +74,7 @@ def header(page: str) -> str:
 def footer(page: str) -> str:
     return (
         '<footer class="site"><div class="wrap">'
-        f'mnk-bench: where does each game-playing AI fall apart as the board grows? '
+        f'mnk-bench, built by <a href="{PORTFOLIO_URL}">Akash Dasarraju</a>. '
         f'Source, data and the Python package on <a href="{REPO_URL}">GitHub</a>. '
         "Every agent on this site runs locally in your browser."
         "</div></footer>"

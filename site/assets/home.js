@@ -38,12 +38,15 @@ function renderMap() {
     tr.appendChild(th);
     for (const b of m.boards) {
       const c = byKey.get(a + "|" + b), td = tr.insertCell();
-      td.className = "s-" + c.status;
+      td.className = "s-" + c.status + (c.measured ? "" : " est");
       td.tabIndex = 0;
-      td.textContent = c.measured ? "" : "·";
-      td.title = `${name(a)} on ${b}: ${STATUS[c.status]}${c.reason ? " (" + c.reason + ")" : ""}`;
+      td.title = `${name(a)} on ${b}: ${STATUS[c.status]}${c.measured ? "" : ", estimate only"}${c.reason ? " (" + c.reason + ")" : ""}`;
       td.setAttribute("aria-label", td.title);
-      const pick = () => { selected = [a, b]; showDetail(c); document.querySelectorAll(".fmap td.sel").forEach((x) => x.classList.remove("sel")); td.classList.add("sel"); };
+      const pick = () => {
+        selected = [a, b]; showDetail(c);
+        document.querySelectorAll(".fmap td.sel").forEach((x) => x.classList.remove("sel")); td.classList.add("sel");
+        revealDetail();
+      };
       td.onclick = pick;
       td.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } };
       if (selected && selected[0] === a && selected[1] === b) { td.classList.add("sel"); showDetail(c); }
@@ -52,6 +55,14 @@ function renderMap() {
   $("#fmap").replaceChildren(t);
   $("#budget").textContent = budgetText(m.budget);
   if (!selected) showDetail(byKey.get("minimax|(5,5,4)") ?? m.cells[0]);
+}
+
+// On narrow screens the detail card stacks below the map, so a tap would otherwise update it off-screen.
+function revealDetail() {
+  const d = $("#fdetail"), r = d.getBoundingClientRect();
+  if (r.top >= 0 && r.bottom <= innerHeight) return;
+  const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  d.scrollIntoView({ block: "nearest", behavior: smooth ? "smooth" : "auto" });
 }
 
 function showDetail(c) {
@@ -68,7 +79,7 @@ function showDetail(c) {
   ].filter(Boolean);
   $("#fdetail").innerHTML = `
     <div class="row" style="margin-bottom:6px"><b>${esc(name(c.agent))}</b> on <b>${esc(c.config)}</b>
-      <span class="pill s-${c.status}" style="color:#fff">${c.status}</span></div>
+      <span class="pill s-${c.status}">${c.status}</span></div>
     ${c.reason ? `<p class="small" style="margin:0 0 6px">${esc(c.reason)}</p>` : ""}
     ${e.notes ? `<p class="small muted" style="margin:0 0 6px">${esc(e.notes)}</p>` : ""}
     <table class="data small"><tbody>${rows.map(([k, v]) => `<tr><td class="muted">${k}</td><td class="num">${esc(v)}</td></tr>`).join("")}</tbody></table>
@@ -87,6 +98,63 @@ function renderElo(idx) {
   }).join("");
   const t = b.tournament;
   $("#elo-note").textContent = `${t.agents.length} agents, ${t.games_per_pair} games per pair, sides alternated. Random is pinned at 1000. Hover a bar for its 95% bootstrap interval.`;
+}
+
+// ---------------------------------------------------------------- hero: the boards growing
+// Every board is drawn at the same cell size, so the strip shows the growth itself.
+const SVGNS = "http://www.w3.org/2000/svg";
+const MINI = {
+  ttt: { m: 3, n: 3, x: [[0, 0], [1, 1], [2, 2]], o: [[0, 2], [1, 0]], win: [[0, 0], [1, 1], [2, 2]] },
+  four: { m: 4, n: 4, x: [[1, 1], [2, 2], [1, 2]], o: [[2, 1], [0, 3], [3, 0]] },
+  five: { m: 5, n: 5, x: [[2, 2], [1, 3], [3, 2]], o: [[1, 1], [2, 3], [3, 1]] },
+  c4: { m: 6, n: 7, gravity: true, x: [[5, 3], [4, 3], [5, 4], [3, 2]], o: [[5, 2], [4, 2], [5, 1], [4, 4]] },
+  gomoku: { m: 15, n: 15, goban: true, x: [[7, 7], [6, 8], [8, 6], [6, 6], [5, 9]], o: [[7, 8], [8, 7], [7, 6], [9, 5]] },
+};
+const svg = (tag, attrs) => { const e = document.createElementNS(SVGNS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+
+function drawMini(el, spec) {
+  const { m, n } = spec;
+  el.setAttribute("viewBox", `0 0 ${n} ${m}`);
+  el.style.setProperty("--n", n);
+  el.style.setProperty("--m", m);
+  el.classList.add(spec.goban ? "goban" : "tiles");
+  if (spec.gravity) el.classList.add("gravity");
+  el.appendChild(svg("rect", { class: "bed", x: 0, y: 0, width: n, height: m, rx: spec.goban ? 0.3 : 0.25 }));
+  for (const [r, c] of spec.win ?? []) el.appendChild(svg("rect", { class: "win", x: c + 0.06, y: r + 0.06, width: 0.88, height: 0.88, rx: 0.12 }));
+  // tile boards draw the borders between cells; the goban draws lines through the cell centres
+  const lines = (count, at) => { for (let i = 0; i < count; i++) at(i); };
+  if (spec.goban) {
+    lines(m, (r) => el.appendChild(svg("line", { x1: 0.5, x2: n - 0.5, y1: r + 0.5, y2: r + 0.5 })));
+    lines(n, (c) => el.appendChild(svg("line", { y1: 0.5, y2: m - 0.5, x1: c + 0.5, x2: c + 0.5 })));
+  } else {
+    lines(m - 1, (r) => el.appendChild(svg("line", { x1: 0, x2: n, y1: r + 1, y2: r + 1 })));
+    lines(n - 1, (c) => el.appendChild(svg("line", { y1: 0, y2: m, x1: c + 1, x2: c + 1 })));
+  }
+  if (spec.goban) for (const [r, c] of [[3, 3], [3, 11], [11, 3], [11, 11], [7, 7]]) el.appendChild(svg("circle", { class: "star", cx: c + 0.5, cy: r + 0.5, r: 0.13 }));
+  const rad = spec.goban ? 0.46 : 0.34;
+  for (const side of ["x", "o"]) for (const [r, c] of spec[side]) el.appendChild(svg("circle", { class: "stone " + side, cx: c + 0.5, cy: r + 0.5, r: rad }));
+}
+
+document.querySelectorAll("svg[data-mini]").forEach((el) => drawMini(el, MINI[el.dataset.mini]));
+
+// One pip per agent that can run here (LLM players need an API key, so they are left out).
+function renderSurvivors() {
+  const m = feas.maps.standard;
+  document.querySelectorAll(".growth-strip li[data-board]").forEach((li) => {
+    const cells = m.cells.filter((c) => c.config === li.dataset.board && c.status !== "unavailable");
+    if (!cells.length) return;
+    const by = (s) => cells.filter((c) => c.status === s).length;
+    const ok = by("ok"), cut = by("degraded"), gone = cells.length - ok - cut;
+    const parts = [ok === cells.length ? `All ${ok} run` : `${ok} run`];
+    if (cut) parts.push(`${cut} cut back`);
+    if (gone) parts.push(`${gone} refuse`);
+    li.querySelector(".count").textContent = parts.join(", ");
+    li.querySelector(".pips").replaceChildren(...cells.map((c) => {
+      const i = document.createElement("i");
+      i.className = "pip p-" + (c.status === "ok" || c.status === "degraded" ? c.status : "refused");
+      return i;
+    }));
+  });
 }
 
 async function init() {
@@ -111,6 +179,7 @@ async function init() {
     };
   });
   renderMap();
+  renderSurvivors();
   const tabs = $("#elo-tabs");
   elo.boards.forEach((b, i) => {
     const btn = document.createElement("button");

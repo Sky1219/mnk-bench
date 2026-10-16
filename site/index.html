@@ -12,15 +12,54 @@
 <!-- HEADER -->
 <main>
   <div class="wrap">
-    <section class="hero">
-      <div class="kicker">From tic-tac-toe to gomoku</div>
-      <h1>Where does each game-playing AI fall apart as the board gets bigger?</h1>
-      <p class="lede">In 1961 Donald Michie taught about 300 matchboxes to play tic-tac-toe. Gomoku is the same game on a 15×15 board, where a matchbox per position would need more boxes than there are atoms in the universe. mnk-bench measures exactly where that approach, and every other kind of game AI, breaks down, and why.</p>
+    <section class="hero" aria-labelledby="hero-h">
+      <h1 id="hero-h">Where does each game-playing AI fall apart as the board gets bigger?</h1>
+      <p class="answer">Exact search gives up at (5,5,4), matchbox-style tables at (4,4,4), self-play training just past Connect Four, and depth-limited alpha-beta is still playing at 19×19.</p>
       <div class="row">
         <a class="btn primary" href="play.html">Play the agents</a>
         <a class="btn" href="menace.html">Train MENACE live</a>
         <a class="btn" href="results/index.html">Full results</a>
       </div>
+      <p class="byline">Designed, built and measured by <a href="https://sky1219.github.io">Akash Dasarraju</a>, from the game engine to this page. <a href="#built">How it was built</a></p>
+
+      <!-- Counts are the standard-budget feasibility map (docs/results/feasibility); home.js redraws them from the JSON. -->
+      <figure class="growth" aria-labelledby="growth-cap">
+        <ol class="growth-strip">
+          <li data-board="(3,3,3)">
+            <div class="mini-slot"><svg class="mini" data-mini="ttt" aria-hidden="true"></svg></div>
+            <p class="board-name">Tic-tac-toe <span class="cfg">(3,3,3)</span></p>
+            <p class="survivors"><span class="pips" aria-hidden="true"></span><span class="count">All 9 run</span></p>
+            <p class="verdict">Minimax plays it perfectly.</p>
+          </li>
+          <li data-board="(4,4,4)">
+            <div class="mini-slot"><svg class="mini" data-mini="four" aria-hidden="true"></svg></div>
+            <p class="board-name">4×4 <span class="cfg">(4,4,4)</span></p>
+            <p class="survivors"><span class="pips" aria-hidden="true"></span><span class="count">7 run, 2 cut back</span></p>
+            <p class="verdict">Q-learning and TD only fit with reduced settings.</p>
+          </li>
+          <li data-board="(5,5,4)">
+            <div class="mini-slot"><svg class="mini" data-mini="five" aria-hidden="true"></svg></div>
+            <p class="board-name">5×5 <span class="cfg">(5,5,4)</span></p>
+            <p class="survivors"><span class="pips" aria-hidden="true"></span><span class="count">5 run, 4 refuse</span></p>
+            <p class="verdict">Minimax and all three learning tables refuse.</p>
+          </li>
+          <li data-board="(6,7,4)+gravity">
+            <div class="mini-slot"><svg class="mini" data-mini="c4" aria-hidden="true"></svg></div>
+            <p class="board-name">Connect Four <span class="cfg">(6,7,4)+gravity</span></p>
+            <p class="survivors"><span class="pips" aria-hidden="true"></span><span class="count">5 run, 4 refuse</span></p>
+            <p class="verdict">The AlphaZero-style network is level with alpha-beta.</p>
+          </li>
+          <li data-board="(15,15,5)">
+            <div class="mini-slot"><svg class="mini" data-mini="gomoku" aria-hidden="true"></svg></div>
+            <p class="board-name">Gomoku <span class="cfg">(15,15,5)</span></p>
+            <p class="survivors"><span class="pips" aria-hidden="true"></span><span class="count">4 run, 5 refuse</span></p>
+            <p class="verdict">Self-play training would take about 42 h, so it refuses. Search and rules still play.</p>
+          </li>
+        </ol>
+        <figcaption id="growth-cap">The nine agents that run without an API key, at the standard budget of 1 s per move, 1 GB of memory and 10 minutes of training. Filled stones run (amber ones with reduced settings); hollow ones refuse.</figcaption>
+      </figure>
+
+      <p class="lede">In 1961 Donald Michie taught about 300 matchboxes to play tic-tac-toe. Gomoku is the same game on a 15×15 board, where a matchbox per position would need more boxes than there are atoms in the universe. mnk-bench measures exactly where that approach, and every other kind of game AI, breaks down, and why.</p>
     </section>
 
     <h2>What is an m,n,k game?</h2>
@@ -38,8 +77,9 @@
     <div class="map-layout">
       <div class="card scroll-x" style="padding:12px"><div id="fmap" class="small muted">Loading…</div>
         <div class="legend">
-          <span><i class="s-ok"></i>ok</span><span><i class="s-degraded"></i>degraded</span><span><i class="s-refused"></i>refused</span>
-          <span><i class="s-unavailable"></i>unavailable (no API key)</span><span>· = estimate only</span>
+          <span><i class="s-ok"></i>ok</span><span><i class="s-degraded"></i>degraded (reduced settings)</span><span><i class="s-refused"></i>refused</span>
+          <span><i class="s-aborted"></i>aborted (stopped by its guards)</span><span><i class="s-unavailable"></i>unavailable (no API key)</span>
+          <span><i class="est"></i>corner dot: estimate only, not probed</span>
         </div>
       </div>
       <div class="card detail" id="fdetail" aria-live="polite"></div>
@@ -72,33 +112,40 @@
       </div>
     </div>
 
-    <h2>Explore</h2>
-    <div class="grid cols-3">
-      <a class="card" href="play.html" style="text-decoration:none;color:inherit">
-        <h3 style="margin-top:0">Play</h3>
-        <p class="small muted" style="margin:0">Any board up to 19×19, with gravity or exact-k rules. Play against MENACE, the exact solver, alpha-beta, MCTS or the rule-based agent, or set two agents against each other. All of them run in your browser.</p>
-      </a>
-      <a class="card" href="arena.html" style="text-decoration:none;color:inherit">
-        <h3 style="margin-top:0">Arena</h3>
-        <p class="small muted" style="margin:0">Queue matchups or a whole round robin and run them in parallel on all your cores, with live boards, standings and a CSV download.</p>
-      </a>
-      <a class="card" href="menace.html" style="text-decoration:none;color:inherit">
-        <h3 style="margin-top:0">MENACE, live</h3>
-        <p class="small muted" style="margin:0">Train the matchbox learner against different teachers, watch its beads move, then play against what it learned. Reproduces Michie's 304 matchboxes exactly.</p>
-      </a>
-      <a class="card" href="results/index.html" style="text-decoration:none;color:inherit">
-        <h3 style="margin-top:0">Results report</h3>
-        <p class="small muted" style="margin:0">Every experiment with its plots and tables: learning curves, symmetry ablations, head-to-head results, Elo with confidence intervals, feasibility maps, performance and AlphaZero training.</p>
-      </a>
-      <a class="card" href="research/targeted-selection.html" style="text-decoration:none;color:inherit">
-        <h3 style="margin-top:0">Research: targeted labelling</h3>
-        <p class="small muted" style="margin:0">PRISM's submodular information measures applied to fixing an AlphaZero-style network's tactical blind spots. They find 2 to 3× more relevant positions, but only LogDetMI turns that into accuracy.</p>
-      </a>
-      <a class="card" href="https://github.com/Sky1219/mnk-bench" style="text-decoration:none;color:inherit">
-        <h3 style="margin-top:0">Python package</h3>
-        <p class="small muted" style="margin:0"><code>pip install -e .</code> then <code>mnk-bench tournament</code>, <code>feasibility</code>, <code>experiment</code>. It adds MENACE, Q-learning, TD, AlphaZero-style and LLM players, and every result here is reproducible from a seed.</p>
-      </a>
-    </div>
+    <section class="built" id="built" aria-labelledby="built-h">
+      <h2 id="built-h">Built end to end</h2>
+      <p class="built-intro">One person built every layer, from the rules of the game up to the page you're reading. Each step links to its evidence.</p>
+      <ol class="proof">
+        <li>
+          <h3>Engine</h3>
+          <p>One m,n,k engine for any board up to 19×19, with gravity and exact-k rules. Written in Python, ported to JavaScript for this site.</p>
+          <a href="play.html">Try any board</a>
+        </li>
+        <li>
+          <h3>10 agents</h3>
+          <p>From random play and MENACE to minimax, MCTS, an AlphaZero-style network and LLM players. They share one interface, and each estimates its own time, memory and cost.</p>
+          <a href="arena.html">Run them in the Arena</a>
+        </li>
+        <li>
+          <h3>13 experiments</h3>
+          <p>Every run is seeded and saved as JSON, CSV and plots, so any figure can be redrawn without replaying a game.</p>
+          <a href="results/index.html">Open the results report</a>
+          <a href="research/targeted-selection.html">Read the research write-up</a>
+        </li>
+        <li>
+          <h3>132 tests</h3>
+          <p>119 Python tests and 13 browser-engine tests. CI runs them on Python 3.10 to 3.13 on every push, with a short AlphaZero training run and a quick pass of every experiment.</p>
+          <a href="https://github.com/Sky1219/mnk-bench/actions">See the CI runs</a>
+        </li>
+        <li>
+          <h3>Package and site</h3>
+          <p>A Python package with an <code>mnk-bench</code> command line, and this static site, where every agent runs in your browser in Web Workers.</p>
+          <a href="https://github.com/Sky1219/mnk-bench">Read the source</a>
+          <a href="menace.html">Watch MENACE learn</a>
+        </li>
+      </ol>
+      <p class="built-more">More of my research and projects are on <a href="https://sky1219.github.io">my portfolio</a>.</p>
+    </section>
   </div>
 </main>
 <!-- FOOTER -->

@@ -33,6 +33,9 @@
     --x: #f07a63;
     --o: #6cc0d9;
     --win: #8a7420;
+    /* lifted so it reads as text on the dark table (5.4:1); its cells take dark ink (5.4:1) */
+    --refused: #e0645a;
+    --on-refused: #141412;
     --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 4px 16px rgba(0, 0, 0, .25);
     color-scheme: dark;
   }
@@ -72,7 +75,14 @@ header.site .wrap { display: flex; align-items: center; gap: 20px; height: 56px;
 .brand .logo i { width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
 .brand .logo i.x { background: var(--x); }
 .brand .logo i.o { background: var(--o); }
-nav.main { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin-left: auto; }
+nav.main { position: relative; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin-left: auto; }
+/* fade whichever edge hides more links (set by the header script) */
+nav.main.more-l { --fl: 28px; }
+nav.main.more-r { --fr: 36px; }
+nav.main.more-l, nav.main.more-r {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fl, 0px), #000 calc(100% - var(--fr, 0px)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--fl, 0px), #000 calc(100% - var(--fr, 0px)), transparent);
+}
 nav.main a {
   color: var(--muted); text-decoration: none; padding: 6px 10px; border-radius: 6px; white-space: nowrap; font-size: .95rem;
 }
@@ -190,17 +200,39 @@ aside .panel + .panel { margin-top: 16px; }
 .fmap { border-collapse: separate; border-spacing: 3px; font-size: .85rem; }
 .fmap th { font-weight: 600; color: var(--muted); padding: 4px 6px; white-space: nowrap; }
 .fmap th.agent { text-align: right; }
+/* agent names stay put while the boards scroll sideways; the shadow covers the 3px gap and marks the edge */
+.fmap th.agent, .fmap thead th:first-child {
+  position: sticky; left: 0; z-index: 2; background: var(--surface);
+  box-shadow: 3px 0 0 var(--surface), 7px 0 6px -4px rgba(0, 0, 0, .14);
+}
 .fmap thead th { writing-mode: vertical-rl; transform: rotate(180deg); text-align: left; height: 120px; vertical-align: bottom; }
-.fmap td { width: 44px; min-width: 38px; height: 30px; border-radius: 5px; text-align: center; cursor: pointer; color: #fff; font-weight: 700; font-size: .75rem; }
+.fmap td { position: relative; width: 44px; min-width: 38px; height: 30px; border-radius: 5px; text-align: center; cursor: pointer; font-weight: 700; font-size: .75rem; }
 .fmap td:focus-visible { outline: 2px solid var(--text); outline-offset: 1px; }
 .fmap td.sel { outline: 2px solid var(--text); outline-offset: 1px; }
-.s-ok { background: var(--ok); }
-.s-degraded { background: var(--degraded); }
-.s-refused { background: var(--refused); }
-.s-aborted { background: var(--aborted); }
-.s-unavailable { background: var(--unavailable); }
-.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: .85rem; color: var(--muted); margin: 10px 0; }
-.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+/* Status never rests on colour alone: every cell and legend swatch carries a symbol.
+   Green, amber and grey take fixed dark ink (5:1 or more); red and violet take white,
+   except the lighter dark-mode red, which takes dark ink too. */
+.s-ok { background: var(--ok); color: #1d1c1a; --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l3 3 6-7'/%3E%3C/svg%3E"); }
+.s-degraded { background: var(--degraded); color: #1d1c1a; --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 9c1.8-2.6 3.6-2.6 5.5 0s3.7 2.6 5.5 0'/%3E%3C/svg%3E"); }
+.s-refused { background: var(--refused); color: var(--on-refused, #fff); --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 4.5l7 7M11.5 4.5l-7 7'/%3E%3C/svg%3E"); }
+.s-aborted { background: var(--aborted); color: #fff; --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 3.5v5.5M8 12.5v.01'/%3E%3C/svg%3E"); }
+.s-unavailable { background: var(--unavailable); color: #1d1c1a; --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 8h7'/%3E%3C/svg%3E"); }
+.fmap td::before, .legend i::before {
+  content: ""; display: block; width: 14px; height: 14px; margin: auto;
+  background: currentColor;
+  -webkit-mask: var(--glyph) center / contain no-repeat; mask: var(--glyph) center / contain no-repeat;
+}
+/* estimate only (not probed): a dot in the corner, separate from the status symbol */
+.fmap td.est::after, .legend i.est::after {
+  content: ""; position: absolute; top: 3px; right: 3px; width: 5px; height: 5px; border-radius: 50%; background: currentColor;
+}
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .85rem; color: var(--muted); margin: 10px 0; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { position: relative; display: inline-grid; place-items: center; width: 20px; height: 18px; border-radius: 4px; flex: none; }
+.legend i::before { width: 12px; height: 12px; }
+.legend i.est { background: var(--surface-2); color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
+.legend i.est::before { content: none; }
+.legend i.est::after { top: 3px; right: 4px; }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .seg button { border: 0; border-radius: 0; background: var(--surface); padding: 6px 12px; font: inherit; font-size: .9rem; cursor: pointer; color: var(--muted); }
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--bg); font-weight: 600; }
@@ -280,7 +312,94 @@ optgroup { font-style: normal; color: var(--muted); }
 .steps .step { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--bg); display: grid; place-items: center; font-weight: 700; font-size: .9rem; }
 .steps h3 { margin-top: 10px; }
 
+/* ---- hero: the answer, then the same game on boards that keep growing ---- */
+.hero h1 { max-width: 22em; text-wrap: balance; }
+.hero .answer { font-size: 1.5rem; font-weight: 600; line-height: 1.35; letter-spacing: -.01em; max-width: 36em; margin: 0 0 4px; text-wrap: pretty; }
+.hero .byline { margin: 18px 0 0; font-size: .95rem; color: var(--muted); }
+.hero .lede { margin: 28px 0 0; }
+.growth { --cell: clamp(8px, 1.1vw, 12px); margin: 40px 0 0; }
+.growth-strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; }
+.growth-strip li { min-width: 0; }
+.mini-slot { height: calc(15 * var(--cell)); display: flex; align-items: flex-end; }
+svg.mini { display: block; width: calc(var(--n, 3) * var(--cell)); height: calc(var(--m, 3) * var(--cell)); overflow: visible; }
+svg.mini line, svg.mini .bed { vector-effect: non-scaling-stroke; stroke-width: 1; }
+svg.mini.tiles .bed { fill: var(--surface); stroke: var(--line); }
+svg.mini.tiles line { stroke: var(--line); }
+svg.mini.gravity .bed, svg.mini.gravity line { stroke: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+svg.mini.goban .bed { fill: var(--wood); stroke: var(--wood-edge); }
+svg.mini.goban line { stroke: var(--grid); }
+svg.mini .star { fill: var(--grid); }
+svg.mini .win { fill: var(--win); }
+svg.mini .stone.x { fill: var(--x); }
+svg.mini .stone.o { fill: var(--o); }
+svg.mini.goban .stone { filter: drop-shadow(0 .5px .6px rgba(0, 0, 0, .35)); }
+.growth-strip .board-name { margin: 14px 0 4px; font-size: 1rem; font-weight: 700; line-height: 1.25; }
+.growth-strip .cfg { display: block; font-size: .82rem; font-weight: 400; color: var(--muted); font-variant-numeric: tabular-nums; }
+.survivors { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin: 0 0 4px; font-size: .85rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.pips { display: inline-flex; gap: 3px; }
+.pips:empty { display: none; }
+.pip { width: 9px; height: 9px; border-radius: 50%; }
+.pip.p-ok { background: var(--ok); }
+.pip.p-degraded { background: var(--degraded); }
+.pip.p-refused { box-shadow: inset 0 0 0 1.5px var(--refused); }
+.growth-strip .verdict { margin: 0; font-size: .875rem; color: var(--muted); }
+.growth figcaption { margin-top: 18px; font-size: .85rem; color: var(--muted); max-width: 46em; }
+@media (max-width: 720px) {
+  .hero .answer { font-size: 1.25rem; }
+  .growth { --cell: 8px; }
+  .growth-strip { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .growth-strip li { display: grid; grid-template-columns: calc(15 * var(--cell)) minmax(0, 1fr); column-gap: 16px; align-items: start; }
+  .growth-strip li > :not(.mini-slot) { grid-column: 2; }
+  .mini-slot { grid-row: 1 / span 3; height: auto; align-items: flex-start; }
+  .growth-strip .board-name { margin-top: 0; }
+}
+
+/* ---- built end to end: five stages as five stones in a row, joined by the winning line ---- */
+.built-intro { max-width: 640px; color: var(--muted); }
+.proof {
+  --stone: 22px; --gap: 24px;
+  list-style: none; margin: 24px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gap);
+}
+.proof li { position: relative; padding-top: calc(var(--stone) + 14px); min-width: 0; }
+/* each stage draws the stretch of winning line to the next stone's centre */
+.proof li:not(:last-child)::after {
+  content: ""; position: absolute; z-index: 0;
+  left: calc(var(--stone) / 2); top: calc(var(--stone) / 2 - 2px);
+  width: calc(100% + var(--gap)); height: 4px;
+  background: var(--win);
+}
+.proof li::before {
+  content: ""; position: absolute; z-index: 1; left: 0; top: 0;
+  width: var(--stone); height: var(--stone); border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, color-mix(in srgb, var(--x) 70%, #fff), var(--x));
+  box-shadow: 0 0 0 3px var(--bg), 0 1px 3px 3px rgba(0, 0, 0, .12);
+}
+.proof h3 { margin: 0 0 6px; font-variant-numeric: tabular-nums; }
+.proof p { font-size: .93rem; color: var(--muted); margin: 0 0 2px; }
+/* 44px-tall hit areas; the negative margin keeps stacked links visually close */
+.proof a { display: block; width: fit-content; font-size: .93rem; font-weight: 600; line-height: 1.4; padding: 12px 0; margin: -4px 0; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.proof a:hover { text-decoration-thickness: 2px; }
+.proof a:focus-visible, .byline a:focus-visible, .built-more a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.built-more { margin: 28px 0 0; color: var(--muted); }
+@media (max-width: 900px) {
+  .proof { grid-template-columns: minmax(0, 1fr); --gap: 22px; }
+  .proof li { padding: 0 0 0 calc(var(--stone) + 16px); }
+  .proof li:not(:last-child)::after {
+    left: calc(var(--stone) / 2 - 2px); top: calc(var(--stone) / 2);
+    width: 4px; height: calc(100% + var(--gap));
+  }
+}
+
 /* play page: the secondary cards sit in an even row under the board */
 .play-extras { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; align-items: start; }
 .play-extras .panel h3 { margin-top: 0; }
 .play-extras .movelog { max-height: 150px; }
+
+/* ---- touch: every control on the overview gets a 44px target ---- */
+@media (pointer: coarse), (max-width: 720px) {
+  .brand { min-height: 44px; padding-right: 4px; }
+  nav.main a { display: flex; align-items: center; min-height: 44px; }
+  .btn, .seg button { min-height: 44px; }
+  .fmap td { width: 44px; min-width: 44px; height: 44px; }
+}
